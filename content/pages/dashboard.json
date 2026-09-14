@@ -143,7 +143,7 @@
         {
           "type": "button",
           "label": "Download Data (XLSX)",
-          "href": "/s/2025_01_23_EuroSense-Raw-Data-Clean-V10_opensource.xlsx",
+          "href": "/files/2025_01_23_EuroSense-Raw-Data-Clean-V10_opensource.xlsx",
           "variant": "primary",
           "size": "medium",
           "alignment": "center",

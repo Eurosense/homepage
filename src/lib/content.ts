@@ -125,7 +125,8 @@ export type SiteChrome = {
   nav: { label: string; href: string }[]
   social: { platform: string; href: string }[]
   headerCta?: { label: string; href: string }
-  footerBlocks: Block[]
+  /** Footer blocks carry the theme of the Squarespace section they came from. */
+  footerBlocks: (Block & { theme?: string })[]
 }
 
 /**

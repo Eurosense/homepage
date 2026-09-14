@@ -31,6 +31,7 @@ const RAW_PAGES = path.join(RAW, 'pages')
 const RAW_JSON = path.join(RAW, 'json')
 const CONTENT = path.join(ROOT, 'content')
 const MEDIA = path.join(ROOT, 'public', 'media')
+const FILES = path.join(ROOT, 'public', 'files')
 
 /** Collections whose items are fetched via the JSON API instead of scraped. */
 const COLLECTIONS = ['blognews', 'blog', 'events', 'resources/multimedia']
@@ -573,8 +574,28 @@ function parseFluidLayout($, $section) {
  * so the per-page block parser never sees them — without this the new site
  * would ship with no logo and no navigation.
  */
-function parseSiteChrome(html) {
+function parseSiteChrome(html, knownPaths = []) {
   const $ = cheerio.load(html)
+
+  /*
+   * Three footer entries (Dashboard, Volt Europa 2026, Privacy Policy) are plain
+   * text on the live site — Squarespace has no <a> around them, so they are dead
+   * ends for a visitor. Where the label matches a page that actually exists they
+   * are linked here; where it does not, the text is left alone rather than
+   * guessed at. Deriving the target from the site's own pages is the difference
+   * between fixing a broken link and inventing one.
+   */
+  const pathBySlug = new Map(
+    knownPaths.map((p) => [p.replace(/^\/+|\/+$/g, '').toLowerCase(), p]),
+  )
+  const resolveLabel = (text) => {
+    const slug = text
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '')
+    return pathBySlug.get(slug)
+  }
 
   const $logo = $('.header-title-logo img, .site-logo img, img.site-logo').first()
   const logo = $logo.attr('data-src') || $logo.attr('src') || ''
@@ -614,11 +635,31 @@ function parseSiteChrome(html) {
   // The footer is a normal Squarespace layout, so run it through the same block
   // parser as page sections rather than flattening it to a single string.
   const footerBlocks = []
+  const unlinkedFooterLabels = []
   $('footer .sqs-block').each((_i, b) => {
     if ($(b).parents('.sqs-block').length) return
     const parsed = parseBlock($, b)
-    if (parsed) footerBlocks.push(parsed)
+    if (!parsed) return
+
+    // Footer blocks sit in themed sections just like page blocks do. The
+    // newsletter embed is in a `bright-inverse` (white) band; without the theme
+    // it renders on the dark footer and HubSpot's dark labels vanish.
+    const sectionTheme = $(b).closest('section, .page-section').attr('data-section-theme')
+    if (sectionTheme) parsed.theme = sectionTheme
+
+    if (parsed.type === 'richText' && !/<a\s/i.test(parsed.html)) {
+      const label = cheerio.load(parsed.html).text().replace(/\s+/g, ' ').trim()
+      const href = label && resolveLabel(label)
+      if (href) parsed.html = `<p><a href="${href}">${label}</a></p>`
+      else if (label) unlinkedFooterLabels.push(label)
+    }
+
+    footerBlocks.push(parsed)
   })
+
+  if (unlinkedFooterLabels.length) {
+    report.unlinkedFooterLabels = unlinkedFooterLabels
+  }
 
   return {
     siteTitle: $('meta[property="og:site_name"]').attr('content') || 'EuroSense',
@@ -767,7 +808,11 @@ async function parseCollection(name) {
 async function stageParse() {
   await mkdir(path.join(CONTENT, 'pages'), { recursive: true })
 
-  const chrome = parseSiteChrome(await readFile(path.join(RAW_PAGES, 'index.html'), 'utf8'))
+  const knownPaths = JSON.parse(await readFile(path.join(RAW, 'paths.json'), 'utf8'))
+  const chrome = parseSiteChrome(
+    await readFile(path.join(RAW_PAGES, 'index.html'), 'utf8'),
+    knownPaths,
+  )
   await writeFile(path.join(CONTENT, 'site.json'), `${JSON.stringify(chrome, null, 2)}\n`)
   console.log(`[parse] site chrome: ${chrome.nav.length} nav items, ${chrome.social.length} social links`)
 
@@ -810,6 +855,14 @@ async function stageParse() {
 // Requiring the scheme silently skipped the logo and favicon.
 const CDN_RE =
   /(?:https:)?\/\/(?:images\.squarespace-cdn\.com|static1\.squarespace\.com)\/[^\s"'()<>\\]+/g
+
+/*
+ * Uploaded files (PDFs, spreadsheets) are served from a site-relative `/s/`
+ * path, not the image CDN, so the CDN pattern above never saw them. They die
+ * with the subscription exactly like the images do — the site links to a
+ * research report and an open dataset this way.
+ */
+const FILE_RE = /(?:href|src)="((?:https:\/\/[^"]*\.squarespace\.com)?\/s\/[^"]+)"/g
 
 /** Squarespace chrome we deliberately do not migrate. */
 const SKIP_ASSET_RE = /\.(css|js)$|\/scripts\/|\/versioned-assets\//
@@ -885,6 +938,35 @@ async function stageAssets() {
   }
   console.log(`[assets] ${discovered.size} unique Squarespace assets referenced`)
 
+  // Uploaded files live at a site-relative /s/ path and need their own pass.
+  const fileDownloads = new Set()
+  for (const f of files) {
+    const text = await readFile(f, 'utf8')
+    for (const m of text.matchAll(/\/s\/[A-Za-z0-9._%+-]+\.[A-Za-z0-9]{2,5}/g)) {
+      fileDownloads.add(m[0])
+    }
+  }
+  if (fileDownloads.size) {
+    console.log(`[assets] ${fileDownloads.size} uploaded file(s) referenced`)
+    await mkdir(FILES, { recursive: true })
+    for (const rel of fileDownloads) {
+      const name = decodeURIComponent(rel.slice(3))
+      const dest = path.join(FILES, name)
+      if (existsSync(dest) && (await stat(dest)).size > 0) {
+        report.assets.reused++
+        continue
+      }
+      const res = await get(`${ORIGIN}${rel}`, { binary: true })
+      if (!res.ok || !res.buffer?.length) {
+        report.assets.failed.push({ url: rel, status: res.status, error: res.error })
+        console.warn(`[assets] FAILED ${rel}`)
+        continue
+      }
+      await writeFile(dest, res.buffer)
+      report.assets.downloaded++
+    }
+  }
+
   // Pass 2: download anything not already on disk.
   await pool([...discovered], 5, async (clean) => {
     const known = manifest[clean]
@@ -914,7 +996,15 @@ async function stageAssets() {
   let rewritten = 0
   for (const f of files) {
     const text = await readFile(f, 'utf8')
-    const next = text.replace(CDN_RE, (m) => {
+    // Match the absolute form too. Some links are written as
+    // https://www.eurosense.eu/s/file.pdf, and rewriting only the path leaves an
+    // absolute URL to the old host pointing at a path that never existed there.
+    let next = text.replace(
+      /(?:https?:\\?\/\\?\/[^"'\s]*?eurosense\.eu)?\\?\/s\\?\/([A-Za-z0-9._%+-]+\.[A-Za-z0-9]{2,5})/g,
+      (m, name) =>
+        existsSync(path.join(FILES, decodeURIComponent(name))) ? `/files/${name}` : m,
+    )
+    next = next.replace(CDN_RE, (m) => {
       const { clean } = normaliseAssetUrl(m)
       const name = urls.get(clean)
       return name && existsSync(path.join(MEDIA, name)) ? `/media/${name}` : m

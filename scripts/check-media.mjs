@@ -13,13 +13,18 @@
  */
 
 import { readdir, readFile, stat } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
 
 const ROOT = path.join(import.meta.dirname, '..')
 const CONTENT = path.join(ROOT, 'content')
 const MEDIA = path.join(ROOT, 'public', 'media')
+const FILES = path.join(ROOT, 'public', 'files')
 
 const MEDIA_REF = /\/media\/[A-Za-z0-9._%-]+/g
+const FILE_REF = /\/files\/[A-Za-z0-9._%+-]+/g
+/* A surviving /s/ path is a Squarespace-hosted upload that will 404 on cancellation. */
+const SQSP_FILE_REF = /["(]\/s\/[A-Za-z0-9._%+-]+\.[A-Za-z0-9]{2,5}/
 const SQUARESPACE_REF = /(?:images\.squarespace-cdn\.com|static1\.squarespace\.com)/
 
 async function contentFiles(dir) {
@@ -40,13 +45,19 @@ const onDisk = new Set(
 )
 
 const referenced = new Map()
+const referencedFiles = new Map()
 const stillOnSquarespace = []
 
 for (const file of files) {
   const text = await readFile(file, 'utf8')
   const relative = path.relative(ROOT, file)
 
-  if (SQUARESPACE_REF.test(text)) stillOnSquarespace.push(relative)
+  if (SQUARESPACE_REF.test(text) || SQSP_FILE_REF.test(text)) stillOnSquarespace.push(relative)
+
+  for (const match of text.matchAll(FILE_REF)) {
+    const name = decodeURIComponent(match[0].replace('/files/', ''))
+    if (!referencedFiles.has(name)) referencedFiles.set(name, relative)
+  }
 
   for (const match of text.matchAll(MEDIA_REF)) {
     const name = decodeURIComponent(match[0].replace('/media/', ''))
@@ -64,9 +75,19 @@ for (const name of onDisk) {
 
 console.log(`content files   ${files.length}`)
 console.log(`media referenced ${referenced.size}`)
+const filesOnDisk = new Set(existsSync(FILES) ? await readdir(FILES) : [])
+const missingFiles = [...referencedFiles].filter(([name]) => !filesOnDisk.has(name))
+
 console.log(`media on disk    ${onDisk.size}`)
+console.log(`downloads        ${referencedFiles.size} referenced / ${filesOnDisk.size} on disk`)
 
 let failed = false
+
+if (missingFiles.length) {
+  failed = true
+  console.error(`\n${missingFiles.length} referenced download(s) missing from public/files:`)
+  for (const [name, source] of missingFiles) console.error(`  ${name}  (referenced by ${source})`)
+}
 
 if (missing.length) {
   failed = true

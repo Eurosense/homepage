@@ -82,7 +82,7 @@
         },
         {
           "type": "richText",
-          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"e741f96a-ebb9-4d50-984e-cf0bd7e500f1\"><a href=\"https://www.eurosense.eu/s/Project-EuroSense-Revolutionise-Democracy.pdf\" target=\"_blank\"><span class=\"sqsrte-text-color--accent\">Read our booklet</span></a><span class=\"sqsrte-text-color--accent\"> here</span></span></h2></div>",
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"e741f96a-ebb9-4d50-984e-cf0bd7e500f1\"><a href=\"/files/Project-EuroSense-Revolutionise-Democracy.pdf\" target=\"_blank\"><span class=\"sqsrte-text-color--accent\">Read our booklet</span></a><span class=\"sqsrte-text-color--accent\"> here</span></span></h2></div>",
           "layout": {
             "mobile": {
               "area": "10/2/12/10",

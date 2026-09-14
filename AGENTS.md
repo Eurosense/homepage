@@ -88,6 +88,21 @@ useful, but check the result at several widths.
 Put the file in `public/media/` and reference it as `/media/<filename>`. Then run
 `npm run optimise:media`, which re-encodes anything oversized in place.
 
+### Add a download (PDF, spreadsheet)
+
+Put it in `public/files/` and link it as `/files/<filename>`. Do not link to a
+`/s/...` path — that is Squarespace's upload storage and it stops resolving when the
+subscription ends. `check-media.mjs` fails the build if one reappears.
+
+### The newsletter
+
+The footer carries a HubSpot form (portal `48641237`, form
+`f977b591-781e-4cb9-8836-2f4c44a65d96`) as an `embed` block in `content/site.json`.
+It is third-party and keeps working on its own — it is not one of the six forms in
+`content/forms.json` that still need deploybase endpoints. If you touch
+`SiteFooter.tsx`, render every block type present: filtering to images and text is
+exactly how this form went missing once already.
+
 ## Changing the app itself
 
 ### Where things live

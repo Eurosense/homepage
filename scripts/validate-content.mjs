@@ -138,7 +138,7 @@ const siteChrome = z.object({
   favicon: mediaPath,
   nav: z.array(z.object({ label: z.string().min(1), href: z.string().min(1) })).min(1),
   social: z.array(z.object({ platform: z.string(), href: z.string() })),
-  footerBlocks: z.array(block),
+  footerBlocks: z.array(z.intersection(block, z.object({ theme: z.string().optional() }))),
 })
 
 const formsFile = z.object({

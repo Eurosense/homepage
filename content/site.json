@@ -54,35 +54,43 @@
       "alt": "",
       "width": 4096,
       "height": 1000,
-      "caption": ""
+      "caption": "",
+      "theme": "bright-inverse"
     },
     {
       "type": "embed",
-      "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    <script src=\"https://js.hsforms.net/forms/embed/48641237.js\" defer=\"\"></script>\n<div class=\"hs-form-frame\" data-region=\"na1\" data-form-id=\"f977b591-781e-4cb9-8836-2f4c44a65d96\" data-portal-id=\"48641237\"></div>\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>"
+      "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    <script src=\"https://js.hsforms.net/forms/embed/48641237.js\" defer=\"\"></script>\n<div class=\"hs-form-frame\" data-region=\"na1\" data-form-id=\"f977b591-781e-4cb9-8836-2f4c44a65d96\" data-portal-id=\"48641237\"></div>\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>",
+      "theme": "bright-inverse"
     },
     {
       "type": "richText",
-      "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"/home\">Home</a></p></div>"
+      "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"/home\">Home</a></p></div>",
+      "theme": "bright-inverse"
     },
     {
       "type": "richText",
-      "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"/about\">About us</a></p></div>"
+      "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"/about\">About us</a></p></div>",
+      "theme": "bright-inverse"
     },
     {
       "type": "richText",
-      "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"/our-partners\">Partners</a></p></div>"
+      "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"/our-partners\">Partners</a></p></div>",
+      "theme": "bright-inverse"
     },
     {
       "type": "richText",
-      "html": "<div><p style=\"white-space:pre-wrap;\">Dashboard</p></div>"
+      "html": "<p><a href=\"/dashboard\">Dashboard</a></p>",
+      "theme": "bright-inverse"
     },
     {
       "type": "richText",
-      "html": "<div><p style=\"white-space:pre-wrap;\">Volt Europa 2026</p></div>"
+      "html": "<div><p style=\"white-space:pre-wrap;\">Volt Europa 2026</p></div>",
+      "theme": "bright-inverse"
     },
     {
       "type": "richText",
-      "html": "<div><p style=\"white-space:pre-wrap;\">Privacy Policy</p></div>"
+      "html": "<p><a href=\"/privacy-policy\">Privacy Policy</a></p>",
+      "theme": "bright-inverse"
     },
     {
       "type": "image",
@@ -90,7 +98,8 @@
       "alt": "",
       "width": 5760,
       "height": 992,
-      "caption": ""
+      "caption": "",
+      "theme": "bright-inverse"
     }
   ]
 }

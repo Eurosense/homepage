@@ -25,6 +25,7 @@ content/              All site content.
   blog/*.md           Legacy blog collection (4).
   resources--multimedia/*.md   Multimedia items (5).
 public/media/         Every image, downloaded from Squarespace (90 files).
+public/files/         Uploaded downloads: the analysis report PDF, the open dataset.
 src/app/              Routes. A catch-all prerenders every page and post.
 src/components/       Block renderer, header, footer, forms, accordion.
 src/lib/              Content loading, markdown, fonts, form endpoints.
@@ -99,6 +100,9 @@ worth knowing if you re-run it:
 - [x] Sitemap, robots, metadata, skip link, accessible accordions
 - [x] Layout parity: fluid-engine grid, section themes, measured type scale
 - [x] Responsive sweep clean: 14 pages x 13 widths (320-1920px), no overflow
+- [x] HubSpot newsletter (footer, every page) carried over and rendering
+- [x] Uploaded files rescued: report PDF, open dataset, project PDF
+- [x] All 69 internal links resolve; 68 of 71 external links live
 - [ ] **Forms connected** — `content/forms.json` still has six `null` endpoints
 - [ ] deploybase project created and domain pointed at it
 - [ ] Squarespace cancelled
@@ -123,9 +127,17 @@ These are not code tasks and they are not reversible.
 Recorded rather than hidden, so nobody mistakes them for finished work.
 
 - **Six forms are not connected.** See above.
-- **Three footer links are plain text** on the live Squarespace site — Dashboard,
-  Volt Europa 2026 and Privacy Policy have no `href`. Reproduced as-is rather than
-  guessed at; say where they should point and they can be linked.
+- **One footer link is still plain text.** Dashboard and Privacy Policy had no
+  `href` on the live site and are now linked, because `/dashboard` and
+  `/privacy-policy` exist as real pages. "Volt Europa 2026" is left as text: the site
+  links to `volteuropa.org`, a 2026 general-assembly page and `charge-volt.org`, and
+  none is clearly the intended target. Say which and it will be linked.
+- **Two links are broken on the current Squarespace site**, and are reproduced
+  as-is rather than silently repaired:
+  `edpb.europa.eu/about-edpb/board/members_en` (redirects to a 404, on
+  `/privacy-policy`) and `http://charge.volt.org` (domain does not resolve, on
+  `/our-partners`, `/storyboards` and `/new-page`). The working address for the
+  latter appears elsewhere on the site as `https://www.charge-volt.org/`.
 - **Layout parity is close but not total.** On the homepage, 7 of 12 sections match
   the original's rendered height exactly. Two of the remaining five are the list
   sections (partner logos, article teasers), which are rebuilt as our own components

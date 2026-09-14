@@ -16,7 +16,7 @@ We are thrilled to announce the release of the **EuroSense Pilot Project Results
 
 Over the past year, we collected **865 stories** from citizens across **24 European countries**, using innovative tools like the SenseMaker Data Collector. These narratives shed light on pressing societal themes such as fairness, social justice, governance, migration, climate change, and community cohesion.
 
-#### [Download the report here](/s/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf)
+#### [Download the report here](/files/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf)
 
 ### **📊 Key Findings:**
 
