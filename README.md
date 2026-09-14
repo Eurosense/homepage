@@ -147,7 +147,12 @@ node scripts/audit-pages.mjs      # per-page forms, links, images, text volume
 node scripts/compare-content.mjs  # what the original says that we do not
 ```
 
-`compare-content.mjs` is the one that catches silent loss. The build stays green
+`compare-content.mjs` needs the Squarespace snapshots in `archive/raw/`, which are
+not committed — regenerate them with `npm run extract:fetch` while the original is
+still up. It is not part of CI: it answers "does this still match the original?",
+and once content is edited on purpose, diverging from the 2026 snapshot is correct.
+
+It is the check that catches silent loss. The build stays green
 when a block is simply never extracted, so this diffs every built page against its
 Squarespace snapshot and fails on a run of words that appears in the original and
 nowhere in the rebuild. It ignores differences that are not loss: Squarespace
