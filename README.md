@@ -80,6 +80,11 @@ that copy first and falls back to the one committed at
 `public/dashboard-app/captures.csv`, which keeps it working offline, on a preview
 build, and if Pages is unreachable.
 
+The request carries a `?d=YYYY-MM-DD` key so the file caches normally within a day
+and the URL changes when the data does. That is a cache key rather than a cache
+buster: fetching with `no-cache` would revalidate against GitHub on every view of
+the dashboard just to be told the file is unchanged.
+
 Run it by hand from the Actions tab, or locally:
 
 ```bash

@@ -6,9 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // preview build, and if Pages is unreachable.
     const LIVE_DATA_URL = "https://eurosense.github.io/homepage/captures.csv";
 
+    /*
+     * Cache key, not a cache buster. The data is refreshed once a night, so the
+     * URL changes once a day and is freely cacheable in between. Fetching with
+     * `no-cache` instead would revalidate against GitHub on every single view of
+     * the dashboard, which is a round trip to answer "still the same file".
+     */
+    function dataUrlForToday() {
+      const today = new Date().toISOString().slice(0, 10);
+      return `${LIVE_DATA_URL}?d=${today}`;
+    }
+
     async function fetchCsvText() {
       try {
-        const live = await fetch(LIVE_DATA_URL, { cache: "no-cache" });
+        const live = await fetch(dataUrlForToday());
         if (live.ok) {
           const text = await live.text();
           if (text.startsWith("id,project_id,")) return text;
