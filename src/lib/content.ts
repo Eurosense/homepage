@@ -42,6 +42,14 @@ export type Block =
       type: 'list'
       items: { image?: string; alt?: string; title?: string; description?: string; href?: string }[]
     }
+  | {
+      type: 'document'
+      title: string
+      href: string
+      /** Present for Google Drive files; used to build the /preview URL. */
+      driveId?: string
+      kind: 'pdf' | 'drive' | 'spreadsheet'
+    }
   | { type: 'instagram'; html: string }
 
 export type FormField = {

@@ -26,6 +26,7 @@ content/              All site content.
   resources--multimedia/*.md   Multimedia items (5).
 public/media/         Every image, downloaded from Squarespace (90 files).
 public/files/         Uploaded downloads: the analysis report PDF, the open dataset.
+public/dashboard-app/ The EuroSense charts dashboard, vendored (see below).
 src/app/              Routes. A catch-all prerenders every page and post.
 src/components/       Block renderer, header, footer, forms, accordion.
 src/lib/              Content loading, markdown, fonts, form endpoints.
@@ -53,6 +54,25 @@ Squarespace section themes, measured from the live site.
 **Self-hosted fonts.** Satoshi and Roboto were served by Squarespace. Satoshi is now
 fetched from Fontshare by `npm run fonts` and committed; Roboto is self-hosted by
 `next/font`. No third-party font requests at runtime.
+
+## The dashboard
+
+`/dashboard` embeds the EuroSense charts app. It used to be an iframe to
+`medibunny.github.io/Eurosense`, which cost a DNS lookup, a TLS handshake and a
+cross-origin fetch of a 1.6 MB CSV before anything rendered. The app is now vendored
+into `public/dashboard-app/` and served from this origin, along with the Highcharts
+Europe map data it used to fetch from a CDN.
+
+The chart libraries (Highcharts, ECharts, Plotly, PapaParse) still come from their
+CDNs; `src/app/layout.tsx` preconnects to them so DNS and TLS overlap the rest of the
+page load instead of running serially once the iframe starts parsing.
+
+**Its data is stale.** `captures.csv` was last refreshed **2025-04-29**. Upstream, a
+daily GitHub Action ran `server.js`, which pulls from the SenseMaker API
+(`api.singularity.icatalyst.com`) using a `PAT_TOKEN` secret. It has not run since —
+GitHub disables scheduled workflows after 60 days of repo inactivity, and the token
+may also have expired. Refreshing the data means reviving that job (here or upstream)
+and copying the resulting CSV in. Nothing in this repository does it automatically.
 
 ## Deploying
 
@@ -102,8 +122,12 @@ worth knowing if you re-run it:
 - [x] Responsive sweep clean: 14 pages x 13 widths (320-1920px), no overflow
 - [x] HubSpot newsletter (footer, every page) carried over and rendering
 - [x] Uploaded files rescued: report PDF, open dataset, project PDF
-- [x] All 69 internal links resolve; 68 of 71 external links live
-- [ ] **Forms connected** — `content/forms.json` still has six `null` endpoints
+- [x] All internal links resolve; external links checked
+- [x] Dashboard vendored in-repo and served same-origin
+- [x] Publications and storyboards embed their PDFs inline
+- [x] Newsletter forms now use the existing HubSpot form
+- [ ] **Four forms still unconnected** — the two newsletter forms now use HubSpot;
+      Our Partners, For Partners, Dashboard and Blog & News need deploybase endpoints
 - [ ] deploybase project created and domain pointed at it
 - [ ] Squarespace cancelled
 
@@ -117,9 +141,10 @@ These are not code tasks and they are not reversible.
    *before* cancelling.
 2. **Export form submissions.** Anything collected by the six Squarespace form blocks
    is deleted with the account and is not in this repository.
-3. **Connect the new forms.** Create each form in the deploybase dashboard and paste
-   its id into `content/forms.json`. Until then those forms show a "not connected"
-   notice rather than accepting messages.
+3. **Connect the four remaining forms.** Create each in the deploybase dashboard and
+   paste its id into `content/forms.json`. The two newsletter forms already point at
+   the existing HubSpot form and need nothing. Until a form has a provider it shows a
+   "not connected" notice rather than accepting messages.
 4. **Keep Squarespace alive** until DNS has cut over and the new site is verified.
 
 ## Known gaps
@@ -127,11 +152,9 @@ These are not code tasks and they are not reversible.
 Recorded rather than hidden, so nobody mistakes them for finished work.
 
 - **Six forms are not connected.** See above.
-- **One footer link is still plain text.** Dashboard and Privacy Policy had no
-  `href` on the live site and are now linked, because `/dashboard` and
-  `/privacy-policy` exist as real pages. "Volt Europa 2026" is left as text: the site
-  links to `volteuropa.org`, a 2026 general-assembly page and `charge-volt.org`, and
-  none is clearly the intended target. Say which and it will be linked.
+- **The `/newsletter` page now shows the same HubSpot form twice** — once in the page
+  body and once in the footer, which is on every page. Harmless, but worth deciding:
+  either drop the body form or give that page its own HubSpot form.
 - **Two links are broken on the current Squarespace site**, and are reproduced
   as-is rather than silently repaired:
   `edpb.europa.eu/about-edpb/board/members_en` (redirects to a 404, on

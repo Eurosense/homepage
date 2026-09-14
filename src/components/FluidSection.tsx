@@ -17,10 +17,22 @@ function alignmentCss(placement: Placement | undefined) {
   return horizontal + vertical
 }
 
-function placementCss(selector: string, placement: Placement | undefined) {
+function placementCss(
+  selector: string,
+  placement: Placement | undefined,
+  { fullWidth = false }: { fullWidth?: boolean } = {},
+) {
   if (!placement?.area) return ''
   const z = placement.zIndex === undefined ? '' : `z-index:${placement.zIndex};`
-  return `${selector}{grid-area:${placement.area};${z}${alignmentCss(placement)}}`
+  /*
+   * Document viewers keep their row but take the full content width. The
+   * original cell was sized for a one-line "Download" link, and a PDF squeezed
+   * into that is unreadable — the viewer is new, so it gets room to work.
+   */
+  const span = fullWidth
+    ? `grid-column:2/-2;`
+    : ''
+  return `${selector}{grid-area:${placement.area};${span}${z}${alignmentCss(placement)}}`
 }
 
 /**
@@ -61,7 +73,11 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
   rules.push(`.${gridId} > .fe-cell{display:flex;flex-direction:column;min-width:0;}`)
 
   blocks.forEach((block, i) => {
-    rules.push(placementCss(`.${gridId} > [data-fe="${i}"]`, block.layout?.mobile))
+    rules.push(
+      placementCss(`.${gridId} > [data-fe="${i}"]`, block.layout?.mobile, {
+        fullWidth: block.type === 'document',
+      }),
+    )
   })
 
   const desktopRows = desktop.rows
@@ -80,7 +96,9 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
       `column-gap:${desktopGap};` +
       '}',
     ...blocks.map((block, i) =>
-      placementCss(`.${gridId} > [data-fe="${i}"]`, block.layout?.desktop),
+      placementCss(`.${gridId} > [data-fe="${i}"]`, block.layout?.desktop, {
+        fullWidth: block.type === 'document',
+      }),
     ),
   ].filter(Boolean)
 

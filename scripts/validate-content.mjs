@@ -98,6 +98,13 @@ const block = z.discriminatedUnion('type', [
       )
       .min(1),
   }),
+  z.object({
+    type: z.literal('document'),
+    title: z.string().min(1),
+    href: z.string().min(1),
+    driveId: z.string().optional(),
+    kind: z.enum(['pdf', 'drive', 'spreadsheet']),
+  }),
   z.object({ type: z.literal('instagram'), html: z.string() }),
 ])
 
@@ -142,9 +149,30 @@ const siteChrome = z.object({
 })
 
 const formsFile = z.object({
+  hubspotDefaults: z.object({ portalId: z.string(), region: z.string() }).optional(),
   forms: z.record(
     z.string(),
-    z.object({ name: z.string(), deploybaseFormId: z.string().nullable() }),
+    z
+      .object({
+        name: z.string(),
+        provider: z.enum(['hubspot', 'deploybase']).nullable().optional(),
+        deploybaseFormId: z.string().nullable().optional(),
+        hubspot: z
+          .object({
+            portalId: z.string().optional(),
+            formId: z.string().optional(),
+            region: z.string().optional(),
+          })
+          .optional(),
+      })
+      .refine(
+        (f) => f.provider !== 'hubspot' || Boolean(f.hubspot?.formId),
+        'provider is "hubspot" but hubspot.formId is missing',
+      )
+      .refine(
+        (f) => f.provider !== 'deploybase' || Boolean(f.deploybaseFormId),
+        'provider is "deploybase" but deploybaseFormId is missing',
+      ),
   ),
 })
 

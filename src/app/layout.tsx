@@ -29,6 +29,24 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${roboto.variable} ${satoshi.variable}`}>
+      <head>
+        {/*
+          The dashboard app pulls Highcharts, ECharts, Plotly and PapaParse from
+          four different CDNs. Warming the connections here overlaps DNS and TLS
+          with the rest of the page load instead of paying for them serially once
+          the iframe starts parsing.
+        */}
+        {[
+          'https://code.highcharts.com',
+          'https://cdn.jsdelivr.net',
+          'https://cdn.plot.ly',
+          'https://cdnjs.cloudflare.com',
+          'https://platform.sensemaker-suite.com',
+          'https://js.hsforms.net',
+        ].map((origin) => (
+          <link key={origin} rel="preconnect" href={origin} crossOrigin="anonymous" />
+        ))}
+      </head>
       <body className="flex min-h-screen flex-col">
         <a
           href="#main"

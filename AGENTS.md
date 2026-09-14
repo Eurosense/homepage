@@ -94,12 +94,31 @@ Put it in `public/files/` and link it as `/files/<filename>`. Do not link to a
 `/s/...` path — that is Squarespace's upload storage and it stops resolving when the
 subscription ends. `check-media.mjs` fails the build if one reappears.
 
+### Documents (PDFs, Drive files)
+
+A short rich-text block that is just a title plus a link to a PDF or Google Drive
+file is converted by the extractor into a `document` block, which renders an inline
+viewer plus a download link. Drive files use Google's `/preview` endpoint, because
+the `/view` URL refuses to be framed. Viewers are lazy-loaded and take the full
+content width regardless of the grid cell the original link sat in.
+
+Spreadsheets get a download link and no viewer: browsers cannot render one, and a
+broken frame is worse than an honest link.
+
+### The dashboard
+
+`public/dashboard-app/` is a vendored copy of the EuroSense charts app. Edit it there;
+it is served from this origin at `/dashboard-app/` and framed by the `/dashboard`
+page. Its `captures.csv` is a snapshot, not a live feed — see README.
+
 ### The newsletter
 
 The footer carries a HubSpot form (portal `48641237`, form
 `f977b591-781e-4cb9-8836-2f4c44a65d96`) as an `embed` block in `content/site.json`.
-It is third-party and keeps working on its own — it is not one of the six forms in
-`content/forms.json` that still need deploybase endpoints. If you touch
+It is third-party and keeps working on its own. `content/forms.json` now also lets
+any migrated form choose its provider: set `provider` to `"hubspot"` (with a
+`hubspot.formId`) or `"deploybase"` (with a `deploybaseFormId`). Both newsletter
+forms point at the same HubSpot form; four others still have no provider. If you touch
 `SiteFooter.tsx`, render every block type present: filtering to images and text is
 exactly how this form went missing once already.
 

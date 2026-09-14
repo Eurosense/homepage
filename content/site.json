@@ -84,7 +84,7 @@
     },
     {
       "type": "richText",
-      "html": "<div><p style=\"white-space:pre-wrap;\">Volt Europa 2026</p></div>",
+      "html": "<p><a href=\"https://volteuropa.org\">Volt Europa</a></p>",
       "theme": "bright-inverse"
     },
     {

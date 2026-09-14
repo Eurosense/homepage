@@ -1,35 +1,51 @@
 {
   "_readme": [
-    "Maps each Squarespace form to its replacement deploybase endpoint.",
-    "Create a form under the project's Forms tab in the deploybase dashboard,",
-    "then paste the id it gives you (the part after /f/) as 'deploybaseFormId'.",
-    "A form with a null id renders a visible notice instead of a submit button,",
-    "so a disconnected form can never silently swallow a visitor's message."
+    "How each form from the old Squarespace site is handled now.",
+    "",
+    "Set 'provider' to one of:",
+    "  'hubspot'    - render the HubSpot embed. Needs hubspot.portalId + hubspot.formId.",
+    "                 Submissions land in HubSpot, same as the footer newsletter.",
+    "  'deploybase' - POST to a deploybase form. Needs deploybaseFormId (the part",
+    "                 after /f/ shown on the form's page in the dashboard).",
+    "  null         - not connected. The page shows a visible notice instead of a",
+    "                 submit button, so a form can never silently eat a message.",
+    "",
+    "The keys are the original Squarespace form ids; the page blocks reference them."
   ],
+  "hubspotDefaults": {
+    "portalId": "48641237",
+    "region": "na1"
+  },
   "forms": {
     "671f9020897e7e5dea51318a": {
       "name": "Newsletter (/newsletter)",
-      "deploybaseFormId": null
+      "provider": "hubspot",
+      "hubspot": { "formId": "f977b591-781e-4cb9-8836-2f4c44a65d96" }
     },
     "690dd4a1679a00291bac3ddb": {
       "name": "Our Partners (/our-partners)",
+      "provider": null,
       "deploybaseFormId": null
     },
     "671f8f202e7e9614f30db2b7": {
       "name": "For Partners (/forpartners)",
+      "provider": null,
       "deploybaseFormId": null
     },
     "671f8fdaeefc084a7a98bb59": {
       "name": "Dashboard (/dashboard)",
+      "provider": null,
       "deploybaseFormId": null
     },
     "672206c01d3a4805c04b6587": {
       "name": "Blog & News (/blognews)",
+      "provider": null,
       "deploybaseFormId": null
     },
     "66e4280969b09d60989f4f0b": {
       "name": "Newsletter (/home-2)",
-      "deploybaseFormId": null
+      "provider": "hubspot",
+      "hubspot": { "formId": "f977b591-781e-4cb9-8836-2f4c44a65d96" }
     }
   }
 }

@@ -162,6 +162,65 @@ function htmlToMarkdown(html) {
   return turndown.turndown($('#__root').html() || '').trim()
 }
 
+/*
+ * Embeds we now serve ourselves. The Eurosense dashboard used to be an iframe to
+ * medibunny.github.io, which costs a DNS lookup, TLS handshake and cross-origin
+ * fetch of a 1.6 MB CSV before anything renders. The same app is vendored into
+ * public/dashboard-app/, so pointing at it locally keeps the page identical and
+ * removes the round trip. See README for how its data is refreshed.
+ */
+const EMBED_REWRITES = [
+  [/https?:\/\/medibunny\.github\.io\/Eurosense\/?/g, '/dashboard-app/'],
+]
+
+function rewriteEmbedUrls(html) {
+  return EMBED_REWRITES.reduce((acc, [from, to]) => acc.replace(from, to), html)
+}
+
+/**
+ * Turns a short "Title + Download" rich-text block into a `document` block so
+ * the file can be previewed in place rather than only linked out to.
+ *
+ * Deliberately conservative: it only fires when the block is short and every
+ * document link in it points at the same file. A long paragraph that happens to
+ * cite a PDF stays prose, because replacing it with a viewer would lose the
+ * surrounding text.
+ */
+const DOC_LINK_RE = /drive\.google\.com\/file\/d\/|\.pdf($|[?#])|\.xlsx($|[?#])/i
+
+function asDocumentBlock(html) {
+  const $ = cheerio.load(`<div id="__root">${html}</div>`)
+  const text = $('#__root').text().replace(/\s+/g, ' ').trim()
+  if (!text || text.length > 200) return null
+
+  const links = $('#__root a[href]')
+    .map((_i, a) => $(a).attr('href'))
+    .get()
+    .filter((href) => DOC_LINK_RE.test(href))
+  if (!links.length) return null
+
+  // Compare by document identity, not raw URL: the same Drive file is often
+  // linked twice on one line, once bare and once with ?usp=drive_link.
+  const identity = (href) =>
+    href.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/)?.[1] ?? href.split('?')[0]
+  const unique = [...new Set(links.map(identity))]
+  if (unique.length !== 1) return null
+
+  const href = links[0]
+  const driveId = href.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/)?.[1]
+
+  // The visible title is the text minus the trailing "Download" affordance.
+  const title = text.replace(/\s*Download\s*$/i, '').replace(/\.$/, '').trim()
+
+  return {
+    type: 'document',
+    title: title || 'Document',
+    href,
+    driveId: driveId || undefined,
+    kind: driveId ? 'drive' : /\.xlsx($|[?#])/i.test(href) ? 'spreadsheet' : 'pdf',
+  }
+}
+
 /** Inline style properties that carry meaning we must not lose. */
 const KEEP_STYLE = new Set(['text-align', 'color', 'white-space', 'font-style'])
 
@@ -317,7 +376,8 @@ function parseBlock($, el) {
     case 'html-block':
     case 'markdown-block': {
       const html = cleanRichText(inner)
-      return html ? { type: 'richText', html } : null
+      if (!html) return null
+      return asDocumentBlock(html) || { type: 'richText', html }
     }
     case 'image-block': {
       const $img = inner.find('img').first()
@@ -371,7 +431,10 @@ function parseBlock($, el) {
     }
     case 'code-block':
     case 'embed-block': {
-      return { type: 'embed', html: (inner.html() || '').trim() }
+      const html = (inner.html() || '').trim()
+      // Drop blocks Squarespace left behind with nothing in them.
+      if (!/<(iframe|script|img|a|video)\b/i.test(html)) return null
+      return { type: 'embed', html: rewriteEmbedUrls(html) }
     }
     case 'form-block': {
       // Squarespace renders forms client-side, so the served HTML contains an
@@ -588,6 +651,15 @@ function parseSiteChrome(html, knownPaths = []) {
   const pathBySlug = new Map(
     knownPaths.map((p) => [p.replace(/^\/+|\/+$/g, '').toLowerCase(), p]),
   )
+
+  /*
+   * Footer entries the site owner has since given a target and a wording for.
+   * Squarespace left these as dead text; they are not derivable from the site,
+   * so they live here as explicit, reviewable decisions rather than guesses.
+   */
+  const FOOTER_OVERRIDES = {
+    'volt europa 2026': { label: 'Volt Europa', href: 'https://volteuropa.org' },
+  }
   const resolveLabel = (text) => {
     const slug = text
       .trim()
@@ -649,9 +721,13 @@ function parseSiteChrome(html, knownPaths = []) {
 
     if (parsed.type === 'richText' && !/<a\s/i.test(parsed.html)) {
       const label = cheerio.load(parsed.html).text().replace(/\s+/g, ' ').trim()
-      const href = label && resolveLabel(label)
-      if (href) parsed.html = `<p><a href="${href}">${label}</a></p>`
-      else if (label) unlinkedFooterLabels.push(label)
+      const override = FOOTER_OVERRIDES[label.toLowerCase()]
+      const href = override?.href || (label && resolveLabel(label))
+      if (href) {
+        parsed.html = `<p><a href="${href}">${override?.label || label}</a></p>`
+      } else if (label) {
+        unlinkedFooterLabels.push(label)
+      }
     }
 
     footerBlocks.push(parsed)

@@ -3,10 +3,11 @@ import Link from 'next/link'
 
 import { Accordion } from '@/components/Accordion'
 import { ItemList } from '@/components/ItemList'
+import { DocumentEmbed } from '@/components/DocumentEmbed'
 import { Embed } from '@/components/Embed'
 import { ContactForm } from '@/components/ContactForm'
 import { renderMarkdown } from '@/lib/markdown'
-import { getFormEndpoint } from '@/lib/forms'
+import { getFormTarget } from '@/lib/forms'
 import type { Block } from '@/lib/content'
 
 /**
@@ -117,13 +118,16 @@ export function BlockView({ block }: { block: Block }) {
       return <hr className="my-4 border-line" />
 
     case 'form':
-      return <ContactForm block={block} endpoint={getFormEndpoint(block.formId ?? '')} />
+      return <ContactForm block={block} target={getFormTarget(block.formId ?? '')} />
 
     case 'accordion':
       return <Accordion items={block.items} />
 
     case 'list':
       return <ItemList items={block.items} />
+
+    case 'document':
+      return <DocumentEmbed block={block} />
 
     case 'gallery':
     case 'summary-v2':

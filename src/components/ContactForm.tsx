@@ -2,7 +2,9 @@
 
 import { useState } from 'react'
 
+import { Embed } from '@/components/Embed'
 import type { Block } from '@/lib/content'
+import type { FormTarget } from '@/lib/forms'
 
 type FormBlock = Extract<Block, { type: 'form' }>
 
@@ -20,15 +22,29 @@ const inputClasses =
  * returns JSON when sent `Accept: application/json` and a 303 redirect
  * otherwise, which is what makes both paths work from the same markup.
  */
-export function ContactForm({
-  block,
-  endpoint,
-}: {
-  block: FormBlock
-  endpoint: string | null
-}) {
+export function ContactForm({ block, target }: { block: FormBlock; target: FormTarget }) {
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string>('')
+
+  /*
+   * A HubSpot-backed form renders HubSpot's own embed rather than our markup:
+   * the fields, validation and consent wording live in HubSpot, and duplicating
+   * them here would drift the moment someone edits the form there.
+   */
+  if (target?.provider === 'hubspot') {
+    return (
+      <Embed
+        html={
+          `<script src="https://js.hsforms.net/forms/embed/${target.portalId}.js" defer></script>` +
+          `<div class="hs-form-frame" data-region="${target.region}" ` +
+          `data-form-id="${target.formId}" data-portal-id="${target.portalId}"></div>`
+        }
+        className="w-full"
+      />
+    )
+  }
+
+  const endpoint = target?.provider === 'deploybase' ? target.endpoint : null
 
   if (!endpoint) {
     return (
@@ -40,9 +56,10 @@ export function ContactForm({
           This form is not connected yet.
         </p>
         <p className="mt-1">
-          The {block.title || 'contact'} form still needs a deploybase endpoint. Add it to{' '}
-          <code className="rounded bg-cream px-1">content/forms.json</code> so
-          messages reach an inbox rather than disappearing.
+          The {block.title || 'contact'} form has no provider yet. Set one in{' '}
+          <code className="rounded bg-cream px-1">content/forms.json</code> — either a
+          HubSpot form id or a deploybase endpoint — so messages reach an inbox rather
+          than disappearing.
         </p>
       </div>
     )
