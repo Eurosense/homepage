@@ -14,3 +14,6 @@ archive/raw/
 # Local visual checks
 .screenshots/
 .playwright-mcp/
+
+# qa-bot local knowledge graph
+.qa-bot/
