@@ -83,7 +83,7 @@ async function get(url, { binary = false, retries = 3 } = {}) {
   }
 }
 
-/** Run async tasks with bounded concurrency, politely. */
+/** Bounded-concurrency map. Keeps the crawl under Squarespace's rate limit. */
 async function pool(items, limit, fn) {
   const out = []
   let i = 0
@@ -301,25 +301,36 @@ function parseBlock($, el) {
       return { type: 'embed', html: (inner.html() || '').trim() }
     }
     case 'form-block': {
-      const $form = inner.find('form').first()
-      const fields = inner
-        .find('.form-item')
-        .map((_i, f) => {
-          const $f = $(f)
-          const $input = $f.find('input,textarea,select').first()
-          return {
-            label: $f.find('.title').first().text().replace(/\s+/g, ' ').trim(),
-            name: $input.attr('name') || '',
-            type: $input.is('textarea') ? 'textarea' : $input.attr('type') || 'text',
-            required: $f.hasClass('required'),
-          }
-        })
-        .get()
+      // Squarespace renders forms client-side, so the served HTML contains an
+      // empty shell. The field definitions are in an embedded JSON island,
+      // which is the only place they survive a static snapshot.
+      const context = inner.find('script.sqs-form-block-context').first().html()
+      if (!context) return null
+
+      let config
+      try {
+        config = JSON.parse(context)
+      } catch {
+        report.failures.push({ stage: 'parse', reason: 'unreadable form context' })
+        return null
+      }
+
+      const TYPES = { name: 'text', email: 'email', textarea: 'textarea', text: 'text' }
+      const fields = (config.formFields || []).map((f) => ({
+        label: String(f.title ?? ''),
+        name: String(f.title ?? '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '_')
+          .replace(/^_|_$/g, ''),
+        type: TYPES[f.type] || 'text',
+        required: Boolean(f.required),
+      }))
+
       return {
         type: 'form',
-        title: inner.find('.form-block .field-list legend').first().text().trim(),
-        submitLabel: inner.find('[type=submit]').first().attr('value') || 'Submit',
-        formId: $form.attr('id') || '',
+        title: config.formName || '',
+        submitLabel: config.formSubmitButtonText || 'Submit',
+        formId: config.formId || '',
         fields,
       }
     }
@@ -333,7 +344,23 @@ function parseBlock($, el) {
         text: inner.find('blockquote').text().trim() || inner.text().trim(),
         source: inner.find('figcaption').text().trim(),
       }
-    case 'accordion-block':
+    case 'accordion-block': {
+      // Squarespace drives the collapse with its own JS. Capturing title/body
+      // pairs lets the site render native <details>, which needs no script.
+      const items = inner
+        .find('li.accordion-item')
+        .map((_i, li) => {
+          const $li = $(li)
+          return {
+            title: $li.find('.accordion-item__title').first().text().trim(),
+            markdown: htmlToMarkdown($li.find('.accordion-item__dropdown').first().html()),
+          }
+        })
+        .get()
+        .filter((item) => item.title || item.markdown)
+
+      return items.length ? { type: 'accordion', items } : null
+    }
     case 'summary-v2-block':
     case 'gallery-block':
     case 'instagram-block': {

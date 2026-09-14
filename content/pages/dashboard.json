@@ -59,10 +59,29 @@
         },
         {
           "type": "form",
-          "title": "",
-          "submitLabel": "Submit",
-          "formId": "",
-          "fields": []
+          "title": "Newsletter 2 3",
+          "submitLabel": "Send",
+          "formId": "671f8fdaeefc084a7a98bb59",
+          "fields": [
+            {
+              "label": "Name",
+              "name": "name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "label": "Email",
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "label": "Message",
+              "name": "message",
+              "type": "textarea",
+              "required": false
+            }
+          ]
         }
       ]
     }

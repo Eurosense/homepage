@@ -10,3 +10,7 @@ out/
 # The parsed content (content/) and downloaded assets (public/) ARE committed —
 # they are the migration deliverable and must outlive the Squarespace account.
 archive/raw/
+
+# Local visual checks
+.screenshots/
+.playwright-mcp/

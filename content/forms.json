@@ -1,0 +1,35 @@
+{
+  "_readme": [
+    "Maps each Squarespace form to its replacement deploybase endpoint.",
+    "Create a form under the project's Forms tab in the deploybase dashboard,",
+    "then paste the id it gives you (the part after /f/) as 'deploybaseFormId'.",
+    "A form with a null id renders a visible notice instead of a submit button,",
+    "so a disconnected form can never silently swallow a visitor's message."
+  ],
+  "forms": {
+    "671f9020897e7e5dea51318a": {
+      "name": "Newsletter (/newsletter)",
+      "deploybaseFormId": null
+    },
+    "690dd4a1679a00291bac3ddb": {
+      "name": "Our Partners (/our-partners)",
+      "deploybaseFormId": null
+    },
+    "671f8f202e7e9614f30db2b7": {
+      "name": "For Partners (/forpartners)",
+      "deploybaseFormId": null
+    },
+    "671f8fdaeefc084a7a98bb59": {
+      "name": "Dashboard (/dashboard)",
+      "deploybaseFormId": null
+    },
+    "672206c01d3a4805c04b6587": {
+      "name": "Blog & News (/blognews)",
+      "deploybaseFormId": null
+    },
+    "66e4280969b09d60989f4f0b": {
+      "name": "Newsletter (/home-2)",
+      "deploybaseFormId": null
+    }
+  }
+}

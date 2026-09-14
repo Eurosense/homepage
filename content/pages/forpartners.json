@@ -46,7 +46,24 @@
         },
         {
           "type": "accordion",
-          "html": "<ul class=\"accordion-items-container\" data-should-allow-multiple-open-items=\"false\" data-is-divider-enabled=\"true\" data-is-first-divider-visible=\"true\" data-is-last-divider-visible=\"true\" data-is-expanded-first-item=\"false\" data-accordion-title-alignment=\"left\" data-accordion-description-alignment=\"left\" data-accordion-description-placement=\"left\" data-accordion-icon-placement=\"right\">\n  \n    <li class=\"accordion-item\">\n\n      \n        \n          <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider accordion-divider--top\" aria-hidden=\"true\"></div>\n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-1\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-1\">\n          <span class=\"accordion-item__title\">📊 Data Collection: Easily gather data within your community.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-1\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-1\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>We generate a large amount of micro-narratives (stories) that are interpreted by the people themselves using a set of questions, indicators and pictures (data about the stories). From people’s interpretation data, patterns and issues can be studied and filtered across different dimensions. An important aspect in sensemaking is to take an interest in outliers, stories that do not fit the pattern. These can point at the emerging future, at current “blind spots” of community activists, policy and decision-makers.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n    <li class=\"accordion-item\">\n\n      \n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-2\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-2\">\n          <span class=\"accordion-item__title\">🔍 Data Analysis: Access tools for detailed data examination.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-2\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-2\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>Use SenseMaker's cutting-edge narrative and pattern analysis to inform local and EU decision-makers with quantitative and qualitative, contextualised data that reflects real, lived experiences—not just numbers.</p><p>The Sense Maker helps you uncover patterns and trends in complex issues such as climate action, healthcare, and social inclusion, giving your organisation deeper insights for driving change.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n    <li class=\"accordion-item\">\n\n      \n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-3\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-3\">\n          <span class=\"accordion-item__title\">🛠️ Workshops: Participate in engaging and informative sessions.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-3\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-3\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>Join a network of organizations across Europe working together to drive meaningful change by sharing collective insights and data-driven narratives.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n    <li class=\"accordion-item\">\n\n      \n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-4\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-4\">\n          <span class=\"accordion-item__title\">📈 Real-Time Data: Utilize up-to-date information through our open-source platform.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-4\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-4\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>It provides an honest picture of what’s actually happening, so you can respond to changes as they occur, rather than relying on outdated assumptions. This real-time insight is key for making timely and informed decisions.</p><p>You can track changes over time by repeating the storytelling, keeping you at the forefront of evolving community dynamics.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n</ul>"
+          "items": [
+            {
+              "title": "📊 Data Collection: Easily gather data within your community.",
+              "markdown": "We generate a large amount of micro-narratives (stories) that are interpreted by the people themselves using a set of questions, indicators and pictures (data about the stories). From people’s interpretation data, patterns and issues can be studied and filtered across different dimensions. An important aspect in sensemaking is to take an interest in outliers, stories that do not fit the pattern. These can point at the emerging future, at current “blind spots” of community activists, policy and decision-makers."
+            },
+            {
+              "title": "🔍 Data Analysis: Access tools for detailed data examination.",
+              "markdown": "Use SenseMaker's cutting-edge narrative and pattern analysis to inform local and EU decision-makers with quantitative and qualitative, contextualised data that reflects real, lived experiences—not just numbers.\n\nThe Sense Maker helps you uncover patterns and trends in complex issues such as climate action, healthcare, and social inclusion, giving your organisation deeper insights for driving change."
+            },
+            {
+              "title": "🛠️ Workshops: Participate in engaging and informative sessions.",
+              "markdown": "Join a network of organizations across Europe working together to drive meaningful change by sharing collective insights and data-driven narratives."
+            },
+            {
+              "title": "📈 Real-Time Data: Utilize up-to-date information through our open-source platform.",
+              "markdown": "It provides an honest picture of what’s actually happening, so you can respond to changes as they occur, rather than relying on outdated assumptions. This real-time insight is key for making timely and informed decisions.\n\nYou can track changes over time by repeating the storytelling, keeping you at the forefront of evolving community dynamics."
+            }
+          ]
         }
       ]
     },
@@ -78,10 +95,29 @@
         },
         {
           "type": "form",
-          "title": "",
-          "submitLabel": "Submit",
-          "formId": "",
-          "fields": []
+          "title": "Newsletter 2 2",
+          "submitLabel": "Send",
+          "formId": "671f8f202e7e9614f30db2b7",
+          "fields": [
+            {
+              "label": "Name",
+              "name": "name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "label": "Email",
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "label": "Message",
+              "name": "message",
+              "type": "textarea",
+              "required": false
+            }
+          ]
         }
       ]
     }

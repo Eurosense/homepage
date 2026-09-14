@@ -335,10 +335,29 @@
         },
         {
           "type": "form",
-          "title": "",
+          "title": "Our Partners Form",
           "submitLabel": "Submit",
-          "formId": "",
-          "fields": []
+          "formId": "690dd4a1679a00291bac3ddb",
+          "fields": [
+            {
+              "label": "Name",
+              "name": "name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "label": "Email",
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "label": "Subject",
+              "name": "subject",
+              "type": "text",
+              "required": true
+            }
+          ]
         }
       ]
     }
