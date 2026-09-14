@@ -2,7 +2,7 @@
   "name": "eurosense",
   "version": "0.1.0",
   "private": true,
-  "description": "eurosense.eu — static React site, migrated off Squarespace",
+  "description": "eurosense.eu \u2014 static React site, migrated off Squarespace",
   "type": "module",
   "engines": {
     "node": ">=20.9"
@@ -19,7 +19,8 @@
     "extract": "node scripts/extract.mjs",
     "extract:fetch": "node scripts/extract.mjs --stage=fetch",
     "extract:parse": "node scripts/extract.mjs --stage=parse",
-    "extract:assets": "node scripts/extract.mjs --stage=assets"
+    "extract:assets": "node scripts/extract.mjs --stage=assets",
+    "dashboard:data": "node scripts/update-dashboard-data.mjs"
   },
   "dependencies": {
     "marked": "^16.4.2",

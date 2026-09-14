@@ -67,12 +67,37 @@ The chart libraries (Highcharts, ECharts, Plotly, PapaParse) still come from the
 CDNs; `src/app/layout.tsx` preconnects to them so DNS and TLS overlap the rest of the
 page load instead of running serially once the iframe starts parsing.
 
-**Its data is stale.** `captures.csv` was last refreshed **2025-04-29**. Upstream, a
-daily GitHub Action ran `server.js`, which pulls from the SenseMaker API
-(`api.singularity.icatalyst.com`) using a `PAT_TOKEN` secret. It has not run since —
-GitHub disables scheduled workflows after 60 days of repo inactivity, and the token
-may also have expired. Refreshing the data means reviving that job (here or upstream)
-and copying the resulting CSV in. Nothing in this repository does it automatically.
+### Keeping its data fresh
+
+`.github/workflows/dashboard-data.yml` refreshes `captures.csv` from the SenseMaker
+API every night at 03:00 UTC and commits it, which triggers a deploy. Run it by hand
+from the Actions tab, or locally:
+
+```bash
+SENSEMAKER_PAT_ID=... SENSEMAKER_FRAMEWORK=... npm run dashboard:data
+```
+
+It needs two repository secrets (Settings -> Secrets and variables -> Actions):
+
+| Secret | What it is |
+| --- | --- |
+| `SENSEMAKER_PAT_ID` | Personal access token id, exchanged for a short-lived bearer token |
+| `SENSEMAKER_FRAMEWORK` | The framework (project) whose captures are exported |
+
+**Until those secrets exist the workflow fails, visibly, in the Actions tab.** That is
+deliberate: the job this replaces lived in `Medibunny/Eurosense` and stopped running in
+April 2025 without anyone noticing — GitHub disables scheduled workflows after 60 days
+of repository inactivity. Between then and the migration, 764 citizen stories were
+collected that the dashboard never showed.
+
+The script refuses to write a response that is not a captures export, or one that has
+lost more than half its rows, so an auth failure or a gateway error cannot silently
+blank the dashboard.
+
+> **Rotate the SenseMaker token.** The previous job hardcoded the personal access
+> token id in `Medibunny/Eurosense`, which is a public repository. Anyone who reads it
+> can exchange it for a bearer token and pull the framework's captures. Issue a new
+> token, put it in the secret above, and revoke the old one.
 
 ## Deploying
 
@@ -127,6 +152,7 @@ worth knowing if you re-run it:
 - [x] Dashboard vendored in-repo and served same-origin
 - [x] Publications and storyboards embed their PDFs inline
 - [x] Newsletter forms now use the existing HubSpot form
+- [x] Dashboard data refresh migrated in-repo and re-run (1,986 -> 2,750 rows)
 - [x] All six forms handled: two newsletters via HubSpot, four contact forms via
       `mailto:` to voltsense@volteuropa.org — no backend to run
 - [ ] deploybase project created and domain pointed at it

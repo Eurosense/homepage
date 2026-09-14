@@ -115,7 +115,12 @@ broken frame is worse than an honest link.
 
 `public/dashboard-app/` is a vendored copy of the EuroSense charts app. Edit it there;
 it is served from this origin at `/dashboard-app/` and framed by the `/dashboard`
-page. Its `captures.csv` is a snapshot, not a live feed — see README.
+page.
+
+`captures.csv` is refreshed nightly by `.github/workflows/dashboard-data.yml`, which
+runs `scripts/update-dashboard-data.mjs` and commits the result. Do not edit that file
+by hand — the next run overwrites it. It needs the `SENSEMAKER_PAT_ID` and
+`SENSEMAKER_FRAMEWORK` repository secrets; see README.
 
 ### The newsletter
 
