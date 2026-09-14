@@ -164,7 +164,11 @@ export function BlockView({ block }: { block: Block }) {
         const target = getFormTarget(NEWSLETTER_SQUARESPACE_ID)
         if (target?.provider === 'hubspot' && target.newsletter) {
           return (
-            <NewsletterForm portalId={hubspot[2]} formId={hubspot[1]} spec={target.newsletter} />
+            <NewsletterForm
+              portalId={hubspot[2]}
+              formId={hubspot[1]}
+              spec={target.newsletter}
+            />
           )
         }
       }
