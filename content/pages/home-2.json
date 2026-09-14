@@ -6,104 +6,433 @@
   "sections": [
     {
       "id": "66e4280969b09d60989f4f09",
+      "theme": "bright",
       "background": "/media/Back2_Mesa-de-trabajo-1-d8f4dcb9.png",
+      "grid": {
+        "mobile": {
+          "rows": 11,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 17,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# **Welcome to** **EuroSense.**\n\n# **Citizen Sensor Network**"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\"><strong>Welcome to </strong><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"8e9a7055-c95b-4988-94f9-3daf471d35cb\"><strong>EuroSense.</strong></span></h1><h1 style=\"text-align:center; white-space:pre-wrap;\"><strong>Citizen Sensor Network</strong></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/9/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/2/16/26",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "## Bridging Divides, Growing Solutions"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\">Bridging Divides, Growing Solutions</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "9/2/11/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "13/2/15/26",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "670cc47578d2e23ca4af48fb",
+      "theme": "bright-inverse",
+      "grid": {
+        "mobile": {
+          "rows": 8,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 13,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "### A Europe-wide citizen science network\n\n### making the voices of European citizens heard\n\n### by activists, policy makers and governments.\n\n### By understanding the experiences of citizens in public life,\n\n### we sense the pulse of Europe.\n\n### This informs us how to overcome polarization and\n\n### collectively tackle the challenges of our times\n\n### such as climate change, inequality, immigration and security."
+          "html": "<div><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">A Europe-wide citizen science network </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">making the </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"6e23a2b4-e491-48e7-954c-1f691a105f07\"><span class=\"sqsrte-text-color--accent\">voices of European citizens heard </span></span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">by activists, policy makers and governments. </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"> By understanding the </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"a0c2af7c-ec53-4161-98f5-e163274f72f3\"><span class=\"sqsrte-text-color--accent\">experiences </span></span><span class=\"sqsrte-text-color--accent\">of citizens in public life, </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">we sense the pulse of Europe. </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">This informs us how to overcome polarization and</span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">collectively tackle the challenges of our times </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">such as climate change, inequality, immigration and security</span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"b2d288fe-6cb1-4719-96de-d04ec7703c0f\"><span class=\"sqsrte-text-color--accent\">.</span></span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/8/14/26",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/Europe-Network-bf954525.png",
           "alt": "",
-          "caption": ""
+          "width": 798,
+          "height": 626,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "3/2/9/10",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "2/2/13/9",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "67094786712e2f1d909dc6b5",
+      "theme": "bright",
+      "grid": {
+        "mobile": {
+          "rows": 25,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 14,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "image",
           "src": "/media/Mano-03-9e992e6b.png",
           "alt": "",
-          "caption": ""
+          "width": 3401,
+          "height": 3334,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "2/2/12/10",
+              "zIndex": 0,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "1/1/14/9",
+              "zIndex": 0,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### We use _SenseMaker_, an innovative online tool, to gather real-life stories from various communities.\n\n### Designed by experts, this tool lets individuals share and interpret their own experiences.\n\n### Activists and policymakers can use it to identify patterns, emerging issues, and guide positive change in society."
+          "html": "<div><h3 style=\"white-space:pre-wrap;\">We use <em>SenseMaker</em>, an innovative <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"7ba62886-784a-45e9-8bf0-d6ff9cbed516\">online tool</span>, to gather <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"1bb4f993-f61c-4f1b-a65d-4024e949864e\">real-life stories</span> from various communities. </h3><h3 style=\"white-space:pre-wrap;\">Designed by <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"97cfd47a-fa00-4861-9e53-c038dcb68d2b\">experts</span>, this tool lets individuals share and <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"6d5a1d2a-d92b-4888-9020-a12c21083048\">interpret </span>their own experiences.</h3><h3 style=\"white-space:pre-wrap;\">Activists and policymakers can use it to identify <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"a44be183-02ef-4466-ae64-2a8af19429d7\">patterns</span>, <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"f06c805f-22dc-4cb2-b6e4-9ede664cb662\">emerging issues</span>, and guide <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"59394c66-1683-49dd-a449-a6e5b86a5b93\">positive change </span>in society.</h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "12/2/24/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/9/13/24",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Share your story",
-          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "24/4/26/8",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "13/11/15/19",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "67643f1531fc712802a796d6",
+      "theme": "bright",
+      "grid": {
+        "mobile": {
+          "rows": 8,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 15,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Watch our video!"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\">Watch our video!</h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/2/7/8",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "video",
           "src": "",
-          "title": ""
+          "title": "",
+          "layout": {
+            "mobile": {
+              "area": "3/2/9/10",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "1/8/16/24",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "671f51b3325b0b69bec8ed7a",
+      "theme": "bright-inverse",
+      "grid": {
+        "mobile": {
+          "rows": 17,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 31,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## Events & News"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\">Events &amp; News</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/3/8",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "summary-v2",
-          "html": "<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-events-stacked\n  summary-block-setting-text-size-medium\n  summary-block-setting-text-align-left\n  summary-block-setting-design-autogrid\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-none\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-autogrid\n  \n  \" data-design=\"autogrid\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-event\n          sqs-gallery-design-autogrid-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          \n          summary-item-has-comments-enabled\n          \n          summary-item-has-location\">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/events/innovating-democracy-workshop-and-complexity-cafes\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"Innovating Democracy Workshop and Complexity Cafes\" data-description=\"\" aria-label=\"Innovating Democracy Workshop and Complexity Cafes\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/tirana-ced50022.jpg\" data-image=\"/media/tirana-ced50022.jpg\" data-image-dimensions=\"1728x990\" data-image-focal-point=\"0.5,0.5\" alt=\"Innovating Democracy Workshop and Complexity Cafes\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-autogrid\">\n\n  \n\n  \n\n    \n\n    \n      <!-- Events: Date Box -->\n      <div class=\"summary-thumbnail-event-date\">\n        <div class=\"summary-thumbnail-event-date-inner\">\n          <span class=\"summary-thumbnail-event-date-month\">Nov</span>\n          <span class=\"summary-thumbnail-event-date-day\">23</span>\n        </div>\n      </div>\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n<!-- Events: Date -->\n<time class=\"summary-metadata-item summary-metadata-item--date\">November 23, 2024 – November 24, 2024</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/events/innovating-democracy-workshop-and-complexity-cafes\" class=\"summary-title-link\">\n                Innovating Democracy Workshop and Complexity Cafes\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n<!-- Events: Date -->\n<time class=\"summary-metadata-item summary-metadata-item--date\">November 23, 2024 – November 24, 2024</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p>Join us for the Innovating Democracy Workshop and Complexity Cafes during the upcoming Weekend in Tirana to explore this question with our collected data via the Sense Maker. <br><br>We start on Saturday morning already!</p></div>\n            \n            \n            \n            <a href=\"/events/innovating-democracy-workshop-and-complexity-cafes\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n<!-- Events: Date -->\n<time class=\"summary-metadata-item summary-metadata-item--date\">November 23, 2024 – November 24, 2024</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n    </div>\n  </div>\n  \n</div>"
+          "html": "<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-events-stacked\n  summary-block-setting-text-size-medium\n  summary-block-setting-text-align-left\n  summary-block-setting-design-autogrid\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-none\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-autogrid\n  \n  \" data-design=\"autogrid\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-event\n          sqs-gallery-design-autogrid-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          \n          summary-item-has-comments-enabled\n          \n          summary-item-has-location\">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/events/innovating-democracy-workshop-and-complexity-cafes\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"Innovating Democracy Workshop and Complexity Cafes\" data-description=\"\" aria-label=\"Innovating Democracy Workshop and Complexity Cafes\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/tirana-ced50022.jpg\" data-image=\"/media/tirana-ced50022.jpg\" data-image-dimensions=\"1728x990\" data-image-focal-point=\"0.5,0.5\" alt=\"Innovating Democracy Workshop and Complexity Cafes\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-autogrid\">\n\n  \n\n  \n\n    \n\n    \n      <!-- Events: Date Box -->\n      <div class=\"summary-thumbnail-event-date\">\n        <div class=\"summary-thumbnail-event-date-inner\">\n          <span class=\"summary-thumbnail-event-date-month\">Nov</span>\n          <span class=\"summary-thumbnail-event-date-day\">23</span>\n        </div>\n      </div>\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n<!-- Events: Date -->\n<time class=\"summary-metadata-item summary-metadata-item--date\">November 23, 2024 – November 24, 2024</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/events/innovating-democracy-workshop-and-complexity-cafes\" class=\"summary-title-link\">\n                Innovating Democracy Workshop and Complexity Cafes\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n<!-- Events: Date -->\n<time class=\"summary-metadata-item summary-metadata-item--date\">November 23, 2024 – November 24, 2024</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p>Join us for the Innovating Democracy Workshop and Complexity Cafes during the upcoming Weekend in Tirana to explore this question with our collected data via the Sense Maker. <br><br>We start on Saturday morning already!</p></div>\n            \n            \n            \n            <a href=\"/events/innovating-democracy-workshop-and-complexity-cafes\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n<!-- Events: Date -->\n<time class=\"summary-metadata-item summary-metadata-item--date\">November 23, 2024 – November 24, 2024</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n    </div>\n  </div>\n  \n</div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/8/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "19/2/31/14",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "summary-v2",
-          "html": "<div class=\"sqs-blockStatus\">\n  \n  <div class=\"sqs-blockStatus-box\">\n    <div class=\"sqs-blockStatus-box-title\">Summary Block</div>\n    <div class=\"sqs-blockStatus-box-message\">\n      This block has no content yet. Items you add to the page connected to this block will display here.\n      \n    </div>\n  </div>\n</div>\n\n  \n\n\n<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-events-stacked\n  summary-block-setting-text-size-medium\n  summary-block-setting-text-align-left\n  summary-block-setting-design-autogrid\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-none\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-autogrid\n  \n  \" data-design=\"autogrid\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n    </div>\n  </div>\n  \n</div>\n\n\n\n\n<!-- SQUARESPACE_JSONT_ERROR\n\nwebsite.components.summary\n\n(line/character offsets reference the template source code)\n\n  1: RuntimeError EXPRESSION_PARSE at line 2 character 1: Error parsing expression: Unexpected character at 22: ?\n\n-->"
+          "html": "<div class=\"sqs-blockStatus\">\n  \n  <div class=\"sqs-blockStatus-box\">\n    <div class=\"sqs-blockStatus-box-title\">Summary Block</div>\n    <div class=\"sqs-blockStatus-box-message\">\n      This block has no content yet. Items you add to the page connected to this block will display here.\n      \n    </div>\n  </div>\n</div>\n\n  \n\n\n<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-events-stacked\n  summary-block-setting-text-size-medium\n  summary-block-setting-text-align-left\n  summary-block-setting-design-autogrid\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-none\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-autogrid\n  \n  \" data-design=\"autogrid\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n    </div>\n  </div>\n  \n</div>\n\n\n\n\n<!-- SQUARESPACE_JSONT_ERROR\n\nwebsite.components.summary\n\n(line/character offsets reference the template source code)\n\n  1: RuntimeError EXPRESSION_PARSE at line 2 character 1: Error parsing expression: Unexpected character at 22: ?\n\n-->",
+          "layout": {
+            "mobile": {
+              "area": "8/2/13/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "19/14/31/26",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "summary-v2",
-          "html": "<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-blog-masonry\n  summary-block-setting-text-size-large\n  summary-block-setting-text-align-left\n  summary-block-setting-design-carousel\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-none\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-carousel\n  \n  \" data-design=\"carousel\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-text\n          sqs-gallery-design-carousel-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          summary-item-has-author\n          \n          \n          \">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/blognews/mobility-stories-across-europe\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\" data-description=\"\" aria-label=\"Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/pexels-julia-isanta-munoz-626361636-28799879-fad885e8.jpg\" data-image=\"/media/pexels-julia-isanta-munoz-626361636-28799879-fad885e8.jpg\" data-image-dimensions=\"2592x1944\" data-image-focal-point=\"0.5,0.5\" alt=\"Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-carousel\">\n\n  \n\n  \n\n    \n\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-05-05\">May 5, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/blognews/mobility-stories-across-europe\" class=\"summary-title-link\">\n                Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-05-05\">May 5, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">A review of just 9 citizen stories on the topic of mobility and transport coming from 7 countries from across Europe reveals a striking regional divide, not simply in infrastructure quality, but in how people experience governance itself through transport.</p></div>\n            \n            \n            \n            <a href=\"/blognews/mobility-stories-across-europe\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-05-05\">May 5, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-text\n          sqs-gallery-design-carousel-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          summary-item-has-author\n          \n          \n          \">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/blognews/lolirgfneah3kvdmy6fiqcen1q0aed\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\" data-description=\"\" aria-label=\"AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/ChatGPT-Image-17-mar-2026--10_47_34-46154f2d.png\" data-image=\"/media/ChatGPT-Image-17-mar-2026--10_47_34-46154f2d.png\" data-image-dimensions=\"1536x1024\" data-image-focal-point=\"0.5,0.5\" alt=\"AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-carousel\">\n\n  \n\n  \n\n    \n\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-03-17\">March 17, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/blognews/lolirgfneah3kvdmy6fiqcen1q0aed\" class=\"summary-title-link\">\n                AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-03-17\">March 17, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Real experiences with AI reveal a clear pattern: the same tools can enable agency or create harm. What shapes the outcome isn’t the technology, but control, accountability, and governance.</p></div>\n            \n            \n            \n            <a href=\"/blognews/lolirgfneah3kvdmy6fiqcen1q0aed\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-03-17\">March 17, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-text\n          sqs-gallery-design-carousel-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          summary-item-has-author\n          \n          \n          \">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"Reimagining Democracy: EuroSense Pilot Project Results Are Here!\" data-description=\"\" aria-label=\"Reimagining Democracy: EuroSense Pilot Project Results Are Here!\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/Primary-Analysis-Report-70650a03.png\" data-image=\"/media/Primary-Analysis-Report-70650a03.png\" data-image-dimensions=\"512x298\" data-image-focal-point=\"0.5,0.5\" alt=\"Reimagining Democracy: EuroSense Pilot Project Results Are Here!\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-carousel\">\n\n  \n\n  \n\n    \n\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2025-04-10\">April 10, 2025</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here\" class=\"summary-title-link\">\n                Reimagining Democracy: EuroSense Pilot Project Results Are Here!\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2025-04-10\">April 10, 2025</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">We are thrilled to announce the release of the 𝗘𝘂𝗿𝗼𝗦𝗲𝗻𝘀𝗲 𝗣𝗿𝗶𝗺𝗮𝗿𝘆 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀 𝗥𝗲𝗽𝗼𝗿𝘁, a groundbreaking initiative powered by Volt Europa and driven by citizen scientists across Europe. This report represents one step forward to understanding polarization, empowering citizens, and building a more inclusive democratic society. Read more here…</p></div>\n            \n            \n            \n            <a href=\"/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2025-04-10\">April 10, 2025</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n    </div>\n  </div>\n  \n</div>"
+          "html": "<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-blog-masonry\n  summary-block-setting-text-size-large\n  summary-block-setting-text-align-left\n  summary-block-setting-design-carousel\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-none\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-carousel\n  \n  \" data-design=\"carousel\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-text\n          sqs-gallery-design-carousel-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          summary-item-has-author\n          \n          \n          \">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/blognews/mobility-stories-across-europe\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\" data-description=\"\" aria-label=\"Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/pexels-julia-isanta-munoz-626361636-28799879-fad885e8.jpg\" data-image=\"/media/pexels-julia-isanta-munoz-626361636-28799879-fad885e8.jpg\" data-image-dimensions=\"2592x1944\" data-image-focal-point=\"0.5,0.5\" alt=\"Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-carousel\">\n\n  \n\n  \n\n    \n\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-05-05\">May 5, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/blognews/mobility-stories-across-europe\" class=\"summary-title-link\">\n                Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-05-05\">May 5, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">A review of just 9 citizen stories on the topic of mobility and transport coming from 7 countries from across Europe reveals a striking regional divide, not simply in infrastructure quality, but in how people experience governance itself through transport.</p></div>\n            \n            \n            \n            <a href=\"/blognews/mobility-stories-across-europe\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-05-05\">May 5, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-text\n          sqs-gallery-design-carousel-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          summary-item-has-author\n          \n          \n          \">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/blognews/lolirgfneah3kvdmy6fiqcen1q0aed\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\" data-description=\"\" aria-label=\"AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/ChatGPT-Image-17-mar-2026--10_47_34-46154f2d.png\" data-image=\"/media/ChatGPT-Image-17-mar-2026--10_47_34-46154f2d.png\" data-image-dimensions=\"1536x1024\" data-image-focal-point=\"0.5,0.5\" alt=\"AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-carousel\">\n\n  \n\n  \n\n    \n\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-03-17\">March 17, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/blognews/lolirgfneah3kvdmy6fiqcen1q0aed\" class=\"summary-title-link\">\n                AI Isn’t the Story — People Are: What 75 Real Experiences Reveal\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-03-17\">March 17, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Real experiences with AI reveal a clear pattern: the same tools can enable agency or create harm. What shapes the outcome isn’t the technology, but control, accountability, and governance.</p></div>\n            \n            \n            \n            <a href=\"/blognews/lolirgfneah3kvdmy6fiqcen1q0aed\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2026-03-17\">March 17, 2026</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n        <div class=\"\n          summary-item\n          positioned\n          summary-item-record-type-text\n          sqs-gallery-design-carousel-slide\n          \n          \n            summary-item-has-thumbnail\n          \n           summary-item-has-excerpt\n          \n          \n          summary-item-has-author\n          \n          \n          \">\n          \n          \n\n\n  \n    <div class=\"summary-thumbnail-outer-container\">\n      <a href=\"/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here\" class=\"\n          summary-thumbnail-container\n          sqs-gallery-image-container\n          \n        \" data-title=\"Reimagining Democracy: EuroSense Pilot Project Results Are Here!\" data-description=\"\" aria-label=\"Reimagining Democracy: EuroSense Pilot Project Results Are Here!\">\n        <div class=\"summary-thumbnail img-wrapper\" data-animation-role=\"image\">\n  \n\n  \n      <!-- Main Image -->\n      <img data-src=\"/media/Primary-Analysis-Report-70650a03.png\" data-image=\"/media/Primary-Analysis-Report-70650a03.png\" data-image-dimensions=\"512x298\" data-image-focal-point=\"0.5,0.5\" alt=\"Reimagining Democracy: EuroSense Pilot Project Results Are Here!\" data-load=\"false\" class=\"summary-thumbnail-image\" elementtiming=\"summary-thumbnail-image-carousel\">\n\n  \n\n  \n\n    \n\n    \n\n    </div>\n  </a>\n\n    <!-- Products: Quick View -->\n    \n\n    </div>\n  \n\n\n          <div class=\"summary-content sqs-gallery-meta-container\" data-animation-role=\"content\">\n            \n            <div class=\"summary-metadata-container summary-metadata-container--above-title\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2025-04-10\">April 10, 2025</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            <div class=\"summary-title\">\n              <a href=\"/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here\" class=\"summary-title-link\">\n                Reimagining Democracy: EuroSense Pilot Project Results Are Here!\n              </a>\n            </div>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-title\">\n            \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2025-04-10\">April 10, 2025</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n            \n            \n            \n            \n              \n              <div class=\"\n                summary-excerpt\n                summary-excerpt-only\n              \"><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">We are thrilled to announce the release of the 𝗘𝘂𝗿𝗼𝗦𝗲𝗻𝘀𝗲 𝗣𝗿𝗶𝗺𝗮𝗿𝘆 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀 𝗥𝗲𝗽𝗼𝗿𝘁, a groundbreaking initiative powered by Volt Europa and driven by citizen scientists across Europe. This report represents one step forward to understanding polarization, empowering citizens, and building a more inclusive democratic society. Read more here…</p></div>\n            \n            \n            \n            <a href=\"/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here\" class=\"summary-read-more-link\">Read more →</a>\n            \n            <div class=\"summary-metadata-container summary-metadata-container--below-content\">\n              \n              <div class=\"summary-metadata summary-metadata--primary\">\n\n\n\n<!-- Timestamp -->\n<time class=\"summary-metadata-item summary-metadata-item--date\" datetime=\"2025-04-10\">April 10, 2025</time>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n              \n              <div class=\"summary-metadata summary-metadata--secondary\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</div>\n            </div>\n          </div>\n        </div>\n      \n    </div>\n  </div>\n  \n</div>",
+          "layout": {
+            "mobile": {
+              "area": "13/2/18/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/2/19/26",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "68401497bf4a6058ad418821",
+      "grid": {
+        "mobile": {
+          "rows": 6,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 4,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "embed",
-          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    \n\n\n  <meta charset=\"UTF-8\">\n  <title>LinkedIn Feed – no badge</title>\n\n  <!-- CSS first: covers cases where JS is blocked -->\n  <style>\n    /* 1️⃣  Hide every toolbar / link variant Elfsight adds */\n    .eapps-widget-toolbar,\n    .eapps-link,\n    .global-styles {\n      display: none !important;\n      height: 0 !important;\n      padding: 0 !important;\n      margin: 0 !important;\n    }\n  </style>\n\n\n\n  <!-- 2️⃣  Your LinkedIn Feed widget -->\n  <script src=\"https://static.elfsight.com/platform/platform.js\" defer=\"\"></script>\n  <div class=\"elfsight-app-b1f42848-ba25-4ba4-bc6f-5e79cc055467\" data-elfsight-app-lazy=\"\"></div>\n\n  <!-- 3️⃣  JS clean-up for editors where the badge still appears -->\n  <script>\n    (function () {\n      const INTERVAL = 250;          // ms between checks\n      const MAX_TIME = 10_000;       // stop after 10 s\n      let waited = 0;\n\n      const tidy = () => {\n        // grab ANY toolbar variant that made it into the DOM\n        const toolbar = document.querySelector(\n          '.eapps-widget-toolbar, .global-styles'\n        );\n        if (toolbar) {\n          const parent = toolbar.parentElement;\n          toolbar.remove();          // ✂️ kill the badge\n          if (parent) {\n            // 🔧 remove leftover spacing\n            parent.style.paddingBottom = '0';\n            parent.style.marginBottom  = '0';\n          }\n          clearInterval(timer);      // we're done\n        }\n        waited += INTERVAL;\n        if (waited >= MAX_TIME) clearInterval(timer);\n      };\n\n      const timer = setInterval(tidy, INTERVAL);\n    })();\n  </script>\n\n\n\n\n\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>"
+          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    \n\n\n  <meta charset=\"UTF-8\">\n  <title>LinkedIn Feed – no badge</title>\n\n  <!-- CSS first: covers cases where JS is blocked -->\n  <style>\n    /* 1️⃣  Hide every toolbar / link variant Elfsight adds */\n    .eapps-widget-toolbar,\n    .eapps-link,\n    .global-styles {\n      display: none !important;\n      height: 0 !important;\n      padding: 0 !important;\n      margin: 0 !important;\n    }\n  </style>\n\n\n\n  <!-- 2️⃣  Your LinkedIn Feed widget -->\n  <script src=\"https://static.elfsight.com/platform/platform.js\" defer=\"\"></script>\n  <div class=\"elfsight-app-b1f42848-ba25-4ba4-bc6f-5e79cc055467\" data-elfsight-app-lazy=\"\"></div>\n\n  <!-- 3️⃣  JS clean-up for editors where the badge still appears -->\n  <script>\n    (function () {\n      const INTERVAL = 250;          // ms between checks\n      const MAX_TIME = 10_000;       // stop after 10 s\n      let waited = 0;\n\n      const tidy = () => {\n        // grab ANY toolbar variant that made it into the DOM\n        const toolbar = document.querySelector(\n          '.eapps-widget-toolbar, .global-styles'\n        );\n        if (toolbar) {\n          const parent = toolbar.parentElement;\n          toolbar.remove();          // ✂️ kill the badge\n          if (parent) {\n            // 🔧 remove leftover spacing\n            parent.style.paddingBottom = '0';\n            parent.style.marginBottom  = '0';\n          }\n          clearInterval(timer);      // we're done\n        }\n        waited += INTERVAL;\n        if (waited >= MAX_TIME) clearInterval(timer);\n      };\n\n      const timer = setInterval(tidy, INTERVAL);\n    })();\n  </script>\n\n\n\n\n\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/7/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/5/26",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "66e4280969b09d60989f4f0e",
+      "theme": "bright",
       "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "grid": {
+        "mobile": {
+          "rows": 21,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 14,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+          "html": "<div><h1 style=\"white-space:pre-wrap;\">Newsletter</h1><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"33718c7b-2538-46b5-9256-98f18fb046ea\">Interested </span>in our efforts? </h3><h3 style=\"white-space:pre-wrap;\">Stay <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"0b719889-f0d2-4269-9211-512a33cc2768\">informed</span> about the EuroSense project!</h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/8/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/3/10/13",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "form",
@@ -129,78 +458,266 @@
               "type": "textarea",
               "required": false
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "8/2/21/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/16/14/26",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "66f3b38e16cbad674cc9393f",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 44,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 23,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Our partners"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Our partners</span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/10/4/18",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/CP-horizontal-logo-RGB-color-25-b407d705.png",
           "alt": "",
+          "width": 500,
+          "height": 217,
           "caption": "",
-          "href": "https://www.complexitypartners.com/"
+          "href": "https://www.complexitypartners.com/",
+          "layout": {
+            "mobile": {
+              "area": "3/2/9/10",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "9/2/15/11",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/logo-lusval_transparent-8828853d.png",
           "alt": "",
+          "width": 500,
+          "height": 500,
           "caption": "",
-          "href": "https://www.lusval.com"
+          "href": "https://www.lusval.com",
+          "layout": {
+            "mobile": {
+              "area": "9/2/15/10",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "16/2/22/8",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/IFIS-Logo-2.10-transparent-b558bd8a.png",
           "alt": "",
+          "width": 1113,
+          "height": 403,
           "caption": "",
-          "href": "https://www.ifis-freiburg.de/"
+          "href": "https://www.ifis-freiburg.de/",
+          "layout": {
+            "mobile": {
+              "area": "15/2/21/6",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "12/16/18/25",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/Copy-of-IMPETUS-Logo-Horizontal-93a20204.png",
           "alt": "",
+          "width": 2480,
+          "height": 2480,
           "caption": "",
-          "href": "https://impetus4cs.eu/"
+          "href": "https://impetus4cs.eu/",
+          "layout": {
+            "mobile": {
+              "area": "15/6/21/10",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "4/11/9/18",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/Logo_DA_PNG-9181f7f1.png",
           "alt": "",
+          "width": 1679,
+          "height": 657,
           "caption": "",
-          "href": "https://democracyagency.nl/english/"
+          "href": "https://democracyagency.nl/english/",
+          "layout": {
+            "mobile": {
+              "area": "21/2/27/10",
+              "zIndex": 8,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "17/16/23/22",
+              "zIndex": 8,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/Sensemaker_powered_2D_portrait_light_RGB-29552cfb.png",
           "alt": "",
+          "width": 791,
+          "height": 750,
           "caption": "",
-          "href": "https://thecynefin.co/sensemaker/"
+          "href": "https://thecynefin.co/sensemaker/",
+          "layout": {
+            "mobile": {
+              "area": "39/2/45/6",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "4/18/9/25",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/EN-Funded-by-the-EU-PANTONE-edb79c80.jpg",
           "alt": "",
+          "width": 4247,
+          "height": 891,
           "caption": "",
-          "href": "https://impetus4cs.eu/"
+          "href": "https://impetus4cs.eu/",
+          "layout": {
+            "mobile": {
+              "area": "27/6/33/10",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "8/11/12/21",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/Charge-logo-NL-purple-klein-048ec3a7.png",
           "alt": "",
+          "width": 340,
+          "height": 135,
           "caption": "",
-          "href": "https://www.charge-volt.org/"
+          "href": "https://www.charge-volt.org/",
+          "layout": {
+            "mobile": {
+              "area": "27/2/33/6",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "5/2/9/11",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/1206px-Logo_Volt_Europa-f4ee5df1.png",
           "alt": "",
-          "caption": ""
+          "width": 1206,
+          "height": 1198,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "33/2/39/10",
+              "zIndex": 6,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "12/10/18/16",
+              "zIndex": 6,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     }

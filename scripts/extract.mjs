@@ -161,6 +161,63 @@ function htmlToMarkdown(html) {
   return turndown.turndown($('#__root').html() || '').trim()
 }
 
+/** Inline style properties that carry meaning we must not lose. */
+const KEEP_STYLE = new Set(['text-align', 'color', 'white-space', 'font-style'])
+
+/**
+ * Cleans a Squarespace rich-text block, keeping it as HTML.
+ *
+ * Markdown was the obvious choice and the wrong one: this content carries
+ * `text-align:center` on headings and `<span style="color:#123BC8">` runs, and
+ * Markdown can express neither. Converting lost the centring and the two-tone
+ * headings on every page. Keeping HTML preserves them; the classes below are
+ * kept too because the theme layer styles them.
+ */
+function cleanRichText($el) {
+  const html = $el.html()
+  if (!html) return ''
+
+  const $ = cheerio.load(`<div id="__root">${html}</div>`)
+  $('style, script, noscript').remove()
+
+  $('#__root *').each((_i, el) => {
+    const $node = $(el)
+
+    // Keep every `sqsrte-` class, not just the colour ones. `sqsrte-large`
+    // marks the paragraphs that scale with the viewport; dropping it rendered
+    // every hero subtitle at the fixed 16px body size.
+    const classes = ($node.attr('class') || '')
+      .split(/\s+/)
+      .filter((c) => c.startsWith('sqsrte-'))
+    if (classes.length) $node.attr('class', classes.join(' '))
+    else $node.removeAttr('class')
+
+    const style = $node.attr('style')
+    if (style) {
+      const kept = style
+        .split(';')
+        .map((d) => d.trim())
+        .filter((d) => d && KEEP_STYLE.has(d.split(':')[0].trim().toLowerCase()))
+      if (kept.length) $node.attr('style', `${kept.join('; ')};`)
+      else $node.removeAttr('style')
+    }
+
+    for (const attr of ['data-sqsp-text-block-content', 'data-rte-preserve-empty']) {
+      $node.removeAttr(attr)
+    }
+  })
+
+  // The wrapper divs carry nothing once their classes are gone.
+  const inner = $('#__root').html() || ''
+  const $unwrapped = cheerio.load(`<div id="__root">${inner}</div>`)
+  $unwrapped('#__root div').each((_i, el) => {
+    const $d = $unwrapped(el)
+    if (!$d.attr('class') && !$d.attr('style')) $d.replaceWith($d.html() || '')
+  })
+
+  return ($unwrapped('#__root').html() || '').replace(/\s+/g, ' ').trim()
+}
+
 /** Strip presentational cruft from HTML we keep verbatim (accordions, galleries). */
 function cleanHtml(html) {
   if (!html) return ''
@@ -258,23 +315,26 @@ function parseBlock($, el) {
   switch (kind) {
     case 'html-block':
     case 'markdown-block': {
-      // Squarespace inlines per-block <style> rules (tweak variables, blend
-      // modes) inside the block itself. Turndown treats their text as prose, so
-      // they must go before conversion or every heading drags a CSS dump along.
-      const $clone = inner.clone()
-      $clone.find('style, script, noscript').remove()
-      const md = htmlToMarkdown($clone.html() || '')
-      return md ? { type: 'richText', markdown: md } : null
+      const html = cleanRichText(inner)
+      return html ? { type: 'richText', html } : null
     }
     case 'image-block': {
       const $img = inner.find('img').first()
       const src = $img.attr('data-src') || $img.attr('src')
       if (!src) return null
       const $link = inner.find('a').first()
+
+      // Squarespace records the real pixel size. Using it keeps the rendered
+      // aspect ratio identical to the original (a guessed ratio changes the
+      // height of the grid row the image sits in) and avoids layout shift.
+      const [w, h] = ($img.attr('data-image-dimensions') || '').split('x').map(Number)
+
       return {
         type: 'image',
         src,
         alt: $img.attr('alt') || '',
+        width: Number.isFinite(w) && w > 0 ? w : undefined,
+        height: Number.isFinite(h) && h > 0 ? h : undefined,
         caption: htmlToMarkdown(inner.find('.image-caption').html() || ''),
         href: $link.attr('href') || undefined,
       }
@@ -282,10 +342,22 @@ function parseBlock($, el) {
     case 'button-block': {
       const $a = inner.find('a').first()
       if (!$a.length) return null
+      const $container = inner.find('[data-button-type]').first()
+      const alignment = ($container.attr('class') || '').match(
+        /sqs-block-button-container--(\w+)/,
+      )?.[1]
       return {
         type: 'button',
-        label: $a.text().trim(),
+        label: $a.text().replace(/\s+/g, ' ').trim(),
         href: $a.attr('href') || '#',
+        // primary / secondary / tertiary drive completely different colours in
+        // the theme, so the variant has to survive the migration.
+        variant: $container.attr('data-button-type') || 'primary',
+        size: $container.attr('data-button-size') || 'medium',
+        alignment: alignment || 'left',
+        // `sqs-stretched` makes the button fill its grid cell rather than hug
+        // its label, which changes the look substantially on narrow screens.
+        stretched: $container.hasClass('sqs-stretched') || undefined,
       }
     }
     case 'video-block': {
@@ -378,6 +450,123 @@ function parseBlock($, el) {
 }
 
 /**
+ * Flattens a Squarespace fluid-engine <style> block into rules tagged with the
+ * media query they sit under.
+ *
+ * Brace matching rather than a regex: the same `.fe-block-x` selector appears
+ * once at the top level (the mobile layout) and again inside
+ * `@media (min-width: 768px)` (the desktop one). A regex sweep cannot tell the
+ * two apart, and picking the wrong one silently swaps the layouts.
+ */
+function flattenCssRules(css, media = null, out = []) {
+  let i = 0
+
+  while (i < css.length) {
+    const open = css.indexOf('{', i)
+    if (open === -1) break
+
+    let depth = 1
+    let j = open + 1
+    while (j < css.length && depth > 0) {
+      if (css[j] === '{') depth++
+      else if (css[j] === '}') depth--
+      j++
+    }
+
+    const prelude = css.slice(i, open).trim()
+    const body = css.slice(open + 1, j - 1)
+
+    if (prelude.startsWith('@media')) {
+      flattenCssRules(body, prelude.replace(/^@media\s*/, '').trim(), out)
+    } else if (prelude) {
+      out.push({ selector: prelude, body, media })
+    }
+
+    i = j
+  }
+
+  return out
+}
+
+/**
+ * Reads one declaration out of a rule body, ignoring any nested at-rule. Blocks
+ * carry an inline `@media (max-width: 767px) { … }` whose declarations would
+ * otherwise be mistaken for the rule's own.
+ */
+function declaration(body, prop) {
+  const own = body.replace(/@media[^{]*\{[\s\S]*?\}\s*\}?/g, '')
+  return own.match(new RegExp(`(?:^|[;{\\s])${prop}\\s*:\\s*([^;}]+)`))?.[1].trim()
+}
+
+/** True for the breakpoint Squarespace uses to switch 8 columns to 24. */
+const isDesktop = (media) => Boolean(media && /min-width:\s*768px/.test(media))
+
+/**
+ * Reads the responsive grid Squarespace generated for one fluid-engine section.
+ *
+ * Squarespace already solved the responsive problem here: it emits an 8-column
+ * mobile grid and a 24-column desktop grid, with a `grid-area` per block for
+ * each. Capturing both means the rebuilt site is responsive for the same reason
+ * the original was, rather than by re-inventing the breakpoints by eye.
+ */
+function parseFluidLayout($, $section) {
+  const css = $section.find('[data-fluid-engine] style').first().html()
+  if (!css) return null
+
+  const rules = flattenCssRules(css)
+  const gridId = css.match(/\.(fe-[0-9a-f]{12,})\s*\{/)?.[1]
+  if (!gridId) return null
+
+  const container = { mobile: {}, desktop: {} }
+  const blocks = new Map()
+
+  for (const rule of rules) {
+    const target = isDesktop(rule.media) ? 'desktop' : 'mobile'
+
+    if (rule.selector === `.${gridId}`) {
+      const rows = declaration(rule.body, 'grid-template-rows')
+      const columns = declaration(rule.body, 'grid-template-columns')
+      if (rows) {
+        container[target].rows = Number(rows.match(/repeat\((\d+)/)?.[1]) || undefined
+        container[target].rowMin = rows.match(/minmax\(([^,]+),/)?.[1].trim()
+      }
+      if (columns) {
+        container[target].columns = Number(columns.match(/repeat\((\d+)/)?.[1]) || undefined
+      }
+      const rowGap = declaration(rule.body, 'row-gap')
+      const columnGap = declaration(rule.body, 'column-gap')
+      const scale = declaration(rule.body, '--row-height-scaling-factor')
+      if (rowGap) container[target].rowGap = rowGap
+      if (columnGap) container[target].columnGap = columnGap
+      if (scale) container[target].rowScale = Number(scale)
+      continue
+    }
+
+    const blockMatch = rule.selector.match(/^\.(fe-block-[\w-]+)\s*(.*)$/)
+    if (!blockMatch) continue
+    const [, id, suffix] = blockMatch
+
+    if (!blocks.has(id)) blocks.set(id, { mobile: {}, desktop: {} })
+    const entry = blocks.get(id)[target]
+
+    if (!suffix) {
+      const area = declaration(rule.body, 'grid-area')
+      const z = declaration(rule.body, 'z-index')
+      if (area) entry.area = area
+      if (z) entry.zIndex = Number(z)
+    } else if (suffix.includes('.sqs-block-alignment-wrapper')) {
+      const align = declaration(rule.body, 'align-items')
+      if (align) entry.align = align
+    } else if (suffix.includes('.sqs-block')) {
+      const justify = declaration(rule.body, 'justify-content')
+      if (justify) entry.justify = justify
+    }
+  }
+
+  return { gridId, container, blocks }
+}
+
+/**
  * Site-wide chrome: logo, favicon, primary nav, footer and social links.
  *
  * Extracted once from the homepage. These live outside `section.page-section`,
@@ -401,13 +590,26 @@ function parseSiteChrome(html) {
     nav.push({ label, href })
   })
 
+  /*
+   * Social links live in `.header-actions`, not in a social-account-links
+   * block. Searching only for the latter reported "no social links", which read
+   * as "this site has none" rather than "the selector was wrong".
+   */
   const social = []
-  $('[class*=social-account-links] a, .sqs-svg-icon--list a').each((_i, a) => {
+  $('.header-actions a[href], [class*=social-account-links] a[href]').each((_i, a) => {
     const href = $(a).attr('href') || ''
-    if (!href || href.startsWith('#') || social.some((s) => s.href === href)) return
-    const platform = (href.match(/([a-z]+)\.(?:com|org|be|eu|net|io)/i) || [, 'link'])[1]
+    const platform = href.match(
+      /(instagram|linkedin|twitter|x|facebook|youtube|mastodon|bluesky|tiktok)\./i,
+    )?.[1]
+    if (!platform || social.some((s) => s.href === href)) return
     social.push({ platform: platform.toLowerCase(), href })
   })
+
+  // The header's call-to-action button, which sits beside the social icons.
+  const $cta = $('.header-actions a.btn, .header-actions a[class*=sqs-button]').first()
+  const headerCta = $cta.length
+    ? { label: $cta.text().replace(/\s+/g, ' ').trim(), href: $cta.attr('href') || '#' }
+    : undefined
 
   // The footer is a normal Squarespace layout, so run it through the same block
   // parser as page sections rather than flattening it to a single string.
@@ -425,6 +627,7 @@ function parseSiteChrome(html) {
     favicon: ($('link[rel*=icon]').first().attr('href') || '').split('?')[0],
     nav,
     social,
+    headerCta,
     footerBlocks,
   }
 }
@@ -444,19 +647,76 @@ function parsePageHtml(html, urlPath) {
   const sections = []
   $('#page section.page-section, main section.page-section').each((_i, sec) => {
     const $sec = $(sec)
+
+    /*
+     * List sections are a separate Squarespace section type with no .sqs-block
+     * children at all, so the block loop below finds nothing and the section is
+     * dropped. That silently lost the partner-logo strip on the homepage.
+     */
+    if ($sec.hasClass('user-items-list-section')) {
+      const items = $sec
+        .find('.list-item')
+        .map((_j, li) => {
+          const $li = $(li)
+          const $img = $li.find('img').first()
+          const $link = $li.find('a[href]').first()
+          return {
+            image: $img.attr('data-src') || $img.attr('src') || undefined,
+            alt: $img.attr('alt') || '',
+            title: $li.find('.list-item-content__title').first().text().replace(/\s+/g, ' ').trim(),
+            description: htmlToMarkdown(
+              $li.find('.list-item-content__description').first().html(),
+            ),
+            href: $link.attr('href') || undefined,
+          }
+        })
+        .get()
+        .filter((item) => item.image || item.title)
+
+      if (items.length) {
+        sections.push({
+          id: $sec.attr('data-section-id') || undefined,
+          theme: $sec.attr('data-section-theme') || undefined,
+          blocks: [{ type: 'list', items }],
+        })
+      }
+      return
+    }
+
+    const layout = parseFluidLayout($, $sec)
     const blocks = []
+
     $sec.find('[class*="-block"].sqs-block, .fe-block .sqs-block').each((_j, b) => {
       // Skip blocks nested inside an already-captured block.
       if ($(b).parents('.sqs-block').length) return
       const parsed = parseBlock($, b)
-      if (parsed) blocks.push(parsed)
+      if (!parsed) return
+
+      // Carry the block's grid placement across, keyed by the fe-block class on
+      // its wrapper. Without this the section collapses to a single column.
+      if (layout) {
+        const wrapperClass = ($(b).closest('.fe-block').attr('class') || '')
+          .split(/\s+/)
+          .find((c) => c.startsWith('fe-block-'))
+        const placement = wrapperClass ? layout.blocks.get(wrapperClass) : undefined
+        if (placement) parsed.layout = placement
+      }
+
+      blocks.push(parsed)
     })
-    if (!blocks.length) return
+
+    // A fluid section with no blocks is still meaningful: its grid rows define
+    // real vertical space on the page. Dropping it silently shortens the page.
+    if (!blocks.length && !layout) return
 
     const $bg = $sec.find('.section-background img').first()
     sections.push({
       id: $sec.attr('data-section-id') || undefined,
+      // The section theme decides background, heading, text and button colours.
+      // Without it every section renders on the same background.
+      theme: $sec.attr('data-section-theme') || undefined,
       background: $bg.attr('data-src') || $bg.attr('src') || undefined,
+      grid: layout ? layout.container : undefined,
       blocks,
     })
   })

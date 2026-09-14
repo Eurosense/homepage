@@ -6,11 +6,41 @@
   "sections": [
     {
       "id": "671f9020897e7e5dea513190",
+      "theme": "light",
       "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "grid": {
+        "mobile": {
+          "rows": 21,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 14,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+          "html": "<div><h1 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">Newsletter</span></h1><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"33718c7b-2538-46b5-9256-98f18fb046ea\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">Interested </span></span><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">in our efforts? </span></h3><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(254, 254, 254);\">Stay </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"0b719889-f0d2-4269-9211-512a33cc2768\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(254, 254, 254);\">informed</span></span><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(254, 254, 254);\"> about the EuroSense project!</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/8/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/3/10/13",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "form",
@@ -36,7 +66,21 @@
               "type": "textarea",
               "required": false
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "8/2/21/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/16/14/26",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

@@ -9,9 +9,27 @@ import path from 'node:path'
 const CONTENT_DIR = path.join(process.cwd(), 'content')
 
 export type Block =
-  | { type: 'richText'; markdown: string }
-  | { type: 'image'; src: string; alt?: string; caption?: string; href?: string }
-  | { type: 'button'; label: string; href: string }
+  | { type: 'richText'; html: string }
+  | {
+      type: 'image'
+      src: string
+      alt?: string
+      /** Real pixel size from Squarespace, so the aspect ratio matches the original. */
+      width?: number
+      height?: number
+      caption?: string
+      href?: string
+    }
+  | {
+      type: 'button'
+      label: string
+      href: string
+      variant?: 'primary' | 'secondary' | 'tertiary'
+      size?: 'small' | 'medium' | 'large'
+      alignment?: 'left' | 'center' | 'right'
+      /** Squarespace's `sqs-stretched`: fill the grid cell instead of hugging the label. */
+      stretched?: boolean
+    }
   | { type: 'video'; src: string; title?: string }
   | { type: 'embed'; html: string }
   | { type: 'quote'; text: string; source?: string }
@@ -20,6 +38,10 @@ export type Block =
   | { type: 'accordion'; items: { title: string; markdown: string }[] }
   | { type: 'gallery'; html: string }
   | { type: 'summary-v2'; html: string }
+  | {
+      type: 'list'
+      items: { image?: string; alt?: string; title?: string; description?: string; href?: string }[]
+    }
   | { type: 'instagram'; html: string }
 
 export type FormField = {
@@ -29,10 +51,48 @@ export type FormField = {
   required: boolean
 }
 
+/** One breakpoint's placement for a block, as Squarespace's fluid engine wrote it. */
+export type Placement = {
+  area?: string
+  zIndex?: number
+  /** Horizontal alignment inside the grid cell. */
+  justify?: string
+  /** Vertical alignment inside the grid cell. */
+  align?: string
+}
+
+export type BlockLayout = {
+  mobile?: Placement
+  desktop?: Placement
+}
+
+/** The section's grid: 8 columns under 768px, 24 at and above it. */
+export type SectionGrid = {
+  mobile?: {
+    rows?: number
+    rowMin?: string
+    columns?: number
+    rowGap?: string
+    columnGap?: string
+  }
+  desktop?: {
+    rows?: number
+    columns?: number
+    rowScale?: number
+    rowGap?: string
+    columnGap?: string
+  }
+}
+
+export type PositionedBlock = Block & { layout?: BlockLayout }
+
 export type Section = {
   id?: string
+  /** Squarespace section theme: decides background, heading, text and button colours. */
+  theme?: string
   background?: string
-  blocks: Block[]
+  grid?: SectionGrid
+  blocks: PositionedBlock[]
 }
 
 export type Page = {
@@ -64,6 +124,7 @@ export type SiteChrome = {
   favicon: string
   nav: { label: string; href: string }[]
   social: { platform: string; href: string }[]
+  headerCta?: { label: string; href: string }
   footerBlocks: Block[]
 }
 

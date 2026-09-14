@@ -6,38 +6,155 @@
   "sections": [
     {
       "id": "66f3ce0a6a8d663a8bacd2af",
+      "theme": "bright",
       "background": "/media/Back1_Mesa-de-trabajo-1-b5919e75.png",
+      "grid": {
+        "mobile": {
+          "rows": 8,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 6,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Our Vision"
+          "html": "<div><div class=\"sqsrte-scaled-text-container\"><span class=\"sqsrte-scaled-text\"><h1 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"dae1c864-f856-41ad-ace3-8ec7d565d6a6\">Our Vision&nbsp;</span> </h1></span></div></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/9/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/10/7/18",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "66f3ce0a6a8d663a8bacd2b2",
+      "theme": "white-bold",
+      "grid": {
+        "mobile": {
+          "rows": 5,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 16,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## **The project envisions a society where** **citizens trust their own capacity to impact politics** **and actively participate in shaping their communities and societies.**"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\"><strong>The project envisions a society where </strong><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"d3066845-d886-4461-9851-b979e11813be\"><strong>citizens trust their own capacity to impact politics </strong></span><strong>and actively participate in shaping their communities and societies.</strong></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/2/17/8",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "#### The **long-term vision** of the project is to create a more **inclusive and democratic society** in Europe by empowering citizens to actively participate in political discussion and decision-making processes. \n\n#### **The project aims** to foster a culture of citizen engagement and sense making, where citizens' voices are heard and valued in policy and decision-making at local, national, and European levels. ​ \n\n#### **By leveraging the innovative SenseMakerⓇ** software and a **decentralised citizen sensor network**, the project seeks to **enable citizens to make sense of complex societal challenges** and contribute to finding solutions. ​ \n\n#### **The long-term impact** of the project is envisioned to be a political landscape where citizens' voices are given importance, leading to more responsive and effective political responses that serve the common good. This vision includes that elected officials from the European Parliament to local governments recognise the importance of citizens' voices and actively incorporate them in all phases of decision-making processes. ​ \n\n#### Additionally, the project aims **to inspire and influence other political parties** and decision-makers to adopt similar approaches, making \"sensemaking\" an **integral part of a European democratic culture. ​**"
+          "html": "<div><h4 style=\"white-space:pre-wrap;\">The <strong>long-term vision </strong>of the project is to create a more <strong>inclusive and democratic society </strong>in Europe by empowering citizens to actively participate in political discussion and decision-making processes.&nbsp;</h4><h4 style=\"white-space:pre-wrap;\"><strong>The project aims</strong> to foster a culture of citizen engagement and sense making, where citizens' voices are heard and valued in policy and decision-making at local, national, and European levels. ​&nbsp;</h4><h4 style=\"white-space:pre-wrap;\"><strong>By leveraging the innovative SenseMakerⓇ</strong> software and a <strong>decentralised citizen sensor network</strong>, the project seeks to <strong>enable citizens to make sense of complex societal challenges</strong> and contribute to finding solutions. ​&nbsp;</h4><h4 style=\"white-space:pre-wrap;\"><strong>The long-term impact </strong>of the project is envisioned to be a political landscape where citizens' voices are given importance, leading to more responsive and effective political responses that serve the common good. This vision includes that elected officials from the European Parliament to local governments recognise the importance of citizens' voices and actively incorporate them in all phases of decision-making processes. ​&nbsp;</h4><h4 style=\"white-space:pre-wrap;\">Additionally, the project aims <strong>to inspire and influence other political parties</strong> and decision-makers to adopt similar approaches, making \"sensemaking\" an <strong>integral part of a European democratic culture. ​&nbsp;</strong><br></h4></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/5/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/9/16/26",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "671b417a0cb69b6e9dac433e",
       "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "grid": {
+        "mobile": {
+          "rows": 11,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 17,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## What is the purpose?"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\">What is the <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"ea4e78a2-8858-4109-9c22-93c5e8178917\">purpose</span>?</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/7/3/20",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "#### The project aims to create a more inclusive and democratic Europe by encouraging citizens to engage in politics. It uses innovative software and a network to help people understand complex social issues and suggest solutions.\n\n#### The long-term goal is a political environment\n\n#### where citizens' voices matter,\n\n#### leading to better responses for the common good.\n\n#### Elected officials, from the European Parliament to local governments, need to value these contributions in their decisions.\n\n#### The project also seeks to motivate other organistations to embrace this approach and make citizen involvement a part of European democracy.\n\n#### Ultimately, it envisions a society where citizens feel empowered to influence politics and shape their communities."
+          "html": "<div><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">The project aims to create a more inclusive and democratic Europe by encouraging citizens to </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"d0c62337-1867-4b29-90d7-bc3503d1aa25\"><span class=\"sqsrte-text-color--white\">engage in politics.</span></span><span class=\"sqsrte-text-color--white\"> It uses innovative software and a network to help people understand </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"1141c663-5341-44ad-ba0b-d2ebf45dac9f\"><span class=\"sqsrte-text-color--white\">complex </span></span><span class=\"sqsrte-text-color--white\">social issues and suggest solutions. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">The </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"7b479ba0-9757-4efc-be95-02a4efd8b609\"><span class=\"sqsrte-text-color--white\">long-term goal</span></span><span class=\"sqsrte-text-color--white\"> is a political environment </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">where citizens' </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"6583f13c-a25c-43bc-b4b6-eea072c2ea39\"><span class=\"sqsrte-text-color--white\">voices matter, </span></span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">leading to better responses for the common good. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"c68876b3-b512-4e1d-8b2d-e2b89df63552\"><span class=\"sqsrte-text-color--white\">Elected </span></span><span class=\"sqsrte-text-color--white\">officials, from the European Parliament to local governments, need to value these contributions in their decisions. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">The project also seeks to </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"1a09ec20-050c-4064-9e98-dca3abb516e3\"><span class=\"sqsrte-text-color--white\">motivate </span></span><span class=\"sqsrte-text-color--white\">other organistations to embrace this approach and make citizen involvement a part of European democracy. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">Ultimately, it envisions a society where </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"fdb80ab4-04f8-4449-9f97-826b77bfe27b\"><span class=\"sqsrte-text-color--white\">citizens feel empowered</span></span><span class=\"sqsrte-text-color--white\"> to influence politics and shape their communities.</span></h4></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/12/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/5/18/23",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

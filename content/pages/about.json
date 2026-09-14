@@ -6,133 +6,545 @@
   "sections": [
     {
       "id": "671b4046abcf735b98fd7a1f",
+      "theme": "bright",
       "background": "/media/Back6_Mesa-de-trabajo-1-47f3bfbd.png",
+      "grid": {
+        "mobile": {
+          "rows": 64,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 34,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "### Instead of ignoring people\n\n### who have differing views\n\n### or telling them what to think\n\n### we are listening \\*."
+          "html": "<div><h3 style=\"text-align:center; white-space:pre-wrap;\">Instead of <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"3ce6f510-82e0-4353-bc38-d9179cc3c0ee\">ignoring</span> people </h3><h3 style=\"text-align:center; white-space:pre-wrap;\">who have differing views</h3><h3 style=\"text-align:center; white-space:pre-wrap;\">or telling them <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"1119803b-c2e8-461d-a843-716c34cefd0e\">what to think </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"abae320e-0a66-4af0-b7b6-24ac1c685adc\">we are listening *. </span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/3/8/9",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "21/10/28/20",
+              "zIndex": 0,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "\\* Anonymous real stories with AI-generated images"
+          "html": "<div><p style=\"white-space:pre-wrap;\">* Anonymous real stories with AI-generated images</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "8/2/10/10",
+              "zIndex": 12,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "34/2/35/11",
+              "zIndex": 12,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/5-2b795144.png",
           "alt": "",
-          "caption": ""
+          "width": 1080,
+          "height": 1080,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "10/5/13/7",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "16/14/20/17",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "“I was again sexually molested and a family member (male, over 70) of mine played down my experience and denied that this is daily experience for many women in the world”"
+          "html": "<div><p style=\"white-space:pre-wrap;\">“I was again sexually molested and a family member (male, over 70) of mine played down my experience and denied that this is daily experience for many women in the world”</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "13/2/16/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "17/17/20/24",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/2-c1f8a3d9.png",
           "alt": "",
-          "caption": ""
+          "width": 1080,
+          "height": 1080,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "17/3/20/5",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "21/21/25/24",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "“My concerns about an almost full lack of ecosystem related knowledge in local government was met with an 'it is what it is' statement by a member of the municipal council”"
+          "html": "<div><p style=\"white-space:pre-wrap;\">“My concerns about an almost full lack of ecosystem related knowledge in local government was met with an 'it is what it is' statement by a member of the municipal council”</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "20/2/23/10",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "25/20/29/26",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/4-37328c64.png",
           "alt": "",
-          "caption": ""
+          "width": 1080,
+          "height": 1080,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "24/2/27/4",
+              "zIndex": 6,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "30/11/34/14",
+              "zIndex": 6,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "“A conversation this morning with my turkish Airb&b hosts in Berlin. The father explained how he doesn’t like the current prep for war. It stimulates hate, which enables war. He is thinking we should go about keeping peace differently than preparing for war. I shared an experience that when we meet a person it becomes impossible to hate them. This could be a way to peace..”"
+          "html": "<div><p style=\"white-space:pre-wrap;\">“A conversation this morning with my turkish Airb&amp;b hosts in Berlin. The father explained how he doesn’t like the current prep for war. It stimulates hate, which enables war. He is thinking we should go about keeping peace differently than preparing for war. I shared an experience that when we meet a person it becomes impossible to hate them. This could be a way to peace..”</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "27/2/33/10",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "30/14/35/22",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/Untitled-design-d2ed074b.png",
           "alt": "",
-          "caption": ""
+          "width": 1080,
+          "height": 1080,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "33/2/37/4",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "25/3/29/6",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "“I am happy that in my area some of the streets are blocked for cars and turned to bicycle roads. It is more fun to pass there with my kids.”"
+          "html": "<div><p style=\"white-space:pre-wrap;\">“I am happy that in my area some of the streets are blocked for cars and turned to bicycle roads. It is more fun to pass there with my kids.”</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "37/2/40/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "29/3/32/9",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/6-2a5ff61b.png",
           "alt": "",
-          "caption": ""
+          "width": 1080,
+          "height": 1080,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "39/2/43/4",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "16/6/20/9",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "“Friends of my father are concerned about migrants taking away their workplaces.”"
+          "html": "<div><p style=\"white-space:pre-wrap;\">“Friends of my father are concerned about migrants taking away their workplaces.”</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "43/2/45/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/4/22/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "# We believe in\n\n# the power of dialogue\n\n# and empathy\n\n# to bridge divides."
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\">We believe in </h1><h1 style=\"text-align:center; white-space:pre-wrap;\">the <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"51427442-f344-4059-9e12-2943f708d508\">power of dialogue </span></h1><h1 style=\"text-align:center; white-space:pre-wrap;\">and <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"7b3dc6b4-ee28-480d-a2b1-67296d766ec2\">empathy</span> </h1><h1 style=\"text-align:center; white-space:pre-wrap;\">to <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"48ad3fff-ce88-4c67-8aeb-842ef5980de5\">bridge </span>divides.</h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "47/2/57/10",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/11/26",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### We engage with people from all walks of life by inviting them to share their real-life experiences. We empower them to make their voices heard in policy-making across Europe."
+          "html": "<div><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">We engage with people from all walks of life by inviting them to share their real-life experiences. We empower them to make their voices heard in policy-making across Europe.</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "58/2/65/10",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "11/4/15/24",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "66e4280969b09d60989f4ee4",
+      "theme": "light",
       "background": "/media/Back1_Mesa-de-trabajo-1-b5fb0057.png",
+      "grid": {
+        "mobile": {
+          "rows": 67,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 30,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Who we are"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"cc948c49-6393-4de4-9c21-f1ed3e9cda86\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">Who we are</span></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/4/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/10/5/18",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "In a time of growing polarization and division, we stand committed to fostering understanding and unity across Europe. Polarising topics like migration or green transformation ignite heated debates. The complex problems we face require more than populist solutions. We want to ensure that as many voices as possible are heard to discover blindspots and possible ways forward."
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">In a time of growing polarization and division, we stand committed to fostering understanding and unity across Europe. Polarising topics like migration or green transformation ignite heated debates. The complex problems we face require more than populist solutions. We want to ensure that as many voices as possible are heard to discover blindspots and possible ways forward.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/13/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/8/11/20",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "## **Each policy maker in the EU parliament should be able to hear your voice!**"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(251, 249, 249);\"><strong>Each policy maker in the EU parliament should be able to hear your voice!</strong></span></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "14/2/18/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "11/8/15/20",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/ICONOS-10-538fe623.png",
           "alt": "",
-          "caption": ""
+          "width": 2276,
+          "height": 2084,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "20/3/22/9",
+              "zIndex": 9,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "14/3/16/5",
+              "zIndex": 9,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "## Our Approach: **Listening to Understand**"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">Our Approach: </span><span class=\"sqsrte-text-color--black\"><strong>Listening to Understand</strong></span></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "22/2/25/10",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "16/3/21/7",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Instead of dismissing or protesting against differing views, we’re taking a different path. We step onto the streets, engaging with people from all walks of life, and invite them to share their stories. We provide not only a platform for these voices but also the opportunity for their experiences to shape politics across Europe."
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">Instead of dismissing or protesting against differing views, we’re taking a different path. We step onto the streets, engaging with people from all walks of life, and invite them to share their stories. We provide not only a platform for these voices but also the opportunity for their experiences to shape politics across Europe.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "25/2/32/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "16/7/26/14",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/ICONOS-11-1a6d5e81.png",
           "alt": "",
-          "caption": ""
+          "width": 2276,
+          "height": 2084,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "33/4/35/8",
+              "zIndex": 10,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "15/15/17/17",
+              "zIndex": 10,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "## The Power of **Dialogue and Empathy**"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 254, 254);\">The Power of </span><span class=\"sqsrte-text-color--black\"><strong>Dialogue and Empathy</strong></span></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "35/2/38/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "17/15/23/19",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "We believe that dialogue and empathy are key to bridging divides. We’re not here to cancel or ignore concerns. Instead, we amplify voices. By truly listening to the stories and perspectives of our fellow citizens, we seek to understand and connect through shared experiences."
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">We believe that dialogue and empathy are key to bridging divides. We’re not here to cancel or ignore concerns. Instead, we amplify voices. By truly listening to the stories and perspectives of our fellow citizens, we seek to understand and connect through shared experiences.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "38/2/45/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "16/19/25/25",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/ICONOS-12-f41ef25e.png",
           "alt": "",
-          "caption": ""
+          "width": 2276,
+          "height": 2084,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "47/4/49/8",
+              "zIndex": 11,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "24/8/26/10",
+              "zIndex": 11,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "## Our Goal: **Solutions for Everyone**"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">Our Goal: </span><span class=\"sqsrte-text-color--black\"><strong>Solutions for Everyone</strong></span></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "49/3/52/9",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "24/10/29/14",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Our ultimate goal is to find common solutions that benefit all – from local communities to the broader European landscape. We recognize the complexity of the challenges we face, but we are committed to facing them head-on, in partnership with everyone who calls Europe home."
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(253, 253, 253);\">Our ultimate goal is to find common solutions that benefit all – from local communities to the broader European landscape. We recognize the complexity of the challenges we face, but we are committed to facing them head-on, in partnership with everyone who calls Europe home.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "52/2/59/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "24/14/31/22",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

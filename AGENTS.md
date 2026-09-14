@@ -48,15 +48,37 @@ Pages live in `content/pages/<slug>.json` as ordered sections of blocks:
   "title": "About us",
   "description": "Shown in search results and link previews.",
   "sections": [
-    { "blocks": [{ "type": "richText", "markdown": "## A heading\n\nSome text." }] }
+    {
+      "theme": "white",
+      "grid": { "mobile": { "columns": 8 }, "desktop": { "columns": 24 } },
+      "blocks": [
+        {
+          "type": "richText",
+          "html": "<h2 style=\"text-align:center;\">A heading</h2><p>Some text.</p>",
+          "layout": { "mobile": { "area": "3/2/10/10" }, "desktop": { "area": "2/8/9/20" } }
+        }
+      ]
+    }
   ]
 }
 ```
 
 Block types: `richText`, `image`, `button`, `video`, `embed`, `form`, `quote`,
-`divider`, `accordion`, `gallery`, `summary-v2`, `instagram`. They are defined as a
-union in `src/lib/content.ts` — that type is the source of truth, and adding a block
-type means handling it in `src/components/BlockRenderer.tsx` too.
+`divider`, `accordion`, `gallery`, `list`, `summary-v2`, `instagram`. They are defined
+as a union in `src/lib/content.ts` — that type is the source of truth, and adding a
+block type means handling it in `src/components/BlockRenderer.tsx` too.
+
+**`richText` is HTML, not Markdown.** That is deliberate: the original pages centre
+headings with `text-align` and colour parts of a heading with
+`<span style="color:#123BC8">`, and Markdown can express neither. Keep the
+`sqsrte-*` classes you find — `sqsrte-large` marks paragraphs that scale with the
+viewport, and `sqsrte-text-color--*` are styled by the theme layer.
+
+**`theme` and `layout` reproduce the original design.** `theme` picks the section's
+background/heading/text/button colours; `layout.mobile` / `layout.desktop` are the
+CSS grid areas Squarespace generated for its 8-column and 24-column grids. Editing
+text inside a block is safe. Changing `area` values moves the block on the grid —
+useful, but check the result at several widths.
 
 `urlPath` determines the URL. A file whose `urlPath` is `/about-us` is served at
 `/about-us/`, regardless of the filename.

@@ -6,54 +6,237 @@
   "sections": [
     {
       "id": "69b7d39b9092e06a623030e0",
+      "grid": {
+        "mobile": {
+          "rows": 24,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 20,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "[**Storyboard of Charge DI stories.**  Download](https://drive.usercontent.google.com/download?id=1pXEW9o1rtG2p-87F5uCmWoGxgNwlnlrL)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a target=\"_blank\" href=\"https://drive.usercontent.google.com/download?id=1pXEW9o1rtG2p-87F5uCmWoGxgNwlnlrL\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Storyboard of Charge DI stories.</strong></span><span class=\"sqsrte-text-color--accent\"><strong>&nbsp;&nbsp;</strong>Download</span></a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 13,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/3/18",
+              "zIndex": 13,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "In a small-scale exploration, Charge (the scientific platform for Volt Nederland, [charge.volt.org](http://charge.volt.org) ) collected the personal experiences of 25 participants with generative AI. Not through interviews or surveys, but with the help of SenseMaker: a participatory method in which people articulate their own experiences and give them meaning. So not just telling stories, but also interpreting them themselves. What affects them? What values are at stake? And who do they think should hear this?"
+          "html": "<div><p style=\"white-space:pre-wrap;\">In a small-scale exploration, Charge (the scientific platform for Volt Nederland, <a href=\"http://charge.volt.org\"><span class=\"sqsrte-text-color--darkAccent\">charge.volt.org</span></a><span class=\"sqsrte-text-color--darkAccent\"> </span>) collected the personal experiences of 25 participants with generative AI. Not through interviews or surveys, but with the help of SenseMaker: a participatory method in which people articulate their own experiences and give them meaning. So not just telling stories, but also interpreting them themselves. What affects them? What values are at stake? And who do they think should hear this? </p></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/5/10",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/2/5/24",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**Storyboard Eurosense Training 28.04.2026**](https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing). [Download](https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a target=\"_blank\" href=\"https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Storyboard Eurosense Training 28.04.2026</strong></span></a>. <a target=\"_blank\" href=\"https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing\">Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/7/10",
+              "zIndex": 15,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/2/7/12",
+              "zIndex": 15,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "The 47 stories in this storyboard have been collected as part of the Eurosernse training program in 2025 and 2026."
+          "html": "<div><p style=\"white-space:pre-wrap;\">The 47 stories in this storyboard have been collected as part of the Eurosernse training program in 2025 and 2026. </p></div>",
+          "layout": {
+            "mobile": {
+              "area": "7/2/9/10",
+              "zIndex": 16,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "7/2/9/24",
+              "zIndex": 16,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**Storyboard Reflections of a Volter 15.04.2026**](https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link). [Download](https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a target=\"_blank\" href=\"https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Storyboard Reflections of a Volter 15.04.2026</strong></span></a>. <a target=\"_blank\" href=\"https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link\">Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "9/2/11/10",
+              "zIndex": 16,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "9/2/10/12",
+              "zIndex": 16,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Stories collected at Meet Volt Europa online meetings and framed as experiences of a Volter, 2026."
+          "html": "<div><p style=\"white-space:pre-wrap;\">Stories collected at Meet Volt Europa online meetings and framed as experiences of a Volter, 2026. </p></div>",
+          "layout": {
+            "mobile": {
+              "area": "11/2/13/10",
+              "zIndex": 17,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "10/2/12/24",
+              "zIndex": 17,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**Storyboard Cca and Climate 08.05.2026.** Download](https://drive.google.com/file/d/1se-Cmx3EBkhWdcBUwqWTc8GYQuE6XgqV/view?usp=sharing)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a target=\"_blank\" href=\"https://drive.google.com/file/d/1se-Cmx3EBkhWdcBUwqWTc8GYQuE6XgqV/view?usp=sharing\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Storyboard Cca and Climate 08.05.2026.</strong></span> Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "13/2/15/10",
+              "zIndex": 18,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "12/2/13/15",
+              "zIndex": 18,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "This storyboard contains stories collected until 24.04.2026 as part of the climate adaptation theme (UID =cca) and additional stories selected for being climate related."
+          "html": "<div><p style=\"white-space:pre-wrap;\">This storyboard contains stories collected until 24.04.2026 as part of the climate adaptation theme (UID =cca) and additional stories selected for being climate related. </p></div>",
+          "layout": {
+            "mobile": {
+              "area": "15/2/17/10",
+              "zIndex": 19,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "13/2/15/25",
+              "zIndex": 19,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**Storyboard Housing across Europe 12.05.2026.** Download](https://drive.google.com/file/d/1-BXHlXtbvlSkUZI2rsN3kAVGnI9jQaeU)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a target=\"_blank\" href=\"https://drive.google.com/file/d/1-BXHlXtbvlSkUZI2rsN3kAVGnI9jQaeU\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Storyboard Housing across Europe 12.05.2026.</strong></span> Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "17/2/19/10",
+              "zIndex": 20,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "15/2/16/17",
+              "zIndex": 20,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "This storyboard contains narratives collected across all Eurosense projects that have been assigned to the Housing and Living Conditions category by the respondents. Narratives are grouped by country and sentiment. Readers can retrieve additional information about the narratives by selecting the country and the sentiment from the public [dashboard](https://platform.sensemaker-suite.com/r/d/3642683b-063d-493e-a32d-d6dea369df63) available on [eurosense.eu](http://eurosense.eu)."
+          "html": "<div><p style=\"white-space:pre-wrap;\">This storyboard contains narratives collected across all Eurosense projects that have been assigned to the Housing and Living Conditions category by the respondents. Narratives are grouped by country and sentiment. Readers can retrieve additional information about the narratives by selecting the country and the sentiment from the public<span class=\"sqsrte-text-color--darkAccent\"> </span><a target=\"_blank\" href=\"https://platform.sensemaker-suite.com/r/d/3642683b-063d-493e-a32d-d6dea369df63\"><span class=\"sqsrte-text-color--darkAccent\">dashboard</span></a> available on <a href=\"http://eurosense.eu\"><span class=\"sqsrte-text-color--darkAccent\">eurosense.eu</span></a><span class=\"sqsrte-text-color--darkAccent\">.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "19/2/21/10",
+              "zIndex": 21,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "16/2/19/24",
+              "zIndex": 21,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**Storyboard from Chargedi and digicomEURAI.** Download](https://drive.google.com/file/d/15HSA774b_SyM1O3AmcF2vNEO5JCcawam)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a target=\"_blank\" href=\"https://drive.google.com/file/d/15HSA774b_SyM1O3AmcF2vNEO5JCcawam\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Storyboard from Chargedi and digicomEURAI.</strong></span> Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "21/2/23/10",
+              "zIndex": 22,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "19/2/20/18",
+              "zIndex": 22,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "This storyboard contains mostly experiences related to AI and digital technologies, collected for two different projects in 2025 and 2026."
+          "html": "<div><p style=\"white-space:pre-wrap;\">This storyboard contains mostly experiences related to AI and digital technologies, collected for two different projects in 2025 and 2026.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "23/2/25/10",
+              "zIndex": 22,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/2/21/24",
+              "zIndex": 22,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

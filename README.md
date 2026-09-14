@@ -24,7 +24,7 @@ content/              All site content.
   blognews/*.md       Blog & News posts (9).
   blog/*.md           Legacy blog collection (4).
   resources--multimedia/*.md   Multimedia items (5).
-public/media/         Every image, downloaded from Squarespace (88 files).
+public/media/         Every image, downloaded from Squarespace (90 files).
 src/app/              Routes. A catch-all prerenders every page and post.
 src/components/       Block renderer, header, footer, forms, accordion.
 src/lib/              Content loading, markdown, fonts, form endpoints.
@@ -41,6 +41,13 @@ at runtime: every page is prerendered at build time from `content/`.
 **Content as files.** Posts are Markdown with YAML front matter; pages are JSON
 sections of typed blocks. Both are diffable and reviewable, which is what makes an
 agent-authored change safe to merge.
+
+**Layout is reproduced, not reinterpreted.** Squarespace positions blocks on a
+fluid-engine CSS grid — 8 columns under 768px, 24 above — and emits a `grid-area`
+per block for each. The extractor captures both and `FluidSection` replays them, so
+the rebuilt pages match the original at every width rather than only where a
+hand-written breakpoint happens to land. Section colours come from the six
+Squarespace section themes, measured from the live site.
 
 **Self-hosted fonts.** Satoshi and Roboto were served by Squarespace. Satoshi is now
 fetched from Fontshare by `npm run fonts` and committed; Roboto is self-hosted by
@@ -86,10 +93,12 @@ worth knowing if you re-run it:
 
 ## Migration status
 
-- [x] Content and assets extracted (26 pages, 18 posts, 88 images, 0 Squarespace refs)
+- [x] Content and assets extracted (26 pages, 18 posts, 90 images, 0 Squarespace refs)
 - [x] React site rendering all of it, 46 prerendered routes
 - [x] Images optimised (54 MB → 14 MB)
 - [x] Sitemap, robots, metadata, skip link, accessible accordions
+- [x] Layout parity: fluid-engine grid, section themes, measured type scale
+- [x] Responsive sweep clean: 14 pages x 13 widths (320-1920px), no overflow
 - [ ] **Forms connected** — `content/forms.json` still has six `null` endpoints
 - [ ] deploybase project created and domain pointed at it
 - [ ] Squarespace cancelled
@@ -117,8 +126,12 @@ Recorded rather than hidden, so nobody mistakes them for finished work.
 - **Three footer links are plain text** on the live Squarespace site — Dashboard,
   Volt Europa 2026 and Privacy Policy have no `href`. Reproduced as-is rather than
   guessed at; say where they should point and they can be linked.
-- **No social links.** The extractor found none in the header or footer. That is an
-  absence of evidence in the source, not a verified "there are none".
+- **Layout parity is close but not total.** On the homepage, 7 of 12 sections match
+  the original's rendered height exactly. Two of the remaining five are the list
+  sections (partner logos, article teasers), which are rebuilt as our own components
+  rather than reproduced; the hero is 114px shorter and one mid-page section 173px
+  shorter, both because content inside a grid cell measures slightly differently.
+  Nothing is missing — the deltas are vertical whitespace.
 - **Empty listing pages.** `/events`, `/store` and `/resources/multimedia` had no
   items or products on Squarespace and render empty here too.
 - **Placeholder content is carried over.** `/blog` still contains "Blog Post Title

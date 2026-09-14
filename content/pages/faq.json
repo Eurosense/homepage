@@ -6,10 +6,40 @@
   "sections": [
     {
       "id": "6705e78efed7ec23c0ab356a",
+      "theme": "bright-inverse",
+      "grid": {
+        "mobile": {
+          "rows": 102,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 83,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## Frequently Asked questions"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\">Frequently Asked questions</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/4/10",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/9/5/18",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "accordion",
@@ -26,11 +56,39 @@
               "title": "Are there successful Use Cases of the Sense Maker approach?",
               "markdown": "Since its launch in 2004, SenseMaker’s anthro-complexity approach has made an impact in business, government, development and research sectors around the world. You can find more about the Use Cases [here](https://thecynefin.co/use_cases/)"
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "6/2/63/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "7/9/48/19",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**General**"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><strong>General</strong></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/7/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/9/7/15",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "accordion",
@@ -51,11 +109,39 @@
               "title": "Who will have access to the stories and the data?",
               "markdown": "The anonymised data will be openly available for anyone to use. This way, researchers or other organisations can make their own interpretations of the data which we will ultimately all benefit from."
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "65/2/80/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "52/9/64/19",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**Data Collected**"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><strong>Data Collected</strong></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "64/2/66/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "51/9/52/15",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "accordion",
@@ -84,11 +170,39 @@
               "title": "Are the stories analysed with AI?",
               "markdown": "No. The stories are analysed by people themselves. They reflect on what their story is about using a series of “signifiers”. This type of reflection has shown to make people more open to the experiences of others, which is essential for democracy.\n\nSensemaking of all the stories put together is based on the interpretation that people have given to their story (so not by “experts”), and happens with augmented human intelligence. This is a form of _epistemic justice_: the interpretation of the story is in the hands of the people."
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "83/2/102/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "68/9/83/19",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**Process**"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><strong>Process</strong></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "82/2/84/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "67/9/68/15",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

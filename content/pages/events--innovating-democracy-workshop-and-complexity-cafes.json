@@ -6,14 +6,15 @@
   "sections": [
     {
       "id": "673dc4d2a4c46654c877906b",
+      "theme": "bright-inverse",
       "blocks": [
         {
           "type": "richText",
-          "markdown": "Join us for the **Innovating Democracy Workshop and Complexity Cafes** during the upcoming Weekend in Tirana to explore this question with our collected data via the Sense Maker.  \n  \nWe start on Saturday morning already!  \n  \nThis is your chance to contribute to shaping the future of Europe and bringing democracy closer to the people.  \n  \n📍 When: Starting on Saturday 23. November in the Main Hall 11:15 a.m.\n\n  \n📍 Where: Tirana International Hotel & Conference Center\n\n  \n📍 Why: Because every voice matters, and you can help shape the change!\n\n  \n  \nDon’t miss this opportunity to connect, engage, and make a difference!"
+          "html": "<div><p style=\"white-space:pre-wrap;\">Join us for the <strong>Innovating Democracy Workshop and Complexity Cafes</strong> during the upcoming Weekend in Tirana to explore this question with our collected data via the Sense Maker. <br><br>We start on Saturday morning already!<br><br>This is your chance to contribute to shaping the future of Europe and bringing democracy closer to the people.<br><br>📍 When: Starting on Saturday 23. November in the Main Hall 11:15 a.m.</p><p style=\"white-space:pre-wrap;\"><br>📍 Where: Tirana International Hotel &amp; Conference Center</p><p style=\"white-space:pre-wrap;\"><br>📍 Why: Because every voice matters, and you can help shape the change!</p><p style=\"white-space:pre-wrap;\"><br><br>Don’t miss this opportunity to connect, engage, and make a difference!</p><p style=\"white-space:pre-wrap;\"></p></div>"
         },
         {
           "type": "richText",
-          "markdown": "For more information [https://volteuropa.org/events/volt-europa-general-assembly-in-tirana](https://volteuropa.org/events/volt-europa-general-assembly-in-tirana)"
+          "html": "<div><p style=\"white-space:pre-wrap;\">For more information <a href=\"https://volteuropa.org/events/volt-europa-general-assembly-in-tirana\" target=\"_blank\">https://volteuropa.org/events/volt-europa-general-assembly-in-tirana</a></p></div>"
         }
       ]
     }

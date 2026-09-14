@@ -6,14 +6,58 @@
   "sections": [
     {
       "id": "69158c02ebef14397eb94c11",
+      "theme": "white-bold",
+      "grid": {
+        "mobile": {
+          "rows": 14,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 12,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# **Articles** **from the Eurosense team**"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\"><strong>Articles</strong></span><strong> </strong><span class=\"sqsrte-text-color--accent\"><strong>from the Eurosense team</strong></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/6/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/9/6/19",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Explore articles written by the Eurosense team on sensemaking, community engagement, and navigating complexity. Here we share our reflections, methods, project learnings, and emerging insights from across Europe."
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--accent\">Explore articles written by the Eurosense team on sensemaking, community engagement, and navigating complexity. Here we share our reflections, methods, project learnings, and emerging insights from across Europe.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "6/2/11/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/9/10/19",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

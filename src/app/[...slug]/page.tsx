@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { SectionView } from '@/components/BlockRenderer'
+import { PageSections } from '@/components/PageSections'
 import { PostList } from '@/components/PostList'
 import { renderMarkdown } from '@/lib/markdown'
 import {
@@ -164,9 +164,7 @@ export default async function CatchAllPage({ params }: { params: Promise<Params>
 
   return (
     <>
-      {page.sections.map((section, i) => (
-        <SectionView key={section.id ?? i} blocks={section.blocks} background={section.background} />
-      ))}
+      <PageSections sections={page.sections} />
       {collection ? <PostList posts={getPostsIn(collection)} /> : null}
     </>
   )

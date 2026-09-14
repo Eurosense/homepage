@@ -6,326 +6,1516 @@
   "sections": [
     {
       "id": "6908e7b29cd45926dc24fe04",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 36,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "8.0px",
+          "columnGap": "12.0px"
+        },
+        "desktop": {
+          "rows": 28,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# **Join or create** **a sensemaking community.**"
+          "html": "<div><h1 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\"><strong>Join or create</strong></span><span class=\"sqsrte-text-color--accent\"><strong> a sensemaking community.</strong></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/8/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/2/11/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Eurosense connects people across Europe who want to understand the world through shared stories.\n\n **Join an existing group, start your own, or learn how to make sense of complex issues together.**"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Eurosense connects people across Europe who want to understand the world through shared stories.</span></p><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"> <strong>Join an existing group, start your own, or learn how to make sense of complex issues together.</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "8/2/14/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "11/2/17/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Share your Story",
-          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "15/2/17/10",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "17/2/19/6",
+              "zIndex": 6,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Join or start a Community",
-          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense",
+          "variant": "secondary",
+          "size": "large",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "17/2/19/10",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "17/6/19/10",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/image-6582003c.png",
           "alt": "",
-          "caption": ""
+          "width": 3268,
+          "height": 4020,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "20/1/37/11",
+              "zIndex": 0,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "1/14/26/27",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "6913077ba562a150a12a30de",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 26,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "0.0px",
+          "columnGap": "0.0px"
+        },
+        "desktop": {
+          "rows": 24,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "video",
           "src": "",
-          "title": ""
+          "title": "",
+          "layout": {
+            "mobile": {
+              "area": "4/2/13/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/1/22/14",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "video",
           "src": "",
-          "title": ""
+          "title": "",
+          "layout": {
+            "mobile": {
+              "area": "14/1/25/11",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/14/23/27",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "6994dca31593f75231c41008",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 6,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "0.0px",
+          "columnGap": "0.0px"
+        },
+        "desktop": {
+          "rows": 5,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
+      "blocks": []
+    },
+    {
+      "id": "6909d119b9cbcd1783100e3f",
+      "theme": "white",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "image": "/media/Charge-logo-NL-purple-klein--1--d7ccd618.png",
+              "alt": "",
+              "title": "",
+              "description": ""
+            },
+            {
+              "image": "/media/Copy-of-IMPETUS-Logo-Horizontal--1--860a6d61.png",
+              "alt": "",
+              "title": "",
+              "description": ""
+            },
+            {
+              "image": "/media/CP-horizontal-logo-RGB-color--1--09f36ec8.png",
+              "alt": "",
+              "title": "",
+              "description": ""
+            },
+            {
+              "image": "/media/IFIS-Logo-2.10-transparent-bb81225d.png",
+              "alt": "",
+              "title": "",
+              "description": ""
+            },
+            {
+              "image": "/media/EN_FundedbytheEU_RGB_Monochrome-051fad56.png",
+              "alt": "",
+              "title": "",
+              "description": ""
+            },
+            {
+              "image": "/media/Untitled-design-5886b596.png",
+              "alt": "",
+              "title": "",
+              "description": ""
+            }
+          ]
         }
       ]
     },
     {
       "id": "6909d3430ab8467199a41945",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 30,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "12.0px",
+          "columnGap": "12.0px"
+        },
+        "desktop": {
+          "rows": 19,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "What is Eurosense?"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">What is Eurosense?</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/5/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/4/4/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "# **A citizen network for** **democratic policy making**"
+          "html": "<div><h1 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>A citizen network for </strong></span><span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\"><strong>democratic policy making</strong></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/11/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/4/11/13",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Democracy begins with listening. Eurosense makes sure every voice counts"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">Democracy begins with listening. Eurosense makes sure every voice counts</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "12/2/15/10",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "13/4/16/13",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Community led initiatives"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">Community led initiatives</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "16/3/17/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/16/6/22",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "We bring together communities and individuals across Europe to collect real-life stories about what matters most"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">We bring together communities and individuals across Europe to collect real-life stories about what matters most</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "17/3/20/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/16/9/24",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**01**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>01</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "16/2/18/3",
+              "zIndex": 14,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "5/15/7/16",
+              "zIndex": 18,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Sensemaker® technology"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">Sensemaker® technology</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "21/3/22/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "9/16/10/22",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "People share their stories and interpret them in their own words"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">People share their stories and interpret them in their own words</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "22/3/24/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "10/16/12/24",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**02**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>02</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "21/2/23/3",
+              "zIndex": 13,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "9/15/11/16",
+              "zIndex": 17,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Stories that become insights"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">Stories that become insights</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "25/3/26/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "13/16/14/22",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Stories are turned into insights are are used to guide policy making - making sure you are truly heard"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Stories are turned into insights are are used to guide policy making - making sure you are truly heard</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "26/3/29/10",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "14/16/16/24",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**03**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>03</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "25/2/27/3",
+              "zIndex": 14,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "13/15/15/16",
+              "zIndex": 18,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "690b1ff05b03133f64d1f52e",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 71,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "8.0px",
+          "columnGap": "0.0px"
+        },
+        "desktop": {
+          "rows": 71,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "**02**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>02</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/3",
+              "zIndex": 16,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "31/5/33/6",
+              "zIndex": 20,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "How it works?"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">How it works?</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/4/4/8",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/12/5/16",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "# **Our sensemaker® makes sure your are** **Truly heard**"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"><strong>Our sensemaker® makes sure your are </strong></span><span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\"><strong>Truly heard</strong></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/12/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/8/12/20",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Sensemaking is a simple, participatory process that helps groups transform shared experiences into deeper understanding and action."
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--accent\">Sensemaking is a simple, participatory process that helps groups transform shared experiences into deeper understanding and action.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "12/2/15/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "12/8/14/20",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/image-5788561b.png",
           "alt": "",
-          "caption": ""
+          "width": 2088,
+          "height": 1472,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "16/2/24/10",
+              "zIndex": 6,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "43/4/53/14",
+              "zIndex": 9,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### **Join or start a community**"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: #1C0432;\"><strong>Join or start a community</strong></span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "25/2/26/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "21/15/22/20",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Connect with others who care about understanding real experience"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Connect with others who care about understanding real experience</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "26/2/28/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "22/15/24/22",
+              "zIndex": 12,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/image-f0ded758.png",
           "alt": "",
-          "caption": ""
+          "width": 2088,
+          "height": 1472,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "30/2/38/10",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "16/4/26/14",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**04**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>04</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "29/2/31/3",
+              "zIndex": 18,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "59/5/61/6",
+              "zIndex": 22,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### **Collect stories or Share stories**"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>Collect stories or Share stories</strong></span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "39/2/40/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "34/5/35/11",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Turn insights into ideas, solutions, or initiatives - and inspire other communities across Europe."
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Turn insights into ideas, solutions, or initiatives - and inspire other communities across Europe.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "40/2/42/10",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "63/5/65/13",
+              "zIndex": 20,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/image-c47c0500.png",
           "alt": "",
-          "caption": ""
+          "width": 2088,
+          "height": 1472,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "44/2/52/10",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "29/14/39/24",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**01**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>01</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "51/2/53/3",
+              "zIndex": 15,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "18/15/20/16",
+              "zIndex": 19,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### **Make sense together**"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>Make sense together</strong></span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "53/2/54/7",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "48/15/49/21",
+              "zIndex": 17,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Meet in workshops or online sessions to interpret the data and discover shared meaning"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Meet in workshops or online sessions to interpret the data and discover shared meaning</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "54/2/56/10",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "49/15/51/23",
+              "zIndex": 19,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/image-2ea452fd.png",
           "alt": "",
-          "caption": ""
+          "width": 2088,
+          "height": 1472,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "58/2/66/10",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "57/14/67/24",
+              "zIndex": 14,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**03**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>03</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "65/2/67/3",
+              "zIndex": 17,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "45/15/47/16",
+              "zIndex": 21,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### **Act and share what you learn**"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>Act and share what you learn</strong></span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "67/2/68/10",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "62/5/63/11",
+              "zIndex": 18,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Use the SenseMaker® tool to gather lived experiences from your community or share your own experinces"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Use the SenseMaker® tool to gather lived experiences from your community or share your own experinces</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "68/2/70/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "35/5/37/13",
+              "zIndex": 15,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "690b2eb35b03133f64d40f30",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 36,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "0.0px",
+          "columnGap": "12.0px"
+        },
+        "desktop": {
+          "rows": 26,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "Benefits of particiaption"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--accent\">Benefits of particiaption</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/4/4/8",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/12/4/16",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "# **Why your** **participation matters**"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"><strong>Why your </strong></span><span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\"><strong>participation matters</strong></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/11/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/8/10/20",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Sensemaking communities are spaces where curiosity meets collaboration. They bring together citizens, researchers, and local leaders to explore what matters most - and to see patterns that no one could see alone."
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--accent\">Sensemaking communities are spaces where curiosity meets collaboration. They bring together citizens, researchers, and local leaders to explore what matters most - and to see patterns that no one could see alone.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "12/2/17/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "10/9/14/19",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Community Matters"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">Community Matters</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "19/3/20/10",
+              "zIndex": 12,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "19/4/20/9",
+              "zIndex": 12,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Each story shared through Eurosense adds another perspective to Europe’s collective map of experiences"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Each story shared through Eurosense adds another perspective to Europe’s collective map of experiences</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "20/3/23/10",
+              "zIndex": 13,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/4/23/10",
+              "zIndex": 13,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**01**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>01</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "19/2/21/3",
+              "zIndex": 16,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "16/4/18/5",
+              "zIndex": 20,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Citizen Based Information"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">Citizen Based Information</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "25/3/26/10",
+              "zIndex": 13,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "19/11/20/16",
+              "zIndex": 13,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Together, these stories reveal what unites us, what challenges we face, and where action is needed"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Together, these stories reveal what unites us, what challenges we face, and where action is needed</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "26/3/29/10",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/11/23/17",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**02**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>02</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "25/2/27/3",
+              "zIndex": 17,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "16/11/18/12",
+              "zIndex": 21,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### More data - More useful policies"
+          "html": "<div><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">More data - More useful policies</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "31/3/32/10",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "19/18/20/25",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "The more people share, the clearer the picture becomes — and the stronger our democracy grows"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">The more people share, the clearer the picture becomes — and the stronger our democracy grows</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "32/3/35/10",
+              "zIndex": 15,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/18/23/24",
+              "zIndex": 15,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "**03**"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>03</strong></span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "31/2/33/3",
+              "zIndex": 18,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "16/18/18/19",
+              "zIndex": 22,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "690b7aad94e934251f5c1ad2",
+      "grid": {
+        "mobile": {
+          "rows": 24,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "0.0px",
+          "columnGap": "12.0px"
+        },
+        "desktop": {
+          "rows": 12,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "Sensemaker® dashboard"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--black\">Sensemaker® dashboard</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/3/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/2/4/6",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "# **Explore stories that are shaping Europe**"
+          "html": "<div><h1 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--black\"><strong>Explore stories that are shaping Europe</strong></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "4/2/10/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/2/9/14",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Every story shared through Eurosense contributes to a growing, open database of human experiences. Our public dashboard visualizes these stories - showing emerging patterns, shared emotions, and real-time insights from across Europe."
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--black\">Every story shared through Eurosense contributes to a growing, open database of human experiences. Our public dashboard visualizes these stories - showing emerging patterns, shared emotions, and real-time insights from across Europe.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "11/2/16/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/17/8/26",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Join a community",
-          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "18/2/20/10",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "9/17/11/22",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Explore citizen stories",
-          "href": "/dashboard"
+          "href": "/dashboard",
+          "variant": "secondary",
+          "size": "large",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "21/2/23/10",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "9/22/11/26",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "690b7b9d351f6b2977115165",
+      "grid": {
+        "mobile": {
+          "rows": 10,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "0.0px",
+          "columnGap": "0.0px"
+        },
+        "desktop": {
+          "rows": 27,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "image",
           "src": "/media/image-2df83972.png",
           "alt": "",
-          "caption": ""
+          "width": 2500,
+          "height": 1223,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "2/2/10/10",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "3/2/27/26",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "690b7dafdc3fb64403aa5670",
+      "grid": {
+        "mobile": {
+          "rows": 26,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "8.0px",
+          "columnGap": "12.0px"
+        },
+        "desktop": {
+          "rows": 28,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "Use your voice to shape Europe’s Policies"
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--black\">Use your voice to shape Europe’s Policies</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "4/2/5/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/11/7/18",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "# **Be part of Europe’s growing network of sensemakers**"
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--black\"><strong>Be part of Europe’s growing network of sensemakers</strong></span></h1></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/14/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "8/9/14/19",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Whether you join, create, or learn - your participation helps us understand and shape a more connected Europe."
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--black\">Whether you join, create, or learn - your participation helps us understand and shape a more connected Europe.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "14/2/17/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "14/9/16/19",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Join a community",
-          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "18/2/20/10",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "17/9/19/14",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Start your own",
-          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense",
+          "variant": "secondary",
+          "size": "large",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "20/2/22/10",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "17/14/19/19",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "It takes just a few minutes..."
+          "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\" class=\"sqsrte-large\"><span class=\"sqsrte-text-color--white\">It takes just a few minutes... </span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "23/2/24/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/11/21/17",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "690b9766b9b8e86f76e6949a",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 26,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "0.0px",
+          "columnGap": "0.0px"
+        },
+        "desktop": {
+          "rows": 13,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "Blog"
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Blog</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/4/4",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/3/6/4",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "## **Read more about Eurosense**"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"><strong>Read more about Eurosense</strong></span></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "4/2/8/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "7/3/11/11",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Dive deeper into the stories, ideas, and reflections that are shaping Europe’s democratic future."
+          "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">Dive deeper into the stories, ideas, and reflections that are shaping Europe’s democratic future.</span></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "9/2/11/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "12/3/14/13",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "691708cd997a7559df27a915",
+      "theme": "white",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "image": "/media/Primary-Analysis-Report-70650a03.png",
+              "alt": "Reimagining Democracy: EuroSense Pilot Project Results Are Here!",
+              "title": "Reimagining Democracy: EuroSense Pilot Project Results Are Here!",
+              "description": "We are thrilled to announce the release of the 𝗘𝘂𝗿𝗼𝗦𝗲𝗻𝘀𝗲 𝗣𝗿𝗶𝗺𝗮𝗿𝘆 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀 𝗥𝗲𝗽𝗼𝗿𝘁, a groundbreaking initiative powered by Volt Europa and driven by citizen scientists across Europe. This report represents one step forward to understanding polarization, empowering citizens, and building a more inclusive democratic society. Read more here…",
+              "href": "/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here"
+            },
+            {
+              "image": "/media/Cover-for-Citizen-Driver-ba51f198.png",
+              "alt": "",
+              "title": "Tackling Europe’s Democratic Blind Spots with Citizen-Driven Insights",
+              "description": "European democracy has many faces. Everyone talks about it, but no one can really define it. It is a concept understood and experienced so differently that there is no single, straightforward definition of it. Nor are the ways to protect and promote it.  \nBut what exactly is democracy? Do you know?  \nThere are so many blind spots, as this year's report from the European Democracy Hub shows. Our Sense Maker can already provide some insights into how European citizens experience and understand democracy through metaphors."
+            },
+            {
+              "image": "/media/VUCA-f21cc583.png",
+              "alt": "",
+              "title": "How can the Sense Maker help in VUCA environments and the use of metaphors?",
+              "description": "We live in challenging times, characterized by Volatility, Uncertainty, Complexity and Ambiguity. 😵‍💫  \nThe recent election of Trump will contribute to those type of political environments all around us.  \nPoliticians and citizens will need an innovative and powerful approach to navigate through and build on future resilience."
+            },
+            {
+              "image": "/media/Boy-with-Mic-3d40ccca.png",
+              "alt": "",
+              "title": "Bridging Citizens and Policymakers: How SenseMaker Enhances Democratic Participation",
+              "description": "In a democracy, meaningful engagement between citizens and their representatives is crucial for effective and inclusive policymaking. In a **healthy** democracy, citizens need a voice in shaping policies that impact their lives. This requires tools that not only gather their opinions but also capture the complexities, emotions, and stories behind them.\n\nWhile **Traditional Surveys** have long been used for gathering public opinion, they can fall short in capturing the full picture, particularly in complex or nuanced situations."
+            }
+          ]
         }
       ]
     }

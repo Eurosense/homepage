@@ -41,15 +41,25 @@ const mediaPath = z
   )
 
 const block = z.discriminatedUnion('type', [
-  z.object({ type: z.literal('richText'), markdown: z.string().min(1) }),
+  z.object({ type: z.literal('richText'), html: z.string().min(1) }),
   z.object({
     type: z.literal('image'),
     src: mediaPath,
     alt: z.string().optional(),
+    width: z.number().positive().optional(),
+    height: z.number().positive().optional(),
     caption: z.string().optional(),
     href: z.string().optional(),
   }),
-  z.object({ type: z.literal('button'), label: z.string().min(1), href: z.string().min(1) }),
+  z.object({
+    type: z.literal('button'),
+    label: z.string().min(1),
+    href: z.string().min(1),
+    variant: z.enum(['primary', 'secondary', 'tertiary']).optional(),
+    size: z.enum(['small', 'medium', 'large']).optional(),
+    alignment: z.string().optional(),
+    stretched: z.boolean().optional(),
+  }),
   z.object({ type: z.literal('video'), src: z.string(), title: z.string().optional() }),
   z.object({ type: z.literal('embed'), html: z.string() }),
   z.object({ type: z.literal('quote'), text: z.string(), source: z.string().optional() }),
@@ -74,8 +84,36 @@ const block = z.discriminatedUnion('type', [
   }),
   z.object({ type: z.literal('gallery'), html: z.string() }),
   z.object({ type: z.literal('summary-v2'), html: z.string() }),
+  z.object({
+    type: z.literal('list'),
+    items: z
+      .array(
+        z.object({
+          image: mediaPath.optional(),
+          alt: z.string().optional(),
+          title: z.string().optional(),
+          description: z.string().optional(),
+          href: z.string().optional(),
+        }),
+      )
+      .min(1),
+  }),
   z.object({ type: z.literal('instagram'), html: z.string() }),
 ])
+
+const placement = z
+  .object({
+    area: z.string().optional(),
+    zIndex: z.number().optional(),
+    justify: z.string().optional(),
+    align: z.string().optional(),
+  })
+  .optional()
+
+const positioned = z.intersection(
+  block,
+  z.object({ layout: z.object({ mobile: placement, desktop: placement }).optional() }),
+)
 
 const page = z.object({
   urlPath: z.string().startsWith('/'),
@@ -85,8 +123,10 @@ const page = z.object({
   sections: z.array(
     z.object({
       id: z.string().optional(),
+      theme: z.string().optional(),
       background: mediaPath.optional(),
-      blocks: z.array(block),
+      grid: z.record(z.string(), z.unknown()).optional(),
+      blocks: z.array(positioned),
     }),
   ),
 })

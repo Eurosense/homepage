@@ -6,54 +6,237 @@
   "sections": [
     {
       "id": "69b7d21b7e15195e49efcfc0",
+      "grid": {
+        "mobile": {
+          "rows": 24,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 35,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "[**Between convenience and concern**. Annemarie van den Brink](https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view) [Download](https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view?usp=drive_link)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view\" target=\"_blank\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Between convenience and concern</strong>.&nbsp;Annemarie van den Brink</span></a> <a href=\"https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view?usp=drive_link\" target=\"_blank\">Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/2/14",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "The article describes a small-scale study by Charge Research Platform Volt that explored citizens’ experiences with generative AI using the SenseMaker method. Instead of surveys or interviews, participants shared personal stories and interpreted their own experiences, values, and concerns. This participatory approach places citizens’ lived experiences at the center and is presented as a model for more inclusive and democratic input into AI policy-making."
+          "html": "<div><p style=\"white-space:pre-wrap;\">The article describes a small-scale study by Charge Research Platform Volt that explored citizens’ experiences with generative AI using the SenseMaker method. Instead of surveys or interviews, participants shared personal stories and interpreted their own experiences, values, and concerns. This participatory approach places citizens’ lived experiences at the center and is presented as a model for more inclusive and democratic input into AI policy-making.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/5/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/2/5/24",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**EuroSense and the Future of Participatory Decision-Making**. Allegra Grunberg](https://drive.google.com/file/d/16PuJ-w3POovkV2_JLjPfcqX71upoKAkR/view) [Download](https://drive.google.com/file/d/16PuJ-w3POovkV2_JLjPfcqX71upoKAkR/view)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"https://drive.google.com/file/d/16PuJ-w3POovkV2_JLjPfcqX71upoKAkR/view\" target=\"_blank\"><span class=\"sqsrte-text-color--darkAccent\"><strong>EuroSense and the Future of Participatory Decision-Making</strong>. Allegra Grunberg</span></a> <a href=\"https://drive.google.com/file/d/16PuJ-w3POovkV2_JLjPfcqX71upoKAkR/view\" target=\"_blank\"><span class=\"sqsrte-text-color--accent\">Download</span></a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/7/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/2/6/16",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "The article centers on the EuroSense methodology, a participatory collective intelligence approach that moves beyond traditional surveys and top-down analysis. Using the SenseMaker® tool, citizens share short personal stories (micro-narratives) and then interpret their own experiences through structured “self-signification” questions. These individual interpretations are aggregated to reveal patterns grounded in lived experience, rather than researcher assumptions. Insights are then explored collaboratively through methods such as estuarine mapping, where citizens, policymakers, and other stakeholders jointly interpret the data and co-design actions. By combining narrative collection, distributed interpretation, and continuous feedback loops, EuroSense turns collective sensemaking into collective action and positions citizens as co-creators of knowledge and policy."
+          "html": "<div><p style=\"white-space:pre-wrap;\">The article centers on the EuroSense methodology, a participatory collective intelligence approach that moves beyond traditional surveys and top-down analysis. Using the SenseMaker® tool, citizens share short personal stories (micro-narratives) and then interpret their own experiences through structured “self-signification” questions. These individual interpretations are aggregated to reveal patterns grounded in lived experience, rather than researcher assumptions. Insights are then explored collaboratively through methods such as estuarine mapping, where citizens, policymakers, and other stakeholders jointly interpret the data and co-design actions. By combining narrative collection, distributed interpretation, and continuous feedback loops, EuroSense turns collective sensemaking into collective action and positions citizens as co-creators of knowledge and policy.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "7/2/9/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/2/11/24",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**Extraction of climate related stories for sensemaking**. Roberto Bonino](https://drive.usercontent.google.com/download?id=1pisgBVOwvXMLD0e4CSK6bPPzRVoFdc_X) [Download](https://drive.usercontent.google.com/download?id=1pisgBVOwvXMLD0e4CSK6bPPzRVoFdc_X)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"https://drive.usercontent.google.com/download?id=1pisgBVOwvXMLD0e4CSK6bPPzRVoFdc_X\" target=\"_blank\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Extraction of climate related stories for sensemaking</strong>. Roberto Bonino</span></a> <a href=\"https://drive.usercontent.google.com/download?id=1pisgBVOwvXMLD0e4CSK6bPPzRVoFdc_X\" target=\"_blank\">Download </a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "9/2/11/10",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "11/2/12/17",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "This document presents a collection of narratives related to climate change, climate adaptation and sustainability, selected from the total collection of 1081 narratives collected by Eurosense. The detailed selection process is described in Appendix. Narratives are presented grouped by the categories they have been assigned by the respondents. The goal of this document is to provide material for sensemaking sessions."
+          "html": "<div><p style=\"white-space:pre-wrap;\">This document presents a collection of narratives related to climate change, climate adaptation and sustainability, selected from the total collection of 1081 narratives collected by Eurosense. The detailed selection process is described in Appendix. Narratives are presented grouped by the categories they have been assigned by the respondents. The goal of this document is to provide material for sensemaking sessions.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "11/2/13/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "12/2/15/24",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**What is it like to be a European**. Roberto Bonino](https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view) [Download](https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view\" target=\"_blank\"><span class=\"sqsrte-text-color--darkAccent\"><strong>What is it like to be a European</strong>. Roberto Bonino</span></a> <a href=\"https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view\" target=\"_blank\">Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "13/2/15/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "15/2/16/12",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "This paper contributes to reflections on the question of what is it to be a European by exploring how respondents to the Eurosense data collection relate to the concepts of Europe, European Union and democracy through word clouds built from the responses to the open questions of the Eurosense collector. It offers an interesting overlook at some general trends emerging from the wordclouds grouped by questions and coutry of residence. Some specific differences and trends were noticed and are presented as a starting point for meaningful discussion in the context of semnsemaking sessions within the Eurosense community."
+          "html": "<div><p style=\"white-space:pre-wrap;\">This paper contributes to reflections on the question of what is it to be a European by exploring how respondents to the Eurosense data collection relate to the concepts of Europe, European Union and democracy through word clouds built from the responses to the open questions of the Eurosense collector. It offers an interesting overlook at some general trends emerging from the wordclouds grouped by questions and coutry of residence. Some specific differences and trends were noticed and are presented as a starting point for meaningful discussion in the context of semnsemaking sessions within the Eurosense community.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "15/2/17/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "16/2/19/24",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**Primary Analysis Report.** Ina Dmitrieva](/s/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf) [Download](/s/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"/s/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf\" target=\"_blank\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Primary Analysis Report.</strong> Ina Dmitrieva</span></a> <a href=\"/s/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf\" target=\"_blank\">Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "17/2/19/10",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/2/22/12",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "The primary analysis takes an exploratory approach and is aimed at providing a bird’s eye view of findings, enabling description and understanding of the main characteristics of the data. Its main focus is presenting responses visually in the form of plots and graphs and in this way identifying dominant patterns and outliers, while also identifying where it is necessary to disaggregate responses and determining the variables that will be used to do this. This is undertaken by using visualization tools (plots and graphs), quantitative techniques (summary statistics with some basic level of disaggregation and correlations among selected variables), and reading and analyzing sets of narratives from different groups of respondents. The sets of narratives for analysis can be extracted by filtering them using MCQs or can be drawn by selecting responses from dominant clusters or from outliers."
+          "html": "<div><p style=\"white-space:pre-wrap;\">The primary analysis takes an exploratory approach and is aimed at providing a bird’s eye view of findings, enabling description and understanding of the main characteristics of the data. Its main focus is presenting responses visually in the form of plots and graphs and in this way identifying dominant patterns and outliers, while also identifying where it is necessary to disaggregate responses and determining the variables that will be used to do this. This is undertaken by using visualization tools (plots and graphs), quantitative techniques (summary statistics with some basic level of disaggregation and correlations among selected variables), and reading and analyzing sets of narratives from different groups of respondents. The sets of narratives for analysis can be extracted by filtering them using MCQs or can be drawn by selecting responses from dominant clusters or from outliers.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "19/2/21/10",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "21/2/27/24",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "[**From Classroom to Career: Shedding Light on Graduate Employment Experiences Through The Free Energy Principle and Collective Intelligence.** Allegra Grunberg](https://drive.google.com/file/d/1tOUztUTBcU1Zcl-3Ky_Jf6Lf85SYyHCd/view?usp=drive_link). [Download](https://drive.google.com/file/d/1tOUztUTBcU1Zcl-3Ky_Jf6Lf85SYyHCd/view?usp=drive_link)"
+          "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"https://drive.google.com/file/d/1tOUztUTBcU1Zcl-3Ky_Jf6Lf85SYyHCd/view?usp=drive_link\" target=\"_blank\"><span class=\"sqsrte-text-color--darkAccent\"><strong>From Classroom to Career: Shedding Light on Graduate Employment Experiences Through The Free Energy Principle and Collective Intelligence.</strong> Allegra Grunberg</span></a><span class=\"sqsrte-text-color--darkAccent\">.</span> <a href=\"https://drive.google.com/file/d/1tOUztUTBcU1Zcl-3Ky_Jf6Lf85SYyHCd/view?usp=drive_link\" target=\"_blank\">Download</a></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "21/2/23/10",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "26/2/28/23",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "This exploratory dissertation creates and applies a non-computational adaptation of the Free Energy Principle (FEP) and Collective Intelligence (CI) to develop a scalable methodological framework (the FEP–CI framework) for analyzing science-technology-policy employment gaps. The research explores whether core concepts from FEP and CI can serve as useful principles for understanding employment system failures. Rather than claiming proven efficacy, it establishes a theoretical and conceptual foundation for future empirical and computational validation. Using the transition of students and graduates from study to workforce as a “sandbox,” it frames labor policy as an opportunity to test inclusive, iterative decision-making. The study includes a comprehensive literature review evaluating academic sources on traditional employment theories, FEP and CI to identify their analytical limitations, and assess the relevance and capacity of FEP and CI to address these gaps in employment policy analysis. Based on this analysis, the FEP-CI framework is developed. To empirically test the framework, employment experiences of 22 students and alumni from science-technology-policy programs are examined using the platform-based narrative collection tool SenseMaker®."
+          "html": "<div><p style=\"white-space:pre-wrap;\">This exploratory dissertation creates and applies a non-computational adaptation of the Free Energy Principle (FEP) and Collective Intelligence (CI) to develop a scalable methodological framework (the FEP–CI framework) for analyzing science-technology-policy employment gaps. The research explores whether core concepts from FEP and CI can serve as useful principles for understanding employment system failures. Rather than claiming proven efficacy, it establishes a theoretical and conceptual foundation for future empirical and computational validation. Using the transition of students and graduates from study to workforce as a “sandbox,” it frames labor policy as an opportunity to test inclusive, iterative decision-making. The study includes a comprehensive literature review evaluating academic sources on traditional employment theories, FEP and CI to identify their analytical limitations, and assess the relevance and capacity of FEP and CI to address these gaps in employment policy analysis. Based on this analysis, the FEP-CI framework is developed. To empirically test the framework, employment experiences of 22 students and alumni from science-technology-policy programs are examined using the platform-based narrative collection tool SenseMaker®.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "23/2/25/10",
+              "zIndex": 12,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "28/2/35/24",
+              "zIndex": 12,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

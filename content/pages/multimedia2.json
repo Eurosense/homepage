@@ -6,10 +6,39 @@
   "sections": [
     {
       "id": "69b7d9c329dc105a93e38309",
+      "grid": {
+        "mobile": {
+          "rows": 2,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 3,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "**UNDER CONSTRUCTION**"
+          "html": "<div><p style=\"text-align: center; white-space:pre-wrap;\"><strong>UNDER CONSTRUCTION</strong></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/2/3/24",
+              "zIndex": 14,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

@@ -7,42 +7,174 @@
     {
       "id": "6705e31823812276306f76b5",
       "background": "/media/Back1_Mesa-de-trabajo-1-b5fb0057.png",
+      "grid": {
+        "mobile": {
+          "rows": 2,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 6,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## **Join the** **EuroSense network**\n\n## **and make citizens voices** **heard**\n\n## **for** **collective action**"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\"><strong>Join the </strong><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"61e7c334-2f91-4771-97a8-69fbf7536c58\"><strong>EuroSense network </strong></span></h2><h2 style=\"text-align:center; white-space:pre-wrap;\"><strong>and make citizens voices </strong><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"465f2a70-f724-45ca-bdb6-e1e8e81e5e24\"><strong>heard </strong></span></h2><h2 style=\"text-align:center; white-space:pre-wrap;\"><strong>for </strong><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"20fe5c00-a507-43b7-8794-c11a68a294d6\"><strong>collective action</strong></span></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/7/26",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "6708e91a1f603e0a6f82546f",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 11,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 11,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "### **EuroSense Network**\n\n### A Europe-wide citizen science network that wants to make the voices of European citizens heard by activists, policy makers and governments.\n\n### By understanding the experiences of citizens in public life, and the pulse of Europe, we will overcome polarisation and collectively tackle the challenges of our times such as climate change, inequality, immigration, democracy and security."
+          "html": "<div><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>EuroSense Network</strong></span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">A Europe-wide citizen science network that wants to make the voices of European citizens heard by activists, policy makers and governments. </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">By understanding the experiences of citizens in public life, and the pulse of Europe, we will overcome polarisation and collectively tackle the challenges of our times such as climate change, inequality, immigration, democracy and security.</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/10/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/5/12/23",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "## [Read our booklet](https://www.eurosense.eu/s/Project-EuroSense-Revolutionise-Democracy.pdf) here"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"e741f96a-ebb9-4d50-984e-cf0bd7e500f1\"><a href=\"https://www.eurosense.eu/s/Project-EuroSense-Revolutionise-Democracy.pdf\" target=\"_blank\"><span class=\"sqsrte-text-color--accent\">Read our booklet</span></a><span class=\"sqsrte-text-color--accent\"> here</span></span></h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "10/2/12/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "10/7/12/21",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "6708eb3d0a62ef761af9a5c7",
       "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "grid": {
+        "mobile": {
+          "rows": 22,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 13,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "### By joining the EuroSense network as a partner, you can take full advantage of the benefits of the project.\n\n### By collecting stories using our Sense Making Tool you can make voices from your community heard across Europe in an easy and effortless way.\n\n### The stories and their data can also be used to understand emerging issues and identify what matters to the people and communities you care for.\n\n### We can provide support in the Sense Making process, which will give you the basis for local action and policy influencing."
+          "html": "<div><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">By joining the EuroSense network as a partner, you can take full advantage of the benefits of the project. </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">By collecting stories using our Sense Making Tool you can make voices from your community heard across Europe in an easy and effortless way. </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">The stories and their data can also be used to understand emerging issues and identify what matters to the people and communities you care for. </span></h3><h3 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">We can provide support in the Sense Making process, which will give you the basis for local action and policy influencing.</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/23/10",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "1/5/14/24",
+              "zIndex": 1,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "6708e8e68cdc1d01b2420b33",
+      "theme": "bright-inverse",
+      "grid": {
+        "mobile": {
+          "rows": 16,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 10,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## Benefits"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\">Benefits</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/3/12",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "accordion",
@@ -63,35 +195,140 @@
               "title": "📈 Real-Time Data: Utilize up-to-date information through our open-source platform.",
               "markdown": "It provides an honest picture of what’s actually happening, so you can respond to changes as they occur, rather than relying on outdated assumptions. This real-time insight is key for making timely and informed decisions.\n\nYou can track changes over time by repeating the storytelling, keeping you at the forefront of evolving community dynamics."
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "3/2/17/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/7/11/26",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "6705e5690f1d7260c5af2272",
+      "theme": "bright-inverse",
+      "grid": {
+        "mobile": {
+          "rows": 10,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 10,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## You can use our Sense Maker tool for free. \n\n## Join our journey and make a difference!"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\">You can use our Sense Maker tool for free.&nbsp;</h2><h2 style=\"text-align:center; white-space:pre-wrap;\">Join our journey and make a difference!</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/6/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/8/6/20",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "#### **Contact us**\n\n#### [**voltsense@volteuropa.org**](mailto:voltsense@volteuropa.org)"
+          "html": "<div><h4 style=\"text-align:center; white-space:pre-wrap;\"><strong>Contact us</strong></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><strong> </strong><a href=\"mailto:voltsense@volteuropa.org\" target=\"_blank\"><span><strong>voltsense@volteuropa.org</strong></span></a></h4></div>",
+          "layout": {
+            "mobile": {
+              "area": "6/2/8/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/11/9/17",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Our vision",
-          "href": "/vision"
+          "href": "/vision",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "layout": {
+            "mobile": {
+              "area": "9/4/11/8",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "9/11/11/17",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     },
     {
       "id": "671f8f202e7e9614f30db2bd",
+      "theme": "light",
       "background": "/media/Back3_Mesa-de-trabajo-1-3c8283cf.png",
+      "grid": {
+        "mobile": {
+          "rows": 21,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 14,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+          "html": "<div><h1 style=\"white-space:pre-wrap;\">Newsletter</h1><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"33718c7b-2538-46b5-9256-98f18fb046ea\">Interested </span>in our efforts? </h3><h3 style=\"white-space:pre-wrap;\">Stay <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"0b719889-f0d2-4269-9211-512a33cc2768\">informed</span> about the EuroSense project!</h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/8/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/3/10/13",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "form",
@@ -117,7 +354,21 @@
               "type": "textarea",
               "required": false
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "8/2/21/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/16/14/26",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

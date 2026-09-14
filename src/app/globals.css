@@ -27,6 +27,18 @@
   --spacing-section: 5rem;
 }
 
+/*
+ * Page geometry, taken from the Squarespace theme (--maxPageWidth 1400px,
+ * --pagePadding 4vw, --sqs-mobile-site-gutter 6vw). The fluid-engine grids in
+ * FluidSection are built from these, so changing them rescales every migrated
+ * section at once.
+ */
+:root {
+  --site-max-width: 1400px;
+  --site-gutter: 4vw;
+  --site-gutter-mobile: 6vw;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -34,19 +46,22 @@
 
   body {
     background-color: var(--color-cream);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
+    color: var(--color-purple);
+    /* Satoshi, not Roboto: the live site sets body copy in Satoshi too. */
+    font-family: var(--font-display);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
+  /*
+   * Deliberately no colour here. Heading colour is a section-theme decision
+   * (--sec-heading), and a base rule would win against it on specificity.
+   */
   h1,
   h2,
   h3,
   h4 {
     font-family: var(--font-display);
-    color: var(--color-purple-deep);
-    text-wrap: balance;
     letter-spacing: -0.02em;
   }
 
@@ -57,52 +72,159 @@
 }
 
 /*
- * Applied to Markdown converted from Squarespace rich text. That HTML carries
- * no classes of its own, so element selectors are the only hook available.
+ * Section themes.
+ *
+ * Squarespace ships one palette and six themes that reassign which colour plays
+ * which role. These values were measured from the live site with getComputedStyle
+ * rather than inferred from the stylesheet cascade, because the cascade resolves
+ * through several layers of indirection and reading it wrong is silent.
+ *
+ * `white` and `(none)` cover 55 of the 100 migrated sections.
  */
 @layer components {
+  [data-theme] {
+    --sec-bg: var(--color-cream);
+    --sec-heading: var(--color-gold);
+    --sec-text: var(--color-purple);
+    --sec-btn-bg: var(--color-gold);
+    --sec-btn-text: #543f04;
+    --sec-btn-outline: var(--color-purple-deep);
+    background-color: var(--sec-bg);
+    color: var(--sec-text);
+  }
+
+  [data-theme='white'],
+  [data-theme='light'] {
+    --sec-bg: var(--color-cream);
+    --sec-heading: var(--color-gold);
+    --sec-text: var(--color-purple);
+  }
+
+  [data-theme='white-bold'] {
+    --sec-bg: var(--color-cream);
+    --sec-heading: var(--color-purple);
+    --sec-text: var(--color-purple);
+  }
+
+  [data-theme='bright-inverse'] {
+    --sec-bg: #ffffff;
+    --sec-heading: var(--color-purple);
+    --sec-text: var(--color-purple);
+  }
+
+  [data-theme='bright'] {
+    --sec-bg: var(--color-purple);
+    --sec-heading: #ffffff;
+    --sec-text: #ffffff;
+    --sec-btn-text: #ffffff;
+    --sec-btn-outline: #ffffff;
+  }
+
+  [data-theme='dark'],
+  [data-theme='none'] {
+    --sec-bg: var(--color-purple-deep);
+    --sec-heading: var(--color-gold);
+    --sec-text: var(--color-gold);
+    --sec-btn-text: #ffffff;
+    --sec-btn-outline: var(--color-gold);
+  }
+
+  /* A section with its own background image paints that instead of a flat fill. */
+  [data-theme][data-has-background='true'] {
+    background-color: transparent;
+  }
+}
+
+/*
+ * Rich text carried over from Squarespace, as HTML rather than Markdown so that
+ * `text-align` and inline colour survive. Sizes and line heights below were
+ * measured on the live site at 1440px and expressed in vw so they scale the way
+ * the original did.
+ */
+@layer components {
+  /*
+   * Type scale. Each size is a linear fit through two measurements of the live
+   * site (390px and 1440px viewports), which is how Squarespace expresses them
+   * too, so these track the original at every width rather than only at the
+   * breakpoints.
+   *
+   * Body copy is deliberately NOT fluid: the live site renders <p> at a fixed
+   * 16px and only scales paragraphs marked `.sqsrte-large`.
+   */
   .prose-eurosense {
-    line-height: 1.75;
-    color: #3b3142;
+    color: var(--sec-text, var(--color-purple));
+    font-size: 1rem;
+    line-height: 1.45;
   }
 
   .prose-eurosense > * + * {
-    margin-top: 1.15em;
+    margin-top: 0.8em;
+  }
+
+  .prose-eurosense p.sqsrte-large {
+    font-size: calc(17.912px + 0.15886vw);
+    line-height: 1.45;
+    letter-spacing: -0.016em;
+  }
+
+  .prose-eurosense :is(h1, h2, h3, h4) {
+    color: var(--sec-heading, var(--color-gold));
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
   }
 
   .prose-eurosense h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.12;
-    margin-top: 1.4em;
+    font-size: calc(38.949px + 1.9063vw);
+    line-height: 1.056;
   }
 
   .prose-eurosense h2 {
-    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-    line-height: 1.2;
-    margin-top: 1.5em;
+    font-size: calc(35.125px + 1.5886vw);
+    line-height: 1.08;
   }
 
   .prose-eurosense h3 {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    line-height: 1.3;
-    margin-top: 1.4em;
+    font-size: calc(19.825px + 0.31771vw);
+    line-height: 1.176;
+  }
+
+  .prose-eurosense h4 {
+    font-size: calc(15.5px + 0.24vw);
+    line-height: 1.2;
+  }
+
+  /* Squarespace's own colour classes, kept by the extractor. */
+  .prose-eurosense .sqsrte-text-color--accent {
+    color: var(--color-purple);
+  }
+
+  .prose-eurosense .sqsrte-text-color--white {
+    color: #ffffff;
+  }
+
+  .prose-eurosense .sqsrte-text-color--black {
+    color: var(--color-purple-deep);
+  }
+
+  .prose-eurosense .sqsrte-text-color--lightAccent {
+    color: var(--color-purple-deep);
   }
 
   .prose-eurosense a {
-    color: var(--color-purple);
+    color: inherit;
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
   }
 
   .prose-eurosense a:hover {
-    color: var(--color-purple-deep);
     text-decoration-thickness: 2px;
   }
 
   .prose-eurosense strong {
-    color: var(--color-purple-deep);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .prose-eurosense ul,

@@ -6,42 +6,173 @@
   "sections": [
     {
       "id": "69a018feb3bbd131425f7ad3",
+      "theme": "bright",
       "background": "/media/Back1_Mesa-de-trabajo-1-b5919e75.png",
+      "grid": {
+        "mobile": {
+          "rows": 8,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 1,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# **Explore and join Projects and communities that are using Eurosense**"
+          "html": "<div><div class=\"sqsrte-scaled-text-container\"><span class=\"sqsrte-scaled-text\"><h1 style=\"text-align:center; white-space:pre-wrap;\"><strong>Explore and join Projects and communities that are using Eurosense</strong>&nbsp; </h1></span></div></div>",
+          "layout": {
+            "mobile": {
+              "area": "2/2/9/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/7/2/21",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "69a018feb3bbd131425f7ad6",
+      "theme": "white-bold",
+      "grid": {
+        "mobile": {
+          "rows": 6,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 27,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "#### ALLONE\n\ndescription  \n  \nCONTACT:"
+          "html": "<div><h4 style=\"white-space:pre-wrap;\">ALLONE</h4><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">description<br><br>CONTACT: </span></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><br></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/14/12",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "#### 50+\n\ndescription  \n  \nCONTACT:"
+          "html": "<div><h4 style=\"white-space:pre-wrap;\">50+</h4><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">description<br><br>CONTACT: </span></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><br></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/5/10",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "15/2/28/12",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "#### WEDECIDEAPP\n\nA digital civic app that helps people reflect on their concerns and measure their impact within their community. Using the science-backed EuroSense tool, it turns anonymous stories into real-time wellbeing insights and collective scorecards — transforming lived experience into measurable patterns that hold power accountable. Users can directly message their representatives, making citizen–leader relationships visible and impossible to ignore.  \n  \nCONTACT: [wedecide@pm.me](mailto:wedecide@pm.me)"
+          "html": "<div><h4 style=\"white-space:pre-wrap;\">WEDECIDEAPP</h4><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">A digital civic app that helps people reflect on their concerns and measure their impact within their community. Using the science-backed EuroSense tool, it turns anonymous stories into real-time wellbeing insights and collective scorecards — transforming lived experience into measurable patterns that hold power accountable. Users can directly message their representatives, making citizen–leader relationships visible and impossible to ignore.<br><br>CONTACT: </span><a href=\"mailto:wedecide@pm.me\">wedecide@pm.me</a><br></p></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/2/7/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/15/14/25",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "69a018feb3bbd131425f7ad9",
       "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "grid": {
+        "mobile": {
+          "rows": 11,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 17,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## What is the purpose?"
+          "html": "<div><h2 style=\"text-align:center; white-space:pre-wrap;\">What is the <span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"ea4e78a2-8858-4109-9c22-93c5e8178917\">purpose</span>?</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/7/3/20",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "#### The project aims to create a more inclusive and democratic Europe by encouraging citizens to engage in politics. It uses innovative software and a network to help people understand complex social issues and suggest solutions.\n\n#### The long-term goal is a political environment\n\n#### where citizens' voices matter,\n\n#### leading to better responses for the common good.\n\n#### Elected officials, from the European Parliament to local governments, need to value these contributions in their decisions.\n\n#### The project also seeks to motivate other organistations to embrace this approach and make citizen involvement a part of European democracy.\n\n#### Ultimately, it envisions a society where citizens feel empowered to influence politics and shape their communities."
+          "html": "<div><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">The project aims to create a more inclusive and democratic Europe by encouraging citizens to </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"d0c62337-1867-4b29-90d7-bc3503d1aa25\"><span class=\"sqsrte-text-color--white\">engage in politics.</span></span><span class=\"sqsrte-text-color--white\"> It uses innovative software and a network to help people understand </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"1141c663-5341-44ad-ba0b-d2ebf45dac9f\"><span class=\"sqsrte-text-color--white\">complex </span></span><span class=\"sqsrte-text-color--white\">social issues and suggest solutions. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">The </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"7b479ba0-9757-4efc-be95-02a4efd8b609\"><span class=\"sqsrte-text-color--white\">long-term goal</span></span><span class=\"sqsrte-text-color--white\"> is a political environment </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">where citizens' </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"6583f13c-a25c-43bc-b4b6-eea072c2ea39\"><span class=\"sqsrte-text-color--white\">voices matter, </span></span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">leading to better responses for the common good. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"c68876b3-b512-4e1d-8b2d-e2b89df63552\"><span class=\"sqsrte-text-color--white\">Elected </span></span><span class=\"sqsrte-text-color--white\">officials, from the European Parliament to local governments, need to value these contributions in their decisions. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">The project also seeks to </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"1a09ec20-050c-4064-9e98-dca3abb516e3\"><span class=\"sqsrte-text-color--white\">motivate </span></span><span class=\"sqsrte-text-color--white\">other organistations to embrace this approach and make citizen involvement a part of European democracy. </span></h4><h4 style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--white\">Ultimately, it envisions a society where </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"fdb80ab4-04f8-4449-9f97-826b77bfe27b\"><span class=\"sqsrte-text-color--white\">citizens feel empowered</span></span><span class=\"sqsrte-text-color--white\"> to influence politics and shape their communities.</span></h4></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/12/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "5/5/18/23",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

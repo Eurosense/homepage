@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Accordion } from '@/components/Accordion'
+import { ItemList } from '@/components/ItemList'
 import { Embed } from '@/components/Embed'
 import { ContactForm } from '@/components/ContactForm'
 import { renderMarkdown } from '@/lib/markdown'
@@ -24,21 +25,16 @@ function isInternal(href: string) {
 export function BlockView({ block }: { block: Block }) {
   switch (block.type) {
     case 'richText':
-      return (
-        <div
-          className="prose-eurosense"
-          dangerouslySetInnerHTML={{ __html: renderMarkdown(block.markdown) }}
-        />
-      )
+      return <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: block.html }} />
 
     case 'image': {
       const img = (
         <Image
           src={block.src}
           alt={block.alt ?? ''}
-          width={1600}
-          height={1000}
-          className="h-auto w-full rounded-xl object-cover"
+          width={block.width ?? 1600}
+          height={block.height ?? 1000}
+          className="h-auto w-full rounded-xl object-contain"
           sizes="(max-width: 768px) 100vw, 800px"
         />
       )
@@ -57,7 +53,7 @@ export function BlockView({ block }: { block: Block }) {
           )}
           {block.caption ? (
             <figcaption
-              className="mt-2 text-center text-sm text-muted"
+              className="mt-2 text-center text-sm opacity-80"
               dangerouslySetInnerHTML={{ __html: renderMarkdown(block.caption) }}
             />
           ) : null}
@@ -66,12 +62,18 @@ export function BlockView({ block }: { block: Block }) {
     }
 
     case 'button': {
-      // self-start stops the button stretching to the column width: it is a
-      // flex child of the section, where the default align-items is stretch.
-      const classes =
-        'inline-flex self-start items-center justify-center rounded-full bg-purple px-7 py-3 ' +
-        'font-medium text-cream transition hover:bg-purple-deep ' +
-        'focus-visible:outline-2 focus-visible:outline-offset-3'
+      // Colours come from the section theme rather than being hard-coded, so a
+      // button on a dark section inverts the way it did on Squarespace.
+      const base =
+        'inline-flex items-center justify-center rounded-[15px] px-4 text-base font-medium leading-none transition'
+      const height = block.size === 'small' ? 'h-10' : block.size === 'large' ? 'h-14' : 'h-14'
+      const width = block.stretched ? 'w-full' : ''
+      const variant =
+        block.variant === 'tertiary'
+          ? 'border border-[color:var(--sec-btn-outline)] text-[color:var(--sec-btn-outline)] hover:bg-[color:var(--sec-btn-outline)]/10'
+          : 'bg-[color:var(--sec-btn-bg)] text-[color:var(--sec-btn-text)] hover:opacity-90'
+      const classes = `${base} ${height} ${width} ${variant}`
+
       return isInternal(block.href) ? (
         <Link href={block.href} className={classes}>
           {block.label}
@@ -120,6 +122,9 @@ export function BlockView({ block }: { block: Block }) {
     case 'accordion':
       return <Accordion items={block.items} />
 
+    case 'list':
+      return <ItemList items={block.items} />
+
     case 'gallery':
     case 'summary-v2':
     case 'instagram':
@@ -144,17 +149,28 @@ export function BlockView({ block }: { block: Block }) {
   }
 }
 
+/**
+ * Fallback for the sections Squarespace rendered with its older layout engine
+ * rather than the fluid-engine grid: a single readable column. Sections that
+ * carry grid data go through FluidSection instead.
+ */
 export function SectionView({
   blocks,
   background,
+  theme,
 }: {
   blocks: Block[]
   background?: string
+  theme?: string
 }) {
   const hasBackground = Boolean(background)
 
   return (
-    <section className="relative isolate">
+    <section
+      className="relative isolate"
+      data-theme={theme ?? 'none'}
+      data-has-background={hasBackground ? 'true' : undefined}
+    >
       {background ? (
         <>
           <Image

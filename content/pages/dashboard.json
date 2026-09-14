@@ -6,56 +6,238 @@
   "sections": [
     {
       "id": "670865500696be6f0a02862b",
+      "theme": "bright-inverse",
+      "grid": {
+        "mobile": {
+          "rows": 104,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 37,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## What are the European Citizens telling us?"
+          "html": "<div><h2 style=\"white-space:pre-wrap;\">What are the European Citizens telling us?</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/4/10",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/4/13",
+              "zIndex": 2,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Story Titles"
+          "html": "<div><p style=\"white-space:pre-wrap;\">Story Titles</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "4/2/6/10",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "4/3/5/6",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "image",
           "src": "/media/EuroSense-Story-Titles-12d43e83.png",
           "alt": "Word Cloud of Story Titles with the word LIFE in the center",
-          "caption": ""
+          "width": 602,
+          "height": 367,
+          "caption": "",
+          "layout": {
+            "mobile": {
+              "area": "6/2/12/10",
+              "zIndex": 9,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "5/2/12/11",
+              "zIndex": 9,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Stories Collected"
+          "html": "<div><h3 style=\"text-align:center; white-space:pre-wrap;\">Stories Collected</h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "12/2/14/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/15/3/22",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "embed",
-          "html": "<div class=\"sqs-embed-container\" data-localized=\"{&quot;embedInvalid&quot;:&quot;Enter a valid embed URL or code.&quot;,&quot;embedTitle&quot;:&quot;Embed Block&quot;,&quot;embedUninitialized&quot;:&quot;Add an embed URL or code.&quot;,&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;invalidThumbnail&quot;:&quot;Custom featured images only available with embedded videos. Go back into embed settings to turn off featured images.&quot;,&quot;invalidVideo&quot;:&quot;Invalid video embed.&quot;,&quot;playButton&quot;:&quot;Play&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n  \n    \n    \n      \n        \n        \n        \n        \n          <iframe width=\"220\" height=\"220\" type=\"dashboard_v1_widget\" src=\"https://platform.sensemaker-suite.com/r/e/21a86a3e-2554-4ed7-86be-b76ca404b577\" title=\"Volt Europe\" frameborder=\"0\" allow=\"accelerometer; clipboard-write;\" allowfullscreen=\"\"></iframe>\n        \n        \n        \n      \n    \n  \n  \n    \n\n\n\n  \n</div>\n\n\n  <style class=\"transform-overrides-vars\">\n  \n</style>"
+          "html": "<div class=\"sqs-embed-container\" data-localized=\"{&quot;embedInvalid&quot;:&quot;Enter a valid embed URL or code.&quot;,&quot;embedTitle&quot;:&quot;Embed Block&quot;,&quot;embedUninitialized&quot;:&quot;Add an embed URL or code.&quot;,&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;invalidThumbnail&quot;:&quot;Custom featured images only available with embedded videos. Go back into embed settings to turn off featured images.&quot;,&quot;invalidVideo&quot;:&quot;Invalid video embed.&quot;,&quot;playButton&quot;:&quot;Play&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n  \n    \n    \n      \n        \n        \n        \n        \n          <iframe width=\"220\" height=\"220\" type=\"dashboard_v1_widget\" src=\"https://platform.sensemaker-suite.com/r/e/21a86a3e-2554-4ed7-86be-b76ca404b577\" title=\"Volt Europe\" frameborder=\"0\" allow=\"accelerometer; clipboard-write;\" allowfullscreen=\"\"></iframe>\n        \n        \n        \n      \n    \n  \n  \n    \n\n\n\n  \n</div>\n\n\n  <style class=\"transform-overrides-vars\">\n  \n</style>",
+          "layout": {
+            "mobile": {
+              "area": "14/4/22/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/16/10/22",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "FULL DASHBOARD",
-          "href": "https://platform.sensemaker-suite.com/r/d/3642683b-063d-493e-a32d-d6dea369df63"
+          "href": "https://platform.sensemaker-suite.com/r/d/3642683b-063d-493e-a32d-d6dea369df63",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "22/4/24/8",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "10/14/12/18",
+              "zIndex": 5,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Download Data (XLSX)",
-          "href": "/s/2025_01_23_EuroSense-Raw-Data-Clean-V10_opensource.xlsx"
+          "href": "/s/2025_01_23_EuroSense-Raw-Data-Clean-V10_opensource.xlsx",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "24/2/26/6",
+              "zIndex": 10,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "10/19/12/23",
+              "zIndex": 10,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "embed",
-          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    <iframe src=\"https://medibunny.github.io/Eurosense/\" width=\"100%\" height=\"1000\" style=\"border: none;\">\n</iframe>\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>"
+          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    <iframe src=\"https://medibunny.github.io/Eurosense/\" width=\"100%\" height=\"1000\" style=\"border: none;\">\n</iframe>\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>",
+          "layout": {
+            "mobile": {
+              "area": "26/2/99/10",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "12/1/37/27",
+              "zIndex": 8,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "embed",
-          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    \n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>"
+          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    \n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>",
+          "layout": {
+            "mobile": {
+              "area": "87/2/93/10",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "37/2/38/11",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
     {
       "id": "671f8fdaeefc084a7a98bb5f",
+      "theme": "light",
       "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "grid": {
+        "mobile": {
+          "rows": 21,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 14,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+          "html": "<div><h1 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">Newsletter</span></h1><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"33718c7b-2538-46b5-9256-98f18fb046ea\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">Interested </span></span><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(255, 255, 255);\">in our efforts? </span></h3><h3 style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(254, 254, 254);\">Stay </span><span class=\"sqsrte-text-highlight\" data-text-attribute-id=\"0b719889-f0d2-4269-9211-512a33cc2768\"><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(254, 254, 254);\">informed</span></span><span class=\"sqsrte-text-color--custom\" style=\"color: rgb(254, 254, 254);\"> about the EuroSense project!</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "3/2/8/10",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/3/10/13",
+              "zIndex": 0,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "form",
@@ -81,7 +263,21 @@
               "type": "textarea",
               "required": false
             }
-          ]
+          ],
+          "layout": {
+            "mobile": {
+              "area": "8/2/21/10",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "2/16/14/26",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     }

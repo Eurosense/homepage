@@ -6,49 +6,217 @@
   "sections": [
     {
       "id": "69b7d6fa1dff4e2d3ec89565",
+      "theme": "white",
+      "grid": {
+        "mobile": {
+          "rows": 47,
+          "rowMin": "24px",
+          "columns": 8,
+          "rowGap": "11.0px",
+          "columnGap": "11.0px"
+        },
+        "desktop": {
+          "rows": 19,
+          "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
+          "columns": 24,
+          "rowScale": 0.0215
+        }
+      },
       "blocks": [
         {
           "type": "richText",
-          "markdown": "## Resources"
+          "html": "<div><h2 style=\"text-align: center; white-space:pre-wrap;\">Resources</h2></div>",
+          "layout": {
+            "mobile": {
+              "area": "1/2/3/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "1/2/4/26",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Publications"
+          "html": "<div><h3 style=\"text-align: center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--darkAccent\">Publications</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "5/3/7/9",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "7/3/9/9",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "A selection of papers and articles related to the Eurosense sensemaking tool."
+          "html": "<div><p style=\"white-space:pre-wrap;\">A selection of papers and articles related to the Eurosense sensemaking tool.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "7/3/11/9",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "9/3/11/9",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Open",
-          "href": "/publications"
+          "href": "/publications",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "11/2/13/10",
+              "zIndex": 11,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "13/3/15/9",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Storyboards"
+          "html": "<div><h3 style=\"text-align: center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--darkAccent\">Storyboards</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "16/3/18/9",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "7/11/9/17",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Publications of selected stories collected via Eurosense."
+          "html": "<div><p style=\"white-space:pre-wrap;\">Publications of selected stories collected via Eurosense.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "18/3/22/9",
+              "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "9/11/11/17",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Open",
-          "href": "/storyboards"
+          "href": "/storyboards",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "22/2/24/10",
+              "zIndex": 12,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "13/11/15/17",
+              "zIndex": 8,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "### Multimedia"
+          "html": "<div><h3 style=\"text-align: center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--darkAccent\">Multimedia</span></h3></div>",
+          "layout": {
+            "mobile": {
+              "area": "27/3/29/9",
+              "zIndex": 7,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "7/19/9/25",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "richText",
-          "markdown": "Videos and presentations of our Community of Practice, Story Collection and Collective Sensemaking meetings."
+          "html": "<div><p style=\"white-space:pre-wrap;\">Videos and presentations of our Community of Practice, Story Collection and Collective Sensemaking meetings.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "29/3/32/9",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "9/19/12/25",
+              "zIndex": 6,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         },
         {
           "type": "button",
           "label": "Open",
-          "href": "/resources/multimedia"
+          "href": "/resources/multimedia",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "center",
+          "stretched": true,
+          "layout": {
+            "mobile": {
+              "area": "33/2/35/10",
+              "zIndex": 12,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "13/19/15/25",
+              "zIndex": 8,
+              "justify": "center",
+              "align": "center"
+            }
+          }
         }
       ]
     }
