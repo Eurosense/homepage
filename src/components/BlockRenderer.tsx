@@ -6,6 +6,7 @@ import { InstagramGrid } from '@/components/InstagramGrid'
 import { ItemList } from '@/components/ItemList'
 import { DocumentEmbed } from '@/components/DocumentEmbed'
 import { Embed } from '@/components/Embed'
+import { NewsletterForm } from '@/components/NewsletterForm'
 import { ContactForm } from '@/components/ContactForm'
 import { renderMarkdown } from '@/lib/markdown'
 import { getFormTarget } from '@/lib/forms'
@@ -19,6 +20,9 @@ import type { Block } from '@/lib/content'
 function RawHtml({ html }: { html: string }) {
   return <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: html }} />
 }
+
+/** The newsletter form whose field spec lives in content/forms.json. */
+const NEWSLETTER_SQUARESPACE_ID = '671f9020897e7e5dea51318a'
 
 function isInternal(href: string) {
   return href.startsWith('/') && !href.startsWith('//')
@@ -149,8 +153,23 @@ export function BlockView({ block }: { block: Block }) {
       )
     }
 
-    case 'embed':
+    case 'embed': {
+      /*
+       * A HubSpot embed renders as our own form rather than HubSpot's iframe:
+       * same submissions, styled with the site, no ~700px frame. It lives here
+       * rather than in the footer so any HubSpot embed, on any page, matches.
+       */
+      const hubspot = block.html.match(/data-form-id="([^"]+)"[^>]*data-portal-id="([^"]+)"/)
+      if (hubspot) {
+        const target = getFormTarget(NEWSLETTER_SQUARESPACE_ID)
+        if (target?.provider === 'hubspot' && target.newsletter) {
+          return (
+            <NewsletterForm portalId={hubspot[2]} formId={hubspot[1]} spec={target.newsletter} />
+          )
+        }
+      }
       return <Embed html={block.html} className="prose-eurosense w-full" />
+    }
 
     case 'quote':
       return (

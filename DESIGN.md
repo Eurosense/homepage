@@ -62,10 +62,16 @@ correctly on a dark band without any conditional logic.
 | Theme | Background | Heading | Text | Outlined button |
 | --- | --- | --- | --- | --- |
 | `white`, `light` | cream | gold | purple | gold |
-| `white-bold` | cream | purple | purple | gold |
+| `white-bold` | cream | purple | purple | gold (primary fill is purple) |
 | `bright-inverse` | `#ffffff` | purple | purple | gold |
 | `bright` | purple | white | white | white |
-| `dark`, `none` | purple-deep | gold | gold | white |
+| `none` | purple-deep | gold | gold | white |
+| `dark` | **gold** | cream | purple-deep | purple-deep |
+
+`dark` is a **gold** band, not a dark one. Grouping it with `none` because the
+names sounded alike rendered the "Our Partners" heading purple-on-purple.
+`scripts/check-contrast.mjs` now fails the build when any theme paints text in
+its own background colour — that mistake shipped three times.
 
 `white` and `none` cover most of the site. Sections with their own background
 image get `data-has-background`, which drops the flat fill so the image shows.

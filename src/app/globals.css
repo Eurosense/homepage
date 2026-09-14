@@ -105,6 +105,10 @@
     --sec-bg: var(--color-cream);
     --sec-heading: var(--color-purple);
     --sec-text: var(--color-purple);
+    /* Measured: primary buttons here are purple with white text, not gold. */
+    --sec-btn-bg: var(--color-purple);
+    --sec-btn-text: #ffffff;
+    --sec-btn-outline: var(--color-purple);
   }
 
   [data-theme='bright-inverse'] {
@@ -125,7 +129,6 @@
     --sec-btn-outline: var(--color-gold);
   }
 
-  [data-theme='dark'],
   [data-theme='none'] {
     --sec-bg: var(--color-purple-deep);
     --sec-heading: var(--color-gold);
@@ -133,6 +136,20 @@
     --sec-btn-text: #ffffff;
     /* Measured: outlined buttons on the deep purple bands are white, not gold. */
     --sec-btn-outline: #ffffff;
+  }
+
+  /*
+   * `dark` is a gold band, not a dark one — measured on /our-partners. Grouping
+   * it with `none` because the name suggested they were alike rendered the
+   * "Our Partners" heading purple-on-purple, which is to say invisible.
+   */
+  [data-theme='dark'] {
+    --sec-bg: var(--color-gold);
+    --sec-heading: var(--color-cream);
+    --sec-text: var(--color-purple-deep);
+    --sec-btn-bg: var(--color-purple-deep);
+    --sec-btn-text: var(--color-cream);
+    --sec-btn-outline: var(--color-purple-deep);
   }
 
   /* A section with its own background image paints that instead of a flat fill. */

@@ -787,6 +787,16 @@ function parseSiteChrome(html, knownPaths = []) {
 
   // The footer is a normal Squarespace layout, so run it through the same block
   // parser as page sections rather than flattening it to a single string.
+  /*
+   * The footer is a fluid-engine section like any page section: its logo mark is
+   * a small grid cell and the wordmark spans nearly the full width. Rendering it
+   * as a plain stack sized both the same, which is why the two read as the same
+   * logo printed twice.
+   */
+  const $footerSection = $('footer').first()
+  const footerLayout = parseFluidLayout($, $footerSection)
+  const footerGrid = footerLayout ? footerLayout.container : undefined
+
   const footerBlocks = []
   const unlinkedFooterLabels = []
   $('footer .sqs-block').each((_i, b) => {
@@ -811,6 +821,14 @@ function parseSiteChrome(html, knownPaths = []) {
       }
     }
 
+    if (footerLayout) {
+      const wrapperClass = ($(b).closest('.fe-block').attr('class') || '')
+        .split(/\s+/)
+        .find((c) => c.startsWith('fe-block-'))
+      const placement = wrapperClass ? footerLayout.blocks.get(wrapperClass) : undefined
+      if (placement) parsed.layout = placement
+    }
+
     footerBlocks.push(parsed)
   })
 
@@ -826,6 +844,7 @@ function parseSiteChrome(html, knownPaths = []) {
     nav,
     social,
     headerCta,
+    footerGrid,
     footerBlocks,
   }
 }

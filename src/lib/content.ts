@@ -154,8 +154,10 @@ export type SiteChrome = {
   nav: { label: string; href: string }[]
   social: { platform: string; href: string }[]
   headerCta?: { label: string; href: string }
+  /** The footer is a fluid-engine section; this is its grid. */
+  footerGrid?: SectionGrid
   /** Footer blocks carry the theme of the Squarespace section they came from. */
-  footerBlocks: (Block & { theme?: string })[]
+  footerBlocks: (Block & { theme?: string; layout?: BlockLayout })[]
 }
 
 /**

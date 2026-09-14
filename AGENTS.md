@@ -214,6 +214,9 @@ this project's failure modes are quiet rather than loud:
   mismatch, unparsable dates.
 - `check-media.mjs` — every `/media/...` reference resolves, nothing is zero bytes,
   nothing has drifted back to a Squarespace URL.
+- `check-contrast.mjs` — no section theme paints its text in its own background
+  colour. That bug shipped three times: the content was in the DOM, the build was
+  green, and the words were invisible.
 
 A green `next build` on its own does **not** mean the change is correct. It will
 happily prerender a page with a broken image and an unrecognised block.

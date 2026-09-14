@@ -164,7 +164,16 @@ const siteChrome = z.object({
   favicon: mediaPath,
   nav: z.array(z.object({ label: z.string().min(1), href: z.string().min(1) })).min(1),
   social: z.array(z.object({ platform: z.string(), href: z.string() })),
-  footerBlocks: z.array(z.intersection(block, z.object({ theme: z.string().optional() }))),
+  footerGrid: z.record(z.string(), z.unknown()).optional(),
+  footerBlocks: z.array(
+    z.intersection(
+      block,
+      z.object({
+        theme: z.string().optional(),
+        layout: z.object({ mobile: placement, desktop: placement }).optional(),
+      }),
+    ),
+  ),
 })
 
 const formsFile = z.object({

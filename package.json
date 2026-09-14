@@ -12,7 +12,7 @@
     "build": "next build",
     "start": "npx serve out",
     "typecheck": "tsc --noEmit",
-    "validate": "node scripts/validate-content.mjs && node scripts/check-media.mjs",
+    "validate": "node scripts/validate-content.mjs && node scripts/check-media.mjs && node scripts/check-contrast.mjs",
     "check": "npm run validate && npm run typecheck && npm run build",
     "fonts": "node scripts/fonts.mjs",
     "optimise:media": "node scripts/optimise-media.mjs",
