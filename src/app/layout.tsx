@@ -43,6 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           'https://cdnjs.cloudflare.com',
           'https://platform.sensemaker-suite.com',
           'https://js.hsforms.net',
+          // The dashboard pulls its captures data from Pages at runtime.
+          'https://eurosense.github.io',
         ].map((origin) => (
           <link key={origin} rel="preconnect" href={origin} crossOrigin="anonymous" />
         ))}

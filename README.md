@@ -70,8 +70,17 @@ page load instead of running serially once the iframe starts parsing.
 ### Keeping its data fresh
 
 `.github/workflows/dashboard-data.yml` refreshes `captures.csv` from the SenseMaker
-API every night at 03:00 UTC and commits it, which triggers a deploy. Run it by hand
-from the Actions tab, or locally:
+API every night at 03:00 UTC and **publishes it to GitHub Pages** at
+`https://eurosense.github.io/homepage/captures.csv`.
+
+Publishing rather than committing keeps data off the site's deploy path: new
+captures reach the dashboard without a commit to `main`, so a daily refresh costs
+GitHub Actions minutes instead of deploybase build minutes. The dashboard fetches
+that copy first and falls back to the one committed at
+`public/dashboard-app/captures.csv`, which keeps it working offline, on a preview
+build, and if Pages is unreachable.
+
+Run it by hand from the Actions tab, or locally:
 
 ```bash
 SENSEMAKER_PAT_ID=... SENSEMAKER_FRAMEWORK=... npm run dashboard:data
@@ -152,7 +161,7 @@ worth knowing if you re-run it:
 - [x] Dashboard vendored in-repo and served same-origin
 - [x] Publications and storyboards embed their PDFs inline
 - [x] Newsletter forms now use the existing HubSpot form
-- [x] Dashboard data refresh migrated in-repo and re-run (1,986 -> 2,750 rows)
+- [x] Dashboard data refresh migrated in-repo, published to Pages (1,986 -> 2,750 rows)
 - [x] All six forms handled: two newsletters via HubSpot, four contact forms via
       `mailto:` to voltsense@volteuropa.org — no backend to run
 - [ ] deploybase project created and domain pointed at it

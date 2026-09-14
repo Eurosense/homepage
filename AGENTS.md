@@ -117,10 +117,13 @@ broken frame is worse than an honest link.
 it is served from this origin at `/dashboard-app/` and framed by the `/dashboard`
 page.
 
-`captures.csv` is refreshed nightly by `.github/workflows/dashboard-data.yml`, which
-runs `scripts/update-dashboard-data.mjs` and commits the result. Do not edit that file
-by hand — the next run overwrites it. It needs the `SENSEMAKER_PAT_ID` and
-`SENSEMAKER_FRAMEWORK` repository secrets; see README.
+Its data is refreshed nightly by `.github/workflows/dashboard-data.yml` and published
+to GitHub Pages, *not* committed — that keeps daily data updates from triggering a
+deploybase build. The dashboard fetches the Pages copy and falls back to the
+`captures.csv` committed beside it.
+
+So `public/dashboard-app/captures.csv` is a fallback snapshot, not the live data.
+Refreshing it is optional; the nightly job does not touch it.
 
 ### The newsletter
 
