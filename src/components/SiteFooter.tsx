@@ -42,7 +42,11 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
 
         {embeds.map((block, i) =>
           block.type === 'embed' ? (
-            <div key={i} className="w-full max-w-xl">
+            <div
+              key={i}
+              data-footer-newsletter
+              className="w-full max-w-xl rounded-xl bg-white p-5 sm:p-7"
+            >
               <Embed html={block.html} />
             </div>
           ) : null,

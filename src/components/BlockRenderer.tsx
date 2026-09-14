@@ -16,7 +16,9 @@ import type { Block } from '@/lib/content'
  * semantic HTML inside the prose styles rather than as a broken layout.
  */
 function RawHtml({ html }: { html: string }) {
-  return <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: html }} />
+  return (
+    <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: html }} />
+  )
 }
 
 function isInternal(href: string) {
@@ -26,7 +28,9 @@ function isInternal(href: string) {
 export function BlockView({ block }: { block: Block }) {
   switch (block.type) {
     case 'richText':
-      return <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: block.html }} />
+      return (
+        <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: block.html }} />
+      )
 
     case 'image': {
       const img = (

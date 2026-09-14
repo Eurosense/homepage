@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+
   // deploybase serves static files only — no SSR, no API routes, no image
   // optimisation server. Everything must be prerendered at build time.
   output: 'export',

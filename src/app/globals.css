@@ -286,6 +286,16 @@
   }
 }
 
+/*
+ * The newsletter sits in the footer of every page. On the pages that carry their
+ * own copy of it, hide the footer one: two instances of the same HubSpot form
+ * on one page is redundant, and HubSpot fills frames in document order, so the
+ * in-page copy is the one that ends up populated.
+ */
+body:has(main .hs-form-frame) footer [data-footer-newsletter] {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

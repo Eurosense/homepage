@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Embed } from '@/components/Embed'
+import { HubSpotForm } from '@/components/HubSpotForm'
 import type { Block } from '@/lib/content'
 import type { FormTarget } from '@/lib/forms'
 
@@ -33,24 +33,17 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
    */
   if (target?.provider === 'hubspot') {
     return (
-      <Embed
-        html={
-          `<script src="https://js.hsforms.net/forms/embed/${target.portalId}.js" defer></script>` +
-          `<div class="hs-form-frame" data-region="${target.region}" ` +
-          `data-form-id="${target.formId}" data-portal-id="${target.portalId}"></div>`
-        }
-        className="w-full"
-      />
+      <HubSpotForm portalId={target.portalId} formId={target.formId} region={target.region} />
     )
   }
 
   const endpoint = target?.provider === 'deploybase' ? target.endpoint : null
 
-  if (!endpoint) {
+  if (!endpoint && target?.provider !== 'mailto') {
     return (
       <div
         role="note"
-        className="rounded-xl border border-dashed border-line bg-white/60 p-5 text-sm text-muted"
+        className="rounded-xl border border-dashed border-line bg-white p-5 text-sm text-muted"
       >
         <p className="font-medium text-purple-deep">
           This form is not connected yet.
@@ -63,6 +56,27 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
         </p>
       </div>
     )
+  }
+
+  /**
+   * Opens the visitor's mail client with the message already written.
+   *
+   * No backend and nothing stored: the submission never touches a server we
+   * run. The trade-off is that it depends on the visitor having a mail client
+   * configured, which is why the address is also shown as a plain link below.
+   */
+  function sendByMail(event: React.FormEvent<HTMLFormElement>, to: string, subject?: string) {
+    event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const lines = block.fields.map((field) => {
+      const value = String(data.get(field.name) ?? '').trim()
+      return `${field.label}: ${value}`
+    })
+    const href =
+      `mailto:${to}?subject=${encodeURIComponent(subject ?? 'Website enquiry')}` +
+      `&body=${encodeURIComponent(lines.join('\n\n'))}`
+    window.location.href = href
+    setStatus('sent')
   }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -88,26 +102,25 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
 
   if (status === 'sent') {
     return (
-      <div
-        role="status"
-        className="rounded-xl border border-line bg-white p-5 text-purple-deep"
-      >
-        Thank you — your message has been sent.
+      <div role="status" className="rounded-xl border border-line bg-white p-5 text-purple-deep">
+        {target?.provider === 'mailto'
+          ? 'Your email app should have opened with the message ready to send.'
+          : 'Thank you — your message has been sent.'}
       </div>
     )
   }
 
   return (
     <form
-      action={endpoint}
-      method="POST"
-      onSubmit={onSubmit}
-      className="flex w-full flex-col gap-4 rounded-xl border border-line bg-white/70 p-6"
+      action={endpoint ?? undefined}
+      method={endpoint ? 'POST' : undefined}
+      onSubmit={
+        target?.provider === 'mailto'
+          ? (event) => sendByMail(event, target.to, target.subject)
+          : onSubmit
+      }
+      className="flex w-full flex-col gap-4 rounded-xl border border-line bg-white p-6 text-purple"
     >
-      {block.title ? (
-        <h3 className="text-xl font-semibold">{block.title}</h3>
-      ) : null}
-
       {block.fields.map((field) => {
         const id = `${block.formId}-${field.name}`
         return (
@@ -157,6 +170,16 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
       {status === 'error' ? (
         <p role="alert" className="text-sm text-red-700">
           Your message could not be sent. {error}
+        </p>
+      ) : null}
+
+      {target?.provider === 'mailto' ? (
+        <p className="text-sm text-muted">
+          Sending opens your email app. You can also write to{' '}
+          <a href={`mailto:${target.to}`} className="underline underline-offset-4">
+            {target.to}
+          </a>
+          .
         </p>
       ) : null}
 

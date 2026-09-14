@@ -155,7 +155,7 @@ const formsFile = z.object({
     z
       .object({
         name: z.string(),
-        provider: z.enum(['hubspot', 'deploybase']).nullable().optional(),
+        provider: z.enum(['hubspot', 'deploybase', 'mailto']).nullable().optional(),
         deploybaseFormId: z.string().nullable().optional(),
         hubspot: z
           .object({
@@ -164,6 +164,7 @@ const formsFile = z.object({
             region: z.string().optional(),
           })
           .optional(),
+        mailto: z.object({ to: z.string().email(), subject: z.string().optional() }).optional(),
       })
       .refine(
         (f) => f.provider !== 'hubspot' || Boolean(f.hubspot?.formId),
@@ -172,6 +173,10 @@ const formsFile = z.object({
       .refine(
         (f) => f.provider !== 'deploybase' || Boolean(f.deploybaseFormId),
         'provider is "deploybase" but deploybaseFormId is missing',
+      )
+      .refine(
+        (f) => f.provider !== 'mailto' || Boolean(f.mailto?.to),
+        'provider is "mailto" but mailto.to is missing',
       ),
   ),
 })

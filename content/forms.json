@@ -3,10 +3,11 @@
     "How each form from the old Squarespace site is handled now.",
     "",
     "Set 'provider' to one of:",
-    "  'hubspot'    - render the HubSpot embed. Needs hubspot.portalId + hubspot.formId.",
-    "                 Submissions land in HubSpot, same as the footer newsletter.",
-    "  'deploybase' - POST to a deploybase form. Needs deploybaseFormId (the part",
-    "                 after /f/ shown on the form's page in the dashboard).",
+    "  'hubspot'    - render the HubSpot embed. Needs hubspot.formId.",
+    "  'mailto'     - no backend. The fields are filled in on the page and Send",
+    "                 opens the visitor's mail app with a pre-written message.",
+    "                 Needs mailto.to; mailto.subject is optional.",
+    "  'deploybase' - POST to a deploybase form. Needs deploybaseFormId.",
     "  null         - not connected. The page shows a visible notice instead of a",
     "                 submit button, so a form can never silently eat a message.",
     "",
@@ -20,32 +21,48 @@
     "671f9020897e7e5dea51318a": {
       "name": "Newsletter (/newsletter)",
       "provider": "hubspot",
-      "hubspot": { "formId": "f977b591-781e-4cb9-8836-2f4c44a65d96" }
+      "hubspot": {
+        "formId": "f977b591-781e-4cb9-8836-2f4c44a65d96"
+      }
     },
     "690dd4a1679a00291bac3ddb": {
       "name": "Our Partners (/our-partners)",
-      "provider": null,
-      "deploybaseFormId": null
+      "provider": "mailto",
+      "mailto": {
+        "to": "voltsense@volteuropa.org",
+        "subject": "EuroSense website enquiry - Our Partners"
+      }
     },
     "671f8f202e7e9614f30db2b7": {
       "name": "For Partners (/forpartners)",
-      "provider": null,
-      "deploybaseFormId": null
+      "provider": "mailto",
+      "mailto": {
+        "to": "voltsense@volteuropa.org",
+        "subject": "EuroSense website enquiry - For Partners"
+      }
     },
     "671f8fdaeefc084a7a98bb59": {
       "name": "Dashboard (/dashboard)",
-      "provider": null,
-      "deploybaseFormId": null
+      "provider": "mailto",
+      "mailto": {
+        "to": "voltsense@volteuropa.org",
+        "subject": "EuroSense website enquiry - Dashboard"
+      }
     },
     "672206c01d3a4805c04b6587": {
       "name": "Blog & News (/blognews)",
-      "provider": null,
-      "deploybaseFormId": null
+      "provider": "mailto",
+      "mailto": {
+        "to": "voltsense@volteuropa.org",
+        "subject": "EuroSense website enquiry - Blog & News"
+      }
     },
     "66e4280969b09d60989f4f0b": {
       "name": "Newsletter (/home-2)",
       "provider": "hubspot",
-      "hubspot": { "formId": "f977b591-781e-4cb9-8836-2f4c44a65d96" }
+      "hubspot": {
+        "formId": "f977b591-781e-4cb9-8836-2f4c44a65d96"
+      }
     }
   }
 }

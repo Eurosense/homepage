@@ -88,6 +88,12 @@ useful, but check the result at several widths.
 Put the file in `public/media/` and reference it as `/media/<filename>`. Then run
 `npm run optimise:media`, which re-encodes anything oversized in place.
 
+### Checking pages without deploying
+
+`node scripts/audit-pages.mjs` reads the built `out/` and reports every page's
+forms, links, images and text volume. deploybase bills build minutes, so answer
+questions from a local build rather than by pushing a commit to go and look.
+
 ### Add a download (PDF, spreadsheet)
 
 Put it in `public/files/` and link it as `/files/<filename>`. Do not link to a
@@ -115,10 +121,24 @@ page. Its `captures.csv` is a snapshot, not a live feed — see README.
 
 The footer carries a HubSpot form (portal `48641237`, form
 `f977b591-781e-4cb9-8836-2f4c44a65d96`) as an `embed` block in `content/site.json`.
-It is third-party and keeps working on its own. `content/forms.json` now also lets
-any migrated form choose its provider: set `provider` to `"hubspot"` (with a
-`hubspot.formId`) or `"deploybase"` (with a `deploybaseFormId`). Both newsletter
-forms point at the same HubSpot form; four others still have no provider. If you touch
+It is third-party and keeps working on its own.
+
+`content/forms.json` decides how every migrated form behaves. Set `provider` to:
+
+- `"hubspot"` — render HubSpot's embed (needs `hubspot.formId`)
+- `"mailto"` — no backend; Send opens the visitor's mail app with the fields already
+  written into the message (needs `mailto.to`)
+- `"deploybase"` — POST to a deploybase form (needs `deploybaseFormId`)
+- `null` — show a visible "not connected" notice
+
+Both newsletter forms use HubSpot; the four contact forms use `mailto`. A page that
+carries its own HubSpot form suppresses the footer copy via a `:has()` rule in
+`globals.css`, because two instances of one form on a page is redundant and HubSpot
+only populates the first.
+
+Forms render on a solid white card on purpose. Section themes range from cream to
+deep purple, and HubSpot's own labels live inside an iframe we cannot restyle, so a
+fixed light surface is the only way to guarantee the fields are readable. If you touch
 `SiteFooter.tsx`, render every block type present: filtering to images and text is
 exactly how this form went missing once already.
 

@@ -76,7 +76,8 @@ and copying the resulting CSV in. Nothing in this repository does it automatical
 
 ## Deploying
 
-The site builds to a static `out/` directory.
+Production is [deploybase](https://deploybase.eu), currently serving at
+`homepage.sites.deploybase.eu`. The site builds to a static `out/` directory.
 
 | deploybase setting | Value |
 | --- | --- |
@@ -126,8 +127,8 @@ worth knowing if you re-run it:
 - [x] Dashboard vendored in-repo and served same-origin
 - [x] Publications and storyboards embed their PDFs inline
 - [x] Newsletter forms now use the existing HubSpot form
-- [ ] **Four forms still unconnected** — the two newsletter forms now use HubSpot;
-      Our Partners, For Partners, Dashboard and Blog & News need deploybase endpoints
+- [x] All six forms handled: two newsletters via HubSpot, four contact forms via
+      `mailto:` to voltsense@volteuropa.org — no backend to run
 - [ ] deploybase project created and domain pointed at it
 - [ ] Squarespace cancelled
 
@@ -141,10 +142,11 @@ These are not code tasks and they are not reversible.
    *before* cancelling.
 2. **Export form submissions.** Anything collected by the six Squarespace form blocks
    is deleted with the account and is not in this repository.
-3. **Connect the four remaining forms.** Create each in the deploybase dashboard and
-   paste its id into `content/forms.json`. The two newsletter forms already point at
-   the existing HubSpot form and need nothing. Until a form has a provider it shows a
-   "not connected" notice rather than accepting messages.
+3. **Forms need nothing.** The two newsletter forms use the existing HubSpot form;
+   the four contact forms open the visitor's mail client addressed to
+   voltsense@volteuropa.org. Neither depends on Squarespace. If you would rather
+   store contact submissions than receive them as email, switch a form's `provider`
+   to `deploybase` in `content/forms.json` and add the endpoint.
 4. **Keep Squarespace alive** until DNS has cut over and the new site is verified.
 
 ## Known gaps
@@ -152,9 +154,10 @@ These are not code tasks and they are not reversible.
 Recorded rather than hidden, so nobody mistakes them for finished work.
 
 - **Six forms are not connected.** See above.
-- **The `/newsletter` page now shows the same HubSpot form twice** — once in the page
-  body and once in the footer, which is on every page. Harmless, but worth deciding:
-  either drop the body form or give that page its own HubSpot form.
+- **`/home-2` is an abandoned earlier homepage.** Heading "Welcome to EuroSense.",
+  8 sections against the live homepage's 12, and nothing links to it — it survives
+  only because it is in the sitemap. Delete `content/pages/home-2.json` when you are
+  sure, along with its entry in `content/forms.json`.
 - **Two links are broken on the current Squarespace site**, and are reproduced
   as-is rather than silently repaired:
   `edpb.europa.eu/about-edpb/board/members_en` (redirects to a 404, on

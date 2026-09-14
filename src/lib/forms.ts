@@ -4,13 +4,15 @@ import path from 'node:path'
 export type FormTarget =
   | { provider: 'hubspot'; portalId: string; formId: string; region: string }
   | { provider: 'deploybase'; endpoint: string }
+  | { provider: 'mailto'; to: string; subject?: string }
   | null
 
 type FormEntry = {
   name: string
-  provider?: 'hubspot' | 'deploybase' | null
+  provider?: 'hubspot' | 'deploybase' | 'mailto' | null
   deploybaseFormId?: string | null
   hubspot?: { portalId?: string; formId?: string; region?: string }
+  mailto?: { to?: string; subject?: string }
 }
 
 type FormsFile = {
@@ -47,6 +49,11 @@ export function getFormTarget(squarespaceFormId: string): FormTarget {
     }
   }
 
+  if (entry.provider === 'mailto') {
+    if (!entry.mailto?.to) return null
+    return { provider: 'mailto', to: entry.mailto.to, subject: entry.mailto.subject }
+  }
+
   if (entry.deploybaseFormId) {
     return {
       provider: 'deploybase',
@@ -66,5 +73,6 @@ export function unconnectedForms(): { id: string; name: string }[] {
 
 function getFormTargetFor(entry: FormEntry): boolean {
   if (entry.provider === 'hubspot') return Boolean(entry.hubspot?.formId)
+  if (entry.provider === 'mailto') return Boolean(entry.mailto?.to)
   return Boolean(entry.deploybaseFormId)
 }
