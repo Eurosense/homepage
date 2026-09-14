@@ -1,0 +1,49 @@
+{
+  "urlPath": "/vision-1",
+  "title": "Communities — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "69a018feb3bbd131425f7ad3",
+      "background": "/media/Back1_Mesa-de-trabajo-1-b5919e75.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# **Explore and join Projects and communities that are using Eurosense**"
+        }
+      ]
+    },
+    {
+      "id": "69a018feb3bbd131425f7ad6",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "#### ALLONE\n\ndescription  \n  \nCONTACT:"
+        },
+        {
+          "type": "richText",
+          "markdown": "#### 50+\n\ndescription  \n  \nCONTACT:"
+        },
+        {
+          "type": "richText",
+          "markdown": "#### WEDECIDEAPP\n\nA digital civic app that helps people reflect on their concerns and measure their impact within their community. Using the science-backed EuroSense tool, it turns anonymous stories into real-time wellbeing insights and collective scorecards — transforming lived experience into measurable patterns that hold power accountable. Users can directly message their representatives, making citizen–leader relationships visible and impossible to ignore.  \n  \nCONTACT: [wedecide@pm.me](mailto:wedecide@pm.me)"
+        }
+      ]
+    },
+    {
+      "id": "69a018feb3bbd131425f7ad9",
+      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## What is the purpose?"
+        },
+        {
+          "type": "richText",
+          "markdown": "#### The project aims to create a more inclusive and democratic Europe by encouraging citizens to engage in politics. It uses innovative software and a network to help people understand complex social issues and suggest solutions.\n\n#### The long-term goal is a political environment\n\n#### where citizens' voices matter,\n\n#### leading to better responses for the common good.\n\n#### Elected officials, from the European Parliament to local governments, need to value these contributions in their decisions.\n\n#### The project also seeks to motivate other organistations to embrace this approach and make citizen involvement a part of European democracy.\n\n#### Ultimately, it envisions a society where citizens feel empowered to influence politics and shape their communities."
+        }
+      ]
+    }
+  ]
+}

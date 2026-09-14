@@ -1,0 +1,90 @@
+{
+  "urlPath": "/blognews",
+  "title": "Blog & News — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "671f8cd8c230b5154202d16b",
+      "background": "/media/Back1_Mesa-de-trabajo-1-b5919e75.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# Welcome to our Blog and News Corner"
+        },
+        {
+          "type": "richText",
+          "markdown": "### Follow us also on Instagram and LinkedIn"
+        },
+        {
+          "type": "richText",
+          "markdown": "Are you looking for something specific? Enter a keyword here"
+        }
+      ]
+    },
+    {
+      "id": "673dc9d656299e79de07c3de",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## UPCOMING AND PAST EVENTS"
+        },
+        {
+          "type": "summary-v2",
+          "html": "<div class=\"sqs-blockStatus\">\n  \n  <div class=\"sqs-blockStatus-box\">\n    <div class=\"sqs-blockStatus-box-title\">Summary Block</div>\n    <div class=\"sqs-blockStatus-box-message\">\n      This block has no content yet. Items you add to the page connected to this block will display here.\n      \n    </div>\n  </div>\n</div>\n\n  \n\n\n<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-events-stacked\n  summary-block-setting-text-size-medium\n  summary-block-setting-text-align-left\n  summary-block-setting-design-autocolumns\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-location\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-autocolumns\n  \n  \" data-design=\"autocolumns\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n    </div>\n  </div>\n  \n</div>\n\n\n\n\n<!-- SQUARESPACE_JSONT_ERROR\n\nwebsite.components.summary\n\n(line/character offsets reference the template source code)\n\n  1: RuntimeError EXPRESSION_PARSE at line 2 character 1: Error parsing expression: Unexpected character at 22: ?\n\n-->"
+        }
+      ]
+    },
+    {
+      "id": "671f8babb284b602a4d13bfb",
+      "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "### From our Instagram Channel"
+        },
+        {
+          "type": "instagram",
+          "html": "<div class=\"\n  sqs-gallery-container\n  sqs-gallery-block-grid\n  sqs-gallery-aspect-ratio-square\n  sqs-gallery-thumbnails-per-row-6\n  \n  \n\n  \n    \n    \n  \n  sqs-gallery-block-show-meta\n  \n  \n\n  \n  \n\n  \n  block-animation-none\n  clear\" data-async-rendering-enabled=\"true\">\n  <div class=\"sqs-gallery\">\n    \n      \n\n        \n\n        \n\n        \n          \n\n          \n            <div class=\"slide\" data-type=\"video\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                <div class=\"\n                    content-wrapper\n                    content-fit\n                    \n                  \">\n                  \n                  <div class=\"sqs-video-wrapper\" data-html=\"<iframe frameborder=&quot;0&quot; height=&quot;710&quot; scrolling=&quot;no&quot; width=&quot;612&quot; allowtransparency=&quot;true&quot; src=&quot;https://www.instagram.com/reel/DByKNtRsaP3/embed/&quot;></iframe>\" data-provider-name=\"\"><div class=\"sqs-video-overlay\" style=\"opacity: 0;\"><img data-load=\"false\" data-src=\"/media/image-asset-61b88e46.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\"><div class=\"sqs-video-opaque\"> </div><div class=\"sqs-video-icon\"></div></div></div>\n                </div>\n                \n              </div>\n            </div>\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/DBwQ4GnMAQ2/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-e2f76aa6.jpg\" data-image=\"/media/image-asset-e2f76aa6.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"What makes the Sense Maker Data Collector different?\n#context #nonlinear\" data-load=\"false\" data-image-id=\"672281f632a9815c12dcd2cd\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/DBroB3KslXX/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-7aee9cbc.jpg\" data-image=\"/media/image-asset-7aee9cbc.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"Marginalised people are treated unfairly because of prejudices. Their voices are often not heard in policy-making. This so called epistemic injustice leads to dismissed knowledge and lack of understanding in case of missing language and frameworks. E\" data-load=\"false\" data-image-id=\"6720362eaaf6c214378d58ef\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/DBmZl4aMhlU/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-c32d0c19.jpg\" data-image=\"/media/image-asset-c32d0c19.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"We use abduction as reasoning method to perform sense making. It helps us dealing with ambiguity about human behaviour. By questioning the assumptions and seeking more contextual information such as personal stories, we are able to see and understand\" data-load=\"false\" data-image-id=\"671f8b783c69256e8b773269\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/DBgVkkSMQuM/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-b3ac692f.jpg\" data-image=\"/media/image-asset-b3ac692f.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"\" data-load=\"false\" data-image-id=\"671f8b783c69256e8b77326a\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/C_iWcgSsU8J/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-4af94763.jpg\" data-image=\"/media/image-asset-4af94763.jpg\" data-image-dimensions=\"975x1219\" data-image-focal-point=\"0.5,0.5\" alt=\"\" data-load=\"false\" data-image-id=\"671f8b783c69256e8b77326b\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/C_iPmrSsFe3/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-15feba5e.jpg\" data-image=\"/media/image-asset-15feba5e.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"\" data-load=\"false\" data-image-id=\"671f8b783c69256e8b77326c\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/C_iNeunsfjs/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-1f5340d4.jpg\" data-image=\"/media/image-asset-1f5340d4.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"Go to www.eurosense.eu\" data-load=\"false\" data-image-id=\"671f8b783c69256e8b77326d\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/C_iK7DvMWLT/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-52171a7e.jpg\" data-image=\"/media/image-asset-52171a7e.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"\" data-load=\"false\" data-image-id=\"671f8b783c69256e8b77326e\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n\n        \n\n        \n\n        \n          \n            <div class=\"slide\" data-type=\"image\" data-animation-role=\"image\">\n              <div class=\"margin-wrapper\">\n                \n                <a href=\"https://www.instagram.com/p/C_iJoyEMamy/\" target=\"_blank\" aria-label=\"\" class=\"\n                    image-slide-anchor\n                    \n                    content-fit\n                  \">\n                  \n                  <img class=\"thumb-image\" elementtiming=\"system-gallery-block-grid\" data-src=\"/media/image-asset-9ffe3d4e.jpg\" data-image=\"/media/image-asset-9ffe3d4e.jpg\" data-image-dimensions=\"1080x1080\" data-image-focal-point=\"0.5,0.5\" alt=\"\" data-load=\"false\" data-image-id=\"671f8b783c69256e8b77326f\" data-type=\"image\">\n                </a>\n                \n              </div>\n            </div>\n          \n\n          \n        \n\n      \n    \n  </div>\n\n  \n\n</div>"
+        }
+      ]
+    },
+    {
+      "id": "6722075836898f06ac03da15",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/media/Mano-03-9e992e6b.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "### We use _SenseMaker_, an innovative online tool, to gather real-life stories from various communities.\n\n### Designed by experts, this tool lets individuals share and interpret their own experiences.\n\n### Activists and policymakers can use it to identify patterns, emerging issues, and guide positive change in society."
+        },
+        {
+          "type": "button",
+          "label": "Share your story",
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+        }
+      ]
+    },
+    {
+      "id": "672206c01d3a4805c04b658d",
+      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+        },
+        {
+          "type": "form",
+          "title": "",
+          "submitLabel": "Submit",
+          "formId": "",
+          "fields": []
+        }
+      ]
+    }
+  ]
+}

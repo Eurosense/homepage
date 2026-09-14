@@ -1,0 +1,61 @@
+{
+  "urlPath": "/storyboards",
+  "title": "Storyboards — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "69b7d39b9092e06a623030e0",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "[**Storyboard of Charge DI stories.**  Download](https://drive.usercontent.google.com/download?id=1pXEW9o1rtG2p-87F5uCmWoGxgNwlnlrL)"
+        },
+        {
+          "type": "richText",
+          "markdown": "In a small-scale exploration, Charge (the scientific platform for Volt Nederland, [charge.volt.org](http://charge.volt.org) ) collected the personal experiences of 25 participants with generative AI. Not through interviews or surveys, but with the help of SenseMaker: a participatory method in which people articulate their own experiences and give them meaning. So not just telling stories, but also interpreting them themselves. What affects them? What values are at stake? And who do they think should hear this?"
+        },
+        {
+          "type": "richText",
+          "markdown": "[**Storyboard Eurosense Training 28.04.2026**](https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing). [Download](https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing)"
+        },
+        {
+          "type": "richText",
+          "markdown": "The 47 stories in this storyboard have been collected as part of the Eurosernse training program in 2025 and 2026."
+        },
+        {
+          "type": "richText",
+          "markdown": "[**Storyboard Reflections of a Volter 15.04.2026**](https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link). [Download](https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link)"
+        },
+        {
+          "type": "richText",
+          "markdown": "Stories collected at Meet Volt Europa online meetings and framed as experiences of a Volter, 2026."
+        },
+        {
+          "type": "richText",
+          "markdown": "[**Storyboard Cca and Climate 08.05.2026.** Download](https://drive.google.com/file/d/1se-Cmx3EBkhWdcBUwqWTc8GYQuE6XgqV/view?usp=sharing)"
+        },
+        {
+          "type": "richText",
+          "markdown": "This storyboard contains stories collected until 24.04.2026 as part of the climate adaptation theme (UID =cca) and additional stories selected for being climate related."
+        },
+        {
+          "type": "richText",
+          "markdown": "[**Storyboard Housing across Europe 12.05.2026.** Download](https://drive.google.com/file/d/1-BXHlXtbvlSkUZI2rsN3kAVGnI9jQaeU)"
+        },
+        {
+          "type": "richText",
+          "markdown": "This storyboard contains narratives collected across all Eurosense projects that have been assigned to the Housing and Living Conditions category by the respondents. Narratives are grouped by country and sentiment. Readers can retrieve additional information about the narratives by selecting the country and the sentiment from the public [dashboard](https://platform.sensemaker-suite.com/r/d/3642683b-063d-493e-a32d-d6dea369df63) available on [eurosense.eu](http://eurosense.eu)."
+        },
+        {
+          "type": "richText",
+          "markdown": "[**Storyboard from Chargedi and digicomEURAI.** Download](https://drive.google.com/file/d/15HSA774b_SyM1O3AmcF2vNEO5JCcawam)"
+        },
+        {
+          "type": "richText",
+          "markdown": "This storyboard contains mostly experiences related to AI and digital technologies, collected for two different projects in 2025 and 2026."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "urlPath": "/resources",
+  "title": "Resources — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "69b7d6fa1dff4e2d3ec89565",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## Resources"
+        },
+        {
+          "type": "richText",
+          "markdown": "### Publications"
+        },
+        {
+          "type": "richText",
+          "markdown": "A selection of papers and articles related to the Eurosense sensemaking tool."
+        },
+        {
+          "type": "button",
+          "label": "Open",
+          "href": "/publications"
+        },
+        {
+          "type": "richText",
+          "markdown": "### Storyboards"
+        },
+        {
+          "type": "richText",
+          "markdown": "Publications of selected stories collected via Eurosense."
+        },
+        {
+          "type": "button",
+          "label": "Open",
+          "href": "/storyboards"
+        },
+        {
+          "type": "richText",
+          "markdown": "### Multimedia"
+        },
+        {
+          "type": "richText",
+          "markdown": "Videos and presentations of our Community of Practice, Story Collection and Collective Sensemaking meetings."
+        },
+        {
+          "type": "button",
+          "label": "Open",
+          "href": "/resources/multimedia"
+        }
+      ]
+    }
+  ]
+}

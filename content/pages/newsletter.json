@@ -1,0 +1,25 @@
+{
+  "urlPath": "/newsletter",
+  "title": "newsletter — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "671f9020897e7e5dea513190",
+      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+        },
+        {
+          "type": "form",
+          "title": "",
+          "submitLabel": "Submit",
+          "formId": "",
+          "fields": []
+        }
+      ]
+    }
+  ]
+}

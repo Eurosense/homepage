@@ -1,0 +1,45 @@
+{
+  "urlPath": "/vision",
+  "title": "Vision — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "66f3ce0a6a8d663a8bacd2af",
+      "background": "/media/Back1_Mesa-de-trabajo-1-b5919e75.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# Our Vision"
+        }
+      ]
+    },
+    {
+      "id": "66f3ce0a6a8d663a8bacd2b2",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## **The project envisions a society where** **citizens trust their own capacity to impact politics** **and actively participate in shaping their communities and societies.**"
+        },
+        {
+          "type": "richText",
+          "markdown": "#### The **long-term vision** of the project is to create a more **inclusive and democratic society** in Europe by empowering citizens to actively participate in political discussion and decision-making processes. \n\n#### **The project aims** to foster a culture of citizen engagement and sense making, where citizens' voices are heard and valued in policy and decision-making at local, national, and European levels. ​ \n\n#### **By leveraging the innovative SenseMakerⓇ** software and a **decentralised citizen sensor network**, the project seeks to **enable citizens to make sense of complex societal challenges** and contribute to finding solutions. ​ \n\n#### **The long-term impact** of the project is envisioned to be a political landscape where citizens' voices are given importance, leading to more responsive and effective political responses that serve the common good. This vision includes that elected officials from the European Parliament to local governments recognise the importance of citizens' voices and actively incorporate them in all phases of decision-making processes. ​ \n\n#### Additionally, the project aims **to inspire and influence other political parties** and decision-makers to adopt similar approaches, making \"sensemaking\" an **integral part of a European democratic culture. ​**"
+        }
+      ]
+    },
+    {
+      "id": "671b417a0cb69b6e9dac433e",
+      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## What is the purpose?"
+        },
+        {
+          "type": "richText",
+          "markdown": "#### The project aims to create a more inclusive and democratic Europe by encouraging citizens to engage in politics. It uses innovative software and a network to help people understand complex social issues and suggest solutions.\n\n#### The long-term goal is a political environment\n\n#### where citizens' voices matter,\n\n#### leading to better responses for the common good.\n\n#### Elected officials, from the European Parliament to local governments, need to value these contributions in their decisions.\n\n#### The project also seeks to motivate other organistations to embrace this approach and make citizen involvement a part of European democracy.\n\n#### Ultimately, it envisions a society where citizens feel empowered to influence politics and shape their communities."
+        }
+      ]
+    }
+  ]
+}

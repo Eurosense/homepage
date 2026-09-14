@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+.DS_Store
+*.tsbuildinfo
+.env
+.env.local
+
+# Raw Squarespace HTML snapshots are large and only needed to re-run the parser.
+# The parsed content (content/) and downloaded assets (public/) ARE committed —
+# they are the migration deliverable and must outlive the Squarespace account.
+archive/raw/

@@ -1,0 +1,70 @@
+{
+  "urlPath": "/dashboard",
+  "title": "Dashboard — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "670865500696be6f0a02862b",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## What are the European Citizens telling us?"
+        },
+        {
+          "type": "richText",
+          "markdown": "Story Titles"
+        },
+        {
+          "type": "image",
+          "src": "/media/EuroSense-Story-Titles-12d43e83.png",
+          "alt": "Word Cloud of Story Titles with the word LIFE in the center",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "### Stories Collected"
+        },
+        {
+          "type": "embed",
+          "html": "<div class=\"sqs-embed-container\" data-localized=\"{&quot;embedInvalid&quot;:&quot;Enter a valid embed URL or code.&quot;,&quot;embedTitle&quot;:&quot;Embed Block&quot;,&quot;embedUninitialized&quot;:&quot;Add an embed URL or code.&quot;,&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;invalidThumbnail&quot;:&quot;Custom featured images only available with embedded videos. Go back into embed settings to turn off featured images.&quot;,&quot;invalidVideo&quot;:&quot;Invalid video embed.&quot;,&quot;playButton&quot;:&quot;Play&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n  \n    \n    \n      \n        \n        \n        \n        \n          <iframe width=\"220\" height=\"220\" type=\"dashboard_v1_widget\" src=\"https://platform.sensemaker-suite.com/r/e/21a86a3e-2554-4ed7-86be-b76ca404b577\" title=\"Volt Europe\" frameborder=\"0\" allow=\"accelerometer; clipboard-write;\" allowfullscreen=\"\"></iframe>\n        \n        \n        \n      \n    \n  \n  \n    \n\n\n\n  \n</div>\n\n\n  <style class=\"transform-overrides-vars\">\n  \n</style>"
+        },
+        {
+          "type": "button",
+          "label": "FULL DASHBOARD",
+          "href": "https://platform.sensemaker-suite.com/r/d/3642683b-063d-493e-a32d-d6dea369df63"
+        },
+        {
+          "type": "button",
+          "label": "Download Data (XLSX)",
+          "href": "/s/2025_01_23_EuroSense-Raw-Data-Clean-V10_opensource.xlsx"
+        },
+        {
+          "type": "embed",
+          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    <iframe src=\"https://medibunny.github.io/Eurosense/\" width=\"100%\" height=\"1000\" style=\"border: none;\">\n</iframe>\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>"
+        },
+        {
+          "type": "embed",
+          "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    \n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>"
+        }
+      ]
+    },
+    {
+      "id": "671f8fdaeefc084a7a98bb5f",
+      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+        },
+        {
+          "type": "form",
+          "title": "",
+          "submitLabel": "Submit",
+          "formId": "",
+          "fields": []
+        }
+      ]
+    }
+  ]
+}

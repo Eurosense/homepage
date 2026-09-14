@@ -1,0 +1,89 @@
+{
+  "urlPath": "/forpartners",
+  "title": "For Partners — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "6705e31823812276306f76b5",
+      "background": "/media/Back1_Mesa-de-trabajo-1-b5fb0057.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## **Join the** **EuroSense network**\n\n## **and make citizens voices** **heard**\n\n## **for** **collective action**"
+        }
+      ]
+    },
+    {
+      "id": "6708e91a1f603e0a6f82546f",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "### **EuroSense Network**\n\n### A Europe-wide citizen science network that wants to make the voices of European citizens heard by activists, policy makers and governments.\n\n### By understanding the experiences of citizens in public life, and the pulse of Europe, we will overcome polarisation and collectively tackle the challenges of our times such as climate change, inequality, immigration, democracy and security."
+        },
+        {
+          "type": "richText",
+          "markdown": "## [Read our booklet](https://www.eurosense.eu/s/Project-EuroSense-Revolutionise-Democracy.pdf) here"
+        }
+      ]
+    },
+    {
+      "id": "6708eb3d0a62ef761af9a5c7",
+      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "### By joining the EuroSense network as a partner, you can take full advantage of the benefits of the project.\n\n### By collecting stories using our Sense Making Tool you can make voices from your community heard across Europe in an easy and effortless way.\n\n### The stories and their data can also be used to understand emerging issues and identify what matters to the people and communities you care for.\n\n### We can provide support in the Sense Making process, which will give you the basis for local action and policy influencing."
+        }
+      ]
+    },
+    {
+      "id": "6708e8e68cdc1d01b2420b33",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## Benefits"
+        },
+        {
+          "type": "accordion",
+          "html": "<ul class=\"accordion-items-container\" data-should-allow-multiple-open-items=\"false\" data-is-divider-enabled=\"true\" data-is-first-divider-visible=\"true\" data-is-last-divider-visible=\"true\" data-is-expanded-first-item=\"false\" data-accordion-title-alignment=\"left\" data-accordion-description-alignment=\"left\" data-accordion-description-placement=\"left\" data-accordion-icon-placement=\"right\">\n  \n    <li class=\"accordion-item\">\n\n      \n        \n          <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider accordion-divider--top\" aria-hidden=\"true\"></div>\n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-1\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-1\">\n          <span class=\"accordion-item__title\">📊 Data Collection: Easily gather data within your community.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-1\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-1\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>We generate a large amount of micro-narratives (stories) that are interpreted by the people themselves using a set of questions, indicators and pictures (data about the stories). From people’s interpretation data, patterns and issues can be studied and filtered across different dimensions. An important aspect in sensemaking is to take an interest in outliers, stories that do not fit the pattern. These can point at the emerging future, at current “blind spots” of community activists, policy and decision-makers.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n    <li class=\"accordion-item\">\n\n      \n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-2\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-2\">\n          <span class=\"accordion-item__title\">🔍 Data Analysis: Access tools for detailed data examination.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-2\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-2\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>Use SenseMaker's cutting-edge narrative and pattern analysis to inform local and EU decision-makers with quantitative and qualitative, contextualised data that reflects real, lived experiences—not just numbers.</p><p>The Sense Maker helps you uncover patterns and trends in complex issues such as climate action, healthcare, and social inclusion, giving your organisation deeper insights for driving change.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n    <li class=\"accordion-item\">\n\n      \n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-3\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-3\">\n          <span class=\"accordion-item__title\">🛠️ Workshops: Participate in engaging and informative sessions.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-3\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-3\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>Join a network of organizations across Europe working together to drive meaningful change by sharing collective insights and data-driven narratives.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n    <li class=\"accordion-item\">\n\n      \n        \n      \n\n      <h4 class=\"\n          accordion-item__title-wrapper\n          \n          \n          \n        \" data-sqsp-accordion-block-item-title=\"\">\n        <button id=\"button-yui_3_17_2_1_1728635540863_25028-4\" class=\"accordion-item__click-target\" aria-expanded=\"false\" aria-controls=\"dropdown-yui_3_17_2_1_1728635540863_25028-4\">\n          <span class=\"accordion-item__title\">📈 Real-Time Data: Utilize up-to-date information through our open-source platform.</span>\n          <div class=\"accordion-icon-container\" aria-hidden=\"true\">\n            \n              <div class=\"plus\">\n                <div class=\"plus__horizontal-line\"></div>\n                <div class=\"plus__vertical-line\"></div>\n              </div>\n            \n          </div>\n        </button>\n      </h4>\n      <div class=\"accordion-item__dropdown\" id=\"dropdown-yui_3_17_2_1_1728635540863_25028-4\" role=\"region\" aria-labelledby=\"button-yui_3_17_2_1_1728635540863_25028-4\">\n        <div class=\"\n            accordion-item__description\n            \n            \n            \n          \" data-sqsp-accordion-block-item-description=\"\">\n          <p>It provides an honest picture of what’s actually happening, so you can respond to changes as they occur, rather than relying on outdated assumptions. This real-time insight is key for making timely and informed decisions.</p><p>You can track changes over time by repeating the storytelling, keeping you at the forefront of evolving community dynamics.</p>\n        </div>\n      </div>\n\n      \n        <div data-sqsp-accordion-block-divider=\"\" class=\"accordion-divider\" aria-hidden=\"true\"></div>\n      \n\n    </li>\n  \n</ul>"
+        }
+      ]
+    },
+    {
+      "id": "6705e5690f1d7260c5af2272",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## You can use our Sense Maker tool for free. \n\n## Join our journey and make a difference!"
+        },
+        {
+          "type": "richText",
+          "markdown": "#### **Contact us**\n\n#### [**voltsense@volteuropa.org**](mailto:voltsense@volteuropa.org)"
+        },
+        {
+          "type": "button",
+          "label": "Our vision",
+          "href": "/vision"
+        }
+      ]
+    },
+    {
+      "id": "671f8f202e7e9614f30db2bd",
+      "background": "/media/Back3_Mesa-de-trabajo-1-3c8283cf.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# Newsletter\n\n### Interested in our efforts?\n\n### Stay informed about the EuroSense project!"
+        },
+        {
+          "type": "form",
+          "title": "",
+          "submitLabel": "Submit",
+          "formId": "",
+          "fields": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "siteTitle": "EuroSense",
+  "logo": "/media/01cfeaf2f8b734a39e15d056d6300386227a15ba-62a1ce2c.png",
+  "logoAlt": "EuroSense",
+  "favicon": "/media/favicon-f5da100b.png",
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About us",
+      "href": "/about-us"
+    },
+    {
+      "label": "Our Partners",
+      "href": "/our-partners"
+    },
+    {
+      "label": "Blog & News",
+      "href": "/blognews"
+    },
+    {
+      "label": "FAQ",
+      "href": "/faq"
+    },
+    {
+      "label": "Dashboard",
+      "href": "/dashboard"
+    },
+    {
+      "label": "Resources",
+      "href": "/resources"
+    }
+  ],
+  "social": [],
+  "footerBlocks": [
+    {
+      "type": "image",
+      "src": "/media/01cfeaf2f8b734a39e15d056d6300386227a15ba-1516a345.png",
+      "alt": "",
+      "caption": ""
+    },
+    {
+      "type": "embed",
+      "html": "<div class=\"sqs-code-container\" data-localized=\"{&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n    <script src=\"https://js.hsforms.net/forms/embed/48641237.js\" defer=\"\"></script>\n<div class=\"hs-form-frame\" data-region=\"na1\" data-form-id=\"f977b591-781e-4cb9-8836-2f4c44a65d96\" data-portal-id=\"48641237\"></div>\n  \n  \n\n\n\n</div>\n\n<style class=\"transform-overrides-vars\">\n  \n</style>"
+    },
+    {
+      "type": "richText",
+      "markdown": "[Home](/home)"
+    },
+    {
+      "type": "richText",
+      "markdown": "[About us](/about)"
+    },
+    {
+      "type": "richText",
+      "markdown": "[Partners](/our-partners)"
+    },
+    {
+      "type": "richText",
+      "markdown": "Dashboard"
+    },
+    {
+      "type": "richText",
+      "markdown": "Volt Europa 2026"
+    },
+    {
+      "type": "richText",
+      "markdown": "Privacy Policy"
+    },
+    {
+      "type": "image",
+      "src": "/media/Eurosense-67c2eee2.png",
+      "alt": "",
+      "caption": ""
+    }
+  ]
+}

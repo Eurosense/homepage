@@ -1,0 +1,34 @@
+{
+  "urlPath": "/mystory",
+  "title": "Share your story — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "6722100047a6f65b41c52b83",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "## We want to revolutionize Democracy with you\n\n## share your experience!"
+        },
+        {
+          "type": "richText",
+          "markdown": "#### Dear Reader,\n\nWe are excited to launch **EuroSense,** an innovative project that builds a European Citizen Sensor Network!"
+        },
+        {
+          "type": "richText",
+          "markdown": "**We want YOU to be part of it!**\n\nTogether we can make **democracy more inclusive**. The more **polarised** and **fragmented** European societies become, the harder it is to **unite Europe**. We need to be **innovative and forward-looking.** We need to **bridge social divides** and work towards **common solutions**.\n\n**_But how do we do this?_**\n\nBy using **innovative technology** to **make sense of real life experiences**, we can shape **citizen-centred** activism and policy. A **Sense Maker tool** allows us to **collect** thousands of stories, with **context and meaning** provided by citizens themselves. This is a **ground-breaking approach to citizen participation** that only we can deliver on this scale, from the local to the European level. \n\nTake a **few minutes** of your time to help us shine a light on the **diverse perspectives** that shape our community. **Your story** will contribute to our **collective understanding** and play a vital role in kick-starting this **democratic innovation**."
+        },
+        {
+          "type": "button",
+          "label": "Share Your Story",
+          "href": "https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&ID=eurosense"
+        },
+        {
+          "type": "richText",
+          "markdown": "Encourage your **friends and family** to share their stories too - **let's amplify all voices!**"
+        }
+      ]
+    }
+  ]
+}

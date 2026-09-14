@@ -1,0 +1,21 @@
+{
+  "urlPath": "/blog",
+  "title": "Blog 2 — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "69158c02ebef14397eb94c11",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# **Articles** **from the Eurosense team**"
+        },
+        {
+          "type": "richText",
+          "markdown": "Explore articles written by the Eurosense team on sensemaking, community engagement, and navigating complexity. Here we share our reflections, methods, project learnings, and emerging insights from across Europe."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "eurosense",
+  "version": "0.1.0",
+  "private": true,
+  "description": "eurosense.eu — static React site, migrated off Squarespace",
+  "type": "module",
+  "engines": {
+    "node": ">=20.9"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "extract": "node scripts/extract.mjs",
+    "extract:fetch": "node scripts/extract.mjs --stage=fetch",
+    "extract:parse": "node scripts/extract.mjs --stage=parse",
+    "extract:assets": "node scripts/extract.mjs --stage=assets"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.10.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "cheerio": "1.1.2",
+    "tailwindcss": "4.3.3",
+    "turndown": "7.2.2",
+    "typescript": "5.9.3",
+    "zod": "4.1.12"
+  }
+}

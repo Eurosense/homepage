@@ -1,0 +1,54 @@
+{
+  "urlPath": "/new-page",
+  "title": "New Page — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "690b00d82108442d25902cff",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/media/Charge-logo-NL-purple-klein--1--d7ccd618.png",
+          "alt": "",
+          "caption": "",
+          "href": "https://www.charge-volt.org/"
+        },
+        {
+          "type": "image",
+          "src": "/media/Copy-of-IMPETUS-Logo-Horizontal--1--860a6d61.png",
+          "alt": "",
+          "caption": "",
+          "href": "https://impetus4cs.eu/"
+        },
+        {
+          "type": "image",
+          "src": "/media/IFIS-Logo-2.10-transparent-bb81225d.png",
+          "alt": "",
+          "caption": "",
+          "href": "https://www.ifis-freiburg.de/en"
+        },
+        {
+          "type": "image",
+          "src": "/media/CP-horizontal-logo-RGB-color--1--09f36ec8.png",
+          "alt": "",
+          "caption": "",
+          "href": "https://www.complexitypartners.com/"
+        },
+        {
+          "type": "image",
+          "src": "/media/wedecidebanner-b31a1dd3.png",
+          "alt": "",
+          "caption": "",
+          "href": "https://www.wedecideapp.com/"
+        },
+        {
+          "type": "image",
+          "src": "/media/logo-lusval_transparent-8828853d.png",
+          "alt": "",
+          "caption": ""
+        }
+      ]
+    }
+  ]
+}

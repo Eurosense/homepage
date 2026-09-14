@@ -1,0 +1,97 @@
+{
+  "urlPath": "/about-us",
+  "title": "About us — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "6916e6c93ab49d6fd3538552",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# We believe in the power of dialouge and empathy to bridge divides"
+        },
+        {
+          "type": "richText",
+          "markdown": "We engage with people from all walks of life by inviting them to share their real-life experiences. We empower them to make their voices heard in policy-making across Europe."
+        },
+        {
+          "type": "image",
+          "src": "/media/Frame-143-550f5f77.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "\\* Anonymous real stories with AI-generated images"
+        }
+      ]
+    },
+    {
+      "id": "6916e7717f41f706ce2591dd",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "Eurosense"
+        },
+        {
+          "type": "richText",
+          "markdown": "## Who we are"
+        },
+        {
+          "type": "richText",
+          "markdown": "In a time of growing polarization and division, we stand committed to fostering understanding and unity across Europe. Polarising topics like migration or green transformation ignite heated debates. The complex problems we face require more than populist solutions. We want to ensure that as many voices as possible are heard to discover blindspots and possible ways forward."
+        }
+      ]
+    },
+    {
+      "id": "6916e8630b370c397f1cba87",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "Our mission"
+        },
+        {
+          "type": "richText",
+          "markdown": "## Each policy maker in the EU parliament should be able to hear your voice!"
+        },
+        {
+          "type": "richText",
+          "markdown": "### Our Approach: Listening to Understand"
+        },
+        {
+          "type": "richText",
+          "markdown": "**01**"
+        },
+        {
+          "type": "richText",
+          "markdown": "Instead of dismissing or protesting against differing views, we’re taking a different path. We step onto the streets, engaging with people from all walks of life, and invite them to share their stories"
+        },
+        {
+          "type": "richText",
+          "markdown": "### The Power of Dialogue and Empathy"
+        },
+        {
+          "type": "richText",
+          "markdown": "**02**"
+        },
+        {
+          "type": "richText",
+          "markdown": "We believe that dialogue and empathy are key to bridging divides. We’re not here to cancel or ignore concerns. Instead, we amplify voices."
+        },
+        {
+          "type": "richText",
+          "markdown": "### Our Goal: Solutions for Everyone"
+        },
+        {
+          "type": "richText",
+          "markdown": "Our ultimate goal is to find common solutions that benefit all – from local communities to the broader European landscape."
+        },
+        {
+          "type": "richText",
+          "markdown": "**03**"
+        }
+      ]
+    }
+  ]
+}

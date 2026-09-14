@@ -1,0 +1,21 @@
+{
+  "urlPath": "/events/innovating-democracy-workshop-and-complexity-cafes",
+  "title": "Innovating Democracy Workshop and Complexity Cafes — EuroSense",
+  "description": "Join us for the Innovating Democracy Workshop and Complexity Cafes during the upcoming Weekend in Tirana to explore this question with our collected data via the Sense Maker.   We start on Saturday morning already!",
+  "ogImage": "http:/media/tirana-737381b4.jpg",
+  "sections": [
+    {
+      "id": "673dc4d2a4c46654c877906b",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "Join us for the **Innovating Democracy Workshop and Complexity Cafes** during the upcoming Weekend in Tirana to explore this question with our collected data via the Sense Maker.  \n  \nWe start on Saturday morning already!  \n  \nThis is your chance to contribute to shaping the future of Europe and bringing democracy closer to the people.  \n  \n📍 When: Starting on Saturday 23. November in the Main Hall 11:15 a.m.\n\n  \n📍 Where: Tirana International Hotel & Conference Center\n\n  \n📍 Why: Because every voice matters, and you can help shape the change!\n\n  \n  \nDon’t miss this opportunity to connect, engage, and make a difference!"
+        },
+        {
+          "type": "richText",
+          "markdown": "For more information [https://volteuropa.org/events/volt-europa-general-assembly-in-tirana](https://volteuropa.org/events/volt-europa-general-assembly-in-tirana)"
+        }
+      ]
+    }
+  ]
+}

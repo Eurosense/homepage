@@ -1,0 +1,140 @@
+{
+  "urlPath": "/about",
+  "title": "About — EuroSense",
+  "description": "",
+  "ogImage": "",
+  "sections": [
+    {
+      "id": "671b4046abcf735b98fd7a1f",
+      "background": "/media/Back6_Mesa-de-trabajo-1-47f3bfbd.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "### Instead of ignoring people\n\n### who have differing views\n\n### or telling them what to think\n\n### we are listening \\*."
+        },
+        {
+          "type": "richText",
+          "markdown": "\\* Anonymous real stories with AI-generated images"
+        },
+        {
+          "type": "image",
+          "src": "/media/5-2b795144.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "“I was again sexually molested and a family member (male, over 70) of mine played down my experience and denied that this is daily experience for many women in the world”"
+        },
+        {
+          "type": "image",
+          "src": "/media/2-c1f8a3d9.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "“My concerns about an almost full lack of ecosystem related knowledge in local government was met with an 'it is what it is' statement by a member of the municipal council”"
+        },
+        {
+          "type": "image",
+          "src": "/media/4-37328c64.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "“A conversation this morning with my turkish Airb&b hosts in Berlin. The father explained how he doesn’t like the current prep for war. It stimulates hate, which enables war. He is thinking we should go about keeping peace differently than preparing for war. I shared an experience that when we meet a person it becomes impossible to hate them. This could be a way to peace..”"
+        },
+        {
+          "type": "image",
+          "src": "/media/Untitled-design-d2ed074b.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "“I am happy that in my area some of the streets are blocked for cars and turned to bicycle roads. It is more fun to pass there with my kids.”"
+        },
+        {
+          "type": "image",
+          "src": "/media/6-2a5ff61b.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "“Friends of my father are concerned about migrants taking away their workplaces.”"
+        },
+        {
+          "type": "richText",
+          "markdown": "# We believe in\n\n# the power of dialogue\n\n# and empathy\n\n# to bridge divides."
+        },
+        {
+          "type": "richText",
+          "markdown": "### We engage with people from all walks of life by inviting them to share their real-life experiences. We empower them to make their voices heard in policy-making across Europe."
+        }
+      ]
+    },
+    {
+      "id": "66e4280969b09d60989f4ee4",
+      "background": "/media/Back1_Mesa-de-trabajo-1-b5fb0057.png",
+      "blocks": [
+        {
+          "type": "richText",
+          "markdown": "# Who we are"
+        },
+        {
+          "type": "richText",
+          "markdown": "In a time of growing polarization and division, we stand committed to fostering understanding and unity across Europe. Polarising topics like migration or green transformation ignite heated debates. The complex problems we face require more than populist solutions. We want to ensure that as many voices as possible are heard to discover blindspots and possible ways forward."
+        },
+        {
+          "type": "richText",
+          "markdown": "## **Each policy maker in the EU parliament should be able to hear your voice!**"
+        },
+        {
+          "type": "image",
+          "src": "/media/ICONOS-10-538fe623.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "## Our Approach: **Listening to Understand**"
+        },
+        {
+          "type": "richText",
+          "markdown": "Instead of dismissing or protesting against differing views, we’re taking a different path. We step onto the streets, engaging with people from all walks of life, and invite them to share their stories. We provide not only a platform for these voices but also the opportunity for their experiences to shape politics across Europe."
+        },
+        {
+          "type": "image",
+          "src": "/media/ICONOS-11-1a6d5e81.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "## The Power of **Dialogue and Empathy**"
+        },
+        {
+          "type": "richText",
+          "markdown": "We believe that dialogue and empathy are key to bridging divides. We’re not here to cancel or ignore concerns. Instead, we amplify voices. By truly listening to the stories and perspectives of our fellow citizens, we seek to understand and connect through shared experiences."
+        },
+        {
+          "type": "image",
+          "src": "/media/ICONOS-12-f41ef25e.png",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "type": "richText",
+          "markdown": "## Our Goal: **Solutions for Everyone**"
+        },
+        {
+          "type": "richText",
+          "markdown": "Our ultimate goal is to find common solutions that benefit all – from local communities to the broader European landscape. We recognize the complexity of the challenges we face, but we are committed to facing them head-on, in partnership with everyone who calls Europe home."
+        }
+      ]
+    }
+  ]
+}
