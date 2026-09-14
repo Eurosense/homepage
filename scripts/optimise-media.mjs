@@ -35,9 +35,10 @@ for (const file of files) {
   const image = sharp(full, { failOn: 'none' })
   const meta = await image.metadata()
 
-  const pipeline = meta.width && meta.width > MAX_WIDTH
-    ? image.resize({ width: MAX_WIDTH, withoutEnlargement: true })
-    : image
+  const pipeline =
+    meta.width && meta.width > MAX_WIDTH
+      ? image.resize({ width: MAX_WIDTH, withoutEnlargement: true })
+      : image
 
   const encoded = /\.png$/i.test(file)
     ? await pipeline.png({ quality: QUALITY, compressionLevel: 9, palette: true }).toBuffer()

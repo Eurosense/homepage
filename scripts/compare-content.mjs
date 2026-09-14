@@ -185,7 +185,9 @@ for (const file of snapshots) {
 rows.sort((a, b) => a.coverage - b.coverage)
 
 const pct = (n) => `${(n * 100).toFixed(1)}%`
-console.log(`${'route'.padEnd(46)}${'coverage'.padStart(9)}${'words'.padStart(8)}  missing words`)
+console.log(
+  `${'route'.padEnd(46)}${'coverage'.padStart(9)}${'words'.padStart(8)}  missing words`,
+)
 console.log('-'.repeat(100))
 
 for (const r of rows) {

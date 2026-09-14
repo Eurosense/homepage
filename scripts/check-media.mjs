@@ -43,7 +43,8 @@ async function mediaNames(dir, prefix = '') {
   const names = []
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     if (entry.name.startsWith('.')) continue
-    if (entry.isDirectory()) names.push(...(await mediaNames(path.join(dir, entry.name), `${prefix}${entry.name}/`)))
+    if (entry.isDirectory())
+      names.push(...(await mediaNames(path.join(dir, entry.name), `${prefix}${entry.name}/`)))
     else names.push(`${prefix}${entry.name}`)
   }
   return names
@@ -93,7 +94,8 @@ let failed = false
 if (missingFiles.length) {
   failed = true
   console.error(`\n${missingFiles.length} referenced download(s) missing from public/files:`)
-  for (const [name, source] of missingFiles) console.error(`  ${name}  (referenced by ${source})`)
+  for (const [name, source] of missingFiles)
+    console.error(`  ${name}  (referenced by ${source})`)
 }
 
 if (missing.length) {

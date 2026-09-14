@@ -36,7 +36,8 @@ const mediaPath = z
     'points at Squarespace; run `npm run extract:assets` while the subscription is live',
   )
   .refine(
-    (v) => !v.startsWith('/media/') || existsSync(path.join(MEDIA, decodeURIComponent(v.slice(7)))),
+    (v) =>
+      !v.startsWith('/media/') || existsSync(path.join(MEDIA, decodeURIComponent(v.slice(7)))),
     'references a file that is not in public/media/',
   )
 
@@ -117,7 +118,12 @@ const block = z.discriminatedUnion('type', [
     driveId: z.string().optional(),
     kind: z.enum(['pdf', 'drive', 'spreadsheet']),
   }),
-  z.object({ type: z.literal('instagram'), html: z.string() }),
+  z.object({
+    type: z.literal('instagram'),
+    posts: z
+      .array(z.object({ href: z.string(), image: mediaPath, alt: z.string().optional() }))
+      .min(1),
+  }),
 ])
 
 const placement = z
@@ -242,7 +248,9 @@ if (siteRaw) report('content/site.json', siteChrome.safeParse(siteRaw))
 const formsRaw = await readJson(path.join(CONTENT, 'forms.json'))
 if (formsRaw) report('content/forms.json', formsFile.safeParse(formsRaw))
 
-const pageFiles = (await readdir(path.join(CONTENT, 'pages'))).filter((f) => f.endsWith('.json'))
+const pageFiles = (await readdir(path.join(CONTENT, 'pages'))).filter((f) =>
+  f.endsWith('.json'),
+)
 const seenPaths = new Map()
 
 for (const file of pageFiles) {
@@ -255,7 +263,10 @@ for (const file of pageFiles) {
 
   const normalised = parsed.urlPath.replace(/\/+$/, '') || '/'
   if (seenPaths.has(normalised)) {
-    note(relative, `urlPath "${parsed.urlPath}" is already used by ${seenPaths.get(normalised)}`)
+    note(
+      relative,
+      `urlPath "${parsed.urlPath}" is already used by ${seenPaths.get(normalised)}`,
+    )
   } else {
     seenPaths.set(normalised, relative)
   }
@@ -317,7 +328,9 @@ for (const collection of COLLECTIONS) {
   }
 }
 
-console.log(`pages ${pageFiles.length} · posts ${postCount} · media ${(await readdir(MEDIA)).length}`)
+console.log(
+  `pages ${pageFiles.length} · posts ${postCount} · media ${(await readdir(MEDIA)).length}`,
+)
 
 if (problems.length) {
   console.error(`\n${problems.length} problem(s):\n`)

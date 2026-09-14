@@ -85,7 +85,8 @@ for (const file of files) {
   })
 
   for (const url of new Set(broken)) problems.push({ route, kind: 'broken link', detail: url })
-  if (bodyText.length < 120) problems.push({ route, kind: 'almost no text', detail: `${bodyText.length} chars` })
+  if (bodyText.length < 120)
+    problems.push({ route, kind: 'almost no text', detail: `${bodyText.length} chars` })
 }
 
 rows.sort((a, b) => a.route.localeCompare(b.route))

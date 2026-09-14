@@ -43,11 +43,5 @@ export function Embed({ html, className }: { html: string; className?: string })
 
   // Server render keeps the markup present for crawlers and no-JS readers; the
   // effect replaces it on mount so scripts actually run.
-  return (
-    <div
-      ref={host}
-      className={className}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  )
+  return <div ref={host} className={className} dangerouslySetInnerHTML={{ __html: html }} />
 }

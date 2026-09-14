@@ -1,14 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { Accordion } from "@/components/Accordion";
-import { ItemList } from "@/components/ItemList";
-import { DocumentEmbed } from "@/components/DocumentEmbed";
-import { Embed } from "@/components/Embed";
-import { ContactForm } from "@/components/ContactForm";
-import { renderMarkdown } from "@/lib/markdown";
-import { getFormTarget } from "@/lib/forms";
-import type { Block } from "@/lib/content";
+import { Accordion } from '@/components/Accordion'
+import { InstagramGrid } from '@/components/InstagramGrid'
+import { ItemList } from '@/components/ItemList'
+import { DocumentEmbed } from '@/components/DocumentEmbed'
+import { Embed } from '@/components/Embed'
+import { ContactForm } from '@/components/ContactForm'
+import { renderMarkdown } from '@/lib/markdown'
+import { getFormTarget } from '@/lib/forms'
+import type { Block } from '@/lib/content'
 
 /**
  * Squarespace's own markup is kept for accordions, galleries and summary lists.
@@ -16,39 +17,31 @@ import type { Block } from "@/lib/content";
  * semantic HTML inside the prose styles rather than as a broken layout.
  */
 function RawHtml({ html }: { html: string }) {
-  return (
-    <div
-      className="prose-eurosense"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  );
+  return <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: html }} />
 }
 
 function isInternal(href: string) {
-  return href.startsWith("/") && !href.startsWith("//");
+  return href.startsWith('/') && !href.startsWith('//')
 }
 
 export function BlockView({ block }: { block: Block }) {
   switch (block.type) {
-    case "richText":
+    case 'richText':
       return (
-        <div
-          className="prose-eurosense"
-          dangerouslySetInnerHTML={{ __html: block.html }}
-        />
-      );
+        <div className="prose-eurosense" dangerouslySetInnerHTML={{ __html: block.html }} />
+      )
 
-    case "image": {
+    case 'image': {
       const img = (
         <Image
           src={block.src}
-          alt={block.alt ?? ""}
+          alt={block.alt ?? ''}
           width={block.width ?? 1600}
           height={block.height ?? 1000}
           className="h-auto w-full rounded-xl object-contain"
           sizes="(max-width: 768px) 100vw, 800px"
         />
-      );
+      )
       return (
         <figure className="my-2">
           {block.href ? (
@@ -71,55 +64,49 @@ export function BlockView({ block }: { block: Block }) {
             />
           ) : null}
         </figure>
-      );
+      )
     }
 
-    case "button": {
+    case 'button': {
       /*
        * Three variants, measured from the live site: primary is a solid fill,
        * secondary and tertiary are outlined, and every one is 15px radius. The
        * colours come from the section theme, so the same button inverts on a
        * dark band exactly as it did on Squarespace.
        */
-      const outlined =
-        block.variant === "secondary" || block.variant === "tertiary";
+      const outlined = block.variant === 'secondary' || block.variant === 'tertiary'
       const classes = [
-        "inline-flex items-center justify-center rounded-[15px] px-5 text-base font-medium leading-none transition",
-        block.size === "small" ? "h-12" : "h-14",
-        block.stretched ? "w-full" : "self-start",
+        'inline-flex items-center justify-center rounded-[15px] px-5 text-base font-medium leading-none transition',
+        block.size === 'small' ? 'h-12' : 'h-14',
+        block.stretched ? 'w-full' : 'self-start',
         outlined
-          ? "border border-[color:var(--sec-btn-outline)] text-[color:var(--sec-btn-outline)] hover:bg-[color:var(--sec-btn-outline)]/10"
-          : "bg-[color:var(--sec-btn-bg)] text-[color:var(--sec-btn-text)] hover:opacity-90",
-      ].join(" ");
+          ? 'border border-[color:var(--sec-btn-outline)] text-[color:var(--sec-btn-outline)] hover:bg-[color:var(--sec-btn-outline)]/10'
+          : 'bg-[color:var(--sec-btn-bg)] text-[color:var(--sec-btn-text)] hover:opacity-90',
+      ].join(' ')
 
       return isInternal(block.href) ? (
         <Link href={block.href} className={classes}>
           {block.label}
         </Link>
       ) : (
-        <a
-          href={block.href}
-          target="_blank"
-          rel="noreferrer noopener"
-          className={classes}
-        >
+        <a href={block.href} target="_blank" rel="noreferrer noopener" className={classes}>
           {block.label}
         </a>
-      );
+      )
     }
 
-    case "video": {
-      if (!block.src) return null;
+    case 'video': {
+      if (!block.src) return null
 
       const caption = block.caption ? (
         <figcaption
           className="prose-eurosense mt-3 text-sm"
           dangerouslySetInnerHTML={{ __html: block.caption }}
         />
-      ) : null;
+      ) : null
 
       // A local file plays in a real <video>; a third-party embed stays an iframe.
-      if (block.src.startsWith("/")) {
+      if (block.src.startsWith('/')) {
         return (
           <figure className="w-full">
             <video
@@ -132,13 +119,9 @@ export function BlockView({ block }: { block: Block }) {
               muted={block.muted}
               autoPlay={block.autoPlay}
               className="w-full rounded-xl bg-black"
-              style={
-                block.aspectRatio
-                  ? { aspectRatio: String(block.aspectRatio) }
-                  : undefined
-              }
+              style={block.aspectRatio ? { aspectRatio: String(block.aspectRatio) } : undefined}
             >
-              Your browser cannot play this video.{" "}
+              Your browser cannot play this video.{' '}
               <a href={block.src} download>
                 Download it instead
               </a>
@@ -146,7 +129,7 @@ export function BlockView({ block }: { block: Block }) {
             </video>
             {caption}
           </figure>
-        );
+        )
       }
 
       return (
@@ -154,7 +137,7 @@ export function BlockView({ block }: { block: Block }) {
           <div className="aspect-video w-full overflow-hidden rounded-xl">
             <iframe
               src={block.src}
-              title={block.title || "Video"}
+              title={block.title || 'Video'}
               loading="lazy"
               allowFullScreen
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -163,63 +146,59 @@ export function BlockView({ block }: { block: Block }) {
           </div>
           {caption}
         </figure>
-      );
+      )
     }
 
-    case "embed":
-      return <Embed html={block.html} className="prose-eurosense w-full" />;
+    case 'embed':
+      return <Embed html={block.html} className="prose-eurosense w-full" />
 
-    case "quote":
+    case 'quote':
       return (
         <blockquote className="border-l-[3px] border-gold pl-5 text-lg italic text-muted">
           <p>{block.text}</p>
           {block.source ? (
-            <footer className="mt-2 text-sm not-italic">
-              — {block.source}
-            </footer>
+            <footer className="mt-2 text-sm not-italic">— {block.source}</footer>
           ) : null}
         </blockquote>
-      );
+      )
 
-    case "divider":
-      return <hr className="my-4 border-line" />;
+    case 'divider':
+      return <hr className="my-4 border-line" />
 
-    case "form":
-      return (
-        <ContactForm block={block} target={getFormTarget(block.formId ?? "")} />
-      );
+    case 'form':
+      return <ContactForm block={block} target={getFormTarget(block.formId ?? '')} />
 
-    case "accordion":
-      return <Accordion items={block.items} />;
+    case 'accordion':
+      return <Accordion items={block.items} />
 
-    case "list":
-      return <ItemList items={block.items} />;
+    case 'list':
+      return <ItemList items={block.items} />
 
-    case "document":
-      return <DocumentEmbed block={block} />;
+    case 'document':
+      return <DocumentEmbed block={block} />
 
-    case "gallery":
-    case "summary-v2":
-    case "instagram":
-      return <RawHtml html={block.html} />;
+    case 'instagram':
+      return <InstagramGrid posts={block.posts} />
+
+    case 'gallery':
+    case 'summary-v2':
+      return <RawHtml html={block.html} />
 
     default: {
       // Reaching here means content/ holds a block this renderer does not know.
       // `npm run validate` catches it in CI, but a silent null during local
       // editing looks like the content itself is missing, so say so on screen.
-      const unknown = block as { type: string };
-      if (process.env.NODE_ENV !== "production") {
+      const unknown = block as { type: string }
+      if (process.env.NODE_ENV !== 'production') {
         return (
           <div className="rounded-lg border border-dashed border-red-400 bg-red-50 p-4 text-sm text-red-800">
-            Unknown block type <code className="font-mono">{unknown.type}</code>
-            . Add it to the union in{" "}
-            <code className="font-mono">src/lib/content.ts</code>, this
-            renderer, and{" "}
+            Unknown block type <code className="font-mono">{unknown.type}</code>. Add it to the
+            union in <code className="font-mono">src/lib/content.ts</code>, this renderer, and{' '}
             <code className="font-mono">scripts/validate-content.mjs</code>.
           </div>
-        );
+        )
       }
-      return null;
+      return null
     }
   }
 }
@@ -235,18 +214,18 @@ export function SectionView({
   theme,
   minHeight,
 }: {
-  blocks: Block[];
-  background?: string;
-  theme?: string;
-  minHeight?: string;
+  blocks: Block[]
+  background?: string
+  theme?: string
+  minHeight?: string
 }) {
-  const hasBackground = Boolean(background);
+  const hasBackground = Boolean(background)
 
   return (
     <section
       className="relative isolate"
-      data-theme={theme ?? "none"}
-      data-has-background={hasBackground ? "true" : undefined}
+      data-theme={theme ?? 'none'}
+      data-has-background={hasBackground ? 'true' : undefined}
       style={minHeight ? { minHeight } : undefined}
     >
       {background ? (
@@ -271,13 +250,13 @@ export function SectionView({
       */}
       <div
         className={`mx-auto flex w-full flex-col gap-6 px-5 ${
-          blocks.some((b) => b.type === "list") ? "max-w-6xl" : "max-w-3xl"
-        } ${hasBackground ? "py-20" : "py-14"}`}
+          blocks.some((b) => b.type === 'list') ? 'max-w-6xl' : 'max-w-3xl'
+        } ${hasBackground ? 'py-20' : 'py-14'}`}
       >
         {blocks.map((block, i) => (
           <BlockView key={i} block={block} />
         ))}
       </div>
     </section>
-  );
+  )
 }

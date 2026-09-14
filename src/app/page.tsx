@@ -7,7 +7,5 @@ export default function HomePage() {
   const page = getPage('/')
   if (!page) notFound()
 
-  return (
-    <PageSections sections={page.sections} />
-  )
+  return <PageSections sections={page.sections} />
 }

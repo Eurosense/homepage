@@ -107,8 +107,7 @@ async function pool(items, limit, fn) {
  * "/" must not collapse onto "/home" — the site has both, with different
  * content, and a shared slug silently overwrites one snapshot with the other.
  */
-const slugify = (urlPath) =>
-  urlPath.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'index'
+const slugify = (urlPath) => urlPath.replace(/^\/+|\/+$/g, '').replace(/\//g, '--') || 'index'
 
 /** Minimal YAML front matter emitter — scalars, arrays and flat objects only. */
 function toFrontMatter(obj) {
@@ -174,9 +173,7 @@ function htmlToMarkdown(html) {
  * public/dashboard-app/, so pointing at it locally keeps the page identical and
  * removes the round trip. See README for how its data is refreshed.
  */
-const EMBED_REWRITES = [
-  [/https?:\/\/medibunny\.github\.io\/Eurosense\/?/g, '/dashboard-app/'],
-]
+const EMBED_REWRITES = [[/https?:\/\/medibunny\.github\.io\/Eurosense\/?/g, '/dashboard-app/']]
 
 function rewriteEmbedUrls(html) {
   return EMBED_REWRITES.reduce((acc, [from, to]) => acc.replace(from, to), html)
@@ -215,7 +212,10 @@ function asDocumentBlock(html) {
   const driveId = href.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/)?.[1]
 
   // The visible title is the text minus the trailing "Download" affordance.
-  const title = text.replace(/\s*Download\s*$/i, '').replace(/\.$/, '').trim()
+  const title = text
+    .replace(/\s*Download\s*$/i, '')
+    .replace(/\.$/, '')
+    .trim()
 
   return {
     type: 'document',
@@ -450,7 +450,9 @@ function parseBlock($, el) {
         }
         let settings = {}
         try {
-          settings = JSON.parse(inner.find('.sqs-native-video').attr('data-config-settings') || '{}')
+          settings = JSON.parse(
+            inner.find('.sqs-native-video').attr('data-config-settings') || '{}',
+          )
         } catch {
           settings = {}
         }
@@ -546,9 +548,30 @@ function parseBlock($, el) {
 
       return items.length ? { type: 'accordion', items } : null
     }
-    case 'summary-v2-block':
-    case 'gallery-block':
     case 'instagram-block': {
+      /*
+       * Extract the posts rather than keeping Squarespace's gallery markup.
+       * That markup relies on a slideshow script we do not ship, so the images
+       * collapsed to a few pixels tall — present, but invisible.
+       */
+      const posts = inner
+        .find('a')
+        .map((_i, a) => {
+          const $a = $(a)
+          const $img = $a.find('img').first()
+          return {
+            href: $a.attr('href'),
+            image: $img.attr('data-src') || $img.attr('src'),
+            alt: $img.attr('alt') || '',
+          }
+        })
+        .get()
+        .filter((post) => post.href && post.image)
+
+      return posts.length ? { type: 'instagram', posts } : null
+    }
+    case 'summary-v2-block':
+    case 'gallery-block': {
       // Structured collections we render ourselves; keep raw so nothing is lost.
       return { type: kind.replace('-block', ''), html: cleanHtml(inner.html()) }
     }
@@ -743,8 +766,17 @@ function parseSiteChrome(html, knownPaths = []) {
     const platform = href.match(
       /(instagram|linkedin|twitter|x|facebook|youtube|mastodon|bluesky|tiktok)\./i,
     )?.[1]
-    if (!platform || social.some((s) => s.href === href)) return
-    social.push({ platform: platform.toLowerCase(), href })
+    if (!platform) return
+    /*
+     * Squarespace stored these as http:// without the www. Both redirect, but
+     * that is an extra hop per click and an insecure first request, so they are
+     * normalised here rather than shipped as-is.
+     */
+    const canonical = href
+      .replace(/^http:\/\//, 'https://')
+      .replace(/^https:\/\/(?!www\.)/, 'https://www.')
+    if (social.some((s) => s.href === canonical)) return
+    social.push({ platform: platform.toLowerCase(), href: canonical })
   })
 
   // The header's call-to-action button, which sits beside the social icons.
@@ -855,11 +887,18 @@ function parsePageHtml(html, urlPath) {
           const $link = $li.find('a[href]').first()
           // Each teaser carries its own call to action ("Make It"), which is a
           // separate element from the card link and was being dropped.
-          const $button = $li.find('.list-item-content__button-container a, .list-item-content__button').first()
+          const $button = $li
+            .find('.list-item-content__button-container a, .list-item-content__button')
+            .first()
           return {
             image: $img.attr('data-src') || $img.attr('src') || undefined,
             alt: $img.attr('alt') || '',
-            title: $li.find('.list-item-content__title').first().text().replace(/\s+/g, ' ').trim(),
+            title: $li
+              .find('.list-item-content__title')
+              .first()
+              .text()
+              .replace(/\s+/g, ' ')
+              .trim(),
             description: htmlToMarkdown(
               $li.find('.list-item-content__description').first().html(),
             ),
@@ -956,7 +995,9 @@ async function parseCollection(name) {
       title: item.title || '',
       slug: item.urlId,
       date: item.publishOn ? new Date(item.publishOn).toISOString() : undefined,
-      excerpt: htmlToMarkdown(item.excerpt || '').replace(/\n+/g, ' ').trim(),
+      excerpt: htmlToMarkdown(item.excerpt || '')
+        .replace(/\n+/g, ' ')
+        .trim(),
       image: item.assetUrl || undefined,
       imageAlt: (item.mediaFocalPoint && item.title) || undefined,
       author: item.author?.displayName,
@@ -991,7 +1032,9 @@ async function stageParse() {
     knownPaths,
   )
   await writeFile(path.join(CONTENT, 'site.json'), `${JSON.stringify(chrome, null, 2)}\n`)
-  console.log(`[parse] site chrome: ${chrome.nav.length} nav items, ${chrome.social.length} social links`)
+  console.log(
+    `[parse] site chrome: ${chrome.nav.length} nav items, ${chrome.social.length} social links`,
+  )
 
   for (const c of COLLECTIONS) await parseCollection(c)
 
@@ -1156,7 +1199,11 @@ async function stageAssets() {
   // Pass 2: download anything not already on disk.
   await pool([...discovered], 5, async (clean) => {
     const known = manifest[clean]
-    if (known && existsSync(path.join(MEDIA, known)) && (await stat(path.join(MEDIA, known))).size > 0) {
+    if (
+      known &&
+      existsSync(path.join(MEDIA, known)) &&
+      (await stat(path.join(MEDIA, known))).size > 0
+    ) {
       report.assets.reused++
       return
     }
@@ -1187,7 +1234,9 @@ async function stageAssets() {
     if (canonical.has(name)) continue
     const file = path.join(MEDIA, name)
     if (!existsSync(file)) continue
-    const digest = createHash('sha1').update(await readFile(file)).digest('hex')
+    const digest = createHash('sha1')
+      .update(await readFile(file))
+      .digest('hex')
     if (byContent.has(digest)) canonical.set(name, byContent.get(digest))
     else {
       byContent.set(digest, name)
@@ -1270,8 +1319,12 @@ async function main() {
 
   console.log('\n=== extraction report ===')
   console.log(`pages           ${report.pages.length}`)
-  console.log(`collections     ${report.collections.map((c) => `${c.slug}:${c.items}`).join(', ')}`)
-  console.log(`assets          ${report.assets.downloaded} new / ${report.assets.reused} cached`)
+  console.log(
+    `collections     ${report.collections.map((c) => `${c.slug}:${c.items}`).join(', ')}`,
+  )
+  console.log(
+    `assets          ${report.assets.downloaded} new / ${report.assets.reused} cached`,
+  )
   if (report.unknownBlocks.length)
     console.log(`UNHANDLED blocks: ${report.unknownBlocks.join(', ')}`)
   if (report.assets.failed.length)

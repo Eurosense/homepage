@@ -136,10 +136,7 @@ function PostView({ post }: { post: Post }) {
 
   return (
     <article className="mx-auto w-full max-w-3xl px-5 py-12">
-      <Link
-        href={backHref}
-        className="text-sm text-purple underline-offset-4 hover:underline"
-      >
+      <Link href={backHref} className="text-sm text-purple underline-offset-4 hover:underline">
         ← Back
       </Link>
 

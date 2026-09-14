@@ -26,7 +26,13 @@ import path from 'node:path'
 const TOKEN_API = 'https://api.singularity.icatalyst.com/v2/api/personalaccesstokens'
 const CAPTURES_API = 'https://api-gateway.sensemaker-suite.com/v2/frameworks'
 
-const DEFAULT_OUT = path.join(import.meta.dirname, '..', 'public', 'dashboard-app', 'captures.csv')
+const DEFAULT_OUT = path.join(
+  import.meta.dirname,
+  '..',
+  'public',
+  'dashboard-app',
+  'captures.csv',
+)
 const OUT = process.env.DASHBOARD_CSV_OUT
   ? path.resolve(process.env.DASHBOARD_CSV_OUT)
   : DEFAULT_OUT

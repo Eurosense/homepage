@@ -54,14 +54,12 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
         role="note"
         className="rounded-xl border border-dashed border-line bg-white p-5 text-sm text-muted"
       >
-        <p className="font-medium text-purple-deep">
-          This form is not connected yet.
-        </p>
+        <p className="font-medium text-purple-deep">This form is not connected yet.</p>
         <p className="mt-1">
           The {block.title || 'contact'} form has no provider yet. Set one in{' '}
-          <code className="rounded bg-cream px-1">content/forms.json</code> — either a
-          HubSpot form id or a deploybase endpoint — so messages reach an inbox rather
-          than disappearing.
+          <code className="rounded bg-cream px-1">content/forms.json</code> — either a HubSpot
+          form id or a deploybase endpoint — so messages reach an inbox rather than
+          disappearing.
         </p>
       </div>
     )
@@ -111,7 +109,10 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
 
   if (status === 'sent') {
     return (
-      <div role="status" className="rounded-xl border border-line bg-white p-5 text-purple-deep">
+      <div
+        role="status"
+        className="rounded-xl border border-line bg-white p-5 text-purple-deep"
+      >
         {target?.provider === 'mailto'
           ? 'Your email app should have opened with the message ready to send.'
           : 'Thank you — your message has been sent.'}

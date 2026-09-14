@@ -24,8 +24,17 @@ jobs:
       - name: Validate content
         run: npm run validate
 
+      - name: Check formatting
+        run: npm run format:check
+
       - name: Type check
         run: npm run typecheck
 
       - name: Build static export
         run: npm run build
+
+      # Diffs every built page against its Squarespace snapshot. The build stays
+      # green when a block is never extracted, so this is what catches content
+      # that silently went missing.
+      - name: Compare against the original
+        run: node scripts/compare-content.mjs

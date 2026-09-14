@@ -86,13 +86,19 @@ for (const video of videos) {
      * to move ADTS audio into MP4.
      */
     await run('ffmpeg', [
-      '-loglevel', 'error',
+      '-loglevel',
+      'error',
       '-y',
-      '-allowed_extensions', 'ALL',
-      '-extension_picky', '0',
-      '-i', `${video.base}/playlist.m3u8`,
-      '-c', 'copy',
-      '-bsf:a', 'aac_adtstoasc',
+      '-allowed_extensions',
+      'ALL',
+      '-extension_picky',
+      '0',
+      '-i',
+      `${video.base}/playlist.m3u8`,
+      '-c',
+      'copy',
+      '-bsf:a',
+      'aac_adtstoasc',
       dest,
     ])
   }
@@ -108,16 +114,32 @@ for (const video of videos) {
   if (!existsSync(optimisedMarker)) {
     const tmp = path.join(OUT, `${video.id}.tmp.mp4`)
     await run('ffmpeg', [
-      '-loglevel', 'error', '-y', '-i', dest,
-      '-c:v', 'libx264', '-crf', '24', '-preset', 'slow',
-      '-c:a', 'aac', '-b:a', '128k',
-      '-movflags', '+faststart', tmp,
+      '-loglevel',
+      'error',
+      '-y',
+      '-i',
+      dest,
+      '-c:v',
+      'libx264',
+      '-crf',
+      '24',
+      '-preset',
+      'slow',
+      '-c:a',
+      'aac',
+      '-b:a',
+      '128k',
+      '-movflags',
+      '+faststart',
+      tmp,
     ])
     const before = (await stat(dest)).size
     const after = (await stat(tmp)).size
     if (after < before) {
       await rename(tmp, dest)
-      console.log(`  optimised ${(before / 1048576).toFixed(1)} -> ${(after / 1048576).toFixed(1)} MB`)
+      console.log(
+        `  optimised ${(before / 1048576).toFixed(1)} -> ${(after / 1048576).toFixed(1)} MB`,
+      )
     } else {
       await rm(tmp)
     }

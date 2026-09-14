@@ -29,9 +29,7 @@ function placementCss(
    * original cell was sized for a one-line "Download" link, and a PDF squeezed
    * into that is unreadable — the viewer is new, so it gets room to work.
    */
-  const span = fullWidth
-    ? `grid-column:2/-2;`
-    : ''
+  const span = fullWidth ? `grid-column:2/-2;` : ''
   return `${selector}{grid-area:${placement.area};${span}${z}${alignmentCss(placement)}}`
 }
 
@@ -53,8 +51,10 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
   const desktopGap = desktop.columnGap ?? mobileGap
 
   const track = (columns: number, gap: string) =>
-    `minmax(var(--fe-gutter),1fr) repeat(${columns},minmax(0,var(--fe-cell))) minmax(var(--fe-gutter),1fr)`
-      .replace(/\s+/g, ' ') + `;--fe-gap:${gap}`
+    `minmax(var(--fe-gutter),1fr) repeat(${columns},minmax(0,var(--fe-cell))) minmax(var(--fe-gutter),1fr)`.replace(
+      /\s+/g,
+      ' ',
+    ) + `;--fe-gap:${gap}`
 
   const rules: string[] = []
 

@@ -21,7 +21,12 @@ export function Accordion({ items }: { items: Item[] }) {
               aria-hidden
               className="shrink-0 text-gold transition-transform group-open:rotate-45"
             >
-              <path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path
+                d="M10 4v12M4 10h12"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
             </svg>
           </summary>
           <div

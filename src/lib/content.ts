@@ -69,7 +69,7 @@ export type Block =
       driveId?: string
       kind: 'pdf' | 'drive' | 'spreadsheet'
     }
-  | { type: 'instagram'; html: string }
+  | { type: 'instagram'; posts: { href: string; image: string; alt?: string }[] }
 
 export type FormField = {
   label: string
@@ -281,7 +281,10 @@ export function getPost(collection: string, slug: string): Post | undefined {
  * (newest first). `previous` is the older post, matching how the original site
  * labels them.
  */
-export function getAdjacentPosts(collection: string, slug: string): {
+export function getAdjacentPosts(
+  collection: string,
+  slug: string,
+): {
   previous?: Post
   next?: Post
 } {
