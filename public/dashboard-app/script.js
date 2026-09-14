@@ -1,12 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
     const colors = ["#133BC7", "#FDC220", "#1BBE6F", "#E63E12", "#502379"];
+    // Refreshed nightly and published to GitHub Pages, so new captures appear
+    // without rebuilding and redeploying the site. The copy committed next to
+    // this file is the fallback: it keeps the dashboard working offline, on a
+    // preview build, and if Pages is unreachable.
+    const LIVE_DATA_URL = "https://eurosense.github.io/homepage/captures.csv";
+
+    async function fetchCsvText() {
+      try {
+        const live = await fetch(LIVE_DATA_URL, { cache: "no-cache" });
+        if (live.ok) {
+          const text = await live.text();
+          if (text.startsWith("id,project_id,")) return text;
+          console.warn("Live captures data did not look like a CSV export; using the bundled copy.");
+        }
+      } catch (error) {
+        console.warn("Live captures data unreachable; using the bundled copy.", error);
+      }
+      const local = await fetch("./captures.csv");
+      if (!local.ok) throw new Error(`Failed to fetch the CSV file: ${local.statusText}`);
+      return local.text();
+    }
+
     async function loadCSVData() {
       try {
-        const response = await fetch("./captures.csv");
-        if (!response.ok) {
-          throw new Error(`Failed to fetch the CSV file: ${response.statusText}`);
-        }
-        const csvText = await response.text();
+        const csvText = await fetchCsvText();
         const jsonData = Papa.parse(csvText, {
           header: true,
           skipEmptyLines: true

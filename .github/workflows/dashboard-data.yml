@@ -1,23 +1,28 @@
 name: Dashboard data
 
-# Refreshes the dashboard's captures.csv from the SenseMaker API and commits it.
+# Refreshes the dashboard's captures.csv from the SenseMaker API and publishes it
+# to GitHub Pages.
 #
-# Migrated from Medibunny/Eurosense, where the same job silently stopped running
-# in April 2025: GitHub disables scheduled workflows after 60 days without
-# repository activity, and nothing reported that it had gone quiet. This one
-# fails loudly instead — a failed run shows up in the Actions tab and emails the
-# repo admins.
+# Publishing rather than committing keeps data refreshes off the site's deploy
+# path: new captures appear on the dashboard without a commit to main, and so
+# without spending a deploybase build. The copy committed at
+# public/dashboard-app/captures.csv stays as the fallback the dashboard uses when
+# Pages is unreachable.
+#
+# Migrated from Medibunny/Eurosense, where the same job stopped running in April
+# 2025 without anyone noticing: GitHub disables scheduled workflows after 60 days
+# without repository activity. A failed run here is visible in the Actions tab.
 
 on:
   schedule:
-    # 03:00 UTC: after midnight in every EU timezone, so a day's captures are complete.
+    # 03:00 UTC: past midnight in every EU timezone, so a day's captures are complete.
     - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:
-  # Enough to push the refreshed CSV back. The old job used a personal access
-  # token for this, which is a broader grant than the work needs.
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: dashboard-data
@@ -37,16 +42,23 @@ jobs:
         env:
           SENSEMAKER_PAT_ID: ${{ secrets.SENSEMAKER_PAT_ID }}
           SENSEMAKER_FRAMEWORK: ${{ secrets.SENSEMAKER_FRAMEWORK }}
+          DASHBOARD_CSV_OUT: ${{ github.workspace }}/data-site/captures.csv
         run: node scripts/update-dashboard-data.mjs
 
-      - name: Commit if the data changed
-        run: |
-          if git diff --quiet -- public/dashboard-app/captures.csv; then
-            echo "No change to commit."
-            exit 0
-          fi
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/dashboard-app/captures.csv
-          git commit -m "Refresh dashboard captures data"
-          git push
+      # Pages runs Jekyll by default, which would not serve this predictably.
+      - name: Disable Jekyll
+        run: touch data-site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: data-site
+
+  publish:
+    needs: refresh
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
