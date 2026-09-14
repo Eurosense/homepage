@@ -159,11 +159,16 @@ exactly how this form went missing once already.
 
 ## Changing the app itself
 
+**Read [DESIGN.md](DESIGN.md) first for anything visual.** It records the palette,
+type scale, section themes, button variants and grid — all measured from the live
+Squarespace site rather than chosen. Inferring a value that looks right is how the
+migration lost four headings and every outlined button.
+
 ### Where things live
 
 | To change | Edit |
 | --- | --- |
-| Colours, fonts, spacing, prose styles | `src/app/globals.css` (`@theme` block) |
+| Colours, fonts, spacing, prose styles | `src/app/globals.css` (`@theme` block) — see [DESIGN.md](DESIGN.md) |
 | How a block renders | `src/components/BlockRenderer.tsx` |
 | Header / navigation | `src/components/SiteHeader.tsx` (nav items come from `content/site.json`) |
 | Footer | `src/components/SiteFooter.tsx` |

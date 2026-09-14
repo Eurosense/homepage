@@ -4,7 +4,11 @@ The EuroSense website: a static React (Next.js) site, migrated off Squarespace a
 deployed to [deploybase](https://deploybase.eu) on European infrastructure.
 
 Content lives in this repository as plain files, so it can be edited through a pull
-request by a person or an agent. See [AGENTS.md](AGENTS.md) for the editing guide.
+request by a person or an agent.
+
+- [AGENTS.md](AGENTS.md) — editing content, changing the app, what to run first
+- [DESIGN.md](DESIGN.md) — palette, type scale, section themes, buttons, grid
+- [CLAUDE.md](CLAUDE.md) — short entry point for Claude Code
 
 ## Quick start
 
