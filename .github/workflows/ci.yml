@@ -18,14 +18,14 @@ jobs:
 
       - run: npm ci
 
+      # Runs before the build because content mistakes are the quiet ones: a
+      # misspelled block type, a missing image or a duplicate urlPath all leave
+      # `next build` perfectly green while the page ships wrong.
+      - name: Validate content
+        run: npm run validate
+
       - name: Type check
         run: npm run typecheck
 
       - name: Build static export
         run: npm run build
-
-      # Catches the failure mode this site is most exposed to: content that
-      # points at an image nobody committed. The build itself stays green for
-      # a missing file, but the page ships a broken image.
-      - name: Check every media reference resolves
-        run: node scripts/check-media.mjs

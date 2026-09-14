@@ -66,16 +66,61 @@ type means handling it in `src/components/BlockRenderer.tsx` too.
 Put the file in `public/media/` and reference it as `/media/<filename>`. Then run
 `npm run optimise:media`, which re-encodes anything oversized in place.
 
+## Changing the app itself
+
+### Where things live
+
+| To change | Edit |
+| --- | --- |
+| Colours, fonts, spacing, prose styles | `src/app/globals.css` (`@theme` block) |
+| How a block renders | `src/components/BlockRenderer.tsx` |
+| Header / navigation | `src/components/SiteHeader.tsx` (nav items come from `content/site.json`) |
+| Footer | `src/components/SiteFooter.tsx` |
+| Blog index cards | `src/components/PostList.tsx` |
+| Post page layout | `src/app/[...slug]/page.tsx` |
+| Homepage | `src/app/page.tsx` (content from `content/pages/index.json`) |
+| Loading content | `src/lib/content.ts` |
+| Page titles, Open Graph | `src/app/layout.tsx` and `generateMetadata` in `[...slug]/page.tsx` |
+
+### Add a new block type
+
+Three files, all of them:
+
+1. `src/lib/content.ts` — add it to the `Block` union.
+2. `src/components/BlockRenderer.tsx` — add a `case` to `BlockView`.
+3. `scripts/validate-content.mjs` — add it to the `block` discriminated union.
+
+Miss step 3 and `npm run validate` rejects content that is actually fine. Miss step 2
+and the block renders as a red warning box in development and nothing in production.
+
+### Add a new page
+
+Add a file to `content/pages/`. No routing change is needed — the catch-all route in
+`src/app/[...slug]/page.tsx` enumerates `content/` at build time. Add it to
+`content/site.json`'s `nav` if it should appear in the header.
+
+### Colours and fonts
+
+The palette is defined once in the `@theme` block of `src/app/globals.css`, which is
+where Tailwind generates utilities from. Adding `--color-sand: #e8e0d0` there gives
+you `bg-sand`, `text-sand` and `border-sand` everywhere.
+
 ## Before you open a pull request
 
 ```bash
-npm run typecheck
-npm run build
-node scripts/check-media.mjs
+npm run check    # validate + typecheck + build
 ```
 
-`check-media.mjs` is the one that matters most: `next build` will happily prerender
-an `<img>` whose file is missing, so only this catches a broken asset reference.
+That runs the same three things CI does. Run it. The two validators exist because
+this project's failure modes are quiet rather than loud:
+
+- `validate-content.mjs` — schema, missing images, duplicate `urlPath`, slug/filename
+  mismatch, unparsable dates.
+- `check-media.mjs` — every `/media/...` reference resolves, nothing is zero bytes,
+  nothing has drifted back to a Squarespace URL.
+
+A green `next build` on its own does **not** mean the change is correct. It will
+happily prerender a page with a broken image and an unrecognised block.
 
 ## Things that will bite you
 

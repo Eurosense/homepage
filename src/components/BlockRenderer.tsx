@@ -125,8 +125,22 @@ export function BlockView({ block }: { block: Block }) {
     case 'instagram':
       return <RawHtml html={block.html} />
 
-    default:
+    default: {
+      // Reaching here means content/ holds a block this renderer does not know.
+      // `npm run validate` catches it in CI, but a silent null during local
+      // editing looks like the content itself is missing, so say so on screen.
+      const unknown = block as { type: string }
+      if (process.env.NODE_ENV !== 'production') {
+        return (
+          <div className="rounded-lg border border-dashed border-red-400 bg-red-50 p-4 text-sm text-red-800">
+            Unknown block type <code className="font-mono">{unknown.type}</code>. Add it to
+            the union in <code className="font-mono">src/lib/content.ts</code>, this
+            renderer, and <code className="font-mono">scripts/validate-content.mjs</code>.
+          </div>
+        )
+      }
       return null
+    }
   }
 }
 
