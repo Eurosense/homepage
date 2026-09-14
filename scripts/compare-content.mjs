@@ -23,6 +23,15 @@ const ROOT = path.join(import.meta.dirname, '..')
 const RAW = path.join(ROOT, 'archive', 'raw', 'pages')
 const OUT = path.join(ROOT, 'out')
 
+/**
+ * Text deliberately changed from the original. Listed so a considered edit does
+ * not read as accidental loss — and so the list of them stays visible.
+ */
+const INTENDED_EDITS = [
+  // Typo corrected on request; see TEXT_CORRECTIONS in scripts/extract.mjs.
+  'dialouge',
+]
+
 /** Pages whose content legitimately differs from the snapshot. */
 const EXPECTED_DIFFERENCES = new Set([
   // Squarespace rendered a cookie banner and store chrome we do not carry over.
@@ -119,18 +128,20 @@ function absentRuns(originalText, builtText) {
    * 3/17/26, so the raw tokens differ even though the date is shown. */
   const isDate = (word) => /^\d{1,4}[\d/.-]{2,}$/.test(word)
 
-  return runs.filter((run) =>
-    run
-      .split(' ')
-      .map((w) => w.toLowerCase().replace(/[^a-z0-9/.-]/g, ''))
-      .some(
-        (word) =>
-          word.length >= 4 &&
-          !PAGINATION_LABELS.has(word) &&
-          !isDate(word) &&
-          !haystack.includes(normalise(word)),
-      ),
-  )
+  return runs
+    .filter((run) => !INTENDED_EDITS.some((edit) => run.toLowerCase().includes(edit)))
+    .filter((run) =>
+      run
+        .split(' ')
+        .map((w) => w.toLowerCase().replace(/[^a-z0-9/.-]/g, ''))
+        .some(
+          (word) =>
+            word.length >= 4 &&
+            !PAGINATION_LABELS.has(word) &&
+            !isDate(word) &&
+            !haystack.includes(normalise(word)),
+        ),
+    )
 }
 
 /** Words in the original that the rebuild does not have enough of. */

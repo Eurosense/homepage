@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "6908e7b29cd45926dc24fe04",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {
@@ -131,6 +132,7 @@
     },
     {
       "id": "6913077ba562a150a12a30de",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {
@@ -198,6 +200,7 @@
     },
     {
       "id": "6994dca31593f75231c41008",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {
@@ -269,6 +272,7 @@
     },
     {
       "id": "6909d3430ab8467199a41945",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {
@@ -506,6 +510,7 @@
     },
     {
       "id": "690b1ff05b03133f64d1f52e",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {
@@ -885,6 +890,7 @@
     },
     {
       "id": "690b2eb35b03133f64d40f30",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {
@@ -1122,6 +1128,7 @@
     },
     {
       "id": "690b7aad94e934251f5c1ad2",
+      "verticalAlign": "center",
       "grid": {
         "mobile": {
           "rows": 24,
@@ -1242,6 +1249,7 @@
     },
     {
       "id": "690b7b9d351f6b2977115165",
+      "verticalAlign": "center",
       "grid": {
         "mobile": {
           "rows": 10,
@@ -1284,6 +1292,7 @@
     },
     {
       "id": "690b7dafdc3fb64403aa5670",
+      "verticalAlign": "center",
       "grid": {
         "mobile": {
           "rows": 26,
@@ -1422,6 +1431,7 @@
     },
     {
       "id": "690b9766b9b8e86f76e6949a",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {

@@ -114,6 +114,7 @@ export function FluidSection({
   background,
   theme,
   minHeight,
+  verticalAlign,
 }: {
   id: string
   grid: SectionGrid
@@ -121,6 +122,7 @@ export function FluidSection({
   background?: string
   theme?: string
   minHeight?: string
+  verticalAlign?: 'start' | 'center' | 'end'
 }) {
   const gridId = `fe-${id}`
 
@@ -129,7 +131,17 @@ export function FluidSection({
       className="relative isolate"
       data-theme={theme ?? 'none'}
       data-has-background={background ? 'true' : undefined}
-      style={minHeight ? { minHeight } : undefined}
+      /*
+       * The grid is centred in a section taller than itself, which is how the
+       * original lays these out. Left at the top, every hero sat jammed under
+       * the header.
+       */
+      style={{
+        ...(minHeight ? { minHeight } : {}),
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: verticalAlign ?? 'start',
+      }}
     >
       {background ? (
         <Image
@@ -144,7 +156,7 @@ export function FluidSection({
 
       <style>{sectionCss(gridId, grid, blocks)}</style>
 
-      <div className={gridId}>
+      <div className={`${gridId} w-full`}>
         {blocks.map((block, i) => (
           <div key={i} className="fe-cell" data-fe={i}>
             <BlockView block={block} />

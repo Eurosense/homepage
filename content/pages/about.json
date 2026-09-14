@@ -7,6 +7,7 @@
     {
       "id": "671b4046abcf735b98fd7a1f",
       "minHeight": "33vh",
+      "verticalAlign": "center",
       "theme": "bright",
       "background": "/media/Back6_Mesa-de-trabajo-1-47f3bfbd.png",
       "grid": {
@@ -301,6 +302,7 @@
     },
     {
       "id": "66e4280969b09d60989f4ee4",
+      "verticalAlign": "center",
       "theme": "light",
       "background": "/media/Back1_Mesa-de-trabajo-1-b5fb0057.png",
       "grid": {

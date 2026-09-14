@@ -45,6 +45,8 @@ export type Block =
   | { type: 'embed'; html: string }
   | { type: 'quote'; text: string; source?: string }
   | { type: 'divider' }
+  /** Where the page's collection list renders; the route supplies the posts. */
+  | { type: 'postList' }
   | { type: 'form'; title?: string; submitLabel?: string; formId?: string; fields: FormField[] }
   | { type: 'accordion'; items: { title: string; markdown: string }[] }
   | { type: 'gallery'; html: string }
@@ -117,6 +119,8 @@ export type Section = {
   id?: string
   /** From Squarespace's section-height preset; absent means "as tall as content". */
   minHeight?: string
+  /** How the grid sits in a section taller than its content. Usually centred. */
+  verticalAlign?: 'start' | 'center' | 'end'
   /** Squarespace section theme: decides background, heading, text and button colours. */
   theme?: string
   background?: string

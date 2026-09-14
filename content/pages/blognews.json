@@ -7,6 +7,7 @@
     {
       "id": "671f8cd8c230b5154202d16b",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "bright",
       "background": "/media/Back1_Mesa-de-trabajo-1-b5fb0057.png",
       "grid": {
@@ -82,8 +83,18 @@
       ]
     },
     {
+      "id": "671d1d846839c101f758d3e4",
+      "theme": "bright-inverse",
+      "blocks": [
+        {
+          "type": "postList"
+        }
+      ]
+    },
+    {
       "id": "673dc9d656299e79de07c3de",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -142,6 +153,7 @@
     {
       "id": "671f8babb284b602a4d13bfb",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {
@@ -246,6 +258,7 @@
     },
     {
       "id": "6722075836898f06ac03da15",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -330,6 +343,7 @@
     },
     {
       "id": "672206c01d3a4805c04b658d",
+      "verticalAlign": "center",
       "theme": "bright",
       "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {

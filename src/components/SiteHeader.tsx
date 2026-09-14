@@ -49,26 +49,35 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-cream/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+    /*
+     * Overlays the first section rather than sitting above it, which is how the
+     * original works: the page grids were authored with the header floating on
+     * top, so taking up space instead pushed every hero down and made the
+     * content look crowded against the top of the page.
+     */
+    <header
+      className={`absolute inset-x-0 top-0 z-50 ${open ? 'bg-cream' : ''}`}
+      style={{ minHeight: 'var(--header-height)' }}
+    >
+      <div className="mx-auto flex max-w-[1425px] items-center justify-between gap-4 px-5 py-5 sm:px-8 xl:px-[57.6px] xl:py-[28.8px]">
         <Link href="/" className="flex shrink-0 items-center" aria-label="EuroSense — home">
           <Image
             src={chrome.logo}
             alt={chrome.logoAlt}
-            width={180}
-            height={44}
+            width={205}
+            height={50}
             priority
-            className="h-9 w-auto object-contain"
+            className="h-[50px] w-auto object-contain max-sm:h-9"
           />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
           {chrome.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isCurrent(item.href) ? 'page' : undefined}
-              className={`rounded-full px-3.5 py-2 text-sm font-medium transition ${
+              className={`rounded-full px-3.5 py-2 text-[14.272px] font-medium transition ${
                 isCurrent(item.href)
                   ? 'bg-purple text-cream'
                   : 'text-purple-deep hover:bg-purple/10'
@@ -79,14 +88,14 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <SocialLinks social={chrome.social} />
           {chrome.headerCta ? (
             <a
               href={chrome.headerCta.href}
               target="_blank"
               rel="noreferrer noopener"
-              className="rounded-[15px] border border-purple-deep px-4 py-2 text-sm font-medium text-purple-deep transition hover:bg-purple-deep hover:text-cream"
+              className="inline-flex h-14 items-center rounded-[16px] border border-purple-deep px-5 text-base font-medium text-purple-deep transition hover:bg-purple-deep hover:text-cream"
             >
               {chrome.headerCta.label}
             </a>
@@ -98,7 +107,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          className="rounded-lg p-2 lg:hidden"
+          className="rounded-lg p-2 xl:hidden"
         >
           <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
           <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden fill="none">
@@ -116,7 +125,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
         <nav
           id="mobile-nav"
           aria-label="Primary"
-          className="border-t border-line px-5 pb-4 lg:hidden"
+          className="border-t border-line px-5 pb-4 xl:hidden"
         >
           {chrome.nav.map((item) => (
             <Link

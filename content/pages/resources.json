@@ -7,6 +7,7 @@
     {
       "id": "69b7d6fa1dff4e2d3ec89565",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {

@@ -7,6 +7,7 @@
     {
       "id": "6916e6c93ab49d6fd3538552",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "white-bold",
       "grid": {
         "mobile": {
@@ -26,7 +27,7 @@
       "blocks": [
         {
           "type": "richText",
-          "html": "<div><h1 style=\"white-space:pre-wrap;\">We believe in the <span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\">power of dialouge</span> and <span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\">empathy to bridge divides</span></h1></div>",
+          "html": "<div><h1 style=\"white-space:pre-wrap;\">We believe in the <span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\">power of dialogue</span> and <span class=\"sqsrte-text-color--custom\" style=\"color: #123BC8;\">empathy to bridge divides</span></h1></div>",
           "layout": {
             "mobile": {
               "area": "1/2/9/10",
@@ -105,6 +106,7 @@
     {
       "id": "6916e7717f41f706ce2591dd",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -180,6 +182,7 @@
     },
     {
       "id": "6916e8630b370c397f1cba87",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {

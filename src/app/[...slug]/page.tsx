@@ -204,8 +204,7 @@ export default async function CatchAllPage({ params }: { params: Promise<Params>
 
   return (
     <>
-      <PageSections sections={page.sections} />
-      {collection ? <PostList posts={getPostsIn(collection)} /> : null}
+      <PageSections sections={page.sections} posts={collection ? getPostsIn(collection) : []} />
     </>
   )
 }

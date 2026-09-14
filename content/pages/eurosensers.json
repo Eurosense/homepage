@@ -7,6 +7,7 @@
     {
       "id": "6717b653a1822100f5fe285d",
       "minHeight": "33vh",
+      "verticalAlign": "center",
       "theme": "bright",
       "grid": {
         "mobile": {
@@ -47,6 +48,7 @@
     {
       "id": "673b69f349e42629c1862363",
       "minHeight": "33vh",
+      "verticalAlign": "end",
       "theme": "bright",
       "grid": {
         "mobile": {
@@ -86,6 +88,7 @@
     },
     {
       "id": "672dee6121facc4e5e94ac08",
+      "verticalAlign": "end",
       "theme": "bright",
       "grid": {
         "mobile": {

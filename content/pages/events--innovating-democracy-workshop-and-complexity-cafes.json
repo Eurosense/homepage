@@ -16,6 +16,7 @@
     {
       "id": "673dc4d2a4c46654c877906b",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "blocks": [
         {

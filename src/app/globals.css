@@ -37,6 +37,19 @@
   --site-max-width: 1400px;
   --site-gutter: 4vw;
   --site-gutter-mobile: 6vw;
+  /* Matches the header's own height; see SiteHeader. */
+  --header-height: 114px;
+}
+
+/*
+ * Below the width where the full navigation fits, the header is a logo and a
+ * menu button, so it is shorter. The first section reserves exactly this much,
+ * which is why the two have to agree.
+ */
+@media (max-width: 1279px) {
+  :root {
+    --header-height: 90px;
+  }
 }
 
 @layer base {
@@ -328,6 +341,15 @@
  */
 body:has(main [data-newsletter-form]) footer [data-footer-newsletter] {
   display: none;
+}
+
+/*
+ * The header overlays the page, so the first section reserves room for it.
+ * Squarespace does the same; without it the first section centres its content
+ * in the full height and everything lands half a header too high.
+ */
+main > section:first-child {
+  padding-top: var(--header-height);
 }
 
 @media (prefers-reduced-motion: reduce) {

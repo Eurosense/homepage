@@ -75,6 +75,7 @@ const block = z.discriminatedUnion('type', [
   z.object({ type: z.literal('embed'), html: z.string() }),
   z.object({ type: z.literal('quote'), text: z.string(), source: z.string().optional() }),
   z.object({ type: z.literal('divider') }),
+  z.object({ type: z.literal('postList') }),
   z.object({
     type: z.literal('form'),
     title: z.string().optional(),
@@ -149,6 +150,7 @@ const page = z.object({
     z.object({
       id: z.string().optional(),
       minHeight: z.string().optional(),
+      verticalAlign: z.enum(['start', 'center', 'end']).optional(),
       theme: z.string().optional(),
       background: mediaPath.optional(),
       grid: z.record(z.string(), z.unknown()).optional(),

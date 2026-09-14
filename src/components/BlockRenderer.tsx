@@ -236,11 +236,13 @@ export function SectionView({
   background,
   theme,
   minHeight,
+  verticalAlign,
 }: {
   blocks: Block[]
   background?: string
   theme?: string
   minHeight?: string
+  verticalAlign?: 'start' | 'center' | 'end'
 }) {
   const hasBackground = Boolean(background)
 
@@ -249,7 +251,12 @@ export function SectionView({
       className="relative isolate"
       data-theme={theme ?? 'none'}
       data-has-background={hasBackground ? 'true' : undefined}
-      style={minHeight ? { minHeight } : undefined}
+      style={{
+        ...(minHeight ? { minHeight } : {}),
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: verticalAlign ?? 'start',
+      }}
     >
       {background ? (
         <>

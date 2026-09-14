@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "66e4280969b09d60989f4f09",
+      "verticalAlign": "center",
       "theme": "bright",
       "background": "/media/Back2_Mesa-de-trabajo-1-d8f4dcb9.png",
       "grid": {
@@ -65,6 +66,7 @@
     {
       "id": "670cc47578d2e23ca4af48fb",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -126,6 +128,7 @@
     },
     {
       "id": "67094786712e2f1d909dc6b5",
+      "verticalAlign": "center",
       "theme": "bright",
       "grid": {
         "mobile": {
@@ -211,6 +214,7 @@
     {
       "id": "67643f1531fc712802a796d6",
       "minHeight": "33vh",
+      "verticalAlign": "center",
       "theme": "bright",
       "grid": {
         "mobile": {
@@ -275,6 +279,7 @@
     {
       "id": "671f51b3325b0b69bec8ed7a",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -369,6 +374,7 @@
     {
       "id": "68401497bf4a6058ad418821",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "grid": {
         "mobile": {
           "rows": 6,
@@ -407,6 +413,7 @@
     },
     {
       "id": "66e4280969b09d60989f4f0e",
+      "verticalAlign": "center",
       "theme": "bright",
       "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {
@@ -488,6 +495,7 @@
     {
       "id": "66f3b38e16cbad674cc9393f",
       "minHeight": "66vh",
+      "verticalAlign": "center",
       "theme": "white",
       "grid": {
         "mobile": {

@@ -226,6 +226,19 @@ function asDocumentBlock(html) {
   }
 }
 
+/*
+ * Typos in the original that the owner has asked to correct. Applied to rich
+ * text as it is extracted, so a re-run does not quietly restore them.
+ *
+ * Keep this list short and obviously-correct. Anything that changes meaning
+ * rather than spelling belongs in content/, as an edit someone can see.
+ */
+const TEXT_CORRECTIONS = [[/\bdialouge\b/gi, (m) => (m[0] === 'D' ? 'Dialogue' : 'dialogue')]]
+
+function applyCorrections(html) {
+  return TEXT_CORRECTIONS.reduce((acc, [from, to]) => acc.replace(from, to), html)
+}
+
 /** Inline style properties that carry meaning we must not lose. */
 const KEEP_STYLE = new Set(['text-align', 'color', 'white-space', 'font-style'])
 
@@ -280,7 +293,7 @@ function cleanRichText($el) {
     if (!$d.attr('class') && !$d.attr('style')) $d.replaceWith($d.html() || '')
   })
 
-  return ($unwrapped('#__root').html() || '').replace(/\s+/g, ' ').trim()
+  return applyCorrections(($unwrapped('#__root').html() || '').replace(/\s+/g, ' ').trim())
 }
 
 /** Strip presentational cruft from HTML we keep verbatim (accordions, galleries). */
@@ -944,6 +957,24 @@ function parsePageHtml(html, urlPath) {
       return
     }
 
+    /*
+     * The collection list (blog posts, multimedia items) occupies a section of
+     * its own, with no .sqs-block children — so the block loop below finds
+     * nothing and the section is dropped, which pushed the article list to the
+     * bottom of the page instead of directly under the hero where it belongs.
+     */
+    const listContainer = $sec.find(
+      '.blog-masonry, .blog-basic-grid, .blog-side-by-side, .blog-single-column',
+    )
+    if (listContainer.length && !$sec.find('.sqs-block').length) {
+      sections.push({
+        id: $sec.attr('data-section-id') || undefined,
+        theme: $sec.attr('data-section-theme') || undefined,
+        blocks: [{ type: 'postList' }],
+      })
+      return
+    }
+
     const layout = parseFluidLayout($, $sec)
     const blocks = []
 
@@ -978,6 +1009,29 @@ function parsePageHtml(html, urlPath) {
      * background image set to cover gets cropped to a thin band — the graphic
      * reads as a flat rectangle instead of the shape it is.
      */
+    /*
+     * Sections are taller than their content and centre it vertically — 93 of
+     * the 100 migrated sections do. Rendering the grid at the top of the section
+     * instead is what made every hero look jammed against the header.
+     */
+    let verticalAlign
+    try {
+      const styles = JSON.parse(
+        (
+          $sec.attr('data-section-post-processed-styles') ||
+          $sec.attr('data-current-styles') ||
+          '{}'
+        ).replace(/&quot;/g, '"'),
+      )
+      verticalAlign = {
+        'vertical-alignment--top': 'start',
+        'vertical-alignment--middle': 'center',
+        'vertical-alignment--bottom': 'end',
+      }[styles.verticalAlignment]
+    } catch {
+      verticalAlign = undefined
+    }
+
     const heightClass = ($sec.attr('class') || '')
       .split(/\s+/)
       .find((c) => c.startsWith('section-height--'))
@@ -988,6 +1042,7 @@ function parsePageHtml(html, urlPath) {
     sections.push({
       id: $sec.attr('data-section-id') || undefined,
       minHeight,
+      verticalAlign,
       // The section theme decides background, heading, text and button colours.
       // Without it every section renders on the same background.
       theme: $sec.attr('data-section-theme') || undefined,

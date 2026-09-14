@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <SiteHeader chrome={chrome} />
-        <main id="main" className="flex-1">
+        <main id="main" className="relative flex-1">
           {children}
         </main>
         <SiteFooter chrome={chrome} />
