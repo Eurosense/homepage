@@ -20,7 +20,8 @@
     "extract:fetch": "node scripts/extract.mjs --stage=fetch",
     "extract:parse": "node scripts/extract.mjs --stage=parse",
     "extract:assets": "node scripts/extract.mjs --stage=assets",
-    "dashboard:data": "node scripts/update-dashboard-data.mjs"
+    "dashboard:data": "node scripts/update-dashboard-data.mjs",
+    "videos": "node scripts/fetch-videos.mjs"
   },
   "dependencies": {
     "marked": "^16.4.2",

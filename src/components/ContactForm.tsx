@@ -3,6 +3,7 @@
 import { useState } from 'react'
 
 import { HubSpotForm } from '@/components/HubSpotForm'
+import { NewsletterForm } from '@/components/NewsletterForm'
 import type { Block } from '@/lib/content'
 import type { FormTarget } from '@/lib/forms'
 
@@ -32,7 +33,15 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
    * them here would drift the moment someone edits the form there.
    */
   if (target?.provider === 'hubspot') {
-    return (
+    // Our own markup when we know the field spec; HubSpot's embed otherwise, so
+    // a form added later still renders without needing its definition here.
+    return target.newsletter ? (
+      <NewsletterForm
+        portalId={target.portalId}
+        formId={target.formId}
+        spec={target.newsletter}
+      />
+    ) : (
       <HubSpotForm portalId={target.portalId} formId={target.formId} region={target.region} />
     )
   }

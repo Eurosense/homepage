@@ -12,6 +12,7 @@ import {
   getAllPosts,
   getPage,
   getPostsIn,
+  getAdjacentPosts,
   normalisePath,
   pathToSegments,
   type Post,
@@ -95,6 +96,41 @@ function formatDate(iso?: string) {
   })
 }
 
+/**
+ * Links to the neighbouring posts, as the original site does at the foot of
+ * every article and multimedia item.
+ */
+function PostPagination({ collection, slug }: { collection: string; slug: string }) {
+  const { previous, next } = getAdjacentPosts(collection, slug)
+  if (!previous && !next) return null
+
+  return (
+    <nav
+      aria-label="More in this collection"
+      className="mt-12 grid gap-4 border-t border-line pt-6 sm:grid-cols-2"
+    >
+      {previous ? (
+        <Link href={previous.urlPath} className="group no-underline">
+          <span className="text-xs uppercase tracking-wide text-muted">Previous</span>
+          <span className="mt-1 block font-display font-medium group-hover:underline">
+            {previous.title}
+          </span>
+        </Link>
+      ) : (
+        <span />
+      )}
+      {next ? (
+        <Link href={next.urlPath} className="group text-right no-underline sm:justify-self-end">
+          <span className="text-xs uppercase tracking-wide text-muted">Next</span>
+          <span className="mt-1 block font-display font-medium group-hover:underline">
+            {next.title}
+          </span>
+        </Link>
+      ) : null}
+    </nav>
+  )
+}
+
 function PostView({ post }: { post: Post }) {
   const backHref = COLLECTION_ROUTES[post.collection] ?? '/'
 
@@ -111,7 +147,7 @@ function PostView({ post }: { post: Post }) {
         <h1 className="text-4xl leading-tight">{post.title}</h1>
         <div className="flex flex-wrap gap-x-3 text-sm text-muted">
           {post.date ? <time dateTime={post.date}>{formatDate(post.date)}</time> : null}
-          {post.author ? <span>· {post.author}</span> : null}
+          {post.author ? <span>Written by {post.author}</span> : null}
         </div>
       </header>
 
@@ -131,6 +167,13 @@ function PostView({ post }: { post: Post }) {
         className="prose-eurosense mt-10"
         dangerouslySetInnerHTML={{ __html: renderMarkdown(post.body) }}
       />
+
+      {/* The original signs off with the author name after the body. */}
+      {post.author ? (
+        <p className="mt-8 font-display font-medium text-purple-deep">{post.author}</p>
+      ) : null}
+
+      <PostPagination collection={post.collection} slug={post.slug} />
 
       {post.tags.length > 0 ? (
         <ul className="mt-10 flex flex-wrap gap-2">

@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "6916e6c93ab49d6fd3538552",
+      "minHeight": "66vh",
       "theme": "white-bold",
       "grid": {
         "mobile": {
@@ -103,6 +104,7 @@
     },
     {
       "id": "6916e7717f41f706ce2591dd",
+      "minHeight": "66vh",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {

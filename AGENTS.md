@@ -88,6 +88,13 @@ useful, but check the result at several widths.
 Put the file in `public/media/` and reference it as `/media/<filename>`. Then run
 `npm run optimise:media`, which re-encodes anything oversized in place.
 
+### Videos
+
+Squarespace served video as HLS, not files. `npm run videos` pulls each stream
+down with ffmpeg, remuxes it to MP4, re-encodes it for the web and saves a poster,
+writing `archive/videos.json`. The extractor reads that manifest, so a video block
+whose id is not in it is reported rather than silently dropped.
+
 ### Checking pages without deploying
 
 `node scripts/audit-pages.mjs` reads the built `out/` and reports every page's

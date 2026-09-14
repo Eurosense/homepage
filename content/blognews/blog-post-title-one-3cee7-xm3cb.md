@@ -14,7 +14,7 @@ collection: blognews
 
 A model developed by Sherry Arnstein in 1969 to describe different levels of citizen involvement in decision-making processes, particularly in the context of government and urban planning. It illustrates how much power citizens have when interacting with public authorities or institutions.
 
-![](/media/ladder-d61307e6.jpg)
+![](/media/ladder-81f119cd.jpg)
 
 Arnstein’s ladder consists of eight rungs, grouped into three broader categories, each representing varying degrees of citizen control:
 

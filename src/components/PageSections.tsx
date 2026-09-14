@@ -21,6 +21,7 @@ export function PageSections({ sections }: { sections: Section[] }) {
             blocks={section.blocks}
             background={section.background}
             theme={section.theme}
+            minHeight={section.minHeight}
           />
         ) : (
           <SectionView
@@ -28,6 +29,7 @@ export function PageSections({ sections }: { sections: Section[] }) {
             blocks={section.blocks}
             background={section.background}
             theme={section.theme}
+            minHeight={section.minHeight}
           />
         )
       })}

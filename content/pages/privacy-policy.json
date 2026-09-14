@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "670cbff5a2dcc752c4b4cc28",
+      "minHeight": "66vh",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {

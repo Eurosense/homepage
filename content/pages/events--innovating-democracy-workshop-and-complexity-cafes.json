@@ -2,10 +2,20 @@
   "urlPath": "/events/innovating-democracy-workshop-and-complexity-cafes",
   "title": "Innovating Democracy Workshop and Complexity Cafes — EuroSense",
   "description": "Join us for the Innovating Democracy Workshop and Complexity Cafes during the upcoming Weekend in Tirana to explore this question with our collected data via the Sense Maker.   We start on Saturday morning already!",
-  "ogImage": "http:/media/tirana-737381b4.jpg",
+  "ogImage": "http:/media/tirana-ced50022.jpg",
   "sections": [
     {
+      "theme": "white",
+      "blocks": [
+        {
+          "type": "richText",
+          "html": "<ul><li>Saturday, November 23, 2024 9:00 AM Sunday, November 24, 2024 6:00 PM</li><li>Tirana International Hotel Sheshi Skënderbej 8 1001 Tirana Albania (map)</li><li>Google Calendar ICS</li></ul>"
+        }
+      ]
+    },
+    {
       "id": "673dc4d2a4c46654c877906b",
+      "minHeight": "66vh",
       "theme": "bright-inverse",
       "blocks": [
         {

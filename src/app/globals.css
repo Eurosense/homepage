@@ -88,7 +88,8 @@
     --sec-text: var(--color-purple);
     --sec-btn-bg: var(--color-gold);
     --sec-btn-text: #543f04;
-    --sec-btn-outline: var(--color-purple-deep);
+    /* Outlined (secondary) buttons: border and label share one colour. */
+    --sec-btn-outline: var(--color-gold);
     background-color: var(--sec-bg);
     color: var(--sec-text);
   }
@@ -120,13 +121,18 @@
     --sec-btn-outline: #ffffff;
   }
 
+  [data-theme='bright-inverse'] {
+    --sec-btn-outline: var(--color-gold);
+  }
+
   [data-theme='dark'],
   [data-theme='none'] {
     --sec-bg: var(--color-purple-deep);
     --sec-heading: var(--color-gold);
     --sec-text: var(--color-gold);
     --sec-btn-text: #ffffff;
-    --sec-btn-outline: var(--color-gold);
+    /* Measured: outlined buttons on the deep purple bands are white, not gold. */
+    --sec-btn-outline: #ffffff;
   }
 
   /* A section with its own background image paints that instead of a flat fill. */
@@ -195,21 +201,33 @@
     line-height: 1.2;
   }
 
-  /* Squarespace's own colour classes, kept by the extractor. */
+  /*
+   * Squarespace's own colour classes, kept by the extractor.
+   *
+   * The names are inverted and cannot be reasoned about: `--black` is white and
+   * `--white` is the cream page background. These values were read off the live
+   * site with getComputedStyle rather than inferred, after guessing them the
+   * obvious way rendered four headings in the background colour — present in the
+   * DOM, invisible on screen.
+   */
+  .prose-eurosense .sqsrte-text-color--black {
+    color: #ffffff;
+  }
+
+  .prose-eurosense .sqsrte-text-color--white {
+    color: var(--color-cream);
+  }
+
   .prose-eurosense .sqsrte-text-color--accent {
     color: var(--color-purple);
   }
 
-  .prose-eurosense .sqsrte-text-color--white {
-    color: #ffffff;
-  }
-
-  .prose-eurosense .sqsrte-text-color--black {
-    color: var(--color-purple-deep);
-  }
-
   .prose-eurosense .sqsrte-text-color--lightAccent {
     color: var(--color-purple-deep);
+  }
+
+  .prose-eurosense .sqsrte-text-color--darkAccent {
+    color: var(--color-gold);
   }
 
   .prose-eurosense a {
@@ -288,11 +306,10 @@
 
 /*
  * The newsletter sits in the footer of every page. On the pages that carry their
- * own copy of it, hide the footer one: two instances of the same HubSpot form
- * on one page is redundant, and HubSpot fills frames in document order, so the
- * in-page copy is the one that ends up populated.
+ * own copy, hide the footer one — two of the same signup form on one page is
+ * redundant, and the in-page copy is the prominent one.
  */
-body:has(main .hs-form-frame) footer [data-footer-newsletter] {
+body:has(main [data-newsletter-form]) footer [data-footer-newsletter] {
   display: none;
 }
 

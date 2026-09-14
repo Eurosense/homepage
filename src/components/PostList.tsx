@@ -35,11 +35,12 @@ export function PostList({ posts }: { posts: Post[] }) {
               ) : null}
 
               <div className="flex flex-1 flex-col gap-2 p-5">
-                {post.date ? (
-                  <time dateTime={post.date} className="text-xs uppercase tracking-wide text-muted">
-                    {formatDate(post.date)}
-                  </time>
-                ) : null}
+                {/* Author and date, as the original index lists them. */}
+                <p className="text-xs uppercase tracking-wide text-muted">
+                  {post.author ? <span>{post.author}</span> : null}
+                  {post.author && post.date ? <span> · </span> : null}
+                  {post.date ? <time dateTime={post.date}>{formatDate(post.date)}</time> : null}
+                </p>
 
                 <h3 className="text-lg leading-snug">
                   <Link href={post.urlPath} className="hover:text-purple">
@@ -50,6 +51,13 @@ export function PostList({ posts }: { posts: Post[] }) {
                 {post.excerpt ? (
                   <p className="line-clamp-3 text-sm text-muted">{post.excerpt}</p>
                 ) : null}
+
+                <Link
+                  href={post.urlPath}
+                  className="mt-auto pt-3 text-sm font-medium underline-offset-4 hover:underline"
+                >
+                  Read more
+                </Link>
               </div>
             </article>
           </li>

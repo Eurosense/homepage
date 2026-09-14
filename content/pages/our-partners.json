@@ -1158,6 +1158,7 @@
     },
     {
       "id": "699579765d97954000790ba2",
+      "minHeight": "66vh",
       "theme": "dark",
       "grid": {
         "mobile": {
@@ -1195,7 +1196,7 @@
         },
         {
           "type": "image",
-          "src": "/media/Charge-logo-NL-purple-klein--1--d7ccd618.png",
+          "src": "/media/Charge-logo-NL-purple-klein-048ec3a7.png",
           "alt": "",
           "width": 340,
           "height": 135,
@@ -1241,7 +1242,7 @@
         },
         {
           "type": "image",
-          "src": "/media/IFIS-Logo-2.10-transparent-bb81225d.png",
+          "src": "/media/IFIS-Logo-2.10-transparent-b558bd8a.png",
           "alt": "",
           "width": 1113,
           "height": 403,

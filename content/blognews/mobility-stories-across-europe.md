@@ -14,7 +14,7 @@ A review of just 9 citizen stories on the topic of mobility and transport coming
 
 You can access the story collection [here](https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=drive_link). This post covers the first section - Mobility and Transport.
 
-![](/media/pexels-julia-isanta-munoz-626361636-28799879-f0197f1c.jpg)
+![](/media/pexels-julia-isanta-munoz-626361636-28799879-fad885e8.jpg)
 
 Barcelona by Júlia Isanta Muñoz
 

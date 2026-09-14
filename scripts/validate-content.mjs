@@ -60,7 +60,17 @@ const block = z.discriminatedUnion('type', [
     alignment: z.string().optional(),
     stretched: z.boolean().optional(),
   }),
-  z.object({ type: z.literal('video'), src: z.string(), title: z.string().optional() }),
+  z.object({
+    type: z.literal('video'),
+    src: z.string(),
+    title: z.string().optional(),
+    poster: z.string().optional(),
+    aspectRatio: z.number().optional(),
+    autoPlay: z.boolean().optional(),
+    loop: z.boolean().optional(),
+    muted: z.boolean().optional(),
+    caption: z.string().optional(),
+  }),
   z.object({ type: z.literal('embed'), html: z.string() }),
   z.object({ type: z.literal('quote'), text: z.string(), source: z.string().optional() }),
   z.object({ type: z.literal('divider') }),
@@ -94,6 +104,8 @@ const block = z.discriminatedUnion('type', [
           title: z.string().optional(),
           description: z.string().optional(),
           href: z.string().optional(),
+          buttonLabel: z.string().optional(),
+          buttonHref: z.string().optional(),
         }),
       )
       .min(1),
@@ -130,6 +142,7 @@ const page = z.object({
   sections: z.array(
     z.object({
       id: z.string().optional(),
+      minHeight: z.string().optional(),
       theme: z.string().optional(),
       background: mediaPath.optional(),
       grid: z.record(z.string(), z.unknown()).optional(),
@@ -149,6 +162,31 @@ const siteChrome = z.object({
 })
 
 const formsFile = z.object({
+  hubspotNewsletter: z
+    .object({
+      intro: z.string().optional(),
+      submitLabel: z.string().optional(),
+      successMessage: z.string().optional(),
+      fields: z
+        .array(
+          z.object({
+            name: z.string().min(1),
+            label: z.string().min(1),
+            type: z.string(),
+            required: z.boolean(),
+          }),
+        )
+        .min(1),
+      checkboxGroup: z
+        .object({
+          name: z.string().min(1),
+          intro: z.string().optional(),
+          label: z.string().optional(),
+          options: z.array(z.object({ value: z.string(), label: z.string() })).min(1),
+        })
+        .optional(),
+    })
+    .optional(),
   hubspotDefaults: z.object({ portalId: z.string(), region: z.string() }).optional(),
   forms: z.record(
     z.string(),

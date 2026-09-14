@@ -1,0 +1,20 @@
+{
+  "1864777e-431d-425c-a35a-dc37524ffdad": {
+    "src": "/media/video/1864777e-431d-425c-a35a-dc37524ffdad.mp4",
+    "poster": "/media/video/1864777e-431d-425c-a35a-dc37524ffdad.jpg",
+    "aspectRatio": 1.7777777777777777,
+    "duration": 111.833333
+  },
+  "67d9bfe8-37ac-4cb2-b413-eac020128ab9": {
+    "src": "/media/video/67d9bfe8-37ac-4cb2-b413-eac020128ab9.mp4",
+    "poster": "/media/video/67d9bfe8-37ac-4cb2-b413-eac020128ab9.jpg",
+    "aspectRatio": 1.7777777777777777,
+    "duration": 56.72
+  },
+  "b20d7e3e-c5ad-4728-b690-fe225f62cf2c": {
+    "src": "/media/video/b20d7e3e-c5ad-4728-b690-fe225f62cf2c.mp4",
+    "poster": "/media/video/b20d7e3e-c5ad-4728-b690-fe225f62cf2c.jpg",
+    "aspectRatio": 0.5625,
+    "duration": 57.766667
+  }
+}

@@ -3,15 +3,14 @@
     "How each form from the old Squarespace site is handled now.",
     "",
     "Set 'provider' to one of:",
-    "  'hubspot'    - render the HubSpot embed. Needs hubspot.formId.",
-    "  'mailto'     - no backend. The fields are filled in on the page and Send",
-    "                 opens the visitor's mail app with a pre-written message.",
-    "                 Needs mailto.to; mailto.subject is optional.",
+    "  'hubspot'    - our own markup, submitted to HubSpot's public forms API.",
+    "                 Needs hubspot.formId; fields/labels live in hubspotNewsletter.",
+    "  'mailto'     - no backend. Send opens the visitor's mail app with the",
+    "                 message already written. Needs mailto.to.",
     "  'deploybase' - POST to a deploybase form. Needs deploybaseFormId.",
-    "  null         - not connected. The page shows a visible notice instead of a",
-    "                 submit button, so a form can never silently eat a message.",
+    "  null         - not connected; the page shows a visible notice instead.",
     "",
-    "The keys are the original Squarespace form ids; the page blocks reference them."
+    "The keys are the original Squarespace form ids; page blocks reference them."
   ],
   "hubspotDefaults": {
     "portalId": "48641237",
@@ -63,6 +62,47 @@
       "hubspot": {
         "formId": "f977b591-781e-4cb9-8836-2f4c44a65d96"
       }
+    }
+  },
+  "hubspotNewsletter": {
+    "_comment": "Mirrors the HubSpot form definition. Field names are HubSpot property names and must match exactly, or a submission is rejected.",
+    "intro": "Sign up to participate to Eurosense",
+    "submitLabel": "Submit",
+    "successMessage": "Thank you \u2014 you are signed up.",
+    "fields": [
+      {
+        "name": "firstname",
+        "label": "First Name",
+        "type": "text",
+        "required": false
+      },
+      {
+        "name": "lastname",
+        "label": "Last Name",
+        "type": "text",
+        "required": false
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true
+      }
+    ],
+    "checkboxGroup": {
+      "name": "interest",
+      "intro": "Please chose one or more specific interests",
+      "label": "Interest",
+      "options": [
+        {
+          "value": "contribute",
+          "label": "I would like to actively contribute to Eurosense, contact me"
+        },
+        {
+          "value": "info",
+          "label": "I cannot attend any upcoming event but would like to be informed of future activities"
+        }
+      ]
     }
   }
 }

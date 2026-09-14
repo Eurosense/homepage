@@ -2,6 +2,8 @@ import Image from 'next/image'
 
 import { BlockView } from '@/components/BlockRenderer'
 import { Embed } from '@/components/Embed'
+import { NewsletterForm } from '@/components/NewsletterForm'
+import { getFormTarget } from '@/lib/forms'
 import type { SiteChrome } from '@/lib/content'
 
 /**
@@ -12,10 +14,24 @@ import type { SiteChrome } from '@/lib/content'
  * images and text silently dropped the HubSpot newsletter form, which is an
  * `embed` block and appears on every page of the original site.
  */
+/** The Squarespace id of the newsletter form the footer carries on every page. */
+const NEWSLETTER_FORM_ID = '671f9020897e7e5dea51318a'
+
 export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
   const images = chrome.footerBlocks.filter((b) => b.type === 'image')
   const links = chrome.footerBlocks.filter((b) => b.type === 'richText')
   const embeds = chrome.footerBlocks.filter((b) => b.type === 'embed')
+
+  /*
+   * The footer embed is the HubSpot newsletter. Render it as our own form
+   * instead of HubSpot's iframe: same submissions, but styled with the site and
+   * without a ~700px frame plus tracking cookies on every page of the site.
+   */
+  const newsletterTarget = getFormTarget(NEWSLETTER_FORM_ID)
+  const newsletter =
+    newsletterTarget?.provider === 'hubspot' && newsletterTarget.newsletter
+      ? newsletterTarget
+      : null
 
   return (
     <footer
@@ -40,7 +56,17 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
           </div>
         ) : null}
 
-        {embeds.map((block, i) =>
+        {newsletter ? (
+          <div data-footer-newsletter className="w-full max-w-xl">
+            <NewsletterForm
+              portalId={newsletter.portalId}
+              formId={newsletter.formId}
+              spec={newsletter.newsletter!}
+            />
+          </div>
+        ) : null}
+
+        {(newsletter ? [] : embeds).map((block, i) =>
           block.type === 'embed' ? (
             <div
               key={i}

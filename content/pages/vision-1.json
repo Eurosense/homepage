@@ -6,8 +6,9 @@
   "sections": [
     {
       "id": "69a018feb3bbd131425f7ad3",
+      "minHeight": "66vh",
       "theme": "bright",
-      "background": "/media/Back1_Mesa-de-trabajo-1-b5919e75.png",
+      "background": "/media/Back1_Mesa-de-trabajo-1-b5fb0057.png",
       "grid": {
         "mobile": {
           "rows": 8,
@@ -46,6 +47,7 @@
     },
     {
       "id": "69a018feb3bbd131425f7ad6",
+      "minHeight": "33vh",
       "theme": "white-bold",
       "grid": {
         "mobile": {
@@ -121,7 +123,8 @@
     },
     {
       "id": "69a018feb3bbd131425f7ad9",
-      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "minHeight": "66vh",
+      "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {
         "mobile": {
           "rows": 11,

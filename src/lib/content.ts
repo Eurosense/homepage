@@ -30,7 +30,18 @@ export type Block =
       /** Squarespace's `sqs-stretched`: fill the grid cell instead of hugging the label. */
       stretched?: boolean
     }
-  | { type: 'video'; src: string; title?: string }
+  | {
+      type: 'video'
+      src: string
+      title?: string
+      /** Present for Squarespace-hosted videos now served from public/media/video. */
+      poster?: string
+      aspectRatio?: number
+      autoPlay?: boolean
+      loop?: boolean
+      muted?: boolean
+      caption?: string
+    }
   | { type: 'embed'; html: string }
   | { type: 'quote'; text: string; source?: string }
   | { type: 'divider' }
@@ -40,7 +51,15 @@ export type Block =
   | { type: 'summary-v2'; html: string }
   | {
       type: 'list'
-      items: { image?: string; alt?: string; title?: string; description?: string; href?: string }[]
+      items: {
+        image?: string
+        alt?: string
+        title?: string
+        description?: string
+        href?: string
+        buttonLabel?: string
+        buttonHref?: string
+      }[]
     }
   | {
       type: 'document'
@@ -96,6 +115,8 @@ export type PositionedBlock = Block & { layout?: BlockLayout }
 
 export type Section = {
   id?: string
+  /** From Squarespace's section-height preset; absent means "as tall as content". */
+  minHeight?: string
   /** Squarespace section theme: decides background, heading, text and button colours. */
   theme?: string
   background?: string
@@ -253,4 +274,19 @@ export function getAllPosts(): Post[] {
 
 export function getPost(collection: string, slug: string): Post | undefined {
   return getPostsIn(collection).find((p) => p.slug === slug)
+}
+
+/**
+ * The posts either side of this one, in the order the collection is listed
+ * (newest first). `previous` is the older post, matching how the original site
+ * labels them.
+ */
+export function getAdjacentPosts(collection: string, slug: string): {
+  previous?: Post
+  next?: Post
+} {
+  const posts = getPostsIn(collection)
+  const index = posts.findIndex((p) => p.slug === slug)
+  if (index === -1) return {}
+  return { next: posts[index - 1], previous: posts[index + 1] }
 }

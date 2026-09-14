@@ -21,7 +21,8 @@ const CONTENT = path.join(ROOT, 'content')
 const MEDIA = path.join(ROOT, 'public', 'media')
 const FILES = path.join(ROOT, 'public', 'files')
 
-const MEDIA_REF = /\/media\/[A-Za-z0-9._%-]+/g
+// Includes the video/ subdirectory, so /media/video/x.mp4 resolves too.
+const MEDIA_REF = /\/media\/(?:video\/)?[A-Za-z0-9._%-]+/g
 const FILE_REF = /\/files\/[A-Za-z0-9._%+-]+/g
 /* A surviving /s/ path is a Squarespace-hosted upload that will 404 on cancellation. */
 const SQSP_FILE_REF = /["(]\/s\/[A-Za-z0-9._%+-]+\.[A-Za-z0-9]{2,5}/
@@ -38,11 +39,17 @@ async function contentFiles(dir) {
 }
 
 const files = await contentFiles(CONTENT)
-const onDisk = new Set(
-  (await readdir(MEDIA, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && !entry.name.startsWith('.'))
-    .map((entry) => entry.name),
-)
+async function mediaNames(dir, prefix = '') {
+  const names = []
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    if (entry.name.startsWith('.')) continue
+    if (entry.isDirectory()) names.push(...(await mediaNames(path.join(dir, entry.name), `${prefix}${entry.name}/`)))
+    else names.push(`${prefix}${entry.name}`)
+  }
+  return names
+}
+
+const onDisk = new Set(await mediaNames(MEDIA))
 
 const referenced = new Map()
 const referencedFiles = new Map()

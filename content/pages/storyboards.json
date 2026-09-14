@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "69b7d39b9092e06a623030e0",
+      "minHeight": "66vh",
       "grid": {
         "mobile": {
           "rows": 24,

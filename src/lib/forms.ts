@@ -2,7 +2,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 export type FormTarget =
-  | { provider: 'hubspot'; portalId: string; formId: string; region: string }
+  | {
+      provider: 'hubspot'
+      portalId: string
+      formId: string
+      region: string
+      newsletter?: NewsletterSpec
+    }
   | { provider: 'deploybase'; endpoint: string }
   | { provider: 'mailto'; to: string; subject?: string }
   | null
@@ -15,7 +21,21 @@ type FormEntry = {
   mailto?: { to?: string; subject?: string }
 }
 
+export type NewsletterSpec = {
+  intro?: string
+  submitLabel?: string
+  successMessage?: string
+  fields: { name: string; label: string; type: string; required: boolean }[]
+  checkboxGroup?: {
+    name: string
+    intro?: string
+    label?: string
+    options: { value: string; label: string }[]
+  }
+}
+
 type FormsFile = {
+  hubspotNewsletter?: NewsletterSpec
   hubspotDefaults?: { portalId?: string; region?: string }
   forms: Record<string, FormEntry>
 }
@@ -46,6 +66,7 @@ export function getFormTarget(squarespaceFormId: string): FormTarget {
       portalId,
       formId,
       region: entry.hubspot?.region ?? file.hubspotDefaults?.region ?? 'na1',
+      newsletter: file.hubspotNewsletter,
     }
   }
 

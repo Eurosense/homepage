@@ -12,7 +12,7 @@ collection: blognews
 
 EuroSense is a citizen science platform born within Volt Europa. It collects real stories from real people across Europe to feed genuine lived experience into democratic and policy conversations. We do this using participatory sensemaking tools and practices. We don't ask yes/no questions. We ask people to share a real story and then interpret it themselves.
 
-![](/media/ChatGPT-Image-17-mar-2026--10_47_34-a07791e0.png)
+![](/media/ChatGPT-Image-17-mar-2026--10_47_34-46154f2d.png)
 
 We recently reviewed a collection of stories shared on Eurosense that are related to everyday experiences with AI. Out of a total of 1100 stories collected at that moment, 75 were identified as related to the topic of AI and digital life.
 

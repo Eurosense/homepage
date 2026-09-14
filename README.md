@@ -26,6 +26,7 @@ content/              All site content.
   resources--multimedia/*.md   Multimedia items (5).
 public/media/         Every image, downloaded from Squarespace (90 files).
 public/files/         Uploaded downloads: the analysis report PDF, the open dataset.
+public/media/video/   Videos, downloaded from Squarespace's HLS streams.
 public/dashboard-app/ The EuroSense charts dashboard, vendored (see below).
 src/app/              Routes. A catch-all prerenders every page and post.
 src/components/       Block renderer, header, footer, forms, accordion.
@@ -138,10 +139,20 @@ drop `404.html` from the output if you would rather have a hard 404 from the CDN
 ## Maintenance scripts
 
 ```bash
-npm run fonts            # re-fetch Satoshi from Fontshare
-npm run optimise:media   # re-encode oversized images in place (idempotent)
-node scripts/check-media.mjs   # fail if content references a missing asset
+npm run fonts               # re-fetch Satoshi from Fontshare
+npm run optimise:media      # re-encode oversized images in place (idempotent)
+npm run videos              # download Squarespace-hosted video (needs ffmpeg)
+node scripts/check-media.mjs      # fail if content references a missing asset
+node scripts/audit-pages.mjs      # per-page forms, links, images, text volume
+node scripts/compare-content.mjs  # what the original says that we do not
 ```
+
+`compare-content.mjs` is the one that catches silent loss. The build stays green
+when a block is simply never extracted, so this diffs every built page against its
+Squarespace snapshot and fails on a run of words that appears in the original and
+nowhere in the rebuild. It ignores differences that are not loss: Squarespace
+concatenates text across element boundaries, prints post meta and pagination labels
+twice, and formats dates as 3/17/26 where this site writes 17 March 2026.
 
 `scripts/extract.mjs` pulled the original site down and still runs while Squarespace
 is live — see [AGENTS.md](AGENTS.md#regenerating-from-squarespace). Two behaviours
@@ -165,7 +176,8 @@ worth knowing if you re-run it:
 - [x] All internal links resolve; external links checked
 - [x] Dashboard vendored in-repo and served same-origin
 - [x] Publications and storyboards embed their PDFs inline
-- [x] Newsletter forms now use the existing HubSpot form
+- [x] Newsletter uses our own form against the HubSpot API — no iframe
+- [x] Videos, documents, uploads and dashboard data all served from this repo
 - [x] Dashboard data refresh migrated in-repo, published to Pages (1,986 -> 2,750 rows)
 - [x] All six forms handled: two newsletters via HubSpot, four contact forms via
       `mailto:` to voltsense@volteuropa.org — no backend to run

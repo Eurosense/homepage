@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "6717b653a1822100f5fe285d",
+      "minHeight": "33vh",
       "theme": "bright",
       "grid": {
         "mobile": {
@@ -45,6 +46,7 @@
     },
     {
       "id": "673b69f349e42629c1862363",
+      "minHeight": "33vh",
       "theme": "bright",
       "grid": {
         "mobile": {

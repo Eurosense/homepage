@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "671b4046abcf735b98fd7a1f",
+      "minHeight": "33vh",
       "theme": "bright",
       "background": "/media/Back6_Mesa-de-trabajo-1-47f3bfbd.png",
       "grid": {

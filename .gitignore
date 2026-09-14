@@ -17,3 +17,6 @@ archive/raw/
 
 # qa-bot local knowledge graph
 .qa-bot/
+
+# Video re-encode markers (build state, not output)
+archive/video-optimised/

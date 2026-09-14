@@ -113,12 +113,14 @@ export function FluidSection({
   blocks,
   background,
   theme,
+  minHeight,
 }: {
   id: string
   grid: SectionGrid
   blocks: PositionedBlock[]
   background?: string
   theme?: string
+  minHeight?: string
 }) {
   const gridId = `fe-${id}`
 
@@ -127,6 +129,7 @@ export function FluidSection({
       className="relative isolate"
       data-theme={theme ?? 'none'}
       data-has-background={background ? 'true' : undefined}
+      style={minHeight ? { minHeight } : undefined}
     >
       {background ? (
         <Image

@@ -64,6 +64,7 @@
     },
     {
       "id": "670cc47578d2e23ca4af48fb",
+      "minHeight": "66vh",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -209,6 +210,7 @@
     },
     {
       "id": "67643f1531fc712802a796d6",
+      "minHeight": "33vh",
       "theme": "bright",
       "grid": {
         "mobile": {
@@ -246,8 +248,13 @@
         },
         {
           "type": "video",
-          "src": "",
-          "title": "",
+          "src": "/media/video/1864777e-431d-425c-a35a-dc37524ffdad.mp4",
+          "poster": "/media/video/1864777e-431d-425c-a35a-dc37524ffdad.jpg",
+          "aspectRatio": 1.7777777777777777,
+          "caption": "<p style=\"white-space:pre-wrap;\">EuroSense wants to listen to citizens to make their voices heard by political decision-makers who can take action.</p>",
+          "autoPlay": false,
+          "loop": true,
+          "muted": false,
           "layout": {
             "mobile": {
               "area": "3/2/9/10",
@@ -267,6 +274,7 @@
     },
     {
       "id": "671f51b3325b0b69bec8ed7a",
+      "minHeight": "66vh",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -360,6 +368,7 @@
     },
     {
       "id": "68401497bf4a6058ad418821",
+      "minHeight": "66vh",
       "grid": {
         "mobile": {
           "rows": 6,
@@ -399,7 +408,7 @@
     {
       "id": "66e4280969b09d60989f4f0e",
       "theme": "bright",
-      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {
         "mobile": {
           "rows": 21,
@@ -478,6 +487,7 @@
     },
     {
       "id": "66f3b38e16cbad674cc9393f",
+      "minHeight": "66vh",
       "theme": "white",
       "grid": {
         "mobile": {

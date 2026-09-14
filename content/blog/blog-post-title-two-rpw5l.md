@@ -3,7 +3,7 @@ title: Blog Post Title Two
 slug: blog-post-title-two-rpw5l
 date: 2019-03-11T17:07:41.791Z
 excerpt: It all begins with an idea.
-image: /media/20140301_Trade-151_0124-copy-a04e230f.jpg
+image: /media/20140301_Trade-151_0124-copy-d15b89b5.jpg
 imageAlt: Blog Post Title Two
 author: Joe Clemente
 sourceUrl: https://www.eurosense.eu/blog/blog-post-title-two-rpw5l

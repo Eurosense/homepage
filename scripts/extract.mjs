@@ -17,8 +17,8 @@
  * is visible rather than looking like a clean run.
  */
 
-import { mkdir, writeFile, readFile, readdir, stat } from 'node:fs/promises'
-import { existsSync } from 'node:fs'
+import { mkdir, writeFile, readFile, readdir, stat, rm } from 'node:fs/promises'
+import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
 import * as cheerio from 'cheerio'
@@ -35,6 +35,11 @@ const FILES = path.join(ROOT, 'public', 'files')
 
 /** Collections whose items are fetched via the JSON API instead of scraped. */
 const COLLECTIONS = ['blognews', 'blog', 'events', 'resources/multimedia']
+
+/** Written by scripts/fetch-videos.mjs; maps a Squarespace video id to a local file. */
+const videoManifest = existsSync(path.join(ROOT, 'archive', 'videos.json'))
+  ? JSON.parse(readFileSync(path.join(ROOT, 'archive', 'videos.json'), 'utf8'))
+  : {}
 
 const report = {
   generatedAt: new Date().toISOString(),
@@ -422,11 +427,55 @@ function parseBlock($, el) {
       }
     }
     case 'video-block': {
+      /*
+       * Two kinds of video block. A third-party embed has an iframe. A
+       * Squarespace-hosted video has neither iframe nor <video>: it is an HLS
+       * stream described by a JSON island, played by Squarespace's own script.
+       * Looking only for an iframe found nothing and dropped the block, which is
+       * how the homepage lost its videos. `npm run videos` downloads them and
+       * writes archive/videos.json, which maps the id to a local file.
+       */
+      const nativeConfig = inner.find('.sqs-native-video').attr('data-config-video')
+      if (nativeConfig) {
+        let config
+        try {
+          config = JSON.parse(nativeConfig)
+        } catch {
+          config = null
+        }
+        const local = config?.systemDataId ? videoManifest[config.systemDataId] : undefined
+        if (!local) {
+          report.unknownBlocks.push('video-block (not downloaded — run `npm run videos`)')
+          return null
+        }
+        let settings = {}
+        try {
+          settings = JSON.parse(inner.find('.sqs-native-video').attr('data-config-settings') || '{}')
+        } catch {
+          settings = {}
+        }
+        return {
+          type: 'video',
+          src: local.src,
+          poster: local.poster,
+          aspectRatio: local.aspectRatio,
+          // Squarespace puts the caption in a sibling of the player, so removing
+          // the player is not enough — it has to be read out explicitly.
+          caption: cleanRichText(inner.find('.video-caption').first()) || undefined,
+          autoPlay: Boolean(settings.autoPlay),
+          loop: settings.loop !== false,
+          muted: Boolean(settings.muted) || Boolean(settings.autoPlay),
+        }
+      }
+
       const $iframe = inner.find('iframe').first()
+      const src = $iframe.attr('src') || $iframe.attr('data-src') || ''
+      if (!src) return null
       return {
         type: 'video',
-        src: $iframe.attr('src') || $iframe.attr('data-src') || '',
+        src,
         title: $iframe.attr('title') || '',
+        caption: cleanRichText(inner.find('.video-caption').first()) || undefined,
       }
     }
     case 'code-block':
@@ -762,6 +811,33 @@ function parsePageHtml(html, urlPath) {
   }
 
   const sections = []
+
+  /*
+   * Event pages carry their date, time and location in Squarespace's own
+   * `.eventitem-meta` list, outside any section, so the section loop below never
+   * sees it — the page kept its description and lost when it actually happens.
+   */
+  const $eventMeta = $('.eventitem-column-meta').first()
+  if ($eventMeta.length) {
+    // Several .eventitem-meta lists: date/time, venue address, calendar links.
+    const rows = $eventMeta
+      .find('.eventitem-meta li')
+      .map((_i, li) => $(li).text().replace(/\s+/g, ' ').trim())
+      .get()
+      .filter(Boolean)
+    if (rows.length) {
+      sections.push({
+        theme: 'white',
+        blocks: [
+          {
+            type: 'richText',
+            html: `<ul>${rows.map((r) => `<li>${r}</li>`).join('')}</ul>`,
+          },
+        ],
+      })
+    }
+  }
+
   $('#page section.page-section, main section.page-section').each((_i, sec) => {
     const $sec = $(sec)
 
@@ -777,6 +853,9 @@ function parsePageHtml(html, urlPath) {
           const $li = $(li)
           const $img = $li.find('img').first()
           const $link = $li.find('a[href]').first()
+          // Each teaser carries its own call to action ("Make It"), which is a
+          // separate element from the card link and was being dropped.
+          const $button = $li.find('.list-item-content__button-container a, .list-item-content__button').first()
           return {
             image: $img.attr('data-src') || $img.attr('src') || undefined,
             alt: $img.attr('alt') || '',
@@ -785,16 +864,23 @@ function parsePageHtml(html, urlPath) {
               $li.find('.list-item-content__description').first().html(),
             ),
             href: $link.attr('href') || undefined,
+            buttonLabel: $button.text().replace(/\s+/g, ' ').trim() || undefined,
+            buttonHref: $button.attr('href') || undefined,
           }
         })
         .get()
         .filter((item) => item.image || item.title)
 
       if (items.length) {
+        // The section's own heading ("Our Partners") sits outside the items.
+        const title = cleanRichText($sec.find('.list-section-title').first())
         sections.push({
           id: $sec.attr('data-section-id') || undefined,
           theme: $sec.attr('data-section-theme') || undefined,
-          blocks: [{ type: 'list', items }],
+          blocks: [
+            ...(title ? [{ type: 'richText', html: title }] : []),
+            { type: 'list', items },
+          ],
         })
       }
       return
@@ -827,8 +913,23 @@ function parsePageHtml(html, urlPath) {
     if (!blocks.length && !layout) return
 
     const $bg = $sec.find('.section-background img').first()
+    /*
+     * Squarespace section-height presets, measured on the live site: small is
+     * 33vh and medium 66vh; "custom" and unset mean the section is as tall as
+     * its content. Without this a short section collapses around its grid, and a
+     * background image set to cover gets cropped to a thin band — the graphic
+     * reads as a flat rectangle instead of the shape it is.
+     */
+    const heightClass = ($sec.attr('class') || '')
+      .split(/\s+/)
+      .find((c) => c.startsWith('section-height--'))
+    const minHeight = { small: '33vh', medium: '66vh', large: '100vh' }[
+      heightClass?.replace('section-height--', '') ?? ''
+    ]
+
     sections.push({
       id: $sec.attr('data-section-id') || undefined,
+      minHeight,
       // The section theme decides background, heading, text and button colours.
       // Without it every section renders on the same background.
       theme: $sec.attr('data-section-theme') || undefined,
@@ -998,9 +1099,18 @@ async function stageAssets() {
   // A manifest keeps re-runs cheap: the local filename depends on the response
   // content-type, so without it we would have to re-download just to learn the name.
   const manifestPath = path.join(ROOT, 'archive', 'assets.json')
-  const manifest = existsSync(manifestPath)
+  const manifestFile = existsSync(manifestPath)
     ? JSON.parse(await readFile(manifestPath, 'utf8'))
     : {}
+  /*
+   * `_aliases` records files removed by de-duplication and what replaced them.
+   * It must persist: content is rewritten in place, so a later run has to be
+   * able to repair a reference to a name that no longer exists on disk.
+   */
+  const aliases = manifestFile._aliases ?? {}
+  const manifest = Object.fromEntries(
+    Object.entries(manifestFile).filter(([k]) => k !== '_aliases'),
+  )
 
   // Pass 1: discover every CDN URL referenced by parsed content.
   const discovered = new Set()
@@ -1065,7 +1175,43 @@ async function stageAssets() {
     await sleep(60)
   })
 
-  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
+  /*
+   * Collapse byte-identical downloads onto one file. Squarespace serves the same
+   * asset under several URLs (different query strings, or the same logo
+   * referenced from the header and the footer), which produced a different hash
+   * and therefore a duplicate copy of the bytes each time.
+   */
+  const byContent = new Map()
+  const canonical = new Map()
+  for (const name of Object.values(manifest)) {
+    if (canonical.has(name)) continue
+    const file = path.join(MEDIA, name)
+    if (!existsSync(file)) continue
+    const digest = createHash('sha1').update(await readFile(file)).digest('hex')
+    if (byContent.has(digest)) canonical.set(name, byContent.get(digest))
+    else {
+      byContent.set(digest, name)
+      canonical.set(name, name)
+    }
+  }
+
+  let deduped = 0
+  for (const [url, name] of Object.entries(manifest)) {
+    const keep = canonical.get(name)
+    if (!keep || keep === name) continue
+    manifest[url] = keep
+    aliases[name] = keep
+    if (existsSync(path.join(MEDIA, name))) {
+      await rm(path.join(MEDIA, name))
+      deduped++
+    }
+  }
+  if (deduped) console.log(`[assets] removed ${deduped} duplicate file(s)`)
+
+  await writeFile(
+    manifestPath,
+    `${JSON.stringify({ ...manifest, _aliases: aliases }, null, 2)}\n`,
+  )
   const urls = new Map(Object.entries(manifest))
 
   // Pass 3: rewrite content references to the local copies.
@@ -1075,7 +1221,16 @@ async function stageAssets() {
     // Match the absolute form too. Some links are written as
     // https://www.eurosense.eu/s/file.pdf, and rewriting only the path leaves an
     // absolute URL to the old host pointing at a path that never existed there.
-    let next = text.replace(
+    // Remap references that already point at a de-duplicated file. Content is
+    // rewritten in place on earlier runs, so by now most links are /media/...
+    // rather than CDN URLs, and the dedup above would otherwise orphan them.
+    let next = text.replace(/\/media\/([A-Za-z0-9._%+-]+)/g, (m, name) => {
+      const decoded = decodeURIComponent(name)
+      const keep = canonical.get(decoded) ?? aliases[decoded]
+      return keep ? `/media/${keep}` : m
+    })
+
+    next = next.replace(
       /(?:https?:\\?\/\\?\/[^"'\s]*?eurosense\.eu)?\\?\/s\\?\/([A-Za-z0-9._%+-]+\.[A-Za-z0-9]{2,5})/g,
       (m, name) =>
         existsSync(path.join(FILES, decodeURIComponent(name))) ? `/files/${name}` : m,

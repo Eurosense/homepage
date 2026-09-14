@@ -150,8 +150,12 @@
       "blocks": [
         {
           "type": "video",
-          "src": "",
-          "title": "",
+          "src": "/media/video/67d9bfe8-37ac-4cb2-b413-eac020128ab9.mp4",
+          "poster": "/media/video/67d9bfe8-37ac-4cb2-b413-eac020128ab9.jpg",
+          "aspectRatio": 1.7777777777777777,
+          "autoPlay": false,
+          "loop": true,
+          "muted": false,
           "layout": {
             "mobile": {
               "area": "4/2/13/10",
@@ -169,8 +173,12 @@
         },
         {
           "type": "video",
-          "src": "",
-          "title": "",
+          "src": "/media/video/b20d7e3e-c5ad-4728-b690-fe225f62cf2c.mp4",
+          "poster": "/media/video/b20d7e3e-c5ad-4728-b690-fe225f62cf2c.jpg",
+          "aspectRatio": 0.5625,
+          "autoPlay": false,
+          "loop": true,
+          "muted": false,
           "layout": {
             "mobile": {
               "area": "14/1/25/11",
@@ -213,10 +221,14 @@
       "theme": "white",
       "blocks": [
         {
+          "type": "richText",
+          "html": "<p style=\"white-space:pre-wrap;\">Our Partners</p>"
+        },
+        {
           "type": "list",
           "items": [
             {
-              "image": "/media/Charge-logo-NL-purple-klein--1--d7ccd618.png",
+              "image": "/media/Charge-logo-NL-purple-klein-048ec3a7.png",
               "alt": "",
               "title": "",
               "description": ""
@@ -234,7 +246,7 @@
               "description": ""
             },
             {
-              "image": "/media/IFIS-Logo-2.10-transparent-bb81225d.png",
+              "image": "/media/IFIS-Logo-2.10-transparent-b558bd8a.png",
               "alt": "",
               "title": "",
               "description": ""
@@ -1495,25 +1507,30 @@
               "alt": "Reimagining Democracy: EuroSense Pilot Project Results Are Here!",
               "title": "Reimagining Democracy: EuroSense Pilot Project Results Are Here!",
               "description": "We are thrilled to announce the release of the 𝗘𝘂𝗿𝗼𝗦𝗲𝗻𝘀𝗲 𝗣𝗿𝗶𝗺𝗮𝗿𝘆 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀 𝗥𝗲𝗽𝗼𝗿𝘁, a groundbreaking initiative powered by Volt Europa and driven by citizen scientists across Europe. This report represents one step forward to understanding polarization, empowering citizens, and building a more inclusive democratic society. Read more here…",
-              "href": "/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here"
+              "href": "/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here",
+              "buttonLabel": "Make It",
+              "buttonHref": "/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here"
             },
             {
               "image": "/media/Cover-for-Citizen-Driver-ba51f198.png",
               "alt": "",
               "title": "Tackling Europe’s Democratic Blind Spots with Citizen-Driven Insights",
-              "description": "European democracy has many faces. Everyone talks about it, but no one can really define it. It is a concept understood and experienced so differently that there is no single, straightforward definition of it. Nor are the ways to protect and promote it.  \nBut what exactly is democracy? Do you know?  \nThere are so many blind spots, as this year's report from the European Democracy Hub shows. Our Sense Maker can already provide some insights into how European citizens experience and understand democracy through metaphors."
+              "description": "European democracy has many faces. Everyone talks about it, but no one can really define it. It is a concept understood and experienced so differently that there is no single, straightforward definition of it. Nor are the ways to protect and promote it.  \nBut what exactly is democracy? Do you know?  \nThere are so many blind spots, as this year's report from the European Democracy Hub shows. Our Sense Maker can already provide some insights into how European citizens experience and understand democracy through metaphors.",
+              "buttonLabel": "Make It"
             },
             {
               "image": "/media/VUCA-f21cc583.png",
               "alt": "",
               "title": "How can the Sense Maker help in VUCA environments and the use of metaphors?",
-              "description": "We live in challenging times, characterized by Volatility, Uncertainty, Complexity and Ambiguity. 😵‍💫  \nThe recent election of Trump will contribute to those type of political environments all around us.  \nPoliticians and citizens will need an innovative and powerful approach to navigate through and build on future resilience."
+              "description": "We live in challenging times, characterized by Volatility, Uncertainty, Complexity and Ambiguity. 😵‍💫  \nThe recent election of Trump will contribute to those type of political environments all around us.  \nPoliticians and citizens will need an innovative and powerful approach to navigate through and build on future resilience.",
+              "buttonLabel": "Make It"
             },
             {
               "image": "/media/Boy-with-Mic-3d40ccca.png",
               "alt": "",
               "title": "Bridging Citizens and Policymakers: How SenseMaker Enhances Democratic Participation",
-              "description": "In a democracy, meaningful engagement between citizens and their representatives is crucial for effective and inclusive policymaking. In a **healthy** democracy, citizens need a voice in shaping policies that impact their lives. This requires tools that not only gather their opinions but also capture the complexities, emotions, and stories behind them.\n\nWhile **Traditional Surveys** have long been used for gathering public opinion, they can fall short in capturing the full picture, particularly in complex or nuanced situations."
+              "description": "In a democracy, meaningful engagement between citizens and their representatives is crucial for effective and inclusive policymaking. In a **healthy** democracy, citizens need a voice in shaping policies that impact their lives. This requires tools that not only gather their opinions but also capture the complexities, emotions, and stories behind them.\n\nWhile **Traditional Surveys** have long been used for gathering public opinion, they can fall short in capturing the full picture, particularly in complex or nuanced situations.",
+              "buttonLabel": "Make It"
             }
           ]
         }

@@ -6,6 +6,7 @@
   "sections": [
     {
       "id": "670865500696be6f0a02862b",
+      "minHeight": "66vh",
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -186,7 +187,7 @@
     {
       "id": "671f8fdaeefc084a7a98bb5f",
       "theme": "light",
-      "background": "/media/Back3_Mesa-de-trabajo-1-7ae0a924.png",
+      "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {
         "mobile": {
           "rows": 21,
