@@ -42,6 +42,40 @@ function placementCss(
  * 24-column desktop one, so replaying both gives layout parity at every width
  * instead of an approximation of it.
  */
+/** `"6/2/17/10"` → `[rowStart, colStart, rowEnd, colEnd]`, or null if not a grid area. */
+function parseArea(area: string | undefined) {
+  if (!area) return null
+  const parts = area.split('/').map((n) => Number.parseInt(n.trim(), 10))
+  return parts.length === 4 && parts.every(Number.isFinite) ? parts : null
+}
+
+function overlaps(a: number[], b: number[]) {
+  return a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3]
+}
+
+/** Rough perceived lightness of an `hsl(h s% l% / a)` fill, 0–100. */
+function lightnessOf(colour: string) {
+  const match = colour.match(/hsla?\([^)]*?([\d.]+)%\s*\/?[^)]*\)$/)
+  return match ? Number.parseFloat(match[1]) : 100
+}
+
+/** Indices of blocks that sit on top of a dark `shape` block in the same grid. */
+function cellsOverDarkShape(blocks: PositionedBlock[]) {
+  const panels = blocks
+    .filter((b) => b.type === 'shape' && lightnessOf(String(b.fill ?? '')) < 50)
+    .map((b) => parseArea(b.layout?.desktop?.area ?? b.layout?.mobile?.area))
+    .filter((a): a is number[] => a !== null)
+
+  if (!panels.length) return []
+
+  return blocks.flatMap((block, index) => {
+    if (block.type === 'shape') return []
+    const area = parseArea(block.layout?.desktop?.area ?? block.layout?.mobile?.area)
+    if (!area) return []
+    return panels.some((panel) => overlaps(area, panel)) ? [index] : []
+  })
+}
+
 function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]) {
   const mobile = grid.mobile ?? {}
   const desktop = grid.desktop ?? {}
@@ -82,6 +116,22 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
    * center` in the content.
    */
   rules.push(`.${gridId} > .fe-cell > .prose-eurosense{width:100%;}`)
+
+  /*
+   * A cell sitting on a dark shape panel takes the light-on-dark colours, not
+   * the section's. On /resources the three cards are text blocks laid over a
+   * purple-deep shape block, so they read as gold on purple while the section's
+   * own heading a row above is on cream — one theme, two backgrounds. The panel
+   * is a sibling in the grid rather than an ancestor, so the cascade cannot work
+   * this out and the overlap has to be computed.
+   */
+  for (const index of cellsOverDarkShape(blocks)) {
+    rules.push(
+      `.${gridId} > [data-fe="${index}"]{` +
+        `--sec-heading:var(--color-gold);--sec-text:var(--color-gold);` +
+        `color:var(--color-gold);}`,
+    )
+  }
 
   /*
    * A block can carry its own background, radius and padding — the white pills
@@ -144,6 +194,7 @@ export function FluidSection({
   minHeight,
   verticalAlign,
   divider,
+  nextTheme,
 }: {
   id: string
   grid: SectionGrid
@@ -153,6 +204,12 @@ export function FluidSection({
   minHeight?: string
   verticalAlign?: 'start' | 'center' | 'end'
   divider?: SectionDivider
+  /**
+   * The theme of the section below. A divider cuts a shape out of this section,
+   * and what shows through the cut is the next section's background — that is
+   * what makes a wedge read as a join between two panels rather than a hole.
+   */
+  nextTheme?: string
 }) {
   const gridId = `fe-${id}`
   const blocks = pairDocumentDescriptions(rawBlocks)
@@ -189,19 +246,39 @@ export function FluidSection({
               <path d={divider.path} />
             </clipPath>
           </svg>
-          <div className="section-fill" style={{ clipPath: `url(#${clipId})` }} />
+          {/*
+           * What the divider cuts away shows the next section, so that colour is
+           * painted underneath. Relying on the page background instead only
+           * looked right where the two happened to agree: on /newsletter the
+           * wedge came out purple over a white footer.
+           */}
+          <div className="section-under" data-theme={nextTheme ?? 'none'} />
         </>
       ) : null}
 
-      {background ? (
-        <Image
-          src={background}
-          alt=""
-          aria-hidden
-          fill
-          sizes="100vw"
-          className="-z-10 object-cover"
-        />
+      {/*
+       * The colour and the background image are one clipped layer, not two.
+       * Keeping them separate put the fill above the image and painted cream
+       * over the whole of /newsletter's blue panel, leaving its white headings
+       * on cream — in the DOM and invisible. The divider has to cut the image
+       * too, or it spills into the wedge the shape carves out.
+       */}
+      {divider || background ? (
+        <div
+          className="section-fill"
+          style={divider ? { clipPath: `url(#${clipId})` } : undefined}
+        >
+          {background ? (
+            <Image
+              src={background}
+              alt=""
+              aria-hidden
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          ) : null}
+        </div>
       ) : null}
 
       <style>{sectionCss(gridId, grid, blocks)}</style>

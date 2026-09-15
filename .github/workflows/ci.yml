@@ -33,6 +33,20 @@ jobs:
       - name: Build static export
         run: npm run build
 
+      # axe-core over every built page at 390px and 1280px. The site swaps
+      # layouts at 768px and blocks are positioned per breakpoint, so a
+      # violation can exist at one width and not the other.
+      #
+      # This runs on the build rather than on components because the failures it
+      # is here to catch are all cascade-level: a heading that inherits a colour
+      # from a theme it is not actually sitting on renders perfectly in
+      # isolation. Three shipped during the migration.
+      - name: Install Chromium for the accessibility check
+        run: npx playwright install --with-deps chromium
+
+      - name: Accessibility (WCAG 2.1 AA)
+        run: npm run a11y
+
       # scripts/compare-content.mjs is deliberately NOT run here. It needs the
       # Squarespace snapshots in archive/raw/, which are not committed, and it
       # answers "does this still match the 2026 original?" — a migration

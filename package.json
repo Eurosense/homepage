@@ -2,7 +2,7 @@
   "name": "eurosense",
   "version": "0.1.0",
   "private": true,
-  "description": "eurosense.eu — static React site, migrated off Squarespace",
+  "description": "eurosense.eu \u2014 static React site, migrated off Squarespace",
   "type": "module",
   "engines": {
     "node": ">=20.9"
@@ -24,6 +24,7 @@
     "videos": "node scripts/fetch-videos.mjs",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"scripts/*.mjs\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/*.mjs\"",
+    "a11y": "node scripts/check-a11y.mjs",
     "vendor:dashboard": "node scripts/vendor-dashboard-libs.mjs",
     "prebuild": "node scripts/vendor-dashboard-libs.mjs",
     "documents": "node scripts/fetch-documents.mjs",
@@ -38,6 +39,7 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@fontsource/inter": "^5.1.0",
     "@highcharts/map-collection": "^2.3.3",
     "@tailwindcss/postcss": "4.3.3",
@@ -48,6 +50,7 @@
     "echarts": "^5.5.1",
     "highcharts": "^11.4.8",
     "papaparse": "^5.3.2",
+    "playwright": "^1.63.0",
     "plotly.js-cartesian-dist-min": "^1.58.5",
     "prettier": "^3.9.6",
     "sharp": "^0.35.4",

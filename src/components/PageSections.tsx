@@ -1,7 +1,7 @@
 import { SectionView } from '@/components/BlockRenderer'
 import { FluidSection } from '@/components/FluidSection'
 import { PostList } from '@/components/PostList'
-import type { Post, Section } from '@/lib/content'
+import { getSiteChrome, type Post, type Section } from '@/lib/content'
 
 /**
  * Sends each section to the renderer that matches how Squarespace built it:
@@ -16,6 +16,8 @@ export function PageSections({
   /** Collection items, rendered where the page's `postList` block sits. */
   posts?: Post[]
 }) {
+  const footerTheme = getSiteChrome().footerBlocks[0]?.theme ?? 'none'
+
   return (
     <>
       {sections.map((section, i) => {
@@ -49,6 +51,11 @@ export function PageSections({
             minHeight={section.minHeight}
             verticalAlign={section.verticalAlign}
             divider={section.divider}
+            /*
+             * The last section is followed by the site footer, not by nothing —
+             * and the footer's theme is what should show through its divider.
+             */
+            nextTheme={sections[i + 1]?.theme ?? footerTheme}
           />
         ) : (
           <SectionView

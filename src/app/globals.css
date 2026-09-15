@@ -12,6 +12,18 @@
   --color-purple: #483458;
   --color-purple-deep: #321d46;
   --color-gold: #fdc220;
+  /*
+   * The same hue darkened until it passes WCAG AA on cream (4.7:1, against 1.5:1
+   * for --color-gold). It is used only where gold is *text or an outline on a
+   * cream background* — headings on /resources, the links on /forpartners, the
+   * outlined buttons on the homepage. Gold as a fill keeps --color-gold, because
+   * dark text on it already passes.
+   *
+   * This is the one place the rebuild deliberately departs from the original,
+   * which sets those in #fdc220 and is close to illegible. Revert by pointing
+   * this at --color-gold.
+   */
+  --color-gold-ink: #8a6a11;
 
   --color-muted: #6b5f73;
   --color-line: #e2ded2;
@@ -103,27 +115,28 @@
 @layer components {
   [data-theme] {
     --sec-bg: var(--color-cream);
-    --sec-heading: var(--color-gold);
+    --sec-heading: var(--color-gold-ink);
     --sec-text: var(--color-purple);
     --sec-btn-bg: var(--color-gold);
     --sec-btn-text: #543f04;
     /* Outlined (secondary) buttons: border and label share one colour. */
-    --sec-btn-outline: var(--color-gold);
+    --sec-btn-outline: var(--color-gold-ink);
     background-color: var(--sec-bg);
     color: var(--sec-text);
   }
 
   /*
-   * Measured on /resources: rich-text paragraphs on a cream band are gold, the
-   * same colour as the headings — not purple. The contrast is poor (~1.7:1) and
-   * that is reproduced, not chosen; see the accessibility note in DESIGN.md.
-   * List sections set their own text colours and are unaffected.
+   * Measured on /resources: rich-text here is gold, the same colour as the
+   * headings — not purple. Most of it sits on a dark shape panel, where bright
+   * gold is right and FluidSection restores it per cell; what is left over on
+   * cream uses the darkened gold so it can actually be read. List sections set
+   * their own text colours and are unaffected.
    */
   [data-theme='white'],
   [data-theme='light'] {
     --sec-bg: var(--color-cream);
-    --sec-heading: var(--color-gold);
-    --sec-text: var(--color-gold);
+    --sec-heading: var(--color-gold-ink);
+    --sec-text: var(--color-gold-ink);
   }
 
   [data-theme='white-bold'] {
@@ -151,14 +164,20 @@
   }
 
   [data-theme='bright-inverse'] {
-    --sec-btn-outline: var(--color-gold);
+    --sec-btn-outline: var(--color-gold-ink);
   }
 
+  /*
+   * Filled buttons here keep the base dark-brown label rather than white. The
+   * live site does both — /our-partners has two "Request access to Sensemaker"
+   * buttons, one brown on gold and one white on gold — and white on gold is
+   * 1.9:1, which fails WCAG AA. This follows the accessible one the original
+   * already uses rather than inventing a colour. See the note in DESIGN.md.
+   */
   [data-theme='none'] {
     --sec-bg: var(--color-purple-deep);
     --sec-heading: var(--color-gold);
     --sec-text: var(--color-gold);
-    --sec-btn-text: #ffffff;
     /* Measured: outlined buttons on the deep purple bands are white, not gold. */
     --sec-btn-outline: #ffffff;
   }
@@ -234,10 +253,27 @@
     padding-bottom: var(--divider-height);
   }
 
-  [data-theme][data-divider] > .section-fill {
+  [data-theme] > .section-fill {
     position: absolute;
     inset: 0;
     z-index: -1;
+  }
+
+  /* The next section's colour, showing through what the divider cuts away. */
+  [data-theme] > .section-under {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-color: var(--sec-bg);
+  }
+
+  /*
+   * Only a section with a divider needs the colour here: without one the section
+   * paints its own background, and repeating it would hide nothing but cost a
+   * layer. With one the section is transparent, because the shape is what gives
+   * it an edge.
+   */
+  [data-theme][data-divider] > .section-fill {
     background-color: var(--sec-bg);
   }
 }
@@ -284,8 +320,14 @@
     margin-top: 16px;
   }
 
+  /*
+   * The fallback is purple, not gold. It only applies where there is no themed
+   * section above — post bodies and the 404 — and the live site sets those
+   * headings to #483458. Gold on the cream a post sits on is 1.5:1, so the old
+   * fallback made every heading in every article barely legible.
+   */
   .prose-eurosense :is(h1, h2, h3, h4) {
-    color: var(--sec-heading, var(--color-gold));
+    color: var(--sec-heading, var(--color-purple));
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.02em;

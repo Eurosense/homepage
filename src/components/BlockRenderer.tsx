@@ -27,6 +27,16 @@ function RawHtml({ html }: { html: string }) {
 /** The newsletter form whose field spec lives in content/forms.json. */
 const NEWSLETTER_SQUARESPACE_ID = '671f9020897e7e5dea51318a'
 
+/** "https://www.charge-volt.org/" → "charge-volt.org". Empty for a local path. */
+function hostnameOf(href: string | undefined) {
+  if (!href) return ''
+  try {
+    return new URL(href).hostname.replace(/^www\./, '')
+  } catch {
+    return ''
+  }
+}
+
 export function BlockView({ block }: { block: Block }) {
   switch (block.type) {
     case 'richText':
@@ -45,9 +55,26 @@ export function BlockView({ block }: { block: Block }) {
           sizes="(max-width: 768px) 100vw, 800px"
         />
       )
+      /*
+       * A linked logo has no alt text — it is decoration next to the partner's
+       * name — which leaves the link itself unnamed and unusable to a screen
+       * reader. The destination's domain is the most honest name available: it
+       * is what the link actually goes to, and it is what the logo depicts.
+       */
+      const linkLabel =
+        block.alt?.trim() ||
+        block.caption?.replace(/<[^>]+>/g, '').trim() ||
+        hostnameOf(block.href)
+
       return (
         <figure className="my-2">
-          {block.href ? <SmartLink href={block.href}>{img}</SmartLink> : img}
+          {block.href ? (
+            <SmartLink href={block.href} aria-label={linkLabel || undefined}>
+              {img}
+            </SmartLink>
+          ) : (
+            img
+          )}
           {block.caption ? (
             <figcaption
               className="mt-2 text-center text-sm opacity-80"

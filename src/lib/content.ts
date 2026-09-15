@@ -208,7 +208,6 @@ export type SiteChrome = {
  */
 export const COLLECTION_ROUTES: Record<string, string> = {
   blognews: '/blognews',
-  blog: '/blog',
   'resources--multimedia': '/resources/multimedia',
 }
 

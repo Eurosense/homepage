@@ -22,7 +22,31 @@ import { useEffect, useRef } from 'react'
  */
 const SCRIPT = /<script\b[^>]*>[\s\S]*?<\/script>/gi
 
-export function Embed({ html, className }: { html: string; className?: string }) {
+/*
+ * An <iframe> with no title is announced as "frame" and nothing else, so a
+ * screen-reader user cannot tell what is in it or whether to enter it. Most
+ * embeds here were authored with one; the vendored dashboard was not. Naming it
+ * from its own URL keeps this working for content added later, rather than
+ * fixing the single case in the JSON and meeting it again next time.
+ */
+function titleIframes(html: string) {
+  return html.replace(/<iframe\b(?![^>]*\btitle=)([^>]*)>/gi, (tag, attrs: string) => {
+    const src = attrs.match(/\bsrc="([^"]+)"/i)?.[1] ?? ''
+    const name = src.startsWith('/')
+      ? src.replace(/^\/|\/$/g, '').replace(/-/g, ' ')
+      : (() => {
+          try {
+            return new URL(src).hostname.replace(/^www\./, '')
+          } catch {
+            return 'embedded content'
+          }
+        })()
+    return `<iframe${attrs} title="${name}">`
+  })
+}
+
+export function Embed({ html: rawHtml, className }: { html: string; className?: string }) {
+  const html = titleIframes(rawHtml)
   const host = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

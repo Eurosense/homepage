@@ -153,13 +153,31 @@ readable — this is not decoration.
 
 ## Accessibility
 
-- Contrast: white-on-gold buttons on dark bands are ~1.6:1, and gold body copy
-  on cream (`white`/`light` themes) is ~1.7:1. Both are **reproduced from the
-  original**, not chosen. If you are willing to diverge, these are the first two
-  things worth fixing.
-- `scripts/check-contrast.mjs` only catches text painted in its own background
-  colour. It will not flag merely poor contrast, which is deliberate — the ratios
-  above would fail it on every page.
+`npm run a11y` runs axe-core over every built page at 390px and 1280px against
+WCAG 2.1 AA, and CI fails on a violation. It currently passes with none.
+
+Getting there needed two deliberate departures from the original. Both are
+colour-only, both are marked in `globals.css`, and both are one-line reverts:
+
+| The original | Here | Why |
+| --- | --- | --- |
+| Gold `#fdc220` as text or outline on cream — the `/resources` title, the `/forpartners` links, the homepage's outlined buttons | `--color-gold-ink`, `#8a6a11` | The same hue darkened to 4.7:1. The original is **1.5:1**, which is close to illegible. Gold *fills* are untouched; the dark label on them already passes. |
+| One of the two "Request access to Sensemaker" buttons on `/our-partners` has a white label on gold | The dark-brown label `#543f04` | White on gold is 1.9:1. The original uses the dark label on the *other* copy of the same button, so this follows its own accessible version rather than inventing a colour. |
+
+Everything else that axe flagged was a bug in this rebuild, not a property of
+the original — a heading inheriting a gold fallback on a page with no section
+theme, a background image painted over, an unnamed logo link, an untitled frame.
+
+Two things worth knowing about the check:
+
+- **Gold on a dark shape panel stays bright gold.** On `/resources` the card text
+  sits on a purple-deep panel that is a *sibling* in the grid, not an ancestor,
+  so the cascade cannot see it. `FluidSection` computes the overlap and restores
+  the bright colour for those cells. Whichever way you change the gold, check
+  both `/resources` (panel) and `/forpartners` (cream).
+- `scripts/check-contrast.mjs` still runs in `validate`, and is narrower on
+  purpose: it catches text painted in its own background colour, which is a
+  correctness bug rather than a contrast judgement, and it needs no browser.
 - Accordions are native `<details>`: keyboard accessible, no JavaScript, and
   find-in-page reaches collapsed content.
 - Every section theme is applied with `data-theme`, so a new section inherits

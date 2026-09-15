@@ -55,8 +55,14 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
      * top, so taking up space instead pushed every hero down and made the
      * content look crowded against the top of the page.
      */
+    /*
+     * Cream rather than transparent, measured off the live header on both the
+     * homepage and /newsletter. It matters on the sections that carry a full
+     * background image: over /newsletter's blue panel a transparent header put
+     * the purple logo and navigation on blue.
+     */
     <header
-      className={`absolute inset-x-0 top-0 z-50 ${open ? 'bg-cream' : ''}`}
+      className="absolute inset-x-0 top-0 z-50 bg-cream"
       style={{ minHeight: 'var(--header-height)' }}
     >
       <div className="mx-auto flex max-w-[1425px] items-center justify-between gap-4 px-5 py-5 sm:px-8 xl:px-[57.6px] xl:py-[28.8px]">

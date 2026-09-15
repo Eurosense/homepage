@@ -47,7 +47,9 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
         </ul>
       ) : null}
 
-      <p className="pb-8 text-center text-xs opacity-60">
+      {/* Muted rather than 60% opacity: faded purple on the white footer came
+          out #91859b, which is 3.5:1 against 4.5:1 required at this size. */}
+      <p className="pb-8 text-center text-xs text-muted">
         © {new Date().getFullYear()} {chrome.siteTitle}
       </p>
     </footer>

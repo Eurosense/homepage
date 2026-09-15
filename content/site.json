@@ -49,7 +49,7 @@
   },
   "footerGrid": {
     "mobile": {
-      "rows": 23,
+      "rows": 26,
       "rowMin": "24px",
       "columns": 8,
       "rowGap": "12.0px",
@@ -229,7 +229,7 @@
       "theme": "bright-inverse",
       "layout": {
         "mobile": {
-          "area": "21/1/24/11",
+          "area": "24/1/27/11",
           "zIndex": 11,
           "justify": "center",
           "align": "center"
@@ -239,6 +239,63 @@
           "zIndex": 11,
           "justify": "center",
           "align": "center"
+        }
+      }
+    },
+    {
+      "type": "richText",
+      "html": "<p><a href=\"/forpartners\">For Partners</a></p>",
+      "theme": "bright-inverse",
+      "layout": {
+        "mobile": {
+          "area": "19/2/20/10",
+          "zIndex": 23,
+          "justify": "flex-start",
+          "align": "flex-start"
+        },
+        "desktop": {
+          "area": "5/19/6/21",
+          "zIndex": 23,
+          "justify": "flex-start",
+          "align": "flex-start"
+        }
+      }
+    },
+    {
+      "type": "richText",
+      "html": "<p><a href=\"/mystory\">Share your story</a></p>",
+      "theme": "bright-inverse",
+      "layout": {
+        "mobile": {
+          "area": "20/2/21/10",
+          "zIndex": 24,
+          "justify": "flex-start",
+          "align": "flex-start"
+        },
+        "desktop": {
+          "area": "5/22/6/25",
+          "zIndex": 24,
+          "justify": "flex-start",
+          "align": "flex-start"
+        }
+      }
+    },
+    {
+      "type": "richText",
+      "html": "<p><a href=\"/newsletter\">Newsletter</a></p>",
+      "theme": "bright-inverse",
+      "layout": {
+        "mobile": {
+          "area": "21/2/22/10",
+          "zIndex": 25,
+          "justify": "flex-start",
+          "align": "flex-start"
+        },
+        "desktop": {
+          "area": "6/19/7/21",
+          "zIndex": 25,
+          "justify": "flex-start",
+          "align": "flex-start"
         }
       }
     }
