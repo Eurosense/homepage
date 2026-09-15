@@ -97,6 +97,27 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
   const contentDriven = blocks.some((b) => b.type === 'accordion' || b.type === 'postList')
   const mobileRowMin = contentDriven ? '0px' : (mobile.rowMin ?? '24px')
 
+  /*
+   * Rows after the last block are dropped.
+   *
+   * Squarespace sections routinely declare more rows than they fill — /about-us
+   * puts three blocks in the first six rows of a grid declared as twenty-two.
+   * Each leftover row still carries a minimum height, so the section ends in a
+   * band of nothing several hundred pixels deep. Nothing can occupy them by
+   * definition, which is why trimming only past the final block is safe: it
+   * cannot close a gap the author put *between* two blocks.
+   */
+  const lastRow = (which: 'mobile' | 'desktop') =>
+    blocks.reduce((max, block) => {
+      const end = Number.parseInt((block.layout?.[which]?.area ?? '').split('/')[2] ?? '', 10)
+      return Number.isFinite(end) ? Math.max(max, end - 1) : max
+    }, 0)
+
+  const mobileRows = Math.min(mobile.rows ?? 1, lastRow('mobile') || (mobile.rows ?? 1))
+  const desktopRows = desktop.rows
+    ? Math.min(desktop.rows, lastRow('desktop') || desktop.rows)
+    : undefined
+
   const mobileColumns = mobile.columns ?? 8
   const desktopColumns = desktop.columns ?? 24
   const mobileGap = mobile.columnGap ?? GAP_FALLBACK
@@ -115,7 +136,7 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
       `--fe-gutter:calc(var(--site-gutter-mobile) - ${mobileGap});` +
       `--fe-cell:calc((var(--site-max-width) - (${mobileGap} * (${mobileColumns} - 1))) / ${mobileColumns});` +
       'display:grid;position:relative;' +
-      `grid-template-rows:repeat(${mobile.rows ?? 1},minmax(${mobileRowMin},auto));` +
+      `grid-template-rows:repeat(${mobileRows},minmax(${mobileRowMin},auto));` +
       `grid-template-columns:${track(mobileColumns, mobileGap)};` +
       `row-gap:${mobile.rowGap ?? '8px'};column-gap:${mobileGap};` +
       'overflow-x:clip;' +
@@ -178,8 +199,8 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
   const desktopRowMin = contentDriven
     ? '0px'
     : `calc(var(--fe-container) * ${desktop.rowScale ?? 0.0215})`
-  const desktopRows = desktop.rows
-    ? `grid-template-rows:repeat(${desktop.rows},minmax(${desktopRowMin},auto));`
+  const desktopRowsCss = desktopRows
+    ? `grid-template-rows:repeat(${desktopRows},minmax(${desktopRowMin},auto));`
     : ''
 
   const desktopRules = [
@@ -187,7 +208,7 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
       `--fe-gutter:calc(var(--site-gutter) - ${desktopGap});` +
       `--fe-cell:calc((var(--site-max-width) - (${desktopGap} * (${desktopColumns} - 1))) / ${desktopColumns});` +
       '--fe-container:min(var(--site-max-width),calc(100vw - var(--site-gutter) * 2));' +
-      desktopRows +
+      desktopRowsCss +
       `grid-template-columns:${track(desktopColumns, desktopGap)};` +
       `column-gap:${desktopGap};` +
       '}',

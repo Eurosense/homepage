@@ -35,9 +35,34 @@ export function InternalLinkRouter() {
       if (!href || !isInternalRoute(href)) return
       if (anchor.hasAttribute('download') || anchor.hasAttribute('target')) return
 
-      // A link to a spot on this page is the browser's job, not the router's.
       const url = new URL(href, window.location.origin)
-      if (url.pathname === window.location.pathname && url.hash) return
+
+      /*
+       * A link to a spot on this page is scrolled here rather than left to the
+       * browser. Left alone, clicking it a second time does nothing at all —
+       * the hash is already in the URL, so there is no navigation to perform —
+       * which is exactly what "Request access to Sensemaker" looks like to
+       * someone who has already used it once.
+       */
+      /*
+       * Compared without the trailing slash. The site is exported with one, so
+       * the address bar reads `/our-partners/` while the extracted href reads
+       * `/our-partners#request-access` — and comparing those raw made every
+       * in-page anchor look like a link to a different page.
+       */
+      const samePage =
+        url.pathname.replace(/\/$/, '') === window.location.pathname.replace(/\/$/, '')
+
+      if (samePage && url.hash) {
+        const target = document.getElementById(decodeURIComponent(url.hash.slice(1)))
+        if (!target) return
+        event.preventDefault()
+        // No `behavior` here: globals.css already sets scroll-behavior on <html>,
+        // and asking for a second smooth scroll while one is running cancels it.
+        target.scrollIntoView({ block: 'start' })
+        history.replaceState(null, '', url.hash)
+        return
+      }
 
       event.preventDefault()
       router.push(href)

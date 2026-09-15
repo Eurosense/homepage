@@ -23,7 +23,14 @@ type Props = Omit<ComponentProps<'a'>, 'href'> & { href: string; children: React
  * else, opening other origins in a new tab the way the original site did.
  */
 export function SmartLink({ href, children, ...rest }: Props) {
-  if (isInternalRoute(href)) {
+  /*
+   * A link carrying a hash stays a plain anchor. next/link handles the first
+   * click and then, because the URL no longer changes, silently does nothing on
+   * the second — which is what "Request access to Sensemaker" looked like to
+   * anyone who used it twice. As an ordinary anchor it falls to
+   * InternalLinkRouter, which scrolls to the target every time.
+   */
+  if (isInternalRoute(href) && !href.includes('#')) {
     return (
       <Link href={href} {...rest}>
         {children}
