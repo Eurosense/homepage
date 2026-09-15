@@ -98,10 +98,10 @@ SENSEMAKER_PAT_ID=... SENSEMAKER_FRAMEWORK=... npm run dashboard:data
 
 It needs two repository secrets (Settings -> Secrets and variables -> Actions):
 
-| Secret | What it is |
-| --- | --- |
-| `SENSEMAKER_PAT_ID` | Personal access token id, exchanged for a short-lived bearer token |
-| `SENSEMAKER_FRAMEWORK` | The framework (project) whose captures are exported |
+| Secret                 | What it is                                                         |
+| ---------------------- | ------------------------------------------------------------------ |
+| `SENSEMAKER_PAT_ID`    | Personal access token id, exchanged for a short-lived bearer token |
+| `SENSEMAKER_FRAMEWORK` | The framework (project) whose captures are exported                |
 
 **Until those secrets exist the workflow fails, visibly, in the Actions tab.** That is
 deliberate: the job this replaces lived in `Medibunny/Eurosense` and stopped running in
@@ -123,12 +123,12 @@ blank the dashboard.
 Production is [deploybase](https://deploybase.eu), currently serving at
 `homepage.sites.deploybase.eu`. The site builds to a static `out/` directory.
 
-| deploybase setting | Value |
-| --- | --- |
-| Build command | `npm run build` |
-| Output directory | `out` |
-| Node version | 22 |
-| Install command | `npm ci` |
+| deploybase setting | Value           |
+| ------------------ | --------------- |
+| Build command      | `npm run build` |
+| Output directory   | `out`           |
+| Node version       | 22              |
+| Install command    | `npm ci`        |
 
 Connect this repository under **Projects → Connect a repo**. Pushes to `main` go to
 production; every other branch gets a preview URL.
@@ -200,7 +200,7 @@ These are not code tasks and they are not reversible.
 1. **Transfer the domain first.** `eurosense.eu` is registered through **Tucows**, the
    registrar behind Squarespace domains. If it came with the subscription it can be
    lost when the account closes. Unlock it and move it to a registrar you control
-   *before* cancelling.
+   _before_ cancelling.
 2. **Export form submissions.** Anything collected by the six Squarespace form blocks
    is deleted with the account and is not in this repository.
 3. **Forms need nothing.** The two newsletter forms use the existing HubSpot form;

@@ -125,7 +125,7 @@ it is served from this origin at `/dashboard-app/` and framed by the `/dashboard
 page.
 
 Its data is refreshed nightly by `.github/workflows/dashboard-data.yml` and published
-to GitHub Pages, *not* committed — that keeps daily data updates from triggering a
+to GitHub Pages, _not_ committed — that keeps daily data updates from triggering a
 deploybase build. The dashboard fetches the Pages copy and falls back to the
 `captures.csv` committed beside it.
 
@@ -166,17 +166,17 @@ migration lost four headings and every outlined button.
 
 ### Where things live
 
-| To change | Edit |
-| --- | --- |
-| Colours, fonts, spacing, prose styles | `src/app/globals.css` (`@theme` block) — see [DESIGN.md](DESIGN.md) |
-| How a block renders | `src/components/BlockRenderer.tsx` |
-| Header / navigation | `src/components/SiteHeader.tsx` (nav items come from `content/site.json`) |
-| Footer | `src/components/SiteFooter.tsx` |
-| Blog index cards | `src/components/PostList.tsx` |
-| Post page layout | `src/app/[...slug]/page.tsx` |
-| Homepage | `src/app/page.tsx` (content from `content/pages/index.json`) |
-| Loading content | `src/lib/content.ts` |
-| Page titles, Open Graph | `src/app/layout.tsx` and `generateMetadata` in `[...slug]/page.tsx` |
+| To change                             | Edit                                                                      |
+| ------------------------------------- | ------------------------------------------------------------------------- |
+| Colours, fonts, spacing, prose styles | `src/app/globals.css` (`@theme` block) — see [DESIGN.md](DESIGN.md)       |
+| How a block renders                   | `src/components/BlockRenderer.tsx`                                        |
+| Header / navigation                   | `src/components/SiteHeader.tsx` (nav items come from `content/site.json`) |
+| Footer                                | `src/components/SiteFooter.tsx`                                           |
+| Blog index cards                      | `src/components/PostList.tsx`                                             |
+| Post page layout                      | `src/app/[...slug]/page.tsx`                                              |
+| Homepage                              | `src/app/page.tsx` (content from `content/pages/index.json`)              |
+| Loading content                       | `src/lib/content.ts`                                                      |
+| Page titles, Open Graph               | `src/app/layout.tsx` and `generateMetadata` in `[...slug]/page.tsx`       |
 
 ### Add a new block type
 
@@ -247,10 +247,89 @@ happily prerender a page with a broken image and an unrecognised block.
 
 ```bash
 npm run extract:fetch    # snapshot every URL in the sitemap
-npm run extract:parse    # snapshots -> content/
-npm run extract:assets   # CDN -> public/media/, rewrites references
+npm run content          # parse -> assets -> documents -> measure:posts
 ```
+
+**Run `npm run content`, not `extract:parse` on its own.** Parsing rewrites
+`content/pages/*.json` from the snapshots, which discards three things later
+stages put there, and each stage depends on the one before it:
+
+| Stage            | Adds                                 | Why the order matters               |
+| ---------------- | ------------------------------------ | ----------------------------------- |
+| `extract:parse`  | pages and collections                | Overwrites everything below         |
+| `extract:assets` | local `/media/` paths                | Later stages look for files on disk |
+| `documents`      | local `/files/*.pdf` for Drive links | Needs the parsed document blocks    |
+| `measure:posts`  | post thumbnail dimensions            | Only sees images already localised  |
+
+Skip a stage and the failure is quiet: PDFs silently revert to Google Drive
+iframes, or the blog index goes back to cropping every thumbnail.
 
 It writes `archive/report.json` listing anything it could not map. Read that rather
 than assuming a clean run: an empty result there means "nothing was recorded", which
 is not the same as "nothing was missed".
+
+### What cannot be scraped
+
+Two things are rendered by Squarespace's own JavaScript, so the HTML snapshots in
+`archive/raw/` do not contain them. Both are **measured from the live site and
+committed**, because after the subscription lapses there is nowhere left to read
+them from:
+
+- **`archive/dividers.json`** — the clip-path for each section divider. The
+  markup ships `d="M0,0"` and the real shape is computed in the browser.
+  Re-read with `npm run capture:dividers` (needs Playwright).
+- **Form fields** are the opposite case: the served `<div class="form-wrapper">`
+  is empty, but the definitions survive in a `script.sqs-form-block-context`
+  JSON island, so the extractor reads them offline. Note that one config field
+  can render as several inputs — `name` becomes First and Last, and an `email`
+  field with `mailingList: true` also renders the "Sign up for news and updates"
+  tick.
+
+### Third-party embeds
+
+Nothing third-party loads until the reader asks for it. That is why the site
+ships no cookie banner, and it only stays true if every route into the page is
+covered. There are three:
+
+| Where the embed lives | Gated by | Example |
+| --- | --- | --- |
+| An `embed` block with a cross-origin `<iframe>` | `BlockView` → `ConsentEmbed` | SenseMaker collector on `/dashboard` |
+| An `embed` block with a cross-origin `<script src>` | `BlockView` → `ConsentEmbed` | Elfsight feed on `/home-2`, Dialogflow on `/eurosensers` |
+| An `<iframe>` written inline in a post's markdown | `GatedHtml` → `ConsentEmbed` | Drive recordings, Google Slides and Kumu maps under `/resources/multimedia/` |
+
+The third one is easy to forget: post bodies render through `renderMarkdown`,
+not `BlockView`, so they bypassed the block-level gate entirely and five pages
+kept setting Google cookies after the rest of the site had stopped.
+
+`ConsentEmbed` names what is behind the placeholder using `describeEmbed` in
+`src/lib/embedKind.ts`. Add a case there when a new provider appears — the
+fallback says only "Embedded content", which is not enough for a reader to
+decide. The choice is not remembered, deliberately: persisting it would
+reintroduce the browser storage the gate exists to avoid.
+
+Two related rules:
+
+- **Do not add `<link rel="preconnect">` for a third party.** It sends no request
+  and sets no cookie, but it completes DNS and a TLS handshake, which hands the
+  visitor's address to that origin on page load and makes the gate a formality.
+  `src/app/layout.tsx` carried six of these and says so.
+- **Prefer vendoring over gating** where the asset is small and static. The
+  charting libraries and the Highmaps Europe topology are copied into
+  `public/dashboard-app/vendor/` by `npm run vendor:dashboard`, so they need no
+  gate at all. Videos are the opposite case — ~36 MB each, so they stay remote
+  and gated.
+
+After changing any embed, rebuild and check that no page has an active
+third-party tag:
+
+```bash
+npm run check
+find out -name 'index.html' | sort | while read f; do
+  o=$(grep -ohE '<(script|iframe|link)[^>]*https?://[a-zA-Z0-9.-]+[^>]*>' "$f" \
+      | grep -oE 'https?://[a-zA-Z0-9.-]+' | sort -u | tr '\n' ' ')
+  [ -n "$o" ] && echo "${f#out/} -> $o"
+done
+```
+
+The only expected line is `dashboard-app/index.html -> https://eurosense.github.io`,
+which is our own data host, inside our own iframe.
