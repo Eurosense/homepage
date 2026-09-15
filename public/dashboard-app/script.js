@@ -81,9 +81,34 @@ document.addEventListener("DOMContentLoaded", function () {
         Spain: "ES",
         Sweden: "SE",
         "United Kingdom": "GB",
-        Others: "EU"
+        Others: "EU",
+
+        /*
+         * Non-EU options and the survey's own spellings. Without these the map
+         * silently dropped five countries: the names come from the SenseMaker
+         * questionnaire, not from any standard list, so "Lativa" is how the
+         * option is actually spelled in the export and matching it is the only
+         * way those responses reach the map.
+         */
+        Switzerland: "CH",
+        Norway: "NO",
+        Iceland: "IS",
+        "Türkiye": "TR",
+        Turkey: "TR",
+        UK: "GB",
+        Lativa: "LV"
       };
-      return countryCodes[countryName.trim()] || null;
+
+      const name = countryName.trim();
+      const code = countryCodes[name] || null;
+
+      // "Other" and "NA" are buckets, not places; anything else failing to
+      // match is a questionnaire option nobody has mapped yet, and it would
+      // otherwise vanish from the map without trace.
+      if (!code && name && name !== "Other" && name !== "NA") {
+        console.warn(`No map code for country option "${name}" — it will not appear on the map.`);
+      }
+      return code;
     }
     function getTop5PlusOthers(countsObj) {
       const sorted = Object.entries(countsObj).sort((a, b) => b[1] - a[1]);
@@ -115,7 +140,65 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       return result;
     }
-    function createCharts(data) {
+    /*
+     * The SenseMaker export changed shape after April 2025. Two differences
+     * break the old assumptions:
+     *
+     *  1. There is a second header row holding each question's UUID. Parsed
+     *     with `header: true` it arrives as the first data row and would be
+     *     counted as a response.
+     *  2. Single-choice questions are now one column per option, holding "1",
+     *     where they used to be one column holding the chosen label. Reading
+     *     the old column name yields undefined, which is why the map drew no
+     *     countries at all.
+     *
+     * Both formats are handled so the dashboard works against an old export too.
+     */
+    function isQuestionIdRow(row) {
+      const values = Object.values(row).filter(Boolean);
+      if (!values.length) return false;
+      const uuidish = values.filter((v) => /^[0-9a-f-]{30,}(_|$)/i.test(String(v)));
+      return uuidish.length > values.length / 2;
+    }
+
+    /** The chosen option for a question, from either export format. */
+    function pickChoice(row, question) {
+      const direct = row[question];
+      if (direct != null && String(direct).trim() !== "") return String(direct).trim();
+
+      const prefix = question + "_";
+      for (const key of Object.keys(row)) {
+        if (!key.startsWith(prefix)) continue;
+        const value = String(row[key] ?? "").trim();
+        if (value === "1" || value.toLowerCase() === "true") {
+          return key.slice(prefix.length).trim();
+        }
+      }
+      return "";
+    }
+
+    /*
+     * Slider questions are stored as `<question>_percentX`: the handle position
+     * from 0 (left label) to 1 (right label), blank when unanswered. Bucketing
+     * into ten deciles gives the distribution the bar charts are meant to show.
+     */
+    function sliderHistogram(data, questionNumber) {
+      const column = Object.keys(data[0]).find(
+        (key) => key.startsWith(questionNumber + " ") && key.endsWith("_percentX")
+      );
+      const bins = new Array(10).fill(0);
+      if (!column) return bins;
+
+      for (const row of data) {
+        const position = Number.parseFloat(row[column]);
+        if (!Number.isFinite(position)) continue;
+        bins[Math.min(9, Math.max(0, Math.floor(position * 10)))]++;
+      }
+      return bins;
+    }
+
+    function createCharts(rawData) {
+      const data = rawData.filter((row) => !isQuestionIdRow(row));
       if (data.length === 0) {
         console.error("CSV data is empty.");
         return;
@@ -127,15 +210,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const genderCounts = {};
       const ageGroupCounts = {};
       data.forEach((row) => {
-        const experience = replaceLongStrings(row["6.3 The experience you described was..."]);
+        const experience = replaceLongStrings(pickChoice(row, "6.3 The experience you described was..."));
         experienceFrequencyCounts[experience] = (experienceFrequencyCounts[experience] || 0) + 1;
-        const country = replaceLongStrings(row["6.4 My experience is from..."]);
-        if (country.trim() !== "" && country.trim() !== "Not specified") {
+        const country = replaceLongStrings(pickChoice(row, "6.4 My experience is from..."));
+        if (country.trim() !== "" && country.trim() !== "Not specified" && country.trim() !== "NA") {
           countryCounts[country.trim()] = (countryCounts[country.trim()] || 0) + 1;
         }
-        const gender = replaceLongStrings(row["6.5 I identify as..."]);
+        const gender = replaceLongStrings(pickChoice(row, "6.5 I identify as..."));
         genderCounts[gender] = (genderCounts[gender] || 0) + 1;
-        const ageGroup = replaceLongStrings(row["6.6 I am ..."]);
+        const ageGroup = replaceLongStrings(pickChoice(row, "6.6 I am ..."));
         ageGroupCounts[ageGroup] = (ageGroupCounts[ageGroup] || 0) + 1;
       });
       const experienceFrequencyData = Object.entries(experienceFrequencyCounts).map(([name, value]) => ({
@@ -168,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
           leftLabel: "Values and traditions",
           rightLabel: "Change and innovation",
           xAxisData: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-          yAxisValues: [1, 0, 2, 1, 1, 2, 1, 3, 2, 5]
+          yAxisValues: sliderHistogram(data, "2.1")
         },
         {
           id: "barChart2",
@@ -176,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
           leftLabel: "As expected",
           rightLabel: "Unusually",
           xAxisData: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-          yAxisValues: [2, 1, 1, 4, 5, 2, 1, 2, 1, 3]
+          yAxisValues: sliderHistogram(data, "2.2")
         },
         {
           id: "barChart3",
@@ -184,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
           leftLabel: "The same but it's not ok",
           rightLabel: "Differently but it's not ok",
           xAxisData: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-          yAxisValues: [1, 2, 0, 1, 0, 2, 3, 5, 2, 4]
+          yAxisValues: sliderHistogram(data, "2.3")
         },
         {
           id: "barChart4",
@@ -192,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
           leftLabel: "Interferes too much",
           rightLabel: "Doesn't care at all",
           xAxisData: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-          yAxisValues: [0, 1, 1, 2, 3, 1, 2, 6, 3, 5]
+          yAxisValues: sliderHistogram(data, "2.4")
         }
       ];
       barChartsData.forEach((cfg) => {

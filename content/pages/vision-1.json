@@ -70,6 +70,11 @@
         {
           "type": "richText",
           "html": "<div><h4 style=\"white-space:pre-wrap;\">ALLONE</h4><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">description<br><br>CONTACT: </span></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><br></p></div>",
+          "surface": {
+            "background": "hsl(43.98 98.22% 55.88% / 0.72)",
+            "radius": "15px 15px 15px 15px",
+            "padding": "6% 6% 6% 6%"
+          },
           "layout": {
             "mobile": {
               "area": "1/2/3/10",
@@ -88,6 +93,11 @@
         {
           "type": "richText",
           "html": "<div><h4 style=\"white-space:pre-wrap;\">50+</h4><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">description<br><br>CONTACT: </span></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><br></p></div>",
+          "surface": {
+            "background": "hsl(43.98 98.22% 55.88% / 0.72)",
+            "radius": "15px 15px 15px 15px",
+            "padding": "6% 6% 6% 6%"
+          },
           "layout": {
             "mobile": {
               "area": "3/2/5/10",
@@ -106,6 +116,11 @@
         {
           "type": "richText",
           "html": "<div><h4 style=\"white-space:pre-wrap;\">WEDECIDEAPP</h4><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"></p><p style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\">A digital civic app that helps people reflect on their concerns and measure their impact within their community. Using the science-backed EuroSense tool, it turns anonymous stories into real-time wellbeing insights and collective scorecards — transforming lived experience into measurable patterns that hold power accountable. Users can directly message their representatives, making citizen–leader relationships visible and impossible to ignore.<br><br>CONTACT: </span><a href=\"mailto:wedecide@pm.me\">wedecide@pm.me</a><br></p></div>",
+          "surface": {
+            "background": "hsl(43.98 98.22% 55.88% / 0.72)",
+            "radius": "15px 15px 15px 15px",
+            "padding": "6% 6% 6% 6%"
+          },
           "layout": {
             "mobile": {
               "area": "5/2/7/10",

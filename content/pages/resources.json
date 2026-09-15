@@ -44,6 +44,25 @@
           }
         },
         {
+          "type": "shape",
+          "shape": "rectangle",
+          "fill": "hsl(270.73 41.41% 19.41% / 1)",
+          "layout": {
+            "mobile": {
+              "area": "4/2/14/10",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "6/2/17/10",
+              "zIndex": 2,
+              "justify": "center",
+              "align": "center"
+            }
+          }
+        },
+        {
           "type": "richText",
           "html": "<div><h3 style=\"text-align: center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--darkAccent\">Publications</span></h3></div>",
           "layout": {
@@ -103,6 +122,25 @@
           }
         },
         {
+          "type": "shape",
+          "shape": "rectangle",
+          "fill": "hsl(270.73 41.41% 19.41% / 1)",
+          "layout": {
+            "mobile": {
+              "area": "15/2/25/10",
+              "zIndex": 4,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "6/10/17/18",
+              "zIndex": 3,
+              "justify": "center",
+              "align": "center"
+            }
+          }
+        },
+        {
           "type": "richText",
           "html": "<div><h3 style=\"text-align: center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--darkAccent\">Storyboards</span></h3></div>",
           "layout": {
@@ -156,6 +194,25 @@
             "desktop": {
               "area": "13/11/15/17",
               "zIndex": 8,
+              "justify": "center",
+              "align": "center"
+            }
+          }
+        },
+        {
+          "type": "shape",
+          "shape": "rectangle",
+          "fill": "hsl(270.73 41.41% 19.41% / 1)",
+          "layout": {
+            "mobile": {
+              "area": "26/2/36/10",
+              "zIndex": 7,
+              "justify": "center",
+              "align": "center"
+            },
+            "desktop": {
+              "area": "6/18/17/26",
+              "zIndex": 4,
               "justify": "center",
               "align": "center"
             }

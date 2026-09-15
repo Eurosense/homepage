@@ -27,9 +27,8 @@
         {
           "type": "document",
           "title": "Between convenience and concern. Annemarie van den Brink",
-          "href": "https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view",
-          "driveId": "1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6",
-          "kind": "drive",
+          "href": "/files/between-convenience-and-concern-annemarie-van-den-brink-1G_-NDG-.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "1/2/3/10",
@@ -43,7 +42,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view"
         },
         {
           "type": "richText",
@@ -66,9 +66,8 @@
         {
           "type": "document",
           "title": "EuroSense and the Future of Participatory Decision-Making. Allegra Grunberg",
-          "href": "https://drive.google.com/file/d/16PuJ-w3POovkV2_JLjPfcqX71upoKAkR/view",
-          "driveId": "16PuJ-w3POovkV2_JLjPfcqX71upoKAkR",
-          "kind": "drive",
+          "href": "/files/eurosense-and-the-future-of-participatory-decision-making-allegra-grun-16PuJ-w3.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "5/2/7/10",
@@ -82,7 +81,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/16PuJ-w3POovkV2_JLjPfcqX71upoKAkR/view"
         },
         {
           "type": "richText",
@@ -103,8 +103,10 @@
           }
         },
         {
-          "type": "richText",
-          "html": "<div><p style=\"white-space:pre-wrap;\"><a href=\"https://drive.usercontent.google.com/download?id=1pisgBVOwvXMLD0e4CSK6bPPzRVoFdc_X\" target=\"_blank\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Extraction of climate related stories for sensemaking</strong>. Roberto Bonino</span></a> <a href=\"https://drive.usercontent.google.com/download?id=1pisgBVOwvXMLD0e4CSK6bPPzRVoFdc_X\" target=\"_blank\">Download </a></p></div>",
+          "type": "document",
+          "title": "Extraction of climate related stories for sensemaking. Roberto Bonino",
+          "href": "/files/extraction-of-climate-related-stories-for-sensemaking-roberto-bonino-1pisgBVO.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "9/2/11/10",
@@ -118,7 +120,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.usercontent.google.com/download?id=1pisgBVOwvXMLD0e4CSK6bPPzRVoFdc_X"
         },
         {
           "type": "richText",
@@ -141,9 +144,8 @@
         {
           "type": "document",
           "title": "What is it like to be a European. Roberto Bonino",
-          "href": "https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view",
-          "driveId": "1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX",
-          "kind": "drive",
+          "href": "/files/what-is-it-like-to-be-a-european-roberto-bonino-1GleRilb.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "13/2/15/10",
@@ -157,7 +159,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view"
         },
         {
           "type": "richText",
@@ -218,9 +221,8 @@
         {
           "type": "document",
           "title": "From Classroom to Career: Shedding Light on Graduate Employment Experiences Through The Free Energy Principle and Collective Intelligence. Allegra Grunberg",
-          "href": "https://drive.google.com/file/d/1tOUztUTBcU1Zcl-3Ky_Jf6Lf85SYyHCd/view?usp=drive_link",
-          "driveId": "1tOUztUTBcU1Zcl-3Ky_Jf6Lf85SYyHCd",
-          "kind": "drive",
+          "href": "/files/from-classroom-to-career-shedding-light-on-graduate-employment-experie-1tOUztUT.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "21/2/23/10",
@@ -234,7 +236,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1tOUztUTBcU1Zcl-3Ky_Jf6Lf85SYyHCd/view?usp=drive_link"
         },
         {
           "type": "richText",

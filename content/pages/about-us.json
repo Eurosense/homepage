@@ -257,6 +257,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"><strong>01</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(51.43 33.33% 95.88% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "13/2/15/3",
@@ -311,6 +316,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"><strong>02</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(51.43 33.33% 95.88% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "20/2/22/3",
@@ -383,6 +393,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--accent\"><strong>03</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(51.43 33.33% 95.88% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "26/2/28/3",

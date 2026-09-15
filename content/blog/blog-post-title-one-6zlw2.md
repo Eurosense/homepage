@@ -4,6 +4,8 @@ slug: blog-post-title-one-6zlw2
 date: 2019-03-11T17:15:07.078Z
 excerpt: It all begins with an idea.
 image: /media/Cover-for-Citizen-Driver-ba51f198.png
+imageWidth: 1280
+imageHeight: 720
 imageAlt: "Tackling Europe’s Democratic Blind Spots with Citizen-Driven Insights"
 author: Joe Clemente
 sourceUrl: https://www.eurosense.eu/blog/blog-post-title-one-6zlw2

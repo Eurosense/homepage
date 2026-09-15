@@ -79,6 +79,51 @@
               "align": "flex-start"
             }
           }
+        },
+        {
+          "type": "search",
+          "placeholder": "Search",
+          "layout": {
+            "mobile": {
+              "area": "7/2/12/10",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/9/8/17",
+              "zIndex": 1,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
+        },
+        {
+          "type": "socialLinks",
+          "links": [
+            {
+              "href": "https://instagram.com/eurosensecsi",
+              "label": "Instagram"
+            },
+            {
+              "href": "https://linkedin.com/company/eurosensecsi",
+              "label": "LinkedIn"
+            }
+          ],
+          "layout": {
+            "mobile": {
+              "area": "12/2/14/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "3/18/5/22",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },
@@ -129,24 +174,6 @@
               "align": "flex-start"
             }
           }
-        },
-        {
-          "type": "summary-v2",
-          "html": "<div class=\"sqs-blockStatus\">\n  \n  <div class=\"sqs-blockStatus-box\">\n    <div class=\"sqs-blockStatus-box-title\">Summary Block</div>\n    <div class=\"sqs-blockStatus-box-message\">\n      This block has no content yet. Items you add to the page connected to this block will display here.\n      \n    </div>\n  </div>\n</div>\n\n  \n\n\n<div class=\"\n  summary-block-wrapper\n  summary-block-collection-type-events-stacked\n  summary-block-setting-text-size-medium\n  summary-block-setting-text-align-left\n  summary-block-setting-design-autocolumns\n  summary-block-setting-design-list-thumbnail-left\n  summary-block-setting-metadata-position-below-content\n  summary-block-setting-primary-metadata-date\n  summary-block-setting-secondary-metadata-location\n  summary-block-setting-show-thumbnail\n  summary-block-setting-show-title\n  summary-block-setting-show-price\n  summary-block-setting-show-excerpt\n  \n  \n  sqs-gallery-design-autocolumns\n  \n  \" data-design=\"autocolumns\" data-image-aspect-ratio=\"1.5\" data-slides-per-row=\"3\" data-mixed-content=\"true\" data-column-width=\"270\" data-gutter=\"60\" data-list-image-size=\"30\" data-active-alignment=\"\" data-square-thumbs=\"\" data-auto-crop=\"true\">\n  <div class=\"summary-item-list-container sqs-gallery-container\">\n    <header class=\"summary-block-header\">\n      \n      <div class=\"summary-heading\" data-animation-role=\"content\">\n        \n          <span class=\"summary-header-text\">Featured</span>\n        \n      </div>\n      \n      <div class=\"summary-carousel-pager sqs-gallery-controls\" data-animation-role=\"content\">\n        <span class=\"summary-carousel-pager-prev previous\" tabindex=\"0\" role=\"button\" aria-label=\"Previous\"></span>\n        <span class=\"summary-carousel-pager-next next\" tabindex=\"0\" role=\"button\" aria-label=\"Next\"></span>\n      </div>\n    </header>\n    <div class=\"summary-item-list sqs-gallery\">\n      \n    </div>\n  </div>\n  \n</div>\n\n\n\n\n<!-- SQUARESPACE_JSONT_ERROR\n\nwebsite.components.summary\n\n(line/character offsets reference the template source code)\n\n  1: RuntimeError EXPRESSION_PARSE at line 2 character 1: Error parsing expression: Unexpected character at 22: ?\n\n-->",
-          "layout": {
-            "mobile": {
-              "area": "3/2/8/10",
-              "zIndex": 1,
-              "justify": "flex-start",
-              "align": "flex-start"
-            },
-            "desktop": {
-              "area": "3/2/13/20",
-              "zIndex": 1,
-              "justify": "flex-start",
-              "align": "flex-start"
-            }
-          }
         }
       ]
     },
@@ -193,6 +220,10 @@
         {
           "type": "instagram",
           "posts": [
+            {
+              "image": "/media/image-asset-61b88e46.jpg",
+              "alt": ""
+            },
             {
               "href": "https://www.instagram.com/p/DBwQ4GnMAQ2/",
               "image": "/media/image-asset-e2f76aa6.jpg",
@@ -259,6 +290,10 @@
     {
       "id": "6722075836898f06ac03da15",
       "verticalAlign": "center",
+      "divider": {
+        "path": "M0, 0.865 l0,0 c0,0.10125 0.014998372395833334,0.135 0.05999348958333333,0.135 h0.8800130208333333 c0.044995117187499996,0 0.05999348958333333,-0.03375 0.05999348958333333,-0.135 l0,0 L1, -1 L0, -1 z",
+        "height": "6vw"
+      },
       "theme": "bright-inverse",
       "grid": {
         "mobile": {
@@ -344,6 +379,10 @@
     {
       "id": "672206c01d3a4805c04b658d",
       "verticalAlign": "center",
+      "divider": {
+        "path": "M-1, 0.881 L-1, 1 l0,0 l0.5,-0.119 l0.5,0.119l0,0 l0.5,-0.119 l0.5,0.119l0,0 l0.5,-0.119 l0.5,0.119 L1, -1 L0, -1 z",
+        "height": "6vw"
+      },
       "theme": "bright",
       "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {
@@ -387,8 +426,14 @@
           "formId": "672206c01d3a4805c04b6587",
           "fields": [
             {
-              "label": "Name",
-              "name": "name",
+              "label": "First Name",
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "label": "Last Name",
+              "name": "last_name",
               "type": "text",
               "required": true
             },

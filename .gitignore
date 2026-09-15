@@ -20,3 +20,6 @@ archive/raw/
 
 # Video re-encode markers (build state, not output)
 archive/video-optimised/
+
+# Copied from node_modules by scripts/vendor-dashboard-libs.mjs on every build.
+public/dashboard-app/vendor/

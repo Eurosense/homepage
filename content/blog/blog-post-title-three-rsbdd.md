@@ -4,6 +4,8 @@ slug: blog-post-title-three-rsbdd
 date: 2019-03-11T17:05:52.034Z
 excerpt: It all begins with an idea.
 image: /media/20140301_Trade-151_0124-copy-d15b89b5.jpg
+imageWidth: 1800
+imageHeight: 1145
 imageAlt: Blog Post Title Three
 author: Joe Clemente
 sourceUrl: https://www.eurosense.eu/blog/blog-post-title-three-rsbdd

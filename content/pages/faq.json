@@ -48,17 +48,21 @@
           "items": [
             {
               "title": "How is the Sense Maker used for democratic innovation?",
-              "markdown": "With SenseMaker®, we can create deeper, more inclusive, and more far-reaching engagement to advance our democracies. We use real-time feedback to create more strategic and evidence-informed decision making. We empower citizens and communities to co-create on a local scale so they can rewrite the global story.\n\nSenseMaker® allows us to hear ordinary peoples’ stories. In understanding their dinner-table conversations; their experiences, observations, and perceptions, we can decode the patterns that are really driving behaviours and attitudes. The stories we tell are a fundamental patterning device through which we understand the world and, therefore, capturing these stories and underpinning them with quantitative data creates contextualised insights into what is happening and why, from country to community level at any given time.\n\nThe power of interpretation always remains with the person who told the story; they decide what it means (self-signification) by completing quantitative questions about their story. This contrasts with the traditional questionnaires and qualitative studies, in which participants often feel they need to give the ‘right answer’ and the data is mediated by experts or researchers.\n\nOur approach democratises the process, reveals unexpected insights decision-makers weren’t even looking for (in complexity theory, this is called ‘unknown unknowns’), and prevents misunderstanding due to context, experience, and/or language – we start with exploring, not with assuming.\n\n  \n\n**Based on 20 years of research and situated learning, it is the world’s first scalable ethnographic research tool.**\n\n  \n\nSenseMaker® can empower citizens to become experts and problem solvers in their own communities. The insights gained from SenseMaker® can not only inform intervention design, implementation, and when action should be taken, but also enables these steps to be taken in collaboration with communities. SenseMaker®’s capability to create a tailored approach to policy formation and evaluation enables accommodation of a diversity of needs across different / differing contexts. We use real-time feedback to create more strategic and evidence-informed decision-making."
+              "markdown": "With SenseMaker®, we can create deeper, more inclusive, and more far-reaching engagement to advance our democracies. We use real-time feedback to create more strategic and evidence-informed decision making. We empower citizens and communities to co-create on a local scale so they can rewrite the global story.\n\nSenseMaker® allows us to hear ordinary peoples’ stories. In understanding their dinner-table conversations; their experiences, observations, and perceptions, we can decode the patterns that are really driving behaviours and attitudes. The stories we tell are a fundamental patterning device through which we understand the world and, therefore, capturing these stories and underpinning them with quantitative data creates contextualised insights into what is happening and why, from country to community level at any given time.\n\nThe power of interpretation always remains with the person who told the story; they decide what it means (self-signification) by completing quantitative questions about their story. This contrasts with the traditional questionnaires and qualitative studies, in which participants often feel they need to give the ‘right answer’ and the data is mediated by experts or researchers.\n\nOur approach democratises the process, reveals unexpected insights decision-makers weren’t even looking for (in complexity theory, this is called ‘unknown unknowns’), and prevents misunderstanding due to context, experience, and/or language – we start with exploring, not with assuming.\n\n  \n\n**Based on 20 years of research and situated learning, it is the world’s first scalable ethnographic research tool.**\n\n  \n\nSenseMaker® can empower citizens to become experts and problem solvers in their own communities. The insights gained from SenseMaker® can not only inform intervention design, implementation, and when action should be taken, but also enables these steps to be taken in collaboration with communities. SenseMaker®’s capability to create a tailored approach to policy formation and evaluation enables accommodation of a diversity of needs across different / differing contexts. We use real-time feedback to create more strategic and evidence-informed decision-making.",
+              "large": true
             },
             {
               "title": "How is the Sense Maker different from a standard survey?",
-              "markdown": "•  In standard surveys respondents offer their opinions or answer based on their beliefs about their values. This is risky; what people believe drives them is often quite different from what _actually_ drives them. By contrast, SenseMaker respondents describe a _real_ experience. For example, a well-known coffee company found that their survey data differed radically from their sales data: customers said they liked espressos, but in reality ordered flat whites. Collecting stories about peoples’ actual experiences with a product, organisation, workplace or community yields far more reliable data.\n\n•  In surveys people will often say what they believe their interviewer wants to hear ([‘social desirability bias’](https://en.wikipedia.org/wiki/Social_desirability_bias)). SenseMaker questionnaires eliminate this risk by beginning with a prompt or inquiry that is open-ended. Additionally, whereas surveys test existing theories, SenseMaker provides a system-wide perspective and may radically shift understanding of a problem.\n\n•  Lastly, ‘messy’ qualitative data from surveys must be categorised to make it easier to filter and examine. Researchers thus interpret the meaning of the responses themselves, and invariably introduce unintentional biases. With SenseMaker, respondents perform the initial interpretation task themselves. Because they clarify the meaning of their own stories, the resulting data is more credible. In addition, we first examine patterns emerging from the SenseMaker data, only then do we read any stories."
+              "markdown": "•  In standard surveys respondents offer their opinions or answer based on their beliefs about their values. This is risky; what people believe drives them is often quite different from what _actually_ drives them. By contrast, SenseMaker respondents describe a _real_ experience. For example, a well-known coffee company found that their survey data differed radically from their sales data: customers said they liked espressos, but in reality ordered flat whites. Collecting stories about peoples’ actual experiences with a product, organisation, workplace or community yields far more reliable data.\n\n•  In surveys people will often say what they believe their interviewer wants to hear ([‘social desirability bias’](https://en.wikipedia.org/wiki/Social_desirability_bias)). SenseMaker questionnaires eliminate this risk by beginning with a prompt or inquiry that is open-ended. Additionally, whereas surveys test existing theories, SenseMaker provides a system-wide perspective and may radically shift understanding of a problem.\n\n•  Lastly, ‘messy’ qualitative data from surveys must be categorised to make it easier to filter and examine. Researchers thus interpret the meaning of the responses themselves, and invariably introduce unintentional biases. With SenseMaker, respondents perform the initial interpretation task themselves. Because they clarify the meaning of their own stories, the resulting data is more credible. In addition, we first examine patterns emerging from the SenseMaker data, only then do we read any stories.",
+              "large": true
             },
             {
               "title": "Are there successful Use Cases of the Sense Maker approach?",
-              "markdown": "Since its launch in 2004, SenseMaker’s anthro-complexity approach has made an impact in business, government, development and research sectors around the world. You can find more about the Use Cases [here](https://thecynefin.co/use_cases/)"
+              "markdown": "Since its launch in 2004, SenseMaker’s anthro-complexity approach has made an impact in business, government, development and research sectors around the world. You can find more about the Use Cases [here](https://thecynefin.co/use_cases/)",
+              "large": true
             }
           ],
+          "expandFirst": true,
           "layout": {
             "mobile": {
               "area": "6/2/63/10",
@@ -97,19 +101,23 @@
           "items": [
             {
               "title": "How is the SenseMaker data stored and can it easily be used for communication?",
-              "markdown": "The data is fully encrypted and stored on a secure server in Ireland. We can access that data using various tools. We can use the narratives for deeper understanding, driving innovation or transformation, setting strategic direction, or advocacy purposes."
+              "markdown": "The data is fully encrypted and stored on a secure server in Ireland. We can access that data using various tools. We can use the narratives for deeper understanding, driving innovation or transformation, setting strategic direction, or advocacy purposes.",
+              "large": true
             },
             {
               "title": "Why do people need to provide country, gender and age?",
-              "markdown": "This information is linked to the story, so that we can compare it to other stories. We expect differences between countries, men and women, and young and old. By providing this information we are able to understand, if differences indeed exist or not."
+              "markdown": "This information is linked to the story, so that we can compare it to other stories. We expect differences between countries, men and women, and young and old. By providing this information we are able to understand, if differences indeed exist or not.",
+              "large": true
             },
             {
               "title": "Can the story be collected in all languages?",
-              "markdown": "Volt chapter teams, Polca or Community teams, must make a financial commitment (100-200 Euro) to have the collector available in their own language. **_Alternatively,_** they can collect the story using a paper version. In either case, we must translate the stories, because that option is not yet available in the collector."
+              "markdown": "Volt chapter teams, Polca or Community teams, must make a financial commitment (100-200 Euro) to have the collector available in their own language. **_Alternatively,_** they can collect the story using a paper version. In either case, we must translate the stories, because that option is not yet available in the collector.",
+              "large": true
             },
             {
               "title": "Who will have access to the stories and the data?",
-              "markdown": "The anonymised data will be openly available for anyone to use. This way, researchers or other organisations can make their own interpretations of the data which we will ultimately all benefit from."
+              "markdown": "The anonymised data will be openly available for anyone to use. This way, researchers or other organisations can make their own interpretations of the data which we will ultimately all benefit from.",
+              "large": true
             }
           ],
           "layout": {
@@ -150,27 +158,33 @@
           "items": [
             {
               "title": "Who designed the questions?",
-              "markdown": "The questionnaire was designed by the core team of Volt Sense with extensive help and advice from researchers from the Cynefin company - the one that designed the software. The design of the signifiers was based on research about polarisatio triggers (e.g. migration)"
+              "markdown": "The questionnaire was designed by the core team of Volt Sense with extensive help and advice from researchers from the Cynefin company - the one that designed the software. The design of the signifiers was based on research about polarisatio triggers (e.g. migration)",
+              "large": true
             },
             {
               "title": "How to collect the stories/narratives?",
-              "markdown": "There are several options. Stories can be collected in any browser on computer or mobile. Capture can also be done via the app (available for both Android and IOS)."
+              "markdown": "There are several options. Stories can be collected in any browser on computer or mobile. Capture can also be done via the app (available for both Android and IOS).",
+              "large": true
             },
             {
               "title": "How many responses do you need for narrative research?",
-              "markdown": "To get useful information you need a minimum sample of about 100 stories but we may collect as many as 5,000 narratives or more to build a true database of cross-border European Citizens Sensor Network."
+              "markdown": "To get useful information you need a minimum sample of about 100 stories but we may collect as many as 5,000 narratives or more to build a true database of cross-border European Citizens Sensor Network.",
+              "large": true
             },
             {
               "title": "What happens to the story after being collected?",
-              "markdown": "Each story is anonymous and cannot be traced back to the person who shared it. It is stored on a secure server in Ireland."
+              "markdown": "Each story is anonymous and cannot be traced back to the person who shared it. It is stored on a secure server in Ireland.",
+              "large": true
             },
             {
               "title": "What are signifiers?",
-              "markdown": "With signifiers, people can give added layers of meaning to the experience they shared. The signifiers enable us to quantify and compare the stories. There are different types of signifiers:\n\n  \n\n-   A scale of 1-5: for instance my experience was very common (1) one off (5)\n    \n-   A diad: People choose between two dualistic propositions that may apply to their story."
+              "markdown": "With signifiers, people can give added layers of meaning to the experience they shared. The signifiers enable us to quantify and compare the stories. There are different types of signifiers:\n\n  \n\n-   A scale of 1-5: for instance my experience was very common (1) one off (5)\n    \n-   A diad: People choose between two dualistic propositions that may apply to their story.",
+              "large": true
             },
             {
               "title": "Are the stories analysed with AI?",
-              "markdown": "No. The stories are analysed by people themselves. They reflect on what their story is about using a series of “signifiers”. This type of reflection has shown to make people more open to the experiences of others, which is essential for democracy.\n\nSensemaking of all the stories put together is based on the interpretation that people have given to their story (so not by “experts”), and happens with augmented human intelligence. This is a form of _epistemic justice_: the interpretation of the story is in the hands of the people."
+              "markdown": "No. The stories are analysed by people themselves. They reflect on what their story is about using a series of “signifiers”. This type of reflection has shown to make people more open to the experiences of others, which is essential for democracy.\n\nSensemaking of all the stories put together is based on the interpretation that people have given to their story (so not by “experts”), and happens with augmented human intelligence. This is a form of _epistemic justice_: the interpretation of the story is in the hands of the people.",
+              "large": true
             }
           ],
           "layout": {

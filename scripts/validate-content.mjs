@@ -92,7 +92,12 @@ const block = z.discriminatedUnion('type', [
   }),
   z.object({
     type: z.literal('accordion'),
-    items: z.array(z.object({ title: z.string(), markdown: z.string() })).min(1),
+    items: z
+      .array(
+        z.object({ title: z.string(), markdown: z.string(), large: z.boolean().optional() }),
+      )
+      .min(1),
+    expandFirst: z.boolean().optional(),
   }),
   z.object({ type: z.literal('gallery'), html: z.string() }),
   z.object({ type: z.literal('summary-v2'), html: z.string() }),
@@ -102,6 +107,8 @@ const block = z.discriminatedUnion('type', [
       .array(
         z.object({
           image: mediaPath.optional(),
+          imageWidth: z.number().optional(),
+          imageHeight: z.number().optional(),
           alt: z.string().optional(),
           title: z.string().optional(),
           description: z.string().optional(),
@@ -117,12 +124,29 @@ const block = z.discriminatedUnion('type', [
     title: z.string().min(1),
     href: z.string().min(1),
     driveId: z.string().optional(),
+    sourceHref: z.string().optional(),
     kind: z.enum(['pdf', 'drive', 'spreadsheet']),
+    description: z.string().optional(),
+  }),
+  z.object({
+    type: z.literal('shape'),
+    shape: z.string(),
+    fill: z.string(),
+  }),
+  z.object({
+    type: z.literal('search'),
+    placeholder: z.string(),
+  }),
+  z.object({
+    type: z.literal('socialLinks'),
+    links: z.array(z.object({ href: z.string(), label: z.string() })).min(1),
   }),
   z.object({
     type: z.literal('instagram'),
     posts: z
-      .array(z.object({ href: z.string(), image: mediaPath, alt: z.string().optional() }))
+      .array(
+        z.object({ href: z.string().optional(), image: mediaPath, alt: z.string().optional() }),
+      )
       .min(1),
   }),
 ])
@@ -138,7 +162,16 @@ const placement = z
 
 const positioned = z.intersection(
   block,
-  z.object({ layout: z.object({ mobile: placement, desktop: placement }).optional() }),
+  z.object({
+    layout: z.object({ mobile: placement, desktop: placement }).optional(),
+    surface: z
+      .object({
+        background: z.string().optional(),
+        radius: z.string().optional(),
+        padding: z.string().optional(),
+      })
+      .optional(),
+  }),
 )
 
 const page = z.object({
@@ -153,6 +186,7 @@ const page = z.object({
       verticalAlign: z.enum(['start', 'center', 'end']).optional(),
       theme: z.string().optional(),
       background: mediaPath.optional(),
+      divider: z.object({ path: z.string().min(1), height: z.string().min(1) }).optional(),
       grid: z.record(z.string(), z.unknown()).optional(),
       blocks: z.array(positioned),
     }),

@@ -4,6 +4,8 @@ slug: how-can-the-sense-maker-help-in-vuca-environments-and-the-use-of-metaphors
 date: 2024-11-20T10:02:53.652Z
 excerpt: "We live in challenging times, characterized by Volatility, Uncertainty, Complexity and Ambiguity. 😵‍💫   The recent election of Trump will contribute to those type of political environments all around us.   Politicians and citizens will need an innovative and powerful approach to navigate through and build on future resilience."
 image: /media/VUCA-f21cc583.png
+imageWidth: 1280
+imageHeight: 720
 imageAlt: "How can the Sense Maker help in VUCA environments and the use of metaphors?"
 author: Ina Dimitrieva
 sourceUrl: https://www.eurosense.eu/blognews/how-can-the-sense-maker-help-in-vuca-environments-and-the-use-of-metaphors

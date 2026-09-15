@@ -188,6 +188,10 @@
     {
       "id": "671f8fdaeefc084a7a98bb5f",
       "verticalAlign": "center",
+      "divider": {
+        "path": "M-1, 0.865 L-1, 1 l0,0 l0.5,-0.135 l0.5,0.135l0,0 l0.5,-0.135 l0.5,0.135l0,0 l0.5,-0.135 l0.5,0.135 L1, -1 L0, -1 z",
+        "height": "6vw"
+      },
       "theme": "light",
       "background": "/media/Back3_Mesa-de-trabajo-1-d915626f.png",
       "grid": {
@@ -231,8 +235,14 @@
           "formId": "671f8fdaeefc084a7a98bb59",
           "fields": [
             {
-              "label": "Name",
-              "name": "name",
+              "label": "First Name",
+              "name": "first_name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "label": "Last Name",
+              "name": "last_name",
               "type": "text",
               "required": true
             },

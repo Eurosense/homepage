@@ -4,6 +4,8 @@ slug: tackling-europes-democratic-blind-spots-with-citizen-driven-insights
 date: 2024-12-12T15:10:06.279Z
 excerpt: "European democracy has many faces. Everyone talks about it, but no one can really define it. It is a concept understood and experienced so differently that there is no single, straightforward definition of it. Nor are the ways to protect and promote it.   But what exactly is democracy? Do you know?   There are so many blind spots, as this year's report from the European Democracy Hub shows. Our Sense Maker can already provide some insights into how European citizens experience and understand democracy through metaphors."
 image: /media/Cover-for-Citizen-Driver-ba51f198.png
+imageWidth: 1280
+imageHeight: 720
 imageAlt: "Tackling Europe’s Democratic Blind Spots with Citizen-Driven Insights"
 author: Ina Dimitrieva
 sourceUrl: https://www.eurosense.eu/blognews/tackling-europes-democratic-blind-spots-with-citizen-driven-insights

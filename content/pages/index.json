@@ -225,43 +225,55 @@
       "blocks": [
         {
           "type": "richText",
-          "html": "<p style=\"white-space:pre-wrap;\">Our Partners</p>"
+          "html": "<h2 style=\"text-align:center\"><span class=\"sqsrte-text-color--lightAccent\">Our Partners</span></h2>"
         },
         {
           "type": "list",
           "items": [
             {
               "image": "/media/Charge-logo-NL-purple-klein-048ec3a7.png",
+              "imageWidth": 340,
+              "imageHeight": 135,
               "alt": "",
               "title": "",
               "description": ""
             },
             {
               "image": "/media/Copy-of-IMPETUS-Logo-Horizontal--1--860a6d61.png",
+              "imageWidth": 2480,
+              "imageHeight": 907,
               "alt": "",
               "title": "",
               "description": ""
             },
             {
               "image": "/media/CP-horizontal-logo-RGB-color--1--09f36ec8.png",
+              "imageWidth": 2000,
+              "imageHeight": 866,
               "alt": "",
               "title": "",
               "description": ""
             },
             {
               "image": "/media/IFIS-Logo-2.10-transparent-b558bd8a.png",
+              "imageWidth": 1113,
+              "imageHeight": 403,
               "alt": "",
               "title": "",
               "description": ""
             },
             {
               "image": "/media/EN_FundedbytheEU_RGB_Monochrome-051fad56.png",
+              "imageWidth": 4125,
+              "imageHeight": 920,
               "alt": "",
               "title": "",
               "description": ""
             },
             {
               "image": "/media/Untitled-design-5886b596.png",
+              "imageWidth": 500,
+              "imageHeight": 500,
               "alt": "",
               "title": "",
               "description": ""
@@ -329,6 +341,11 @@
         {
           "type": "richText",
           "html": "<div><p class=\"sqsrte-large\" style=\"white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\">Democracy begins with listening. Eurosense makes sure every voice counts</span></p></div>",
+          "surface": {
+            "background": "hsla(51.43, 19%, 93%, 1)",
+            "radius": "16px 16px 16px 16px",
+            "padding": "3% 3% 3% 3%"
+          },
           "layout": {
             "mobile": {
               "area": "12/2/15/10",
@@ -383,6 +400,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>01</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "16/2/18/3",
@@ -437,6 +459,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>02</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "21/2/23/3",
@@ -491,6 +518,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>03</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "25/2/27/3",
@@ -531,6 +563,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>02</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "1/2/3/3",
@@ -683,6 +720,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>04</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "29/2/31/3",
@@ -759,6 +801,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>01</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "51/2/53/3",
@@ -835,6 +882,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>03</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "65/2/67/3",
@@ -891,6 +943,10 @@
     {
       "id": "690b2eb35b03133f64d40f30",
       "verticalAlign": "center",
+      "divider": {
+        "path": "M2, 0.819 L2, 0.819 l0,0 l-1,0.181 l0,-0.181l0,0 l-1,0.181 l0,-0.181l0,0 l-1,0.181 l0,-0.181 L-1, -1 L2, -1 z",
+        "height": "12vw"
+      },
       "theme": "white",
       "grid": {
         "mobile": {
@@ -1001,6 +1057,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>01</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "19/2/21/3",
@@ -1055,6 +1116,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>02</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "25/2/27/3",
@@ -1109,6 +1175,11 @@
         {
           "type": "richText",
           "html": "<div><p style=\"text-align:center; white-space:pre-wrap;\"><span class=\"sqsrte-text-color--lightAccent\"><strong>03</strong></span></p></div>",
+          "surface": {
+            "background": "hsl(0 0% 100% / 1)",
+            "radius": "999px 999px 999px 999px",
+            "padding": "12% 12% 12% 12%"
+          },
           "layout": {
             "mobile": {
               "area": "31/2/33/3",
@@ -1514,6 +1585,8 @@
           "items": [
             {
               "image": "/media/Primary-Analysis-Report-70650a03.png",
+              "imageWidth": 512,
+              "imageHeight": 298,
               "alt": "Reimagining Democracy: EuroSense Pilot Project Results Are Here!",
               "title": "Reimagining Democracy: EuroSense Pilot Project Results Are Here!",
               "description": "We are thrilled to announce the release of the 𝗘𝘂𝗿𝗼𝗦𝗲𝗻𝘀𝗲 𝗣𝗿𝗶𝗺𝗮𝗿𝘆 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀 𝗥𝗲𝗽𝗼𝗿𝘁, a groundbreaking initiative powered by Volt Europa and driven by citizen scientists across Europe. This report represents one step forward to understanding polarization, empowering citizens, and building a more inclusive democratic society. Read more here…",
@@ -1523,6 +1596,8 @@
             },
             {
               "image": "/media/Cover-for-Citizen-Driver-ba51f198.png",
+              "imageWidth": 1280,
+              "imageHeight": 720,
               "alt": "",
               "title": "Tackling Europe’s Democratic Blind Spots with Citizen-Driven Insights",
               "description": "European democracy has many faces. Everyone talks about it, but no one can really define it. It is a concept understood and experienced so differently that there is no single, straightforward definition of it. Nor are the ways to protect and promote it.  \nBut what exactly is democracy? Do you know?  \nThere are so many blind spots, as this year's report from the European Democracy Hub shows. Our Sense Maker can already provide some insights into how European citizens experience and understand democracy through metaphors.",
@@ -1530,6 +1605,8 @@
             },
             {
               "image": "/media/VUCA-f21cc583.png",
+              "imageWidth": 1280,
+              "imageHeight": 720,
               "alt": "",
               "title": "How can the Sense Maker help in VUCA environments and the use of metaphors?",
               "description": "We live in challenging times, characterized by Volatility, Uncertainty, Complexity and Ambiguity. 😵‍💫  \nThe recent election of Trump will contribute to those type of political environments all around us.  \nPoliticians and citizens will need an innovative and powerful approach to navigate through and build on future resilience.",
@@ -1537,6 +1614,8 @@
             },
             {
               "image": "/media/Boy-with-Mic-3d40ccca.png",
+              "imageWidth": 1280,
+              "imageHeight": 720,
               "alt": "",
               "title": "Bridging Citizens and Policymakers: How SenseMaker Enhances Democratic Participation",
               "description": "In a democracy, meaningful engagement between citizens and their representatives is crucial for effective and inclusive policymaking. In a **healthy** democracy, citizens need a voice in shaping policies that impact their lives. This requires tools that not only gather their opinions but also capture the complexities, emotions, and stories behind them.\n\nWhile **Traditional Surveys** have long been used for gathering public opinion, they can fall short in capturing the full picture, particularly in complex or nuanced situations.",

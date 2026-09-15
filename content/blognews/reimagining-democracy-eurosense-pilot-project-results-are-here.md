@@ -4,6 +4,8 @@ slug: reimagining-democracy-eurosense-pilot-project-results-are-here
 date: 2025-04-10T12:06:06.324Z
 excerpt: "We are thrilled to announce the release of the 𝗘𝘂𝗿𝗼𝗦𝗲𝗻𝘀𝗲 𝗣𝗿𝗶𝗺𝗮𝗿𝘆 𝗔𝗻𝗮𝗹𝘆𝘀𝗶𝘀 𝗥𝗲𝗽𝗼𝗿𝘁, a groundbreaking initiative powered by Volt Europa and driven by citizen scientists across Europe. This report represents one step forward to understanding polarization, empowering citizens, and building a more inclusive democratic society. Read more here…"
 image: /media/Primary-Analysis-Report-70650a03.png
+imageWidth: 512
+imageHeight: 298
 imageAlt: "Reimagining Democracy: EuroSense Pilot Project Results Are Here!"
 author: Ina Dimitrieva
 sourceUrl: https://www.eurosense.eu/blognews/reimagining-democracy-eurosense-pilot-project-results-are-here

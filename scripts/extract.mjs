@@ -36,6 +36,18 @@ const FILES = path.join(ROOT, 'public', 'files')
 /** Collections whose items are fetched via the JSON API instead of scraped. */
 const COLLECTIONS = ['blognews', 'blog', 'events', 'resources/multimedia']
 
+/*
+ * Section-divider shapes, measured from the live site by scripts/capture-dividers.mjs.
+ *
+ * These cannot be scraped: Squarespace ships `d="M0,0"` in the HTML and computes
+ * the real clip path in the browser, so the snapshots in archive/raw/ do not
+ * contain the shape. The file is committed because once the subscription lapses
+ * there is nowhere left to measure it from.
+ */
+const dividerShapes = existsSync(path.join(ROOT, 'archive', 'dividers.json'))
+  ? JSON.parse(readFileSync(path.join(ROOT, 'archive', 'dividers.json'), 'utf8'))
+  : {}
+
 /** Written by scripts/fetch-videos.mjs; maps a Squarespace video id to a local file. */
 const videoManifest = existsSync(path.join(ROOT, 'archive', 'videos.json'))
   ? JSON.parse(readFileSync(path.join(ROOT, 'archive', 'videos.json'), 'utf8'))
@@ -173,10 +185,49 @@ function htmlToMarkdown(html) {
  * public/dashboard-app/, so pointing at it locally keeps the page identical and
  * removes the round trip. See README for how its data is refreshed.
  */
-const EMBED_REWRITES = [[/https?:\/\/medibunny\.github\.io\/Eurosense\/?/g, '/dashboard-app/']]
+const EMBED_REWRITES = [
+  [/https?:\/\/medibunny\.github\.io\/Eurosense\/?/g, '/dashboard-app/'],
+  /*
+   * The /eurosensers map pulls Highmaps from Highcharts' CDN. That is a
+   * third-party connection on page load, and the identical file is already
+   * vendored for the dashboard by scripts/vendor-dashboard-libs.mjs, so point
+   * the embed at that copy. Rewriting it here rather than in content/pages/
+   * matters: extract:parse regenerates those files and would drop a hand edit.
+   */
+  [
+    /https?:\/\/code\.highcharts\.com\/maps\/highmaps\.js/g,
+    '/dashboard-app/vendor/highmaps.js',
+  ],
+  [
+    /https?:\/\/code\.highcharts\.com\/mapdata\/custom\/europe\.topo\.json/g,
+    '/dashboard-app/vendor/europe.topo.json',
+  ],
+]
 
 function rewriteEmbedUrls(html) {
   return EMBED_REWRITES.reduce((acc, [from, to]) => acc.replace(from, to), html)
+}
+
+/*
+ * Google Drive is linked in several shapes on this site. Sharing a file gives
+ * `/file/d/{id}/view`, but the "Download" affordance next to it produces
+ * `drive.usercontent.google.com/download?id={id}`, and older links use
+ * `uc?id=`. Matching only the first shape left one publication as prose while
+ * its neighbours became embedded viewers.
+ */
+function driveIdFrom(href) {
+  return (
+    href.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/)?.[1] ??
+    href.match(
+      /drive(?:\.usercontent)?\.google\.com\/(?:uc|open|download)\?[^#]*\bid=([A-Za-z0-9_-]+)/,
+    )?.[1]
+  )
+}
+
+const DOC_LINK_RE = /\.pdf($|[?#])|\.xlsx($|[?#])/i
+
+function isDocumentLink(href) {
+  return Boolean(driveIdFrom(href)) || DOC_LINK_RE.test(href)
 }
 
 /**
@@ -188,8 +239,6 @@ function rewriteEmbedUrls(html) {
  * cite a PDF stays prose, because replacing it with a viewer would lose the
  * surrounding text.
  */
-const DOC_LINK_RE = /drive\.google\.com\/file\/d\/|\.pdf($|[?#])|\.xlsx($|[?#])/i
-
 function asDocumentBlock(html) {
   const $ = cheerio.load(`<div id="__root">${html}</div>`)
   const text = $('#__root').text().replace(/\s+/g, ' ').trim()
@@ -198,18 +247,19 @@ function asDocumentBlock(html) {
   const links = $('#__root a[href]')
     .map((_i, a) => $(a).attr('href'))
     .get()
-    .filter((href) => DOC_LINK_RE.test(href))
+    .filter(isDocumentLink)
   if (!links.length) return null
 
   // Compare by document identity, not raw URL: the same Drive file is often
-  // linked twice on one line, once bare and once with ?usp=drive_link.
-  const identity = (href) =>
-    href.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/)?.[1] ?? href.split('?')[0]
+  // linked twice on one line, once bare and once with ?usp=drive_link, and the
+  // download URL for a file is a different URL for the same document.
+  const identity = (href) => driveIdFrom(href) ?? href.split('?')[0]
   const unique = [...new Set(links.map(identity))]
   if (unique.length !== 1) return null
 
-  const href = links[0]
-  const driveId = href.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/)?.[1]
+  // Prefer the shareable URL over a direct-download one so the viewer can frame it.
+  const href = links.find((l) => /\/file\/d\//.test(l)) ?? links[0]
+  const driveId = driveIdFrom(href)
 
   // The visible title is the text minus the trailing "Download" affordance.
   const title = text
@@ -301,6 +351,13 @@ function cleanHtml(html) {
   if (!html) return ''
   const $ = cheerio.load(`<div id="__root">${html}</div>`)
   $('style, noscript').remove()
+  /*
+   * `.sqs-blockStatus` is editor chrome — the "This block has no content yet"
+   * box Squarespace shows the author. It is hidden on the live site but there is
+   * nothing in the markup that says so, so kept verbatim it rendered that notice
+   * to visitors under "Upcoming and past events".
+   */
+  $('.sqs-blockStatus').remove()
   return ($('#__root').html() || '').trim()
 }
 
@@ -380,12 +437,90 @@ const BLOCK_KINDS = new Set([
   'summary-v2-block',
   'gallery-block',
   'instagram-block',
+  'social-account-links-block',
+  // Not suffixed `-block` like the rest; Squarespace names this one differently.
+  'sqs-block-search',
 ])
+
+/*
+ * Squarespace's palette, measured from the live site. Its colour names are
+ * inverted and cannot be reasoned about — `--black` is white and `--white` is
+ * the cream page background — so these are read values, not guesses.
+ */
+const SQSP_HSL = {
+  black: '0 0% 100%',
+  white: '51.43 33.33% 95.88%',
+  accent: '273.33 25.71% 27.45%',
+  lightAccent: '270.73 41.41% 19.41%',
+  darkAccent: '43.98 98.22% 55.88%',
+  safeLightAccent: '0 0% 100%',
+  safeDarkAccent: '273.33 25.71% 27.45%',
+}
+
+/** `hsla(var(--black-hsl), 0.72)` -> a colour a browser can use unaided. */
+function resolveSqspColor(value) {
+  const themed = value.match(/hsla\(\s*var\(--([a-zA-Z]+)-hsl\)\s*,\s*([\d.]+)\s*\)/)
+  if (themed) {
+    const hsl = SQSP_HSL[themed[1]]
+    return hsl ? `hsl(${hsl} / ${themed[2]})` : null
+  }
+  // Literal hsla() is already valid CSS.
+  return /^hsla?\(/.test(value.trim()) ? value.trim() : null
+}
+
+/**
+ * The background, corner radius and padding Squarespace paints on a block.
+ *
+ * Used 39 times across the site — most visibly the white pills behind the
+ * numbered steps on the homepage, which without this render as bare digits.
+ * The values live in a per-block `<style id="container-styles">`, as custom
+ * properties rather than plain declarations.
+ */
+function blockSurface($, $block) {
+  if (!($block.attr('class') || '').split(/\s+/).includes('sqs-background-enabled'))
+    return undefined
+
+  const css = $block.find('style#container-styles').html() || ''
+  if (!css) return undefined
+
+  const raw = css.match(/--tweak-[a-z-]*background-color:\s*([^;]+);/)?.[1]
+  const background = raw ? resolveSqspColor(raw) : null
+
+  const radius = css.match(/--tweak-[a-z-]*-radius:\s*([^;]+);/)?.[1]?.trim()
+  const padding = css.match(/--tweak-[a-z-]*-padding:\s*([^;]+);/)?.[1]?.trim()
+
+  const meaningfulRadius = radius && !/^(0px\s*)+$/.test(radius) ? radius : undefined
+  if (!background && !meaningfulRadius) return undefined
+
+  return {
+    background: background || undefined,
+    radius: meaningfulRadius,
+    padding: background ? padding : undefined,
+  }
+}
 
 /** Map a Squarespace block element to our own content model. */
 function parseBlock($, el) {
   const $el = $(el)
   const classes = ($el.attr('class') || '').split(/\s+/)
+
+  /*
+   * Shape blocks carry no `*-block` class at all, so the class-based lookup
+   * below never matched them and they were dropped as "website-component-block"
+   * in the unhandled report. They are not decoration: on /resources the three
+   * purple panels behind the Publications, Storyboards and Multimedia cards are
+   * shape blocks, and without them that page rendered gold text on bare cream.
+   */
+  if ($el.attr('data-sqsp-block') === 'shape') {
+    const $shape = $el.find('[data-shape-name]').first()
+    const css = $el.find('style').text()
+    const raw = css.match(/--shape-block-background-color:\s*([^;]+);/)?.[1]
+    const fill = raw ? resolveSqspColor(raw) : null
+    if (!fill) return null
+
+    return { type: 'shape', shape: $shape.attr('data-shape-name') || 'rectangle', fill }
+  }
+
   const kind = classes.find((c) => BLOCK_KINDS.has(c))
   const $content = $el.find('.sqs-block-content').first()
   const inner = $content.length ? $content : $el
@@ -516,15 +651,56 @@ function parseBlock($, el) {
       }
 
       const TYPES = { name: 'text', email: 'email', textarea: 'textarea', text: 'text' }
-      const fields = (config.formFields || []).map((f) => ({
-        label: String(f.title ?? ''),
-        name: String(f.title ?? '')
+      const slug = (label) =>
+        String(label)
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, '_')
-          .replace(/^_|_$/g, ''),
-        type: TYPES[f.type] || 'text',
-        required: Boolean(f.required),
-      }))
+          .replace(/^_|_$/g, '')
+
+      /*
+       * Two config field types render as more than one input, which is why the
+       * migrated forms were short of the originals:
+       *
+       *   `name`  -> First Name and Last Name, not one "Name" box.
+       *   `email` with `mailingList: true` -> the email box plus a "Sign up for
+       *           news and updates" tick. Losing it on /our-partners meant a
+       *           partner enquiry no longer offered to subscribe.
+       *
+       * The opt-in label is Squarespace's own wording, confirmed against the
+       * live page.
+       */
+      const fields = (config.formFields || []).flatMap((f) => {
+        const required = Boolean(f.required)
+        const title = String(f.title ?? '')
+
+        if (f.type === 'name') {
+          return [
+            { label: 'First Name', name: 'first_name', type: 'text', required },
+            { label: 'Last Name', name: 'last_name', type: 'text', required },
+          ]
+        }
+
+        const field = {
+          label: title,
+          name: slug(title),
+          type: TYPES[f.type] || 'text',
+          required,
+        }
+
+        if (f.type === 'email' && f.mailingList) {
+          return [
+            field,
+            {
+              label: 'Sign up for news and updates',
+              name: 'mailing_list',
+              type: 'checkbox',
+              required: false,
+            },
+          ]
+        }
+
+        return [field]
+      })
 
       return {
         type: 'form',
@@ -551,15 +727,32 @@ function parseBlock($, el) {
         .find('li.accordion-item')
         .map((_i, li) => {
           const $li = $(li)
+          const $description = $li.find('.accordion-item__description').first()
           return {
             title: $li.find('.accordion-item__title').first().text().trim(),
             markdown: htmlToMarkdown($li.find('.accordion-item__dropdown').first().html()),
+            // Squarespace's per-item text-size setting. On /faq every answer is
+            // set large, and rendering them at body size left the grid rows the
+            // author sized around the larger text half empty.
+            large: ($description.attr('class') || '').includes('sqsrte-large') || undefined,
           }
         })
         .get()
         .filter((item) => item.title || item.markdown)
 
-      return items.length ? { type: 'accordion', items } : null
+      /*
+       * Squarespace can start an accordion with its first answer already open,
+       * and the author sized the grid row around that. Rendering every item
+       * collapsed left the reserved rows empty — on /faq that was 1595px of
+       * blank page between two groups of questions.
+       */
+      const expandFirst =
+        inner.find('[data-is-expanded-first-item="true"]').length > 0 ||
+        $el.attr('data-is-expanded-first-item') === 'true'
+
+      return items.length
+        ? { type: 'accordion', items, expandFirst: expandFirst || undefined }
+        : null
     }
     case 'instagram-block': {
       /*
@@ -567,26 +760,69 @@ function parseBlock($, el) {
        * That markup relies on a slideshow script we do not ship, so the images
        * collapsed to a few pixels tall — present, but invisible.
        */
+      /*
+       * Driven off the images, not the links: the first tile in the feed has no
+       * anchor around it, so walking anchors silently dropped one post.
+       */
       const posts = inner
-        .find('a')
-        .map((_i, a) => {
-          const $a = $(a)
-          const $img = $a.find('img').first()
+        .find('img')
+        .map((_i, img) => {
+          const $img = $(img)
+          const $a = $img.closest('a')
           return {
-            href: $a.attr('href'),
+            href: $a.attr('href') || undefined,
             image: $img.attr('data-src') || $img.attr('src'),
             alt: $img.attr('alt') || '',
           }
         })
         .get()
-        .filter((post) => post.href && post.image)
+        .filter((post) => post.image)
 
       return posts.length ? { type: 'instagram', posts } : null
+    }
+    case 'sqs-block-search': {
+      /*
+       * Squarespace's search block queried its own hosted index, which goes away
+       * with the subscription. Only the placeholder is worth keeping; the
+       * searching itself is reimplemented client-side over the posts we hold.
+       */
+      const placeholder = inner.find('input[type="search"]').attr('placeholder') || 'Search'
+      return { type: 'search', placeholder }
+    }
+    case 'social-account-links-block': {
+      /*
+       * The icons are SVG <use> references into a Squarespace sprite sheet, so
+       * only the links survive extraction. The label is on the anchor, which is
+       * enough to pick an icon on our side.
+       */
+      const links = inner
+        .find('a[href]')
+        .map((_i, a) => ({
+          // Squarespace stored these as http://; every one of these platforms is
+          // HTTPS-only, so the plain-text hop is a redirect and a referrer leak.
+          href: ($(a).attr('href') || '').replace(/^http:\/\//i, 'https://'),
+          label: $(a).attr('aria-label') || '',
+        }))
+        .get()
+        .filter((link) => link.href && link.label)
+
+      return links.length ? { type: 'socialLinks', links } : null
     }
     case 'summary-v2-block':
     case 'gallery-block': {
       // Structured collections we render ourselves; keep raw so nothing is lost.
-      return { type: kind.replace('-block', ''), html: cleanHtml(inner.html()) }
+      const html = cleanHtml(inner.html())
+
+      /*
+       * A summary block bound to an empty collection still ships its own
+       * "Featured" header. Squarespace hides the block entirely in that case,
+       * and the events collection here has no items — so without this the
+       * migrated page showed a stray heading under "Upcoming and past events".
+       */
+      const hasItems = cheerio.load(html)('.summary-item').length > 0
+      if (kind === 'summary-v2-block' && !hasItems) return null
+
+      return { type: kind.replace('-block', ''), html }
     }
     default: {
       // Record the unmapped class so the gap shows up in the report rather than
@@ -922,8 +1158,14 @@ function parsePageHtml(html, urlPath) {
           const $button = $li
             .find('.list-item-content__button-container a, .list-item-content__button')
             .first()
+          // The real pixel size, so a logo strip can lay each mark out at its own
+          // aspect ratio instead of squeezing them all into one box.
+          const [iw, ih] = ($img.attr('data-image-dimensions') || '').split('x').map(Number)
+
           return {
             image: $img.attr('data-src') || $img.attr('src') || undefined,
+            imageWidth: Number.isFinite(iw) && iw > 0 ? iw : undefined,
+            imageHeight: Number.isFinite(ih) && ih > 0 ? ih : undefined,
             alt: $img.attr('alt') || '',
             title: $li
               .find('.list-item-content__title')
@@ -943,8 +1185,17 @@ function parsePageHtml(html, urlPath) {
         .filter((item) => item.image || item.title)
 
       if (items.length) {
-        // The section's own heading ("Our Partners") sits outside the items.
-        const title = cleanRichText($sec.find('.list-section-title').first())
+        /*
+         * The section's own heading ("Our Partners") sits outside the items, in
+         * a `div.list-section-title` that Squarespace styles as a centred h2 —
+         * 58px and bold at 1440. Carried through as a paragraph it rendered at
+         * body size, which is why it read as a stray label above the logos.
+         */
+        const title = cleanRichText($sec.find('.list-section-title').first())?.replace(
+          /^\s*<p[^>]*>([\s\S]*)<\/p>\s*$/,
+          // lightAccent is purple-deep — Squarespace's colour names are inverted.
+          '<h2 style="text-align:center"><span class="sqsrte-text-color--lightAccent">$1</span></h2>',
+        )
         sections.push({
           id: $sec.attr('data-section-id') || undefined,
           theme: $sec.attr('data-section-theme') || undefined,
@@ -983,6 +1234,9 @@ function parsePageHtml(html, urlPath) {
       if ($(b).parents('.sqs-block').length) return
       const parsed = parseBlock($, b)
       if (!parsed) return
+
+      const surface = blockSurface($, $(b))
+      if (surface) parsed.surface = surface
 
       // Carry the block's grid placement across, keyed by the fe-block class on
       // its wrapper. Without this the section collapses to a single column.
@@ -1039,10 +1293,18 @@ function parsePageHtml(html, urlPath) {
       heightClass?.replace('section-height--', '') ?? ''
     ]
 
+    const sectionId = $sec.attr('data-section-id') || undefined
+    const hasDivider = ($sec.attr('class') || '').split(/\s+/).includes('has-section-divider')
+    const divider = hasDivider && sectionId ? dividerShapes[sectionId] : undefined
+    if (hasDivider && !divider) {
+      report.failures.push(`section ${sectionId}: has a divider with no measured shape`)
+    }
+
     sections.push({
-      id: $sec.attr('data-section-id') || undefined,
+      id: sectionId,
       minHeight,
       verticalAlign,
+      divider: divider ? { path: divider.path, height: divider.height } : undefined,
       // The section theme decides background, heading, text and button colours.
       // Without it every section renders on the same background.
       theme: $sec.attr('data-section-theme') || undefined,

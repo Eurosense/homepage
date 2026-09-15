@@ -4,6 +4,8 @@ slug: blog-post-title-one-3cee7-xm3cb
 date: 2024-10-26T17:10:45.837Z
 excerpt: A model of citizen involvement in decision-making processes illustrates how much power citizens have when interacting with public authorities or institutions. Learn more about how sense making can contribute to democracy by putting citizens higher on the ladder.
 image: /media/ladder-81f119cd.jpg
+imageWidth: 1000
+imageHeight: 1000
 imageAlt: "Do you know where are you on the ladder?"
 author: Ina Dimitrieva
 sourceUrl: https://www.eurosense.eu/blognews/blog-post-title-one-3cee7-xm3cb

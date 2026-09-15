@@ -4,6 +4,8 @@ slug: qcoyq4u8vhuxj2zqy3efzfleufs344
 date: 2024-10-27T08:00:00.724Z
 excerpt: "Sense-making through abduction is a process that helps us interpret ambiguous or incomplete information by generating the most plausible explanations. Abductive reasoning guides us to make “best guesses” based on what we observe, even without full information. This makes abduction especially valuable in complex, real-world situations where straightforward answers are often unavailable."
 image: /media/abduction-post-19d827be.png
+imageWidth: 786
+imageHeight: 607
 imageAlt: How Abductive Reasoning Adds Ambiguity and Opens Possibilities
 author: Ina Dimitrieva
 sourceUrl: https://www.eurosense.eu/blognews/qcoyq4u8vhuxj2zqy3efzfleufs344

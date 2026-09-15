@@ -4,6 +4,8 @@ slug: how-the-sense-maker-can-tackle-democratic-injustice
 date: 2024-10-28T08:00:00.990Z
 excerpt: "In a democracy, everyone’s voice should matter, especially in decision-making. Epistemic injustice undermines this by excluding certain perspectives, weakening democratic values like equality and inclusivity."
 image: /media/epistemic-5c40c122.png
+imageWidth: 1280
+imageHeight: 720
 imageAlt: "How the Sense Maker can tackle democratic injustice?"
 author: Ina Dimitrieva
 sourceUrl: https://www.eurosense.eu/blognews/how-the-sense-maker-can-tackle-democratic-injustice

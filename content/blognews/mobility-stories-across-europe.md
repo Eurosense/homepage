@@ -4,6 +4,8 @@ slug: mobility-stories-across-europe
 date: 2026-05-05T07:01:12.668Z
 excerpt: A review of just 9 citizen stories on the topic of mobility and transport coming from 7 countries from across Europe reveals a striking regional divide, not simply in infrastructure quality, but in how people experience governance itself through transport.
 image: /media/pexels-julia-isanta-munoz-626361636-28799879-fad885e8.jpg
+imageWidth: 1800
+imageHeight: 1350
 imageAlt: "Mobility Stories Across Europe:  the North Optimizes while the South struggles to catch up"
 author: Oxana Yashchuk
 sourceUrl: https://www.eurosense.eu/blognews/mobility-stories-across-europe

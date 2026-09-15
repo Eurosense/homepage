@@ -4,6 +4,8 @@ slug: blog-post-title-four-x2rcm
 date: 2019-03-11T17:04:06.877Z
 excerpt: It all begins with an idea.
 image: /media/20140301_Trade-151_0124-copy-d15b89b5.jpg
+imageWidth: 1800
+imageHeight: 1145
 imageAlt: Blog Post Title Four
 author: Joe Clemente
 sourceUrl: https://www.eurosense.eu/blog/blog-post-title-four-x2rcm

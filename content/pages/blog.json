@@ -60,6 +60,24 @@
               "align": "flex-start"
             }
           }
+        },
+        {
+          "type": "search",
+          "placeholder": "Search",
+          "layout": {
+            "mobile": {
+              "area": "11/2/13/10",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "10/9/12/19",
+              "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
         }
       ]
     },

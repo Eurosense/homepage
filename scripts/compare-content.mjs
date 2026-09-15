@@ -65,6 +65,14 @@ function visibleText(html) {
   $('footer, #footer, #header, .sqs-announcement-bar').remove()
   $('body > header, body > nav').remove()
 
+  /*
+   * Squarespace's editor chrome — the "This block has no content yet" notice on
+   * a block bound to an empty collection. It is invisible on the live site and
+   * deliberately dropped during extraction, so counting it as missing content
+   * reports a difference on every run and trains the reader to ignore output.
+   */
+  $('.sqs-blockStatus').remove()
+
   return $('body').text()
 }
 

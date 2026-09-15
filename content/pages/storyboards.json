@@ -25,8 +25,10 @@
       },
       "blocks": [
         {
-          "type": "richText",
-          "html": "<div><p style=\"white-space:pre-wrap;\"><a target=\"_blank\" href=\"https://drive.usercontent.google.com/download?id=1pXEW9o1rtG2p-87F5uCmWoGxgNwlnlrL\"><span class=\"sqsrte-text-color--darkAccent\"><strong>Storyboard of Charge DI stories.</strong></span><span class=\"sqsrte-text-color--accent\"><strong>&nbsp;&nbsp;</strong>Download</span></a></p></div>",
+          "type": "document",
+          "title": "Storyboard of Charge DI stories",
+          "href": "/files/storyboard-of-charge-di-stories-1pXEW9o1.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "1/2/3/10",
@@ -40,7 +42,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.usercontent.google.com/download?id=1pXEW9o1rtG2p-87F5uCmWoGxgNwlnlrL"
         },
         {
           "type": "richText",
@@ -63,9 +66,8 @@
         {
           "type": "document",
           "title": "Storyboard Eurosense Training 28.04.2026",
-          "href": "https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing",
-          "driveId": "1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG",
-          "kind": "drive",
+          "href": "/files/storyboard-eurosense-training-28-04-2026-1LuVb6l6.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "5/2/7/10",
@@ -79,7 +81,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1LuVb6l6PMbhdi8Oj37xysD1xIyDjzzqG/view?usp=sharing"
         },
         {
           "type": "richText",
@@ -102,9 +105,8 @@
         {
           "type": "document",
           "title": "Storyboard Reflections of a Volter 15.04.2026",
-          "href": "https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link",
-          "driveId": "1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F",
-          "kind": "drive",
+          "href": "/files/storyboard-reflections-of-a-volter-15-04-2026-1ICAiadn.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "9/2/11/10",
@@ -118,7 +120,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1ICAiadnsTYjZR9uGLIcX4Du1O0ADMz9F/view?usp=drive_link"
         },
         {
           "type": "richText",
@@ -141,9 +144,8 @@
         {
           "type": "document",
           "title": "Storyboard Cca and Climate 08.05.2026",
-          "href": "https://drive.google.com/file/d/1se-Cmx3EBkhWdcBUwqWTc8GYQuE6XgqV/view?usp=sharing",
-          "driveId": "1se-Cmx3EBkhWdcBUwqWTc8GYQuE6XgqV",
-          "kind": "drive",
+          "href": "/files/storyboard-cca-and-climate-08-05-2026-1se-Cmx3.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "13/2/15/10",
@@ -157,7 +159,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1se-Cmx3EBkhWdcBUwqWTc8GYQuE6XgqV/view?usp=sharing"
         },
         {
           "type": "richText",
@@ -180,9 +183,8 @@
         {
           "type": "document",
           "title": "Storyboard Housing across Europe 12.05.2026",
-          "href": "https://drive.google.com/file/d/1-BXHlXtbvlSkUZI2rsN3kAVGnI9jQaeU",
-          "driveId": "1-BXHlXtbvlSkUZI2rsN3kAVGnI9jQaeU",
-          "kind": "drive",
+          "href": "/files/storyboard-housing-across-europe-12-05-2026-1-BXHlXt.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "17/2/19/10",
@@ -196,7 +198,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1-BXHlXtbvlSkUZI2rsN3kAVGnI9jQaeU"
         },
         {
           "type": "richText",
@@ -219,9 +222,8 @@
         {
           "type": "document",
           "title": "Storyboard from Chargedi and digicomEURAI",
-          "href": "https://drive.google.com/file/d/15HSA774b_SyM1O3AmcF2vNEO5JCcawam",
-          "driveId": "15HSA774b_SyM1O3AmcF2vNEO5JCcawam",
-          "kind": "drive",
+          "href": "/files/storyboard-from-chargedi-and-digicomeurai-15HSA774.pdf",
+          "kind": "pdf",
           "layout": {
             "mobile": {
               "area": "21/2/23/10",
@@ -235,7 +237,8 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          }
+          },
+          "sourceHref": "https://drive.google.com/file/d/15HSA774b_SyM1O3AmcF2vNEO5JCcawam"
         },
         {
           "type": "richText",

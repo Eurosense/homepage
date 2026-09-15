@@ -4,6 +4,8 @@ slug: democraticparticipationnonsurvey
 date: 2024-11-14T12:45:12.151Z
 excerpt: "Democratic participation is essential for responsive governance, **SenseMaker** offers an innovative approach to connecting citizens and policymakers.   Incorporating SenseMaker into democratic processes isn’t just about gathering data - it’s about building a bridge between citizens and their leaders. In doing so, it paves the way for a more participatory, transparent, and responsive democracy."
 image: /media/Boy-with-Mic-3d40ccca.png
+imageWidth: 1280
+imageHeight: 720
 imageAlt: "Bridging Citizens and Policymakers: How SenseMaker Enhances Democratic Participation"
 author: Ina Dimitrieva
 sourceUrl: https://www.eurosense.eu/blognews/democraticparticipationnonsurvey
