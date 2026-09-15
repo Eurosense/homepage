@@ -34,14 +34,6 @@ function placementCss(
   return `${selector}{grid-area:${placement.area};${span}${z}${alignmentCss(placement)}}`
 }
 
-/**
- * Rebuilds the CSS grid Squarespace generated for this section.
- *
- * The placements are reproduced rather than reinterpreted: the original site's
- * responsive behaviour is already encoded as an 8-column mobile grid and a
- * 24-column desktop one, so replaying both gives layout parity at every width
- * instead of an approximation of it.
- */
 /** `"6/2/17/10"` → `[rowStart, colStart, rowEnd, colEnd]`, or null if not a grid area. */
 function parseArea(area: string | undefined) {
   if (!area) return null
@@ -76,6 +68,14 @@ function cellsOverDarkShape(blocks: PositionedBlock[]) {
   })
 }
 
+/**
+ * Rebuilds the CSS grid Squarespace generated for this section.
+ *
+ * The placements are reproduced rather than reinterpreted: the original site's
+ * responsive behaviour is already encoded as an 8-column mobile grid and a
+ * 24-column desktop one, so replaying both gives layout parity at every width
+ * instead of an approximation of it.
+ */
 function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]) {
   const mobile = grid.mobile ?? {}
   const desktop = grid.desktop ?? {}
@@ -221,6 +221,7 @@ export function FluidSection({
       data-theme={theme ?? 'none'}
       data-has-background={background ? 'true' : undefined}
       data-divider={divider ? 'true' : undefined}
+      data-documents={blocks.some((b) => b.type === 'document') ? 'true' : undefined}
       /*
        * The grid is centred in a section taller than itself, which is how the
        * original lays these out. Left at the top, every hero sat jammed under

@@ -21,7 +21,7 @@ export function Accordion({ items, expandFirst }: { items: Item[]; expandFirst?:
         <details
           key={item.title}
           /* 30px item padding and 15px below the answer, measured from the block's own CSS. */
-          className="group py-[30px]"
+          className="accordion-item group py-[30px]"
           open={expandFirst && i === 0}
         >
           <summary className="font-display flex cursor-pointer list-none items-center justify-between gap-4 text-left text-[length:calc(19.825px+0.31771vw)] leading-[1.176] font-bold text-purple marker:hidden hover:opacity-80">

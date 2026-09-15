@@ -476,9 +476,60 @@ main > section:first-child,
   padding-top: var(--header-height);
 }
 
+/*
+ * Pages built from document viewers — /publications, /storyboards — need room
+ * the grid does not give them. Their rows were sized by Squarespace around a
+ * one-line "Download" link; the inline PDF viewers are ours, six of them
+ * stacked, and the last one ended flush against the footer with the first
+ * jammed under the header.
+ */
+main > section[data-documents] {
+  padding-bottom: 6rem;
+}
+
+main > section[data-documents]:first-child {
+  padding-top: calc(var(--header-height) + 3rem);
+}
+
+/*
+ * Accordion open/close, animated without leaving <details>.
+ *
+ * The element stays native, so it keeps keyboard support, find-in-page into a
+ * collapsed answer, and correct behaviour with JavaScript off — none of which a
+ * scripted disclosure gets for free. `interpolate-size` is what makes a
+ * transition to `auto` height possible at all; browsers without
+ * `::details-content` simply snap open as before, which is the current
+ * behaviour rather than a broken one.
+ */
+:root {
+  interpolate-size: allow-keywords;
+}
+
+.accordion-item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    block-size 280ms ease,
+    opacity 200ms ease,
+    content-visibility 280ms allow-discrete;
+}
+
+.accordion-item[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  /* No height animation, but the answer must still be readable when open. */
+  .accordion-item::details-content,
+  .accordion-item[open]::details-content {
+    transition: none;
+    opacity: 1;
   }
 
   *,

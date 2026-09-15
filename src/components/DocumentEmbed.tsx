@@ -29,8 +29,13 @@ export function DocumentEmbed({ block }: { block: DocumentBlock }) {
         : null
 
   return (
-    <figure className="w-full">
-      <h3 className="text-[color:var(--sec-heading)]">
+    /*
+     * Each document is a card rather than a run of text: six of these stack on
+     * /storyboards, and with the title at body size and no rule between them the
+     * page read as one undifferentiated column of PDF viewers.
+     */
+    <figure className="w-full border-t border-line/40 pt-8 pb-14 first:border-t-0 first:pt-0">
+      <h3 className="font-display text-[length:calc(19.825px+0.31771vw)] leading-[1.176] font-bold text-[color:var(--sec-heading)]">
         <a
           href={block.href}
           target="_blank"
@@ -43,7 +48,7 @@ export function DocumentEmbed({ block }: { block: DocumentBlock }) {
 
       {block.description ? (
         <div
-          className="prose-eurosense mt-2"
+          className="prose-eurosense mt-3"
           dangerouslySetInnerHTML={{ __html: block.description }}
         />
       ) : null}

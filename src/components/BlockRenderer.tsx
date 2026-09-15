@@ -134,8 +134,15 @@ export function BlockView({ block }: { block: Block }) {
               loop={block.loop}
               muted={block.muted}
               autoPlay={block.autoPlay}
-              className="w-full rounded-xl bg-black"
-              style={block.aspectRatio ? { aspectRatio: String(block.aspectRatio) } : undefined}
+              /*
+               * 16:9 regardless of the file's own shape, with the picture
+               * letterboxed inside — which is what the live site does: both
+               * homepage videos render 633x356 there, even though one is
+               * 1920x1080 and the other is a 1080x1920 portrait. Honouring the
+               * native aspect instead made the portrait one 1124px tall and
+               * three times the height of the landscape one beside it.
+               */
+              className="aspect-video w-full rounded-xl bg-black object-contain"
             >
               Your browser cannot play this video.{' '}
               <a href={block.src} download>
