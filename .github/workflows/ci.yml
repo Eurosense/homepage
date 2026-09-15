@@ -48,6 +48,13 @@ jobs:
       - name: Internal links and reachability
         run: npm run links
 
+      # Squarespace overlaps grid cells and orders them with z-index, which is
+      # fine for painting and wrong for pointing: an empty region of one block
+      # can sit on top of another and eat its clicks. That shipped — the upper
+      # half of the blog search box did nothing — and no other check can see it.
+      - name: Interactive controls are clickable
+        run: npm run clickable
+
       # axe-core over every built page at 390px and 1280px. The site swaps
       # layouts at 768px and blocks are positioned per breakpoint, so a
       # violation can exist at one width and not the other.

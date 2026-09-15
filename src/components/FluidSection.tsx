@@ -143,7 +143,23 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
       '}',
   )
 
-  rules.push(`.${gridId} > .fe-cell{display:flex;flex-direction:column;min-width:0;}`)
+  /*
+   * A cell catches clicks only where it actually has content.
+   *
+   * Squarespace overlaps cells freely and orders them with z-index, which is
+   * fine for painting but not for pointing: on /blognews the label "Are you
+   * looking for something specific?" sits in a cell 62px tall holding 23px of
+   * text, one row above the search box and five z-index layers above it. The
+   * empty 39px covered the top half of the input, so clicking there did
+   * nothing and the box looked broken.
+   *
+   * Descendants inherit `auto` from the cell's own children, so anything real —
+   * text, links, inputs — still behaves normally.
+   */
+  rules.push(
+    `.${gridId} > .fe-cell{display:flex;flex-direction:column;min-width:0;pointer-events:none;}`,
+  )
+  rules.push(`.${gridId} > .fe-cell > *{pointer-events:auto;}`)
 
   /*
    * Rich text fills its cell. Squarespace lays a block out as a row flex

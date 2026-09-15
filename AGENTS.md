@@ -231,6 +231,12 @@ are quiet rather than loud, and a green build means very little on its own.
   from `/`. Next prerenders a link to a page that does not exist, and has no
   opinion at all about a page nothing links to; eleven of those accumulated before
   anybody looked.
+- `check-clickable.mjs` — every link, button and input is actually clickable
+  across its own area. The fluid engine overlaps cells and orders them with
+  z-index, so an *empty* region of one block can sit on top of another and eat
+  its clicks: on /blognews a label 62px tall holding 23px of text covered the
+  upper half of the search box, which simply stopped responding. Nothing else
+  sees this — it is not overflow, not contrast, and axe does not hit-test.
 - `check-a11y.mjs` — axe-core, WCAG 2.1 AA, every page at 390px and 1280px.
   Needs Chromium: `npx playwright install chromium`.
 
