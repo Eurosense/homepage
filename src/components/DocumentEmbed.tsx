@@ -9,10 +9,16 @@ type DocumentBlock = Extract<Block, { type: 'document' }>
  * to refuses to be framed. Local PDFs are framed directly; the browser's own
  * viewer handles them, which costs nothing and works offline.
  *
- * Every viewer is `loading="lazy"`: the publications page stacks five of these,
+ * Title and description come first, then the viewer. The original listed each
+ * publication as a one-line link followed by its abstract, and putting a frame
+ * between the two left every description reading as stray text below an
+ * unrelated PDF.
+ *
+ * Every viewer is `loading="lazy"`: the publications page stacks six of these,
  * and eager iframes would pull several megabytes before the reader scrolls.
- * Spreadsheets get no viewer at all, only a download — there is no browser-native
- * way to render one, and a broken frame is worse than an honest link.
+ * Spreadsheets get no viewer at all, only a download — there is no
+ * browser-native way to render one, and a broken frame is worse than an honest
+ * link.
  */
 export function DocumentEmbed({ block }: { block: DocumentBlock }) {
   const previewSrc =
@@ -24,20 +30,40 @@ export function DocumentEmbed({ block }: { block: DocumentBlock }) {
 
   return (
     <figure className="w-full">
-      <figcaption className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <span className="font-display text-lg font-medium">{block.title}</span>
+      <h3 className="text-[color:var(--sec-heading)]">
         <a
           href={block.href}
           target="_blank"
           rel="noreferrer noopener"
-          className="text-sm underline underline-offset-4"
-          // Only a same-origin file can be given the download hint; a
-          // cross-origin one is ignored by the browser anyway.
-          download={block.kind !== 'drive' ? '' : undefined}
+          className="no-underline hover:underline"
         >
-          {block.kind === 'drive' ? 'Open in Google Drive' : 'Download'}
+          {block.title}
         </a>
-      </figcaption>
+      </h3>
+
+      {block.description ? (
+        <div
+          className="prose-eurosense mt-2"
+          dangerouslySetInnerHTML={{ __html: block.description }}
+        />
+      ) : null}
+
+      {/*
+        The original listed a "Download" next to every title, and a reader who
+        wants the file rather than the viewer still needs it — an inline frame is
+        awkward to read at length and useless on a slow connection.
+      */}
+      <a
+        href={block.href}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="mt-2 inline-block text-sm underline underline-offset-4"
+        // Only a same-origin file can be given the download hint; a
+        // cross-origin one is ignored by the browser anyway.
+        download={block.kind === 'drive' ? undefined : ''}
+      >
+        Download
+      </a>
 
       {previewSrc ? (
         <iframe
@@ -45,7 +71,7 @@ export function DocumentEmbed({ block }: { block: DocumentBlock }) {
           title={block.title}
           loading="lazy"
           allow="autoplay"
-          className="h-[70vh] max-h-[820px] min-h-[420px] w-full rounded-xl border border-line bg-white"
+          className="mt-4 h-[70vh] max-h-[820px] min-h-[420px] w-full rounded-xl border border-line bg-white"
         />
       ) : null}
     </figure>

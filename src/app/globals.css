@@ -58,7 +58,13 @@
   }
 
   body {
-    background-color: var(--color-cream);
+    /*
+     * Measured on the live site: the page behind the sections is purple-deep,
+     * not cream. It is normally invisible because every section paints its own
+     * background — but a section divider clips that background away, and what
+     * shows through the cut is this colour.
+     */
+    background-color: var(--color-purple-deep);
     color: var(--color-purple);
     /* Satoshi, not Roboto: the live site sets body copy in Satoshi too. */
     font-family: var(--font-display);
@@ -107,11 +113,17 @@
     color: var(--sec-text);
   }
 
+  /*
+   * Measured on /resources: rich-text paragraphs on a cream band are gold, the
+   * same colour as the headings — not purple. The contrast is poor (~1.7:1) and
+   * that is reproduced, not chosen; see the accessibility note in DESIGN.md.
+   * List sections set their own text colours and are unaffected.
+   */
   [data-theme='white'],
   [data-theme='light'] {
     --sec-bg: var(--color-cream);
     --sec-heading: var(--color-gold);
-    --sec-text: var(--color-purple);
+    --sec-text: var(--color-gold);
   }
 
   [data-theme='white-bold'] {
@@ -169,6 +181,65 @@
   [data-theme][data-has-background='true'] {
     background-color: transparent;
   }
+
+  /*
+   * The partner logo strip, measured from the live site: a 60px grid gap that
+   * steps 1 -> 2 -> 3 -> 4 -> 6 columns, with each mark at 75% of its cell.
+   *
+   * Written as explicit media queries rather than Tailwind `min-[...]` variants
+   * because two overlapping arbitrary variants are not ordered by width, so the
+   * 1100px rule won at 1200px and the strip stayed four across.
+   */
+  .partner-logos {
+    display: grid;
+    align-items: center;
+    gap: 60px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .partner-logos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 768px) {
+    .partner-logos {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .partner-logos {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .partner-logos {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
+
+  /*
+   * Section dividers. Squarespace cuts a shape out of the bottom of a section's
+   * background so the page colour behind shows through as a slant, chevron or
+   * tab. The section reserves `--divider-height` of extra space and paints its
+   * fill on a clipped layer instead of on itself, because clip-path applied to
+   * the section would cut off its content too.
+   */
+  [data-theme][data-divider] {
+    position: relative;
+    background-color: transparent;
+    padding-bottom: var(--divider-height);
+  }
+
+  [data-theme][data-divider] > .section-fill {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--sec-bg);
+  }
 }
 
 /*
@@ -197,10 +268,20 @@
     margin-top: 0.8em;
   }
 
-  .prose-eurosense p.sqsrte-large {
+  .prose-eurosense p.sqsrte-large,
+  .prose-eurosense.sqsrte-large p {
     font-size: calc(17.912px + 0.15886vw);
     line-height: 1.45;
     letter-spacing: -0.016em;
+  }
+
+  /*
+   * Squarespace sets accordion answer text per item, and on /faq every one is
+   * large. The class sits on the description container there rather than on
+   * each paragraph, hence the second selector above.
+   */
+  .prose-eurosense.sqsrte-large > * + * {
+    margin-top: 16px;
   }
 
   .prose-eurosense :is(h1, h2, h3, h4) {
@@ -348,7 +429,8 @@ body:has(main [data-newsletter-form]) footer [data-footer-newsletter] {
  * Squarespace does the same; without it the first section centres its content
  * in the full height and everything lands half a header too high.
  */
-main > section:first-child {
+main > section:first-child,
+.post-page {
   padding-top: var(--header-height);
 }
 

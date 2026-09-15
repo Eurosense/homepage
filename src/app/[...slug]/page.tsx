@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 
 import { PageSections } from '@/components/PageSections'
 import { PostList } from '@/components/PostList'
+import { GatedHtml } from '@/components/GatedHtml'
 import { renderMarkdown } from '@/lib/markdown'
 import {
   COLLECTION_ROUTES,
@@ -134,57 +135,66 @@ function PostPagination({ collection, slug }: { collection: string; slug: string
 function PostView({ post }: { post: Post }) {
   const backHref = COLLECTION_ROUTES[post.collection] ?? '/'
 
+  /*
+   * A post carries its own cream background. Everything else on the site is
+   * built from sections that paint their own, so the body is purple-deep to fill
+   * the wedges a section divider cuts out — but a post has no sections at all,
+   * and inherited that purple behind purple text. Measured from the live page,
+   * which is #F8F7F1 with #483458 copy.
+   */
   return (
-    <article className="mx-auto w-full max-w-3xl px-5 py-12">
-      <Link href={backHref} className="text-sm text-purple underline-offset-4 hover:underline">
-        ← Back
-      </Link>
+    <div className="post-page bg-cream text-purple">
+      <article className="mx-auto w-full max-w-3xl px-5 py-12">
+        <Link
+          href={backHref}
+          className="text-sm text-purple underline-offset-4 hover:underline"
+        >
+          ← Back
+        </Link>
 
-      <header className="mt-6 flex flex-col gap-3">
-        <h1 className="text-4xl leading-tight">{post.title}</h1>
-        <div className="flex flex-wrap gap-x-3 text-sm text-muted">
-          {post.date ? <time dateTime={post.date}>{formatDate(post.date)}</time> : null}
-          {post.author ? <span>Written by {post.author}</span> : null}
-        </div>
-      </header>
+        <header className="mt-6 flex flex-col gap-3">
+          <h1 className="text-4xl leading-tight">{post.title}</h1>
+          <div className="flex flex-wrap gap-x-3 text-sm text-muted">
+            {post.date ? <time dateTime={post.date}>{formatDate(post.date)}</time> : null}
+            {post.author ? <span>Written by {post.author}</span> : null}
+          </div>
+        </header>
 
-      {post.image ? (
-        <Image
-          src={post.image}
-          alt=""
-          width={1600}
-          height={900}
-          priority
-          className="mt-8 h-auto w-full rounded-xl object-cover"
-          sizes="(max-width: 768px) 100vw, 768px"
-        />
-      ) : null}
+        {post.image ? (
+          <Image
+            src={post.image}
+            alt=""
+            width={1600}
+            height={900}
+            priority
+            className="mt-8 h-auto w-full rounded-xl object-cover"
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
+        ) : null}
 
-      <div
-        className="prose-eurosense mt-10"
-        dangerouslySetInnerHTML={{ __html: renderMarkdown(post.body) }}
-      />
+        <GatedHtml className="prose-eurosense mt-10" html={renderMarkdown(post.body)} />
 
-      {/* The original signs off with the author name after the body. */}
-      {post.author ? (
-        <p className="mt-8 font-display font-medium text-purple-deep">{post.author}</p>
-      ) : null}
+        {/* The original signs off with the author name after the body. */}
+        {post.author ? (
+          <p className="mt-8 font-display font-medium text-purple-deep">{post.author}</p>
+        ) : null}
 
-      <PostPagination collection={post.collection} slug={post.slug} />
+        <PostPagination collection={post.collection} slug={post.slug} />
 
-      {post.tags.length > 0 ? (
-        <ul className="mt-10 flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-full bg-purple/10 px-3 py-1 text-xs text-purple-deep"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </article>
+        {post.tags.length > 0 ? (
+          <ul className="mt-10 flex flex-wrap gap-2">
+            {post.tags.map((tag) => (
+              <li
+                key={tag}
+                className="rounded-full bg-purple/10 px-3 py-1 text-xs text-purple-deep"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </article>
+    </div>
   )
 }
 

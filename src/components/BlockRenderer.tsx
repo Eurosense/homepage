@@ -1,13 +1,16 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { Accordion } from '@/components/Accordion'
 import { InstagramGrid } from '@/components/InstagramGrid'
 import { ItemList } from '@/components/ItemList'
 import { DocumentEmbed } from '@/components/DocumentEmbed'
 import { Embed } from '@/components/Embed'
+import { ConsentEmbed } from '@/components/ConsentEmbed'
 import { NewsletterForm } from '@/components/NewsletterForm'
 import { ContactForm } from '@/components/ContactForm'
+import { SmartLink } from '@/components/SmartLink'
+import { SearchBox } from '@/components/SearchBox'
+import { SocialLinks } from '@/components/SocialLinks'
 import { renderMarkdown } from '@/lib/markdown'
 import { getFormTarget } from '@/lib/forms'
 import type { Block } from '@/lib/content'
@@ -23,10 +26,6 @@ function RawHtml({ html }: { html: string }) {
 
 /** The newsletter form whose field spec lives in content/forms.json. */
 const NEWSLETTER_SQUARESPACE_ID = '671f9020897e7e5dea51318a'
-
-function isInternal(href: string) {
-  return href.startsWith('/') && !href.startsWith('//')
-}
 
 export function BlockView({ block }: { block: Block }) {
   switch (block.type) {
@@ -48,17 +47,7 @@ export function BlockView({ block }: { block: Block }) {
       )
       return (
         <figure className="my-2">
-          {block.href ? (
-            isInternal(block.href) ? (
-              <Link href={block.href}>{img}</Link>
-            ) : (
-              <a href={block.href} target="_blank" rel="noreferrer noopener">
-                {img}
-              </a>
-            )
-          ) : (
-            img
-          )}
+          {block.href ? <SmartLink href={block.href}>{img}</SmartLink> : img}
           {block.caption ? (
             <figcaption
               className="mt-2 text-center text-sm opacity-80"
@@ -88,14 +77,10 @@ export function BlockView({ block }: { block: Block }) {
           : 'bg-[color:var(--sec-btn-bg)] text-[color:var(--sec-btn-text)] hover:opacity-90',
       ].join(' ')
 
-      return isInternal(block.href) ? (
-        <Link href={block.href} className={classes}>
+      return (
+        <SmartLink href={block.href} className={classes}>
           {block.label}
-        </Link>
-      ) : (
-        <a href={block.href} target="_blank" rel="noreferrer noopener" className={classes}>
-          {block.label}
-        </a>
+        </SmartLink>
       )
     }
 
@@ -172,6 +157,39 @@ export function BlockView({ block }: { block: Block }) {
           )
         }
       }
+      /*
+       * A cross-origin iframe is held back until the reader asks for it: the one
+       * on this site loads Google Analytics, and that is the only thing here
+       * that would otherwise require a consent banner. Same-origin embeds (our
+       * own vendored dashboard) load normally.
+       */
+      const iframe = block.html.match(/<iframe[^>]*\ssrc="(https?:\/\/[^"]+)"/i)
+      if (iframe) {
+        return (
+          <ConsentEmbed
+            html={block.html}
+            src={iframe[1]}
+            openHref={iframe[1]}
+            className="prose-eurosense w-full"
+            title={block.html.match(/title="([^"]+)"/i)?.[1]}
+          />
+        )
+      }
+
+      /*
+       * A script-driven embed is gated the same way. Two pages load one — a
+       * Dialogflow chat widget and an Elfsight widget — and a remote script is
+       * the least contained of these: it runs in our origin rather than in a
+       * frame, so it can read and write anything on the page. Same-origin
+       * scripts (the vendored charting libraries) are ours and load normally.
+       */
+      const script = block.html.match(/<script[^>]*\ssrc="(https?:\/\/[^"]+)"/i)
+      if (script) {
+        return (
+          <ConsentEmbed html={block.html} src={script[1]} className="prose-eurosense w-full" />
+        )
+      }
+
       return <Embed html={block.html} className="prose-eurosense w-full" />
     }
 
@@ -192,7 +210,7 @@ export function BlockView({ block }: { block: Block }) {
       return <ContactForm block={block} target={getFormTarget(block.formId ?? '')} />
 
     case 'accordion':
-      return <Accordion items={block.items} />
+      return <Accordion items={block.items} expandFirst={block.expandFirst} />
 
     case 'list':
       return <ItemList items={block.items} />
@@ -202,6 +220,22 @@ export function BlockView({ block }: { block: Block }) {
 
     case 'instagram':
       return <InstagramGrid posts={block.posts} />
+
+    case 'shape':
+      /*
+       * A coloured panel that sits behind other blocks in the grid. It carries
+       * no content, so it is hidden from assistive technology; its grid area and
+       * z-index come from the same layout data as every other block.
+       */
+      return (
+        <div aria-hidden className="h-full w-full" style={{ backgroundColor: block.fill }} />
+      )
+
+    case 'search':
+      return <SearchBox placeholder={block.placeholder} />
+
+    case 'socialLinks':
+      return <SocialLinks links={block.links} />
 
     case 'gallery':
     case 'summary-v2':
@@ -276,11 +310,13 @@ export function SectionView({
       {/*
         A reading column suits prose, but a row of partner logos or article
         teasers needs the page width — constrained to max-w-3xl the six logos
-        stacked one per row.
+        stacked one per row. Measured on the live site, a list section spans
+        92vw with no max-width, which is why it gets the gutter rather than the
+        `max-w-*` the reading column uses.
       */}
       <div
-        className={`mx-auto flex w-full flex-col gap-6 px-5 ${
-          blocks.some((b) => b.type === 'list') ? 'max-w-6xl' : 'max-w-3xl'
+        className={`mx-auto flex w-full flex-col gap-6 ${
+          blocks.some((b) => b.type === 'list') ? 'max-w-none px-[4vw]' : 'max-w-3xl px-5'
         } ${hasBackground ? 'py-20' : 'py-14'}`}
       >
         {blocks.map((block, i) => (

@@ -48,6 +48,7 @@ export function PageSections({
             theme={section.theme}
             minHeight={section.minHeight}
             verticalAlign={section.verticalAlign}
+            divider={section.divider}
           />
         ) : (
           <SectionView

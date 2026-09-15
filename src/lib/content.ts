@@ -48,13 +48,20 @@ export type Block =
   /** Where the page's collection list renders; the route supplies the posts. */
   | { type: 'postList' }
   | { type: 'form'; title?: string; submitLabel?: string; formId?: string; fields: FormField[] }
-  | { type: 'accordion'; items: { title: string; markdown: string }[] }
+  | {
+      type: 'accordion'
+      items: { title: string; markdown: string; large?: boolean }[]
+      /** Squarespace's "start with the first answer open" setting. */
+      expandFirst?: boolean
+    }
   | { type: 'gallery'; html: string }
   | { type: 'summary-v2'; html: string }
   | {
       type: 'list'
       items: {
         image?: string
+        imageWidth?: number
+        imageHeight?: number
         alt?: string
         title?: string
         description?: string
@@ -69,9 +76,21 @@ export type Block =
       href: string
       /** Present for Google Drive files; used to build the /preview URL. */
       driveId?: string
+      /** Where a now self-hosted file was originally published. */
+      sourceHref?: string
       kind: 'pdf' | 'drive' | 'spreadsheet'
+      /** HTML of the paragraph that followed this document in the original. */
+      description?: string
     }
-  | { type: 'instagram'; posts: { href: string; image: string; alt?: string }[] }
+  | { type: 'instagram'; posts: { href?: string; image: string; alt?: string }[] }
+  | {
+      type: 'shape'
+      /** Squarespace's shape name; only `rectangle` is used on this site. */
+      shape: string
+      fill: string
+    }
+  | { type: 'search'; placeholder: string }
+  | { type: 'socialLinks'; links: { href: string; label: string }[] }
 
 export type FormField = {
   label: string
@@ -113,7 +132,7 @@ export type SectionGrid = {
   }
 }
 
-export type PositionedBlock = Block & { layout?: BlockLayout }
+export type PositionedBlock = Block & { layout?: BlockLayout; surface?: BlockSurface }
 
 export type Section = {
   id?: string
@@ -124,6 +143,8 @@ export type Section = {
   /** Squarespace section theme: decides background, heading, text and button colours. */
   theme?: string
   background?: string
+  /** Shape cut out of the bottom of this section's background, if any. */
+  divider?: SectionDivider
   grid?: SectionGrid
   blocks: PositionedBlock[]
 }
@@ -136,6 +157,19 @@ export type Page = {
   sections: Section[]
 }
 
+/**
+ * A shape cut out of the bottom of a section's background, measured from the
+ * live site into archive/dividers.json. `path` is in objectBoundingBox units.
+ */
+export type SectionDivider = { path: string; height: string }
+
+/**
+ * Background, corner radius and padding Squarespace paints on a block — the
+ * white pills behind the numbered steps, for instance. Values are already valid
+ * CSS; the extractor resolves Squarespace's palette variables.
+ */
+export type BlockSurface = { background?: string; radius?: string; padding?: string }
+
 export type Post = {
   slug: string
   collection: string
@@ -143,6 +177,9 @@ export type Post = {
   date?: string
   excerpt?: string
   image?: string
+  /** Intrinsic size of `image`, so the index can lay out without cropping. */
+  imageWidth?: number
+  imageHeight?: number
   author?: string
   tags: string[]
   categories: string[]
@@ -264,6 +301,8 @@ export function getPostsIn(collection: string): Post[] {
         date: data.date as string | undefined,
         excerpt: data.excerpt as string | undefined,
         image: data.image as string | undefined,
+        imageWidth: data.imageWidth as number | undefined,
+        imageHeight: data.imageHeight as number | undefined,
         author: data.author as string | undefined,
         tags: (data.tags as string[]) ?? [],
         categories: (data.categories as string[]) ?? [],

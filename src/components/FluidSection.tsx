@@ -1,7 +1,8 @@
 import Image from 'next/image'
 
 import { BlockView } from '@/components/BlockRenderer'
-import type { PositionedBlock, Placement, SectionGrid } from '@/lib/content'
+import { pairDocumentDescriptions } from '@/lib/pairDocuments'
+import type { PositionedBlock, Placement, SectionGrid, SectionDivider } from '@/lib/content'
 
 const GAP_FALLBACK = '12px'
 
@@ -72,6 +73,33 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
 
   rules.push(`.${gridId} > .fe-cell{display:flex;flex-direction:column;min-width:0;}`)
 
+  /*
+   * Rich text fills its cell. Squarespace lays a block out as a row flex
+   * container whose child stretches to the full width, so `text-align` inside
+   * the text does the centring. Our cell is a column, where the placement's
+   * horizontal alignment becomes `align-items` — and `flex-start` there shrinks
+   * the text to its own width, which silently cancelled every `text-align:
+   * center` in the content.
+   */
+  rules.push(`.${gridId} > .fe-cell > .prose-eurosense{width:100%;}`)
+
+  /*
+   * A block can carry its own background, radius and padding — the white pills
+   * behind the numbered steps are text blocks styled this way. It goes on the
+   * cell because that is the element Squarespace paints (`.sqs-block`), and the
+   * cell is what the grid sizes.
+   */
+  blocks.forEach((block, i) => {
+    const surface = block.surface
+    if (!surface) return
+    const declarations = [
+      surface.background ? `background-color:${surface.background};` : '',
+      surface.radius ? `border-radius:${surface.radius};` : '',
+      surface.padding ? `padding:${surface.padding};justify-content:center;` : '',
+    ].join('')
+    if (declarations) rules.push(`.${gridId} > [data-fe="${i}"]{${declarations}}`)
+  })
+
   blocks.forEach((block, i) => {
     rules.push(
       placementCss(`.${gridId} > [data-fe="${i}"]`, block.layout?.mobile, {
@@ -110,11 +138,12 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
 export function FluidSection({
   id,
   grid,
-  blocks,
+  blocks: rawBlocks,
   background,
   theme,
   minHeight,
   verticalAlign,
+  divider,
 }: {
   id: string
   grid: SectionGrid
@@ -123,14 +152,18 @@ export function FluidSection({
   theme?: string
   minHeight?: string
   verticalAlign?: 'start' | 'center' | 'end'
+  divider?: SectionDivider
 }) {
   const gridId = `fe-${id}`
+  const blocks = pairDocumentDescriptions(rawBlocks)
+  const clipId = `divider-${id}`
 
   return (
     <section
       className="relative isolate"
       data-theme={theme ?? 'none'}
       data-has-background={background ? 'true' : undefined}
+      data-divider={divider ? 'true' : undefined}
       /*
        * The grid is centred in a section taller than itself, which is how the
        * original lays these out. Left at the top, every hero sat jammed under
@@ -138,11 +171,28 @@ export function FluidSection({
        */
       style={{
         ...(minHeight ? { minHeight } : {}),
+        ...(divider ? { ['--divider-height' as string]: divider.height } : {}),
         display: 'flex',
         flexDirection: 'column',
         justifyContent: verticalAlign ?? 'start',
       }}
     >
+      {divider ? (
+        <>
+          {/*
+           * clipPathUnits="objectBoundingBox" makes the path coordinates
+           * fractions of the element, which is how the measured path is
+           * expressed — so one path works at every viewport width.
+           */}
+          <svg width="0" height="0" aria-hidden className="absolute">
+            <clipPath id={clipId} clipPathUnits="objectBoundingBox">
+              <path d={divider.path} />
+            </clipPath>
+          </svg>
+          <div className="section-fill" style={{ clipPath: `url(#${clipId})` }} />
+        </>
+      ) : null}
+
       {background ? (
         <Image
           src={background}

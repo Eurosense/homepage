@@ -15,8 +15,12 @@ export function SiteFooter({ chrome }: { chrome: SiteChrome }) {
 
   const theme = chrome.footerBlocks[0]?.theme ?? 'none'
 
+  /*
+   * No top margin: in the original the last section butts straight against the
+   * footer, and a gap here exposes a strip of the page background.
+   */
   return (
-    <footer className="mt-16 border-t border-line" data-theme={theme}>
+    <footer className="border-t border-line" data-theme={theme}>
       {chrome.footerGrid ? (
         <FluidSection
           id="site-footer"

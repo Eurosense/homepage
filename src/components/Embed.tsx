@@ -13,6 +13,15 @@ import { useEffect, useRef } from 'react'
  * Like the Markdown renderer, this trusts `content/` as reviewed first-party
  * code. Do not point it at user-submitted HTML.
  */
+/*
+ * Scripts are cut from the server-rendered markup and added back by the effect.
+ * Leaving them in ran each one twice — once when the browser parsed the page,
+ * once when the effect re-inserted it — which on /eurosensers threw "Identifier
+ * 'userData' has already been declared" and Highcharts error #16. Everything
+ * else in the embed still prerenders.
+ */
+const SCRIPT = /<script\b[^>]*>[\s\S]*?<\/script>/gi
+
 export function Embed({ html, className }: { html: string; className?: string }) {
   const host = useRef<HTMLDivElement>(null)
 
@@ -43,5 +52,11 @@ export function Embed({ html, className }: { html: string; className?: string })
 
   // Server render keeps the markup present for crawlers and no-JS readers; the
   // effect replaces it on mount so scripts actually run.
-  return <div ref={host} className={className} dangerouslySetInnerHTML={{ __html: html }} />
+  return (
+    <div
+      ref={host}
+      className={className}
+      dangerouslySetInnerHTML={{ __html: html.replace(SCRIPT, '') }}
+    />
+  )
 }

@@ -29,26 +29,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${roboto.variable} ${satoshi.variable}`}>
-      <head>
-        {/*
-          The dashboard app pulls Highcharts, ECharts, Plotly and PapaParse from
-          four different CDNs. Warming the connections here overlaps DNS and TLS
-          with the rest of the page load instead of paying for them serially once
-          the iframe starts parsing.
-        */}
-        {[
-          'https://code.highcharts.com',
-          'https://cdn.jsdelivr.net',
-          'https://cdn.plot.ly',
-          'https://cdnjs.cloudflare.com',
-          'https://platform.sensemaker-suite.com',
-          'https://js.hsforms.net',
-          // The dashboard pulls its captures data from Pages at runtime.
-          'https://eurosense.github.io',
-        ].map((origin) => (
-          <link key={origin} rel="preconnect" href={origin} crossOrigin="anonymous" />
-        ))}
-      </head>
+      {/*
+        No preconnects here on purpose. They once warmed four chart CDNs, HubSpot
+        and SenseMaker, all of which have since gone: the charting libraries are
+        served from public/dashboard-app/vendor, the newsletter posts straight to
+        HubSpot's API, and the SenseMaker embed waits to be asked. A preconnect
+        sends no request and sets no cookie, but it does complete DNS and a TLS
+        handshake, which would hand the visitor's address to those origins on
+        every page and make the click-to-load gate a formality. The one origin
+        still worth warming, eurosense.github.io, is preconnected by the
+        dashboard iframe that actually reads from it.
+      */}
       <body className="flex min-h-screen flex-col">
         <a
           href="#main"

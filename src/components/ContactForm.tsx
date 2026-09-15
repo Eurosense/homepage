@@ -133,6 +133,31 @@ export function ContactForm({ block, target }: { block: FormBlock; target: FormT
     >
       {block.fields.map((field) => {
         const id = `${block.formId}-${field.name}`
+
+        /*
+         * The mailing-list opt-in reads as a statement next to its box, not as a
+         * labelled field, so it does not get the stacked label/control layout
+         * the rest of the form uses.
+         */
+        if (field.type === 'checkbox') {
+          return (
+            <label
+              key={field.name}
+              htmlFor={id}
+              className="flex items-start gap-2 text-sm text-purple-deep"
+            >
+              <input
+                id={id}
+                name={field.name}
+                type="checkbox"
+                value="yes"
+                className="mt-0.5 h-4 w-4 shrink-0 accent-[color:var(--color-purple)]"
+              />
+              {field.label}
+            </label>
+          )
+        }
+
         return (
           <div key={field.name} className="flex flex-col gap-1.5">
             <label htmlFor={id} className="text-sm font-medium text-purple-deep">
