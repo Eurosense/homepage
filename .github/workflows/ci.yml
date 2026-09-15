@@ -48,6 +48,10 @@ jobs:
       - name: Internal links and reachability
         run: npm run links
 
+      # Both checks below drive a real browser, so the install has to come first.
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
       # Squarespace overlaps grid cells and orders them with z-index, which is
       # fine for painting and wrong for pointing: an empty region of one block
       # can sit on top of another and eat its clicks. That shipped — the upper
@@ -63,9 +67,6 @@ jobs:
       # is here to catch are all cascade-level: a heading that inherits a colour
       # from a theme it is not actually sitting on renders perfectly in
       # isolation. Three shipped during the migration.
-      - name: Install Chromium for the accessibility check
-        run: npx playwright install --with-deps chromium
-
       - name: Accessibility (WCAG 2.1 AA)
         run: npm run a11y
 
