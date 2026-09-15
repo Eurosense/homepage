@@ -49,14 +49,14 @@
   },
   "footerGrid": {
     "mobile": {
-      "rows": 27,
+      "rows": 26,
       "rowMin": "24px",
       "columns": 8,
       "rowGap": "12.0px",
       "columnGap": "0.0px"
     },
     "desktop": {
-      "rows": 38,
+      "rows": 28,
       "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
       "columns": 24,
       "rowScale": 0.0215
@@ -98,7 +98,7 @@
           "align": "flex-start"
         },
         "desktop": {
-          "area": "7/2/28/13",
+          "area": "7/2/21/13",
           "zIndex": 22,
           "justify": "flex-start",
           "align": "flex-start"
@@ -229,13 +229,13 @@
       "theme": "bright-inverse",
       "layout": {
         "mobile": {
-          "area": "23/1/27/11",
+          "area": "22/1/26/11",
           "zIndex": 11,
           "justify": "center",
           "align": "center"
         },
         "desktop": {
-          "area": "29/2/38/26",
+          "area": "22/2/28/26",
           "zIndex": 11,
           "justify": "center",
           "align": "center"

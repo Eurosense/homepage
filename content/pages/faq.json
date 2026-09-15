@@ -18,7 +18,7 @@
           "columnGap": "11.0px"
         },
         "desktop": {
-          "rows": 79,
+          "rows": 83,
           "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
           "columns": 24,
           "rowScale": 0.0215
@@ -128,7 +128,7 @@
               "align": "flex-start"
             },
             "desktop": {
-              "area": "50/9/62/19",
+              "area": "52/9/64/19",
               "zIndex": 2,
               "justify": "flex-start",
               "align": "flex-start"
@@ -146,7 +146,7 @@
               "align": "flex-start"
             },
             "desktop": {
-              "area": "49/9/50/15",
+              "area": "51/9/52/15",
               "zIndex": 3,
               "justify": "flex-start",
               "align": "flex-start"
@@ -195,7 +195,7 @@
               "align": "flex-start"
             },
             "desktop": {
-              "area": "64/9/79/19",
+              "area": "68/9/83/19",
               "zIndex": 3,
               "justify": "flex-start",
               "align": "flex-start"
@@ -213,7 +213,7 @@
               "align": "flex-start"
             },
             "desktop": {
-              "area": "63/9/64/15",
+              "area": "67/9/68/15",
               "zIndex": 4,
               "justify": "flex-start",
               "align": "flex-start"

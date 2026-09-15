@@ -51,6 +51,7 @@ export function PageSections({
             minHeight={section.minHeight}
             verticalAlign={section.verticalAlign}
             divider={section.divider}
+            anchor={section.anchor}
             /*
              * The last section is followed by the site footer, not by nothing —
              * and the footer's theme is what should show through its divider.
@@ -60,6 +61,7 @@ export function PageSections({
         ) : (
           <SectionView
             key={section.id ?? i}
+            anchor={section.anchor}
             blocks={section.blocks}
             background={section.background}
             theme={section.theme}

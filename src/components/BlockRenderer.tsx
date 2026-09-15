@@ -305,18 +305,22 @@ export function SectionView({
   theme,
   minHeight,
   verticalAlign,
+  anchor,
 }: {
   blocks: Block[]
   background?: string
   theme?: string
   minHeight?: string
   verticalAlign?: 'start' | 'center' | 'end'
+  /** The author's anchor name, so an in-page link has something to land on. */
+  anchor?: string
 }) {
   const hasBackground = Boolean(background)
 
   return (
     <section
-      className="relative isolate"
+      id={anchor}
+      className="relative isolate scroll-mt-[var(--header-height)]"
       data-theme={theme ?? 'none'}
       data-has-background={hasBackground ? 'true' : undefined}
       style={{

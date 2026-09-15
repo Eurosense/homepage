@@ -135,6 +135,8 @@ export type SectionGrid = {
 export type PositionedBlock = Block & { layout?: BlockLayout; surface?: BlockSurface }
 
 export type Section = {
+  /** The author's anchor name, the target of an in-page link like `#request-access`. */
+  anchor?: string
   id?: string
   /** From Squarespace's section-height preset; absent means "as tall as content". */
   minHeight?: string

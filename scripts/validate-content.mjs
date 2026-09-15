@@ -184,6 +184,8 @@ const page = z.object({
   sections: z.array(
     z.object({
       id: z.string().optional(),
+      /** The author's anchor name, target of an in-page link like `#request-access`. */
+      anchor: z.string().optional(),
       minHeight: z.string().optional(),
       verticalAlign: z.enum(['start', 'center', 'end']).optional(),
       theme: z.string().optional(),

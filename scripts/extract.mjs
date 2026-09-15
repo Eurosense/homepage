@@ -185,6 +185,31 @@ function htmlToMarkdown(html) {
  * public/dashboard-app/, so pointing at it locally keeps the page identical and
  * removes the round trip. See README for how its data is refreshed.
  */
+/*
+ * Buttons the author left pointing nowhere. `#` scrolls to the top and reads as
+ * a broken control; the live site has the same one. Listed rather than guessed,
+ * because only a human knows where each was meant to go — this one matches the
+ * identically-labelled button on the homepage.
+ */
+const DEAD_BUTTON_TARGETS = new Map([['Explore citizen stories', '/dashboard']])
+
+/*
+ * Sections whose only content was a Squarespace block that renders nothing here.
+ *
+ * "Upcoming and past events" on /blognews is an events block reading a
+ * collection that is empty, so all that survives extraction is the heading — a
+ * title over 12 rows of nothing, which reads as a page that failed to load
+ * rather than as a calendar with no entries. Keyed by section id so it survives
+ * a re-parse; delete the entry once there are real events to list.
+ */
+const EMPTY_SECTION_NOTES = new Map([
+  [
+    '673dc9d656299e79de07c3de',
+    '<div><p>There are no upcoming events at the moment. ' +
+      'Sign up to the newsletter below and we will let you know when the next one is announced.</p></div>',
+  ],
+])
+
 const EMBED_REWRITES = [
   [/https?:\/\/medibunny\.github\.io\/Eurosense\/?/g, '/dashboard-app/'],
   /*
@@ -560,10 +585,16 @@ function parseBlock($, el) {
       const alignment = ($container.attr('class') || '').match(
         /sqs-block-button-container--(\w+)/,
       )?.[1]
+      const label = $a.text().replace(/\s+/g, ' ').trim()
+      const rawHref = $a.attr('href')
       return {
         type: 'button',
-        label: $a.text().replace(/\s+/g, ' ').trim(),
-        href: $a.attr('href') || '#',
+        label,
+        // A `#` or empty href scrolls to the top and reads as a dead control.
+        href:
+          !rawHref || rawHref === '#'
+            ? (DEAD_BUTTON_TARGETS.get(label) ?? rawHref ?? '#')
+            : rawHref,
         // primary / secondary / tertiary drive completely different colours in
         // the theme, so the variant has to survive the migration.
         variant: $container.attr('data-button-type') || 'primary',
@@ -1098,6 +1129,65 @@ function parseSiteChrome(html, knownPaths = []) {
   }
 }
 
+/*
+ * Footer changes that are ours, not Squarespace's, reapplied on every parse.
+ *
+ * `extract:parse` rewrites content/site.json wholesale, so editing that file by
+ * hand loses the change the next time anyone re-extracts — silently, because the
+ * build stays green. Both of these have been lost that way once already.
+ *
+ * 1. Three finished pages had nothing linking to them. They get footer links;
+ *    scripts/check-links.mjs fails the build if they ever lose them again.
+ * 2. The footer reserved 995px for a 517px form and 809px for a 200px wordmark,
+ *    because a grid row costs ~25px plus a 12px gap and the author allocated by
+ *    eye. The spans below hug the content instead. Rows are minmax(_, auto), so
+ *    under-allocating is safe — the row grows — while over-allocating is what
+ *    leaves a hole.
+ */
+const FOOTER_EXTRA_LINKS = [
+  { href: '/forpartners', label: 'For Partners', desktop: '5/19/6/21', mobile: '19/2/20/10' },
+  { href: '/mystory', label: 'Share your story', desktop: '5/22/6/25', mobile: '20/2/21/10' },
+  { href: '/newsletter', label: 'Newsletter', desktop: '6/19/7/21', mobile: '21/2/22/10' },
+]
+
+const FOOTER_COMPACT_AREAS = new Map([
+  ['embed', { desktop: '7/2/21/13', mobile: '6/2/12/10' }],
+  ['wordmark', { desktop: '22/2/28/26', mobile: '22/1/26/11' }],
+])
+
+function compactFooter(chrome) {
+  const grid = chrome.footerGrid
+  if (grid?.desktop) grid.desktop.rows = 28
+  if (grid?.mobile) grid.mobile.rows = 26
+
+  for (const block of chrome.footerBlocks) {
+    const key =
+      block.type === 'embed'
+        ? 'embed'
+        : block.type === 'image' && /Eurosense[-.]/.test(block.src || '')
+          ? 'wordmark'
+          : null
+    const areas = key && FOOTER_COMPACT_AREAS.get(key)
+    if (!areas || !block.layout) continue
+    if (block.layout.desktop) block.layout.desktop.area = areas.desktop
+    if (block.layout.mobile) block.layout.mobile.area = areas.mobile
+  }
+
+  let z = Math.max(...chrome.footerBlocks.map((b) => b.layout?.desktop?.zIndex ?? 0))
+  for (const link of FOOTER_EXTRA_LINKS) {
+    if (JSON.stringify(chrome.footerBlocks).includes(`href="${link.href}"`)) continue
+    z += 1
+    const place = (area) => ({ area, zIndex: z, justify: 'flex-start', align: 'flex-start' })
+    chrome.footerBlocks.push({
+      type: 'richText',
+      html: `<p><a href="${link.href}">${link.label}</a></p>`,
+      theme: 'bright-inverse',
+      layout: { mobile: place(link.mobile), desktop: place(link.desktop) },
+    })
+  }
+  return chrome
+}
+
 function parsePageHtml(html, urlPath) {
   const $ = cheerio.load(html)
 
@@ -1294,14 +1384,39 @@ function parsePageHtml(html, urlPath) {
     ]
 
     const sectionId = $sec.attr('data-section-id') || undefined
+    /*
+     * The section's own `id` is the anchor name the author typed in Squarespace,
+     * and it is what in-page links point at: /our-partners has three buttons
+     * going to `#request-access`. Dropping it left every one of them doing
+     * nothing. It is not `data-section-id`, which is the internal hash.
+     */
+    const anchor = $sec.attr('id') || undefined
     const hasDivider = ($sec.attr('class') || '').split(/\s+/).includes('has-section-divider')
     const divider = hasDivider && sectionId ? dividerShapes[sectionId] : undefined
     if (hasDivider && !divider) {
       report.failures.push(`section ${sectionId}: has a divider with no measured shape`)
     }
 
+    const note = sectionId && EMPTY_SECTION_NOTES.get(sectionId)
+    if (note && blocks.length === 1) {
+      const heading = blocks[0].layout?.desktop?.area?.split('/') ?? []
+      const row = Number.parseInt(heading[2] ?? '3', 10)
+      const place = (cols) => ({
+        area: `${row}/${cols}`,
+        zIndex: 3,
+        justify: 'flex-start',
+        align: 'flex-start',
+      })
+      blocks.push({
+        type: 'richText',
+        html: note,
+        layout: { mobile: place(`2/${row + 3}/10`), desktop: place(`2/${row + 2}/17`) },
+      })
+    }
+
     sections.push({
       id: sectionId,
+      anchor,
       minHeight,
       verticalAlign,
       divider: divider ? { path: divider.path, height: divider.height } : undefined,
@@ -1367,7 +1482,10 @@ async function stageParse() {
     await readFile(path.join(RAW_PAGES, 'index.html'), 'utf8'),
     knownPaths,
   )
-  await writeFile(path.join(CONTENT, 'site.json'), `${JSON.stringify(chrome, null, 2)}\n`)
+  await writeFile(
+    path.join(CONTENT, 'site.json'),
+    `${JSON.stringify(compactFooter(chrome), null, 2)}\n`,
+  )
   console.log(
     `[parse] site chrome: ${chrome.nav.length} nav items, ${chrome.social.length} social links`,
   )
@@ -1383,10 +1501,32 @@ async function stageParse() {
     for (const it of data.items || []) if (it.fullUrl) collectionItemPaths.add(it.fullUrl)
   }
 
+  /*
+   * Pages deliberately taken out of the site stay out.
+   *
+   * archive/unpublished/pages/ holds Squarespace drafts, duplicates and default
+   * stubs that nothing links to. They are still in archive/raw/, so without this
+   * every re-parse resurrected all eight of them — and because extract:parse
+   * rewrites content/pages/ wholesale, nobody would notice until they shipped.
+   */
+  const unpublishedDir = path.join(ROOT, 'archive', 'unpublished', 'pages')
+  const unpublished = new Set(
+    existsSync(unpublishedDir)
+      ? (await readdir(unpublishedDir))
+          .filter((f) => f.endsWith('.json'))
+          .map((f) => f.replace(/\.json$/, ''))
+      : [],
+  )
+
   const paths = JSON.parse(await readFile(path.join(RAW, 'paths.json'), 'utf8'))
   for (const p of paths) {
     if (collectionItemPaths.has(p)) continue
     const slug = slugify(p)
+    if (unpublished.has(slug)) {
+      report.unpublished ??= []
+      report.unpublished.push(p)
+      continue
+    }
     const file = path.join(RAW_PAGES, `${slug}.html`)
     if (!existsSync(file)) continue
     const html = await readFile(file, 'utf8')

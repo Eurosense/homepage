@@ -1176,7 +1176,7 @@
         {
           "type": "button",
           "label": "Explore citizen stories",
-          "href": "#",
+          "href": "/dashboard",
           "variant": "tertiary",
           "size": "small",
           "alignment": "center",
@@ -1405,6 +1405,7 @@
     },
     {
       "id": "690dd451e728213df6339deb",
+      "anchor": "request-access",
       "verticalAlign": "center",
       "grid": {
         "mobile": {

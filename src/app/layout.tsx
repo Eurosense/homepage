@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { InternalLinkRouter } from '@/components/InternalLinkRouter'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { getSiteChrome } from '@/lib/content'
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <InternalLinkRouter />
         <SiteHeader chrome={chrome} />
         <main id="main" className="relative flex-1">
           {children}

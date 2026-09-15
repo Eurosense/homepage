@@ -80,6 +80,23 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
   const mobile = grid.mobile ?? {}
   const desktop = grid.desktop ?? {}
 
+  /*
+   * Rows collapse to their content when a block's height is ours rather than
+   * Squarespace's.
+   *
+   * Every row otherwise carries a minimum height, and a block is placed on an
+   * absolute row span the author sized around how Squarespace rendered it. Our
+   * accordion is more compact, so on /faq the reserved span left a 394px hole
+   * between the last question and the next group label — and because text wraps
+   * differently at every width, no fixed row count fixes it everywhere. Dropping
+   * the minimum makes the rows follow the content instead.
+   *
+   * Only sections with such a block are affected; everywhere else the minimum is
+   * the spacing the design depends on.
+   */
+  const contentDriven = blocks.some((b) => b.type === 'accordion' || b.type === 'postList')
+  const mobileRowMin = contentDriven ? '0px' : (mobile.rowMin ?? '24px')
+
   const mobileColumns = mobile.columns ?? 8
   const desktopColumns = desktop.columns ?? 24
   const mobileGap = mobile.columnGap ?? GAP_FALLBACK
@@ -98,7 +115,7 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
       `--fe-gutter:calc(var(--site-gutter-mobile) - ${mobileGap});` +
       `--fe-cell:calc((var(--site-max-width) - (${mobileGap} * (${mobileColumns} - 1))) / ${mobileColumns});` +
       'display:grid;position:relative;' +
-      `grid-template-rows:repeat(${mobile.rows ?? 1},minmax(${mobile.rowMin ?? '24px'},auto));` +
+      `grid-template-rows:repeat(${mobile.rows ?? 1},minmax(${mobileRowMin},auto));` +
       `grid-template-columns:${track(mobileColumns, mobileGap)};` +
       `row-gap:${mobile.rowGap ?? '8px'};column-gap:${mobileGap};` +
       'overflow-x:clip;' +
@@ -158,10 +175,11 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
     )
   })
 
+  const desktopRowMin = contentDriven
+    ? '0px'
+    : `calc(var(--fe-container) * ${desktop.rowScale ?? 0.0215})`
   const desktopRows = desktop.rows
-    ? `grid-template-rows:repeat(${desktop.rows},minmax(calc(var(--fe-container) * ${
-        desktop.rowScale ?? 0.0215
-      }),auto));`
+    ? `grid-template-rows:repeat(${desktop.rows},minmax(${desktopRowMin},auto));`
     : ''
 
   const desktopRules = [
@@ -195,6 +213,7 @@ export function FluidSection({
   verticalAlign,
   divider,
   nextTheme,
+  anchor,
 }: {
   id: string
   grid: SectionGrid
@@ -210,6 +229,8 @@ export function FluidSection({
    * what makes a wedge read as a join between two panels rather than a hole.
    */
   nextTheme?: string
+  /** The author's anchor name, so `#request-access` has something to land on. */
+  anchor?: string
 }) {
   const gridId = `fe-${id}`
   const blocks = pairDocumentDescriptions(rawBlocks)
@@ -217,7 +238,8 @@ export function FluidSection({
 
   return (
     <section
-      className="relative isolate"
+      id={anchor}
+      className="relative isolate scroll-mt-[var(--header-height)]"
       data-theme={theme ?? 'none'}
       data-has-background={background ? 'true' : undefined}
       data-divider={divider ? 'true' : undefined}

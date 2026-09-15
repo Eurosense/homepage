@@ -487,7 +487,18 @@ main > section[data-documents] {
   padding-bottom: 6rem;
 }
 
-main > section[data-documents]:first-child {
+/*
+ * A plain content page starts below the header, not against it. These sections
+ * carry a 66vh minimum and centre their grid, which works while the content is
+ * short — but /privacy-policy, /faq, /publications and /resources all overflow
+ * it, so centring stops applying and the first heading lands exactly on the
+ * header's bottom edge.
+ *
+ * Sections with their own background image are excluded: those are heroes,
+ * deliberately full-bleed behind the header, and padding them would show a band
+ * of page colour above the picture.
+ */
+main > section:first-child:not([data-has-background]) {
   padding-top: calc(var(--header-height) + 3rem);
 }
 
