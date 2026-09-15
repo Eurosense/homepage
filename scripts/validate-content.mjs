@@ -24,7 +24,9 @@ const ROOT = path.join(import.meta.dirname, '..')
 const CONTENT = path.join(ROOT, 'content')
 const MEDIA = path.join(ROOT, 'public', 'media')
 
-const COLLECTIONS = ['blognews', 'blog', 'resources--multimedia']
+/* Must match COLLECTION_ROUTES in src/lib/content.ts. `blog` was Squarespace's
+ * demo blog and now lives in archive/unpublished/. */
+const COLLECTIONS = ['blognews', 'resources--multimedia']
 
 const problems = []
 const note = (file, message) => problems.push({ file, message })

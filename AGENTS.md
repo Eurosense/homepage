@@ -204,11 +204,14 @@ you `bg-sand`, `text-sand` and `border-sand` everywhere.
 ## Before you open a pull request
 
 ```bash
-npm run check    # validate + typecheck + build
+npm run check    # validate + typecheck + build + verify
 ```
 
-That runs the same three things CI does. Run it. The two validators exist because
-this project's failure modes are quiet rather than loud:
+That runs exactly what CI runs, in the same order. Every check below exists
+because the failure it catches actually shipped — this project's failure modes
+are quiet rather than loud, and a green build means very little on its own.
+
+**Before the build** (`npm run validate`, no browser needed):
 
 - `validate-content.mjs` — schema, missing images, duplicate `urlPath`, slug/filename
   mismatch, unparsable dates.
@@ -217,6 +220,30 @@ this project's failure modes are quiet rather than loud:
 - `check-contrast.mjs` — no section theme paints its text in its own background
   colour. That bug shipped three times: the content was in the DOM, the build was
   green, and the words were invisible.
+
+**After the build** (`npm run verify`, reads `out/`):
+
+- `check-third-party.mjs` — no page contacts a third party before the reader asks.
+  This is what makes "no cookie banner" true, and it is one `<iframe>` in a
+  Markdown post away from being false. Origins that genuinely must load on view go
+  in `ALLOWED` in that script, with the reason.
+- `check-links.mjs` — every internal link resolves, and every page is reachable
+  from `/`. Next prerenders a link to a page that does not exist, and has no
+  opinion at all about a page nothing links to; eleven of those accumulated before
+  anybody looked.
+- `check-a11y.mjs` — axe-core, WCAG 2.1 AA, every page at 390px and 1280px.
+  Needs Chromium: `npx playwright install chromium`.
+
+**Not in CI, run by hand:**
+
+- `scripts/compare-content.mjs` — needs the Squarespace snapshots in `archive/raw/`,
+  which are not committed, and it answers a migration question ("does this still
+  match the 2026 original?"). Once content is edited on purpose, diverging is
+  correct.
+- `scripts/audit-pages.mjs` — a report, not a gate.
+- A visual pass. None of the above sees that a section collapsed around its grid,
+  or that a wedge is the wrong colour. Build, serve `out/`, and look at more than
+  one width.
 
 A green `next build` on its own does **not** mean the change is correct. It will
 happily prerender a page with a broken image and an unrecognised block.
@@ -323,13 +350,11 @@ After changing any embed, rebuild and check that no page has an active
 third-party tag:
 
 ```bash
-npm run check
-find out -name 'index.html' | sort | while read f; do
-  o=$(grep -ohE '<(script|iframe|link)[^>]*https?://[a-zA-Z0-9.-]+[^>]*>' "$f" \
-      | grep -oE 'https?://[a-zA-Z0-9.-]+' | sort -u | tr '\n' ' ')
-  [ -n "$o" ] && echo "${f#out/} -> $o"
-done
+npm run build && npm run third-party
 ```
 
-The only expected line is `dashboard-app/index.html -> https://eurosense.github.io`,
-which is our own data host, inside our own iframe.
+`scripts/check-third-party.mjs` fails on any page that would contact a third
+party on load, and CI runs it. The one allowed origin is `eurosense.github.io` —
+our own data host, inside our own iframe — and it is listed in that script with
+the reason. Adding to that list weakens the promise, so prefer vendoring the
+asset or gating it.

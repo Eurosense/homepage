@@ -33,6 +33,21 @@ jobs:
       - name: Build static export
         run: npm run build
 
+      # The checks below read `out/`, so they have to follow the build. They are
+      # separate steps rather than one `npm run verify` so a red tick says which
+      # promise broke without anyone opening the log.
+
+      # The site sets no cookies, which is why it ships no consent banner. One
+      # careless <iframe> in a Markdown post makes that false, and it did: five
+      # pages were loading Google embeds on view.
+      - name: No third-party requests before consent
+        run: npm run third-party
+
+      # Next prerenders a link to a page that does not exist, and has no opinion
+      # about a page nothing links to. Eleven of the latter had accumulated.
+      - name: Internal links and reachability
+        run: npm run links
+
       # axe-core over every built page at 390px and 1280px. The site swaps
       # layouts at 768px and blocks are positioned per breakpoint, so a
       # violation can exist at one width and not the other.
