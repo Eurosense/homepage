@@ -49,10 +49,11 @@ export function PostList({ posts }: { posts: Post[] }) {
                 ) : null}
 
                 <div className="flex flex-1 flex-col gap-2 p-5">
-                  {/* Author and date, as the original index lists them. */}
+                  {/*
+                   * Date only. The byline is left out on purpose: the site's
+                   * owners asked for no author names on these indexes.
+                   */}
                   <p className="text-xs uppercase tracking-wide text-muted">
-                    {post.author ? <span>{post.author}</span> : null}
-                    {post.author && post.date ? <span> · </span> : null}
                     {post.date ? (
                       <time dateTime={post.date}>{formatDate(post.date)}</time>
                     ) : null}

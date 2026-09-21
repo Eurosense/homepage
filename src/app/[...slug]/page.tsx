@@ -156,7 +156,6 @@ function PostView({ post }: { post: Post }) {
           <h1 className="text-4xl leading-tight">{post.title}</h1>
           <div className="flex flex-wrap gap-x-3 text-sm text-muted">
             {post.date ? <time dateTime={post.date}>{formatDate(post.date)}</time> : null}
-            {post.author ? <span>Written by {post.author}</span> : null}
           </div>
         </header>
 
@@ -174,11 +173,7 @@ function PostView({ post }: { post: Post }) {
 
         <GatedHtml className="prose-eurosense mt-10" html={renderMarkdown(post.body)} />
 
-        {/* The original signs off with the author name after the body. */}
-        {post.author ? (
-          <p className="mt-8 font-display font-medium text-purple-deep">{post.author}</p>
-        ) : null}
-
+        {/* No author sign-off either — the owners asked for no names shown. */}
         <PostPagination collection={post.collection} slug={post.slug} />
 
         {post.tags.length > 0 ? (
