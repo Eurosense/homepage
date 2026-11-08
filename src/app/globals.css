@@ -28,13 +28,9 @@
   --color-muted: #6b5f73;
   --color-line: #e2ded2;
 
-  /*
-   * next/font emits hashed family names, so these must go through the
-   * variables it sets on <html> (see src/lib/fonts.ts). Naming the families
-   * directly would silently fall through to the system stack.
-   */
+  /* Satoshi is self-hosted and exposed by src/lib/fonts.ts. */
   --font-display: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
 
   --spacing-section: 5rem;
 }
