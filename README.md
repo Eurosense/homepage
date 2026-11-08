@@ -56,9 +56,9 @@ the rebuilt pages match the original at every width rather than only where a
 hand-written breakpoint happens to land. Section colours come from the six
 Squarespace section themes, measured from the live site.
 
-**Self-hosted fonts.** Satoshi and Roboto were served by Squarespace. Satoshi is now
-fetched from Fontshare by `npm run fonts` and committed; Roboto is self-hosted by
-`next/font`. No third-party font requests at runtime.
+**Self-hosted fonts.** Satoshi, used for all page typography, is fetched from
+Fontshare by `npm run fonts` and committed. The build does not fetch fonts from
+Google, and visitors make no third-party font requests.
 
 ## The dashboard
 
