@@ -219,12 +219,15 @@ export const COLLECTION_ROUTES: Record<string, string> = {
  * ours and narrow enough that the dependency is not worth it.
  */
 function parseFrontMatter(raw: string): { data: Record<string, unknown>; body: string } {
-  if (!raw.startsWith('---')) return { data: {}, body: raw }
-  const end = raw.indexOf('\n---', 3)
-  if (end === -1) return { data: {}, body: raw }
+  // Content files may use Windows CRLF line endings. Normalise them first so
+  // the front-matter delimiters and key/value lines parse consistently.
+  const text = raw.replace(/\r\n?/g, '\n')
+  if (!text.startsWith('---')) return { data: {}, body: text }
+  const end = text.indexOf('\n---', 3)
+  if (end === -1) return { data: {}, body: text }
 
-  const head = raw.slice(4, end)
-  const body = raw.slice(end + 4).replace(/^\n+/, '')
+  const head = text.slice(4, end)
+  const body = text.slice(end + 4).replace(/^\n+/, '')
   const data: Record<string, unknown> = {}
 
   let currentKey: string | null = null

@@ -4,7 +4,7 @@ import { InternalLinkRouter } from '@/components/InternalLinkRouter'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { getSiteChrome } from '@/lib/content'
-import { roboto, satoshi } from '@/lib/fonts'
+import { satoshi } from '@/lib/fonts'
 
 import './globals.css'
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.variable} ${satoshi.variable}`}>
+    <html lang="en" className={satoshi.variable}>
       {/*
         No preconnects here on purpose. They once warmed four chart CDNs, HubSpot
         and SenseMaker, all of which have since gone: the charting libraries are

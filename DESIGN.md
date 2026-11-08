@@ -29,8 +29,9 @@ Everything lives in `src/app/globals.css`. Tailwind v4 generates utilities from 
 
 ## Type
 
-Satoshi for everything — display _and_ body. Roboto is loaded and available as
-`--font-sans` but the live site sets body copy in Satoshi too.
+Satoshi for everything — display _and_ body. It is self-hosted from `src/fonts/`.
+Roboto was only loaded for an unused `font-sans` utility; that import has been
+removed so builds do not depend on a Google Fonts response.
 
 Sizes are linear fits through two measurements (390px and 1440px viewports),
 which is how Squarespace expresses them, so they track the original at every
@@ -200,3 +201,4 @@ here) and fit a line: `size = intercept + slope × vw`.
 While the Squarespace site is still up, this is free. **After it is cancelled the
 only reference left is `archive/raw/`** — the HTML snapshots, which have the
 markup but not the computed styles. Measure anything you are unsure about now.
+
