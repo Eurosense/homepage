@@ -29,8 +29,9 @@ Everything lives in `src/app/globals.css`. Tailwind v4 generates utilities from 
 
 ## Type
 
-Satoshi for everything — display _and_ body. Roboto is loaded and available as
-`--font-sans` but the live site sets body copy in Satoshi too.
+Satoshi for everything — display _and_ body. It is self-hosted from `src/fonts/`.
+Roboto was only loaded for an unused `font-sans` utility; that import has been
+removed so builds do not depend on a Google Fonts response.
 
 Sizes are linear fits through two measurements (390px and 1440px viewports),
 which is how Squarespace expresses them, so they track the original at every
@@ -159,10 +160,10 @@ WCAG 2.1 AA, and CI fails on a violation. It currently passes with none.
 Getting there needed two deliberate departures from the original. Both are
 colour-only, both are marked in `globals.css`, and both are one-line reverts:
 
-| The original | Here | Why |
-| --- | --- | --- |
-| Gold `#fdc220` as text or outline on cream — the `/resources` title, the `/forpartners` links, the homepage's outlined buttons | `--color-gold-ink`, `#8a6a11` | The same hue darkened to 4.7:1. The original is **1.5:1**, which is close to illegible. Gold *fills* are untouched; the dark label on them already passes. |
-| One of the two "Request access to Sensemaker" buttons on `/our-partners` has a white label on gold | The dark-brown label `#543f04` | White on gold is 1.9:1. The original uses the dark label on the *other* copy of the same button, so this follows its own accessible version rather than inventing a colour. |
+| The original                                                                                                                   | Here                           | Why                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gold `#fdc220` as text or outline on cream — the `/resources` title, the `/forpartners` links, the homepage's outlined buttons | `--color-gold-ink`, `#8a6a11`  | The same hue darkened to 4.7:1. The original is **1.5:1**, which is close to illegible. Gold _fills_ are untouched; the dark label on them already passes.                  |
+| One of the two "Request access to Sensemaker" buttons on `/our-partners` has a white label on gold                             | The dark-brown label `#543f04` | White on gold is 1.9:1. The original uses the dark label on the _other_ copy of the same button, so this follows its own accessible version rather than inventing a colour. |
 
 Everything else that axe flagged was a bug in this rebuild, not a property of
 the original — a heading inheriting a gold fallback on a page with no section
@@ -171,7 +172,7 @@ theme, a background image painted over, an unnamed logo link, an untitled frame.
 Two things worth knowing about the check:
 
 - **Gold on a dark shape panel stays bright gold.** On `/resources` the card text
-  sits on a purple-deep panel that is a *sibling* in the grid, not an ancestor,
+  sits on a purple-deep panel that is a _sibling_ in the grid, not an ancestor,
   so the cascade cannot see it. `FluidSection` computes the overlap and restores
   the bright colour for those cells. Whichever way you change the gold, check
   both `/resources` (panel) and `/forpartners` (cream).
