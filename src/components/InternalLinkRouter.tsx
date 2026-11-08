@@ -22,6 +22,25 @@ export function InternalLinkRouter() {
   const router = useRouter()
 
   useEffect(() => {
+    function addDestinationTitles(root: ParentNode) {
+      const anchors = root.querySelectorAll<HTMLAnchorElement>('a[href]')
+      for (const anchor of anchors) {
+        anchor.title = anchor.href
+      }
+    }
+
+    // Show the full destination in the browser's hover tooltip, including for
+    // rich-text links that are rendered from content HTML.
+    addDestinationTitles(document)
+    const titleObserver = new MutationObserver((records) => {
+      for (const record of records) {
+        for (const node of record.addedNodes) {
+          if (node instanceof Element) addDestinationTitles(node)
+        }
+      }
+    })
+    titleObserver.observe(document.body, { childList: true, subtree: true })
+
     function onClick(event: MouseEvent) {
       // Anything but an unmodified left click is the reader asking for something
       // else — a new tab, a download, a context menu.
@@ -69,7 +88,10 @@ export function InternalLinkRouter() {
     }
 
     document.addEventListener('click', onClick)
-    return () => document.removeEventListener('click', onClick)
+    return () => {
+      titleObserver.disconnect()
+      document.removeEventListener('click', onClick)
+    }
   }, [router])
 
   return null

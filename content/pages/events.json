@@ -1,0 +1,145 @@
+{
+  "urlPath": "/events",
+  "title": "Events — EuroSense",
+  "description": "Discover upcoming EuroSense events and ways to take part.",
+  "sections": [
+    {
+      "minHeight": "33vh",
+      "verticalAlign": "center",
+      "theme": "white-bold",
+      "grid": {
+        "mobile": { "rows": 10, "rowMin": "24px", "columns": 8, "rowGap": "11px", "columnGap": "11px" },
+        "desktop": { "rows": 8, "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))", "columns": 24, "rowScale": 0.0215 }
+      },
+      "blocks": [
+        {
+          "type": "richText",
+          "html": "<div><h1 style=\"text-align:center; white-space:pre-wrap;\">Events</h1></div>",
+          "layout": {
+            "mobile": { "area": "2/2/4/10", "zIndex": 1, "justify": "center", "align": "center" },
+            "desktop": { "area": "2/5/4/21", "zIndex": 1, "justify": "center", "align": "center" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><p class=\"sqsrte-large\" style=\"text-align:center; white-space:pre-wrap;\">Meet, share experiences, and make sense together. Find EuroSense events and opportunities to connect with our community. Everyone is welcome, and we encourage you to join whatever your experience with the topic.</p></div>",
+          "layout": {
+            "mobile": { "area": "5/2/10/10", "zIndex": 2, "justify": "center", "align": "center" },
+            "desktop": { "area": "4/5/8/21", "zIndex": 2, "justify": "center", "align": "center" }
+          }
+        }
+      ]
+    },
+    {
+      "theme": "white-bold",
+      "grid": {
+        "mobile": { "rows": 57, "rowMin": "24px", "columns": 8, "rowGap": "4px", "columnGap": "11px" },
+        "desktop": { "rows": 31, "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))", "columns": 24, "rowScale": 0.0215, "rowGap": "4px" }
+      },
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/media/events-community-of-practice.webp",
+          "alt": "EuroSense Community of Practice banner showing people sharing stories and reflecting together.",
+          "width": 940,
+          "height": 470,
+          "layout": {
+            "mobile": { "area": "6/2/14/10", "zIndex": 2, "justify": "center", "align": "flex-start" },
+            "desktop": { "area": "6/3/14/12", "zIndex": 2, "justify": "center", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><h2 style=\"white-space:pre-wrap;\">Upcoming events</h2></div>",
+          "layout": {
+            "mobile": { "area": "3/2/5/10", "zIndex": 1, "justify": "center", "align": "center" },
+            "desktop": { "area": "3/3/5/23", "zIndex": 1, "justify": "center", "align": "center" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><h3 style=\"white-space:pre-wrap;\">Community of Practice on citizen engagement — from stories to policies</h3></div>",
+          "layout": {
+            "mobile": { "area": "15/2/18/10", "zIndex": 3, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "15/3/18/12", "zIndex": 3, "justify": "flex-start", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><p style=\"white-space:pre-wrap;\"><strong>Monday, 16 November 2026<br>18:30–20:00 CET · Online · Free</strong></p></div>",
+          "layout": {
+            "mobile": { "area": "18/2/21/10", "zIndex": 4, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "18/3/20/12", "zIndex": 4, "justify": "flex-start", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><p style=\"white-space:pre-wrap;\">Meet other EuroSense participants, share project updates and challenges, and explore how citizen stories can inform policy. The session features a <a href=\"https://drive.google.com/file/d/1DFE0KtHWFZoXA6fs2jLT4i_s4-blgSOM/view?usp=drive_link\">Policy Brief on AI and society</a>. It builds on the stories we collected and a few <a href=\"https://drive.google.com/file/d/15MoDh5yhqWaVdegjLebKenXC_80RVVHZ/view?usp=drive_link\">collective sensemaking sessions</a> we ran over the past few months. Additionally, we’ll share reflections from the Futures4Europe conference, and we welcome everyone to share your own news and updates.</p></div>",
+          "layout": {
+            "mobile": { "area": "21/2/27/10", "zIndex": 5, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "20/3/26/12", "zIndex": 5, "justify": "flex-start", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "button",
+          "label": "Register on Eventbrite",
+          "href": "https://www.eventbrite.com/e/community-of-practice-on-citizen-engagement-from-stories-to-policies-tickets-2003703541230",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "left",
+          "layout": {
+            "mobile": { "area": "28/2/32/10", "zIndex": 6, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "27/3/31/9", "zIndex": 6, "justify": "flex-start", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "image",
+          "src": "/media/events-housing.webp",
+          "alt": "EuroSense Housing session banner about housing as a 2026 focus topic.",
+          "width": 940,
+          "height": 470,
+          "layout": {
+            "mobile": { "area": "30/2/38/10", "zIndex": 7, "justify": "center", "align": "flex-start" },
+            "desktop": { "area": "6/14/14/23", "zIndex": 7, "justify": "center", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><h3 style=\"white-space:pre-wrap;\">Let’s make sense of . . . Housing!</h3></div>",
+          "layout": {
+            "mobile": { "area": "39/2/42/10", "zIndex": 8, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "15/14/18/23", "zIndex": 8, "justify": "flex-start", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><p style=\"white-space:pre-wrap;\"><strong>Wednesday, 9 December 2026<br>18:30–20:00 CET · Online · Free</strong></p></div>",
+          "layout": {
+            "mobile": { "area": "42/2/45/10", "zIndex": 9, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "18/14/20/23", "zIndex": 9, "justify": "flex-start", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "richText",
+          "html": "<div><p style=\"white-space:pre-wrap;\">Share your experience of housing and discuss what those stories mean and what we can do next. The session connects to the European Citizens’ Initiative <a href=\"https://right-to-housing.eu/\">Right to Housing! Now and Forever</a>, calling for affordable, sustainable and fair housing across Europe. You can <a href=\"https://collector.sensemaker-suite.com/collector?projectID=d1c06283-3a51-4050-ac6d-ea29ae75f32c&amp;ID=EGF_housing\">share your housing story</a> beforehand.</p></div>",
+          "layout": {
+            "mobile": { "area": "45/2/53/10", "zIndex": 10, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "20/14/26/23", "zIndex": 10, "justify": "flex-start", "align": "flex-start" }
+          }
+        },
+        {
+          "type": "button",
+          "label": "Register on Eventbrite",
+          "href": "https://www.eventbrite.com/e/lets-make-sense-of-housing-tickets-2003703304522",
+          "variant": "primary",
+          "size": "medium",
+          "alignment": "left",
+          "layout": {
+            "mobile": { "area": "54/2/58/10", "zIndex": 11, "justify": "flex-start", "align": "flex-start" },
+            "desktop": { "area": "27/14/31/20", "zIndex": 11, "justify": "flex-start", "align": "flex-start" }
+          }
+        }
+      ]
+    }
+  ]
+}

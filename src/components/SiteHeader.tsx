@@ -65,7 +65,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
       className="absolute inset-x-0 top-0 z-50 bg-cream"
       style={{ minHeight: 'var(--header-height)' }}
     >
-      <div className="mx-auto flex max-w-[1425px] items-center justify-between gap-4 px-5 py-5 sm:px-8 xl:px-[57.6px] xl:py-[28.8px]">
+      <div className="mx-auto flex max-w-[1425px] items-center justify-between gap-3 px-4 py-4 sm:px-8 lg:px-6 xl:gap-2 xl:px-8 xl:py-5 2xl:gap-4 2xl:px-[57.6px] 2xl:py-[28.8px]">
         <Link href="/" className="flex shrink-0 items-center" aria-label="EuroSense — home">
           <Image
             src={chrome.logo}
@@ -73,17 +73,20 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
             width={205}
             height={50}
             priority
-            className="h-[50px] w-auto object-contain max-sm:h-9"
+            className="h-10 w-auto object-contain max-sm:h-9 lg:h-9 xl:h-10 2xl:h-[50px]"
           />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-0.5 lg:flex lg:gap-1 xl:gap-1.5 2xl:gap-2"
+        >
           {chrome.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isCurrent(item.href) ? 'page' : undefined}
-              className={`rounded-full px-3.5 py-2 text-[14.272px] font-medium transition ${
+              className={`rounded-full px-2.5 py-2 text-[14px] font-medium transition xl:px-3 xl:text-[14.272px] 2xl:px-3.5 2xl:text-[14.272px] ${
                 isCurrent(item.href)
                   ? 'bg-purple text-cream'
                   : 'text-purple-deep hover:bg-purple/10'
@@ -94,14 +97,14 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
+        <div className="hidden items-center gap-2 lg:flex xl:gap-3">
           <SocialLinks social={chrome.social} />
           {chrome.headerCta ? (
             <a
               href={chrome.headerCta.href}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex h-14 items-center rounded-[16px] border border-purple-deep px-5 text-base font-medium text-purple-deep transition hover:bg-purple-deep hover:text-cream"
+              className="inline-flex h-11 items-center rounded-[14px] border border-purple-deep px-4 text-sm font-medium text-purple-deep transition hover:bg-purple-deep hover:text-cream"
             >
               {chrome.headerCta.label}
             </a>
@@ -113,7 +116,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          className="rounded-lg p-2 xl:hidden"
+          className="rounded-lg p-2 lg:hidden"
         >
           <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
           <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden fill="none">
@@ -131,7 +134,7 @@ export function SiteHeader({ chrome }: { chrome: SiteChrome }) {
         <nav
           id="mobile-nav"
           aria-label="Primary"
-          className="border-t border-line px-5 pb-4 xl:hidden"
+          className="border-t border-line px-5 pb-4 lg:hidden"
         >
           {chrome.nav.map((item) => (
             <Link
