@@ -6,8 +6,6 @@
  * Squarespace's own font CDN, which goes away with the subscription. Satoshi is
  * free under the ITF Free Font Licence, which permits self-hosting.
  *
- * Roboto is not handled here: next/font/google downloads and self-hosts it at
- * build time.
  */
 
 import { mkdir, writeFile } from 'node:fs/promises'
