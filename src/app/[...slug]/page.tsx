@@ -154,6 +154,9 @@ function PostView({ post }: { post: Post }) {
 
         <header className="mt-6 flex flex-col gap-3">
           <h1 className="text-4xl leading-tight">{post.title}</h1>
+          {post.showAuthor && post.author ? (
+            <p className="text-sm text-muted">By {post.author}</p>
+          ) : null}
           <div className="flex flex-wrap gap-x-3 text-sm text-muted">
             {post.date ? <time dateTime={post.date}>{formatDate(post.date)}</time> : null}
           </div>
@@ -162,7 +165,7 @@ function PostView({ post }: { post: Post }) {
         {post.image ? (
           <Image
             src={post.image}
-            alt=""
+            alt={post.imageAlt ?? ''}
             width={1600}
             height={900}
             priority
@@ -173,7 +176,7 @@ function PostView({ post }: { post: Post }) {
 
         <GatedHtml className="prose-eurosense mt-10" html={renderMarkdown(post.body)} />
 
-        {/* No author sign-off either — the owners asked for no names shown. */}
+        {/* Author names appear in the header only when a post opts in. */}
         <PostPagination collection={post.collection} slug={post.slug} />
 
         {post.tags.length > 0 ? (
