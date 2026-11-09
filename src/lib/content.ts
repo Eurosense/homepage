@@ -184,6 +184,8 @@ export type Post = {
   imageWidth?: number
   imageHeight?: number
   author?: string
+  /** Opt in to showing the author on the post page; author names stay hidden by default. */
+  showAuthor?: boolean
   tags: string[]
   categories: string[]
   body: string
@@ -306,9 +308,11 @@ export function getPostsIn(collection: string): Post[] {
         date: data.date as string | undefined,
         excerpt: data.excerpt as string | undefined,
         image: data.image as string | undefined,
+        imageAlt: data.imageAlt as string | undefined,
         imageWidth: data.imageWidth as number | undefined,
         imageHeight: data.imageHeight as number | undefined,
         author: data.author as string | undefined,
+        showAuthor: data.showAuthor === 'true',
         tags: (data.tags as string[]) ?? [],
         categories: (data.categories as string[]) ?? [],
         body,
