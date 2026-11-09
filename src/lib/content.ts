@@ -179,6 +179,7 @@ export type Post = {
   date?: string
   excerpt?: string
   image?: string
+  imageAlt?: string
   /** Intrinsic size of `image`, so the index can lay out without cropping. */
   imageWidth?: number
   imageHeight?: number
