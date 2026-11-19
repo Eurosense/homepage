@@ -10,14 +10,14 @@
       "verticalAlign": "center",
       "grid": {
         "mobile": {
-          "rows": 24,
+          "rows": 29,
           "rowMin": "24px",
           "columns": 8,
           "rowGap": "11.0px",
           "columnGap": "11.0px"
         },
         "desktop": {
-          "rows": 35,
+          "rows": 39,
           "rowMin": "calc(var(--container-width) * var(--row-height-scaling-factor))",
           "columns": 24,
           "rowScale": 0.0215
@@ -26,9 +26,10 @@
       "blocks": [
         {
           "type": "document",
-          "title": "Between convenience and concern. Annemarie van den Brink",
-          "href": "/files/between-convenience-and-concern-annemarie-van-den-brink-1G_-NDG-.pdf",
+          "title": "EuroSense - making sense to then make change. Gretchen Knoll-Rosk",
+          "href": "/files/eurosense-making-sense-to-then-make-change-gretchen-knoll-rosk.pdf",
           "kind": "pdf",
+          "sourceHref": "https://drive.google.com/file/d/1qlr7LW2RtW15h7WjMwXxM915POGzlOs_/view?usp=drive_link",
           "layout": {
             "mobile": {
               "area": "1/2/3/10",
@@ -42,12 +43,11 @@
               "justify": "flex-start",
               "align": "flex-start"
             }
-          },
-          "sourceHref": "https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view"
+          }
         },
         {
           "type": "richText",
-          "html": "<div><p style=\"white-space:pre-wrap;\">The article describes a small-scale study by Charge Research Platform Volt that explored citizens’ experiences with generative AI using the SenseMaker method. Instead of surveys or interviews, participants shared personal stories and interpreted their own experiences, values, and concerns. This participatory approach places citizens’ lived experiences at the center and is presented as a model for more inclusive and democratic input into AI policy-making.</p></div>",
+          "html": "<div><p style=\"white-space:pre-wrap;\">This paper provides an overview of the Eurosense initiative: the purpose, the approach, methods and tools. It further dives into the data collected through June 2026, which comprises about 1,280 citizen narratives on AI, transportation and climate change. The data shows a mostly negative tone: 58.8% of experiences were rated negative and 30.7% positive. Participants saw a role for both individual and government action. Participation is uneven. Germany and the Netherlands account for 57% of entries, and only 28% of contributors are under 35. Most participants are engaged civic actors, so the sample is not representative of the EU population. The paper closes with recommendations. These are to broaden and diversify participation, to use small-group Estuarine mapping to design local \"safe to fail\" micro-experiments, and to clarify Eurosense’s institutional role and data tools.</p></div>",
           "layout": {
             "mobile": {
               "area": "3/2/5/10",
@@ -65,8 +65,8 @@
         },
         {
           "type": "document",
-          "title": "EuroSense and the Future of Participatory Decision-Making. Allegra Grunberg",
-          "href": "/files/eurosense-and-the-future-of-participatory-decision-making-allegra-grun-16PuJ-w3.pdf",
+          "title": "Between convenience and concern. Annemarie van den Brink",
+          "href": "/files/between-convenience-and-concern-annemarie-van-den-brink-1G_-NDG-.pdf",
           "kind": "pdf",
           "layout": {
             "mobile": {
@@ -76,8 +76,47 @@
               "align": "flex-start"
             },
             "desktop": {
-              "area": "5/2/6/16",
+              "area": "5/2/6/14",
               "zIndex": 3,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1G_-NDG-RB5FN7kCwQmmFY846qGP6ONg6/view"
+        },
+        {
+          "type": "richText",
+          "html": "<div><p style=\"white-space:pre-wrap;\">The article describes a small-scale study by Charge Research Platform Volt that explored citizens’ experiences with generative AI using the SenseMaker method. Instead of surveys or interviews, participants shared personal stories and interpreted their own experiences, values, and concerns. This participatory approach places citizens’ lived experiences at the center and is presented as a model for more inclusive and democratic input into AI policy-making.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "7/2/9/10",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "6/2/9/24",
+              "zIndex": 4,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
+        },
+        {
+          "type": "document",
+          "title": "EuroSense and the Future of Participatory Decision-Making. Allegra Grunberg",
+          "href": "/files/eurosense-and-the-future-of-participatory-decision-making-allegra-grun-16PuJ-w3.pdf",
+          "kind": "pdf",
+          "layout": {
+            "mobile": {
+              "area": "9/2/11/10",
+              "zIndex": 5,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "9/2/10/16",
+              "zIndex": 5,
               "justify": "flex-start",
               "align": "flex-start"
             }
@@ -89,14 +128,14 @@
           "html": "<div><p style=\"white-space:pre-wrap;\">The article centers on the EuroSense methodology, a participatory collective intelligence approach that moves beyond traditional surveys and top-down analysis. Using the SenseMaker® tool, citizens share short personal stories (micro-narratives) and then interpret their own experiences through structured “self-signification” questions. These individual interpretations are aggregated to reveal patterns grounded in lived experience, rather than researcher assumptions. Insights are then explored collaboratively through methods such as estuarine mapping, where citizens, policymakers, and other stakeholders jointly interpret the data and co-design actions. By combining narrative collection, distributed interpretation, and continuous feedback loops, EuroSense turns collective sensemaking into collective action and positions citizens as co-creators of knowledge and policy.</p></div>",
           "layout": {
             "mobile": {
-              "area": "7/2/9/10",
-              "zIndex": 4,
+              "area": "11/2/13/10",
+              "zIndex": 6,
               "justify": "flex-start",
               "align": "flex-start"
             },
             "desktop": {
-              "area": "6/2/11/24",
-              "zIndex": 4,
+              "area": "10/2/15/24",
+              "zIndex": 6,
               "justify": "flex-start",
               "align": "flex-start"
             }
@@ -109,14 +148,14 @@
           "kind": "pdf",
           "layout": {
             "mobile": {
-              "area": "9/2/11/10",
-              "zIndex": 5,
+              "area": "13/2/15/10",
+              "zIndex": 7,
               "justify": "flex-start",
               "align": "flex-start"
             },
             "desktop": {
-              "area": "11/2/12/17",
-              "zIndex": 5,
+              "area": "15/2/16/17",
+              "zIndex": 7,
               "justify": "flex-start",
               "align": "flex-start"
             }
@@ -126,45 +165,6 @@
         {
           "type": "richText",
           "html": "<div><p style=\"white-space:pre-wrap;\">This document presents a collection of narratives related to climate change, climate adaptation and sustainability, selected from the total collection of 1081 narratives collected by Eurosense. The detailed selection process is described in Appendix. Narratives are presented grouped by the categories they have been assigned by the respondents. The goal of this document is to provide material for sensemaking sessions.</p></div>",
-          "layout": {
-            "mobile": {
-              "area": "11/2/13/10",
-              "zIndex": 6,
-              "justify": "flex-start",
-              "align": "flex-start"
-            },
-            "desktop": {
-              "area": "12/2/15/24",
-              "zIndex": 6,
-              "justify": "flex-start",
-              "align": "flex-start"
-            }
-          }
-        },
-        {
-          "type": "document",
-          "title": "What is it like to be a European. Roberto Bonino",
-          "href": "/files/what-is-it-like-to-be-a-european-roberto-bonino-1GleRilb.pdf",
-          "kind": "pdf",
-          "layout": {
-            "mobile": {
-              "area": "13/2/15/10",
-              "zIndex": 7,
-              "justify": "flex-start",
-              "align": "flex-start"
-            },
-            "desktop": {
-              "area": "15/2/16/12",
-              "zIndex": 7,
-              "justify": "flex-start",
-              "align": "flex-start"
-            }
-          },
-          "sourceHref": "https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view"
-        },
-        {
-          "type": "richText",
-          "html": "<div><p style=\"white-space:pre-wrap;\">This paper contributes to reflections on the question of what is it to be a European by exploring how respondents to the Eurosense data collection relate to the concepts of Europe, European Union and democracy through word clouds built from the responses to the open questions of the Eurosense collector. It offers an interesting overlook at some general trends emerging from the wordclouds grouped by questions and coutry of residence. Some specific differences and trends were noticed and are presented as a starting point for meaningful discussion in the context of semnsemaking sessions within the Eurosense community.</p></div>",
           "layout": {
             "mobile": {
               "area": "15/2/17/10",
@@ -182,8 +182,8 @@
         },
         {
           "type": "document",
-          "title": "Primary Analysis Report. Ina Dmitrieva",
-          "href": "/files/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf",
+          "title": "What is it like to be a European. Roberto Bonino",
+          "href": "/files/what-is-it-like-to-be-a-european-roberto-bonino-1GleRilb.pdf",
           "kind": "pdf",
           "layout": {
             "mobile": {
@@ -193,8 +193,47 @@
               "align": "flex-start"
             },
             "desktop": {
-              "area": "20/2/22/12",
+              "area": "19/2/20/12",
               "zIndex": 9,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          },
+          "sourceHref": "https://drive.google.com/file/d/1GleRilbE0o-pHHgsLWmyI3t-GdErLEuX/view"
+        },
+        {
+          "type": "richText",
+          "html": "<div><p style=\"white-space:pre-wrap;\">This paper contributes to reflections on the question of what is it to be a European by exploring how respondents to the Eurosense data collection relate to the concepts of Europe, European Union and democracy through word clouds built from the responses to the open questions of the Eurosense collector. It offers an interesting overlook at some general trends emerging from the wordclouds grouped by questions and coutry of residence. Some specific differences and trends were noticed and are presented as a starting point for meaningful discussion in the context of semnsemaking sessions within the Eurosense community.</p></div>",
+          "layout": {
+            "mobile": {
+              "area": "19/2/21/10",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "20/2/23/24",
+              "zIndex": 10,
+              "justify": "flex-start",
+              "align": "flex-start"
+            }
+          }
+        },
+        {
+          "type": "document",
+          "title": "Primary Analysis Report. Ina Dmitrieva",
+          "href": "/files/2025_04_07_EuroSense-Primary-Analysis-Report-Final.pdf",
+          "kind": "pdf",
+          "layout": {
+            "mobile": {
+              "area": "21/2/23/10",
+              "zIndex": 11,
+              "justify": "flex-start",
+              "align": "flex-start"
+            },
+            "desktop": {
+              "area": "24/2/26/12",
+              "zIndex": 11,
               "justify": "flex-start",
               "align": "flex-start"
             }
@@ -205,14 +244,14 @@
           "html": "<div><p style=\"white-space:pre-wrap;\">The primary analysis takes an exploratory approach and is aimed at providing a bird’s eye view of findings, enabling description and understanding of the main characteristics of the data. Its main focus is presenting responses visually in the form of plots and graphs and in this way identifying dominant patterns and outliers, while also identifying where it is necessary to disaggregate responses and determining the variables that will be used to do this. This is undertaken by using visualization tools (plots and graphs), quantitative techniques (summary statistics with some basic level of disaggregation and correlations among selected variables), and reading and analyzing sets of narratives from different groups of respondents. The sets of narratives for analysis can be extracted by filtering them using MCQs or can be drawn by selecting responses from dominant clusters or from outliers.</p></div>",
           "layout": {
             "mobile": {
-              "area": "19/2/21/10",
-              "zIndex": 10,
+              "area": "23/2/25/10",
+              "zIndex": 12,
               "justify": "flex-start",
               "align": "flex-start"
             },
             "desktop": {
-              "area": "21/2/27/24",
-              "zIndex": 10,
+              "area": "25/2/31/24",
+              "zIndex": 12,
               "justify": "flex-start",
               "align": "flex-start"
             }
@@ -225,14 +264,14 @@
           "kind": "pdf",
           "layout": {
             "mobile": {
-              "area": "21/2/23/10",
-              "zIndex": 11,
+              "area": "25/2/27/10",
+              "zIndex": 13,
               "justify": "flex-start",
               "align": "flex-start"
             },
             "desktop": {
-              "area": "27/2/28/23",
-              "zIndex": 11,
+              "area": "31/2/32/23",
+              "zIndex": 13,
               "justify": "flex-start",
               "align": "flex-start"
             }
@@ -244,14 +283,14 @@
           "html": "<div><p style=\"white-space:pre-wrap;\">This exploratory dissertation creates and applies a non-computational adaptation of the Free Energy Principle (FEP) and Collective Intelligence (CI) to develop a scalable methodological framework (the FEP–CI framework) for analyzing science-technology-policy employment gaps. The research explores whether core concepts from FEP and CI can serve as useful principles for understanding employment system failures. Rather than claiming proven efficacy, it establishes a theoretical and conceptual foundation for future empirical and computational validation. Using the transition of students and graduates from study to workforce as a “sandbox,” it frames labor policy as an opportunity to test inclusive, iterative decision-making. The study includes a comprehensive literature review evaluating academic sources on traditional employment theories, FEP and CI to identify their analytical limitations, and assess the relevance and capacity of FEP and CI to address these gaps in employment policy analysis. Based on this analysis, the FEP-CI framework is developed. To empirically test the framework, employment experiences of 22 students and alumni from science-technology-policy programs are examined using the platform-based narrative collection tool SenseMaker®.</p></div>",
           "layout": {
             "mobile": {
-              "area": "23/2/25/10",
-              "zIndex": 12,
+              "area": "27/2/29/10",
+              "zIndex": 14,
               "justify": "flex-start",
               "align": "flex-start"
             },
             "desktop": {
-              "area": "28/2/35/24",
-              "zIndex": 12,
+              "area": "32/2/39/24",
+              "zIndex": 14,
               "justify": "flex-start",
               "align": "flex-start"
             }
