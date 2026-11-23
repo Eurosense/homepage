@@ -88,13 +88,13 @@
           "html": "<div><h3 style=\"text-align:center; white-space:pre-wrap;\">Stories Collected</h3></div>",
           "layout": {
             "mobile": {
-              "area": "12/2/14/10",
+              "area": "14/2/16/10",
               "zIndex": 3,
               "justify": "flex-start",
               "align": "flex-start"
             },
             "desktop": {
-              "area": "1/15/3/22",
+              "area": "3/15/5/23",
               "zIndex": 3,
               "justify": "center",
               "align": "center"
@@ -106,13 +106,13 @@
           "html": "<div class=\"sqs-embed-container\" data-localized=\"{&quot;embedInvalid&quot;:&quot;Enter a valid embed URL or code.&quot;,&quot;embedTitle&quot;:&quot;Embed Block&quot;,&quot;embedUninitialized&quot;:&quot;Add an embed URL or code.&quot;,&quot;enableSafeModeButton&quot;:&quot;Preview in safe mode&quot;,&quot;enableSafeModeText&quot;:&quot;This block contains embedded scripts. Embedded scripts are disabled while you're logged in and editing your site.&quot;,&quot;enableSafeModeTitle&quot;:&quot;Embedded Scripts&quot;,&quot;exitSafeModeButton&quot;:&quot;Exit safe preview&quot;,&quot;exitSafeModeText&quot;:&quot;Please view the page after logging out for accurate rendering.&quot;,&quot;exitSafeModeTitle&quot;:&quot;Safe Preview&quot;,&quot;globalSafeMode&quot;:&quot;Embedded Code: This block contains embedded code that has been disabled.&quot;,&quot;invalidThumbnail&quot;:&quot;Custom featured images only available with embedded videos. Go back into embed settings to turn off featured images.&quot;,&quot;invalidVideo&quot;:&quot;Invalid video embed.&quot;,&quot;playButton&quot;:&quot;Play&quot;,&quot;scriptDisabled&quot;:&quot;Script Disabled&quot;}\">\n  \n  \n    \n    \n      \n        \n        \n        \n        \n          <iframe width=\"220\" height=\"220\" type=\"dashboard_v1_widget\" src=\"https://platform.sensemaker-suite.com/r/e/21a86a3e-2554-4ed7-86be-b76ca404b577\" title=\"Volt Europe\" frameborder=\"0\" allow=\"accelerometer; clipboard-write;\" allowfullscreen=\"\"></iframe>\n        \n        \n        \n      \n    \n  \n  \n    \n\n\n\n  \n</div>\n\n\n  <style class=\"transform-overrides-vars\">\n  \n</style>",
           "layout": {
             "mobile": {
-              "area": "14/4/22/10",
+              "area": "16/2/24/10",
               "zIndex": 6,
               "justify": "flex-start",
               "align": "flex-start"
             },
             "desktop": {
-              "area": "3/16/10/22",
+              "area": "5/16/12/22",
               "zIndex": 6,
               "justify": "flex-start",
               "align": "flex-start"
@@ -122,20 +122,20 @@
         {
           "type": "button",
           "label": "FULL DASHBOARD",
-          "href": "https://platform.sensemaker-suite.com/r/d/3642683b-063d-493e-a32d-d6dea369df63",
+          "href": "https://platform.sensemaker-suite.com/r/d/019f5c9e-3d3c-4b90-9b83-d09d77674d0f",
           "variant": "primary",
           "size": "medium",
           "alignment": "center",
           "stretched": true,
           "layout": {
             "mobile": {
-              "area": "22/4/24/8",
+              "area": "12/1/14/5",
               "zIndex": 5,
               "justify": "center",
               "align": "center"
             },
             "desktop": {
-              "area": "10/14/12/18",
+              "area": "1/14/3/18",
               "zIndex": 5,
               "justify": "center",
               "align": "center"
@@ -152,13 +152,13 @@
           "stretched": true,
           "layout": {
             "mobile": {
-              "area": "24/2/26/6",
+              "area": "12/6/14/9",
               "zIndex": 10,
               "justify": "center",
               "align": "center"
             },
             "desktop": {
-              "area": "10/19/12/23",
+              "area": "1/20/3/24",
               "zIndex": 10,
               "justify": "center",
               "align": "center"
@@ -278,3 +278,4 @@
     }
   ]
 }
+
