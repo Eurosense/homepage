@@ -77,6 +77,24 @@ const block = z.discriminatedUnion('type', [
   z.object({ type: z.literal('embed'), html: z.string() }),
   z.object({ type: z.literal('quote'), text: z.string(), source: z.string().optional() }),
   z.object({ type: z.literal('divider') }),
+  z.object({
+    type: z.literal('eventListing'),
+    upcomingHeading: z.string().optional(),
+    pastHeading: z.string().optional(),
+    events: z.array(
+      z.object({
+        startsAt: z.string().datetime({ offset: true }),
+        endsAt: z.string().datetime({ offset: true }),
+        title: z.string().min(1),
+        image: mediaPath,
+        imageAlt: z.string(),
+        details: z.string(),
+        descriptionHtml: z.string(),
+        registrationHref: z.string().url().optional(),
+        registrationLabel: z.string().optional(),
+      }),
+    ),
+  }),
   z.object({ type: z.literal('postList') }),
   z.object({
     type: z.literal('form'),

@@ -94,7 +94,9 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
    * Only sections with such a block are affected; everywhere else the minimum is
    * the spacing the design depends on.
    */
-  const contentDriven = blocks.some((b) => b.type === 'accordion' || b.type === 'postList')
+  const contentDriven = blocks.some(
+    (b) => b.type === 'accordion' || b.type === 'postList' || b.type === 'eventListing',
+  )
   const mobileRowMin = contentDriven ? '0px' : (mobile.rowMin ?? '24px')
 
   /*
