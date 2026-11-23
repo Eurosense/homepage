@@ -45,6 +45,22 @@ export type Block =
   | { type: 'embed'; html: string }
   | { type: 'quote'; text: string; source?: string }
   | { type: 'divider' }
+  | {
+      type: 'eventListing'
+      upcomingHeading?: string
+      pastHeading?: string
+      events: {
+        startsAt: string
+        endsAt: string
+        title: string
+        image: string
+        imageAlt: string
+        details: string
+        descriptionHtml: string
+        registrationHref?: string
+        registrationLabel?: string
+      }[]
+    }
   /** Where the page's collection list renders; the route supplies the posts. */
   | { type: 'postList' }
   | { type: 'form'; title?: string; submitLabel?: string; formId?: string; fields: FormField[] }
