@@ -11,6 +11,7 @@ import { ContactForm } from '@/components/ContactForm'
 import { SmartLink } from '@/components/SmartLink'
 import { SearchBox } from '@/components/SearchBox'
 import { SocialLinks } from '@/components/SocialLinks'
+import { EventListing } from '@/components/EventListing'
 import { renderMarkdown } from '@/lib/markdown'
 import { getFormTarget } from '@/lib/forms'
 import type { Block } from '@/lib/content'
@@ -239,6 +240,9 @@ export function BlockView({ block }: { block: Block }) {
 
     case 'divider':
       return <hr className="my-4 border-line" />
+
+    case 'eventListing':
+      return <EventListing {...block} initialNow={Date.now()} />
 
     case 'form':
       return <ContactForm block={block} target={getFormTarget(block.formId ?? '')} />
