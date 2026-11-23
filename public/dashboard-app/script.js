@@ -229,8 +229,77 @@ document.addEventListener("DOMContentLoaded", function () {
       const fullCountryData = Object.entries(countryCounts).map(([name, value]) => ({
         value: ((value / totalCountries) * 100).toFixed(2),
         name,
-        code: getCountryCode(name)
+        code: getCountryCode(name),
+        count: value
       }));
+      const sentimentQuestion = "1.3 In general this experience was...";
+      const narratorCountryQuestion = "6.4 My experience is from...";
+      const topicQuestion = "1.2 What you described relates mainly to...(pick up to three)";
+      const allSentiments = "All sentiments";
+      const allTopics = "All topics";
+      const topicLabels = {
+        "Mobilty and transport": "Mobility and transport",
+        "Fairness and social justice": "Fairness and social justice",
+        "Nature and climate": "Nature and climate",
+        "Health and Wellbeing": "Health and wellbeing",
+        "Migration and Refugees": "Migration and refugees",
+        "Work and Occupation": "Work and occupation",
+        "Housing and Living Conditions": "Housing and living conditions",
+        "Democracy and Goverance": "Democracy and governance",
+        "Economy and Markets": "Economy and markets",
+        "Living together and Community": "Living together and community",
+        "Education and Schools": "Education and schools",
+        "Peace and Security": "Peace and security",
+        "Other, please specify": "Other"
+      };
+      const topicCategories = Object.keys(topicLabels);
+      const sentimentCategories = [
+        "Very positive",
+        "Positive",
+        "Neutral",
+        "Negative",
+        "Very negative",
+        "I don’t know / Not sure"
+      ];
+      const sentimentColorScales = {
+        "Very positive": ["#e5f5e9", "#006d2c"],
+        Positive: ["#f0fdf4", "#74c476"],
+        Neutral: ["#f3f4f6", "#9ca3af"],
+        Negative: ["#fff1f2", "#fb7185"],
+        "Very negative": ["#fee2e2", "#b91c1c"],
+        "I don’t know / Not sure": ["#f1f5f9", "#64748b"]
+      };
+      const sentimentByCountry = {};
+      data.forEach((row) => {
+        const country = pickChoice(row, narratorCountryQuestion).trim();
+        const sentiment = pickChoice(row, sentimentQuestion);
+        const code = getCountryCode(country);
+        if (!code || !sentimentCategories.includes(sentiment)) return;
+
+        if (!sentimentByCountry[code]) {
+          sentimentByCountry[code] = {
+            code,
+            name: country,
+            total: 0,
+            sentimentCounts: {},
+            topicCounts: {},
+            combinationCounts: {}
+          };
+        }
+        const countryData = sentimentByCountry[code];
+        countryData.total++;
+        countryData.sentimentCounts[sentiment] = (countryData.sentimentCounts[sentiment] || 0) + 1;
+        Object.keys(row).forEach((key) => {
+          if (!key.startsWith(topicQuestion + "_")) return;
+          if (!/^(1|true)$/i.test(String(row[key] ?? "").trim())) return;
+          const topic = key.slice(topicQuestion.length + 1).trim();
+          if (!topicCategories.includes(topic)) return;
+          countryData.topicCounts[topic] = (countryData.topicCounts[topic] || 0) + 1;
+          const combination = `${sentiment}|${topic}`;
+          countryData.combinationCounts[combination] = (countryData.combinationCounts[combination] || 0) + 1;
+        });
+      });
+      const narratorSentimentCountries = Object.values(sentimentByCountry);
       const top5CountryCounts = getTop5PlusOthers(countryCounts);
       const top5CountryData = Object.entries(top5CountryCounts).map(([name, value]) => ({
         name,
@@ -396,6 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             mapNavigation: {
               enabled: true,
+              enableMouseWheelZoom: false,
               buttonOptions: { verticalAlign: "bottom" }
             },
             colorAxis: {
@@ -426,6 +496,137 @@ document.addEventListener("DOMContentLoaded", function () {
                 joinBy: ["iso-a2", "code"]
               }
             ]
+          });
+
+          let selectedSentiment = "Positive";
+          let selectedTopic = allTopics;
+          const sentimentOptions = document.getElementById("sentimentOptions");
+          const topicOptions = document.getElementById("topicOptions");
+          const topicOnlyColorScale = ["#e0e7ff", "#3730a3"];
+
+          function selectedColorScale() {
+            return selectedSentiment === allSentiments
+              ? topicOnlyColorScale
+              : sentimentColorScales[selectedSentiment];
+          }
+
+          function selectedMapLabel() {
+            const sentimentLabel = selectedSentiment === allSentiments ? "All sentiments" : selectedSentiment;
+            const topicLabel = selectedTopic === allTopics ? allTopics : topicLabels[selectedTopic];
+            if (selectedSentiment === allSentiments && selectedTopic === allTopics) return "All rated stories";
+            if (selectedSentiment === allSentiments) return topicLabel;
+            if (selectedTopic === allTopics) return sentimentLabel;
+            return `${sentimentLabel} + ${topicLabel}`;
+          }
+
+          function sentimentSeriesData() {
+            return narratorSentimentCountries.map((country) => {
+              let matchCount;
+              if (selectedSentiment === allSentiments && selectedTopic === allTopics) {
+                matchCount = country.total;
+              } else if (selectedSentiment === allSentiments) {
+                matchCount = country.topicCounts[selectedTopic] || 0;
+              } else if (selectedTopic === allTopics) {
+                matchCount = country.sentimentCounts[selectedSentiment] || 0;
+              } else {
+                matchCount = country.combinationCounts[`${selectedSentiment}|${selectedTopic}`] || 0;
+              }
+              return {
+                code: country.code,
+                value: (matchCount / country.total) * 100,
+                custom: {
+                  filterLabel: selectedMapLabel(),
+                  matchCount,
+                  total: country.total
+                }
+              };
+            });
+          }
+
+          function updateSentimentMap() {
+            const colors = selectedColorScale();
+            sentimentChart.colorAxis[0].update({
+              stops: [[0, colors[0]], [1, colors[1]]]
+            }, false);
+            sentimentChart.setTitle({ text: `Share of rated stories by country — ${selectedMapLabel()}` });
+            sentimentChart.series[0].update({ name: selectedMapLabel() }, false);
+            sentimentChart.series[0].setData(sentimentSeriesData(), false);
+            sentimentChart.redraw();
+            sentimentOptions.querySelectorAll(".sentiment-option").forEach((button) => {
+              button.setAttribute("aria-pressed", String(button.dataset.sentiment === selectedSentiment));
+            });
+            topicOptions.querySelectorAll(".sentiment-option").forEach((button) => {
+              button.setAttribute("aria-pressed", String(button.dataset.topic === selectedTopic));
+            });
+          }
+
+          const sentimentChart = Highcharts.mapChart("sentimentMap", {
+            chart: {
+              map: topology
+            },
+            title: {
+              text: "Share of rated stories by country — Positive",
+              align: "left",
+              style: { fontFamily: "Inter, sans-serif" }
+            },
+            mapNavigation: {
+              enabled: true,
+              enableMouseWheelZoom: false,
+              buttonOptions: { verticalAlign: "bottom" }
+            },
+            colorAxis: {
+              min: 0,
+              max: 100,
+              stops: [
+                [0, selectedColorScale()[0]],
+                [1, selectedColorScale()[1]]
+              ],
+              labels: { format: "{value}%" }
+            },
+            tooltip: {
+              formatter: function () {
+                const point = this.point;
+                const details = point.custom || {};
+                const percent = Number.isFinite(point.value) ? point.value.toFixed(1) : "0.0";
+                return `<b>${point.name}</b><br/>${details.filterLabel}: ${percent}%<br/>${details.matchCount} of ${details.total} rated stories`;
+              }
+            },
+            series: [
+              {
+                data: sentimentSeriesData(),
+                name: selectedMapLabel(),
+                states: { hover: { color: "#bada55" } },
+                dataLabels: { enabled: false },
+                joinBy: ["iso-a2", "code"]
+              }
+            ]
+          });
+
+          [allSentiments, ...sentimentCategories].forEach((category) => {
+            const option = document.createElement("button");
+            option.type = "button";
+            option.className = "sentiment-option";
+            option.textContent = category;
+            option.dataset.sentiment = category;
+            option.setAttribute("aria-pressed", String(category === selectedSentiment));
+            option.addEventListener("click", () => {
+              selectedSentiment = category;
+              updateSentimentMap();
+            });
+            sentimentOptions.appendChild(option);
+          });
+          [allTopics, ...topicCategories].forEach((topic) => {
+            const option = document.createElement("button");
+            option.type = "button";
+            option.className = "sentiment-option";
+            option.textContent = topic === allTopics ? allTopics : topicLabels[topic];
+            option.dataset.topic = topic;
+            option.setAttribute("aria-pressed", String(topic === selectedTopic));
+            option.addEventListener("click", () => {
+              selectedTopic = topic;
+              updateSentimentMap();
+            });
+            topicOptions.appendChild(option);
           });
         });
       createTernaryChart1(data);
@@ -716,3 +917,4 @@ function createTernaryChart3(data) {
       Highcharts.charts.forEach((chart) => chart?.reflow());
     });
   });
+
