@@ -76,6 +76,59 @@
         padding: 20px;
         min-width: 0;
       }
+      .sentiment-map-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+      }
+      .origin-map-box {
+        display: flex;
+      }
+      .origin-map-chart {
+        width: 50%;
+      }
+      .sentiment-map-chart {
+        min-width: 0;
+      }
+      .sentiment-controls {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+      }
+      .filter-groups {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .filter-group {
+        min-width: 0;
+      }
+      .filter-group h3 {
+        margin: 0 0 12px;
+        font-size: 1.1rem;
+      }
+      .sentiment-options {
+        display: grid;
+        gap: 8px;
+      }
+      .sentiment-option {
+        width: 100%;
+        border: 1px solid #c9c9d0;
+        border-radius: 6px;
+        background: #fff;
+        color: #302d3b;
+        padding: 8px 9px;
+        text-align: left;
+        font: inherit;
+        font-size: 0.88rem;
+        cursor: pointer;
+      }
+      .sentiment-option:hover,
+      .sentiment-option[aria-pressed="true"] {
+        border-color: #133bc7;
+        background: #eef1ff;
+      }
       .map-chart {
         width: 100%;
         height: 600px;
@@ -86,6 +139,28 @@
         }
         .map-box {
           grid-column: 1 / 3;
+        }
+        .sentiment-map-layout {
+          grid-template-columns: minmax(0, 1fr) minmax(400px, 1fr);
+        }
+        .origin-map-chart {
+          width: 50%;
+        }
+      }
+      @media (max-width: 799px) {
+        .sentiment-map-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .sentiment-controls {
+          grid-row: 1;
+        }
+        .origin-map-chart {
+          width: 100%;
+        }
+      }
+      @media (max-width: 560px) {
+        .filter-groups {
+          grid-template-columns: minmax(0, 1fr);
         }
       }
       @media (max-width: 600px) {
@@ -100,8 +175,28 @@
   <body>
     <div class="dashboard-container">
       <!-- Map -->
+      <div class="map-box origin-map-box">
+        <div id="europeMap" class="map-chart origin-map-chart"></div>
+      </div>
+      <!-- Additional country map for narrator-rated sentiment; keeps europeMap unchanged. -->
       <div class="map-box">
-        <div id="europeMap" class="map-chart"></div>
+        <div class="sentiment-map-layout">
+          <div class="sentiment-map-chart">
+            <div id="sentimentMap" class="map-chart"></div>
+          </div>
+          <aside class="sentiment-controls" aria-label="Map filters">
+            <div class="filter-groups">
+              <section class="filter-group" aria-labelledby="sentimentTitle">
+                <h3 id="sentimentTitle">Narrator-rated sentiment</h3>
+                <div id="sentimentOptions" class="sentiment-options" role="group" aria-label="Choose sentiment to show on the map"></div>
+              </section>
+              <section class="filter-group" aria-labelledby="topicTitle">
+                <h3 id="topicTitle">Topic classification</h3>
+                <div id="topicOptions" class="sentiment-options" role="group" aria-label="Choose topic classification to show on the map"></div>
+              </section>
+            </div>
+          </aside>
+        </div>
       </div>
       <!-- Bar charts -->
       <div class="chart-box">
@@ -142,5 +237,29 @@
         <div id="ternaryChart4" class="chart"></div>
       </div>
     </div>
+    <script>
+      // This app is embedded on /dashboard. Keep the iframe as tall as its
+      // charts so the site page owns the only vertical scrollbar.
+      (() => {
+        const frame = window.frameElement;
+        if (!frame) return;
+
+        const fitFrame = () => {
+          const contentHeight = Math.ceil(Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight
+          ));
+          frame.style.height = `${contentHeight}px`;
+        };
+
+        const observer = new ResizeObserver(fitFrame);
+        observer.observe(document.documentElement);
+        observer.observe(document.body);
+        window.addEventListener("load", fitFrame);
+        window.addEventListener("resize", fitFrame);
+        requestAnimationFrame(fitFrame);
+      })();
+    </script>
   </body>
 </html>
+
