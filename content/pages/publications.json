@@ -5,6 +5,37 @@
   "ogImage": "",
   "sections": [
     {
+      "anchor": "ai-society-project",
+      "theme": "white-bold",
+      "blocks": [
+        {
+          "type": "richText",
+          "html": "<h2>From Stories to Policy - outcome of our Let's make sense of... AI sessions</h2><p>Three connected publications below document the collaborative AI and society sensemaking work: its policy recommendations, the process behind them, and the map that informed them.</p>"
+        },
+        {
+          "type": "document",
+          "title": "Policy brief - AI and society",
+          "href": "/files/policy-brief-ai-and-society-eurosense-2026.pdf",
+          "kind": "pdf",
+          "description": "<p>Turns the AI and society map into policy guidance, identifying a governance gap and recommending action on transparency, legislation, AI literacy, environmental impact and trust.</p>"
+        },
+        {
+          "type": "document",
+          "title": "From Stories to Policy: The making of the Eurosense “AI and society” policy brief",
+          "href": "/files/from-stories-to-policy-ai-and-society-2026.pdf",
+          "kind": "pdf",
+          "description": "<p>Explains how four online sessions turned personal stories into a shared map and policy brief, and outlines possible next steps for the process.</p>"
+        },
+        {
+          "type": "document",
+          "title": "The AI and society map: Overview",
+          "href": "/files/ai-and-society-map-overview-2026.pdf",
+          "kind": "pdf",
+          "description": "<p>Describes the collaboratively built map of AI in society, including its actors, constraints and proposed actions, with connections across governance, trust, work, education and the environment.</p>"
+        }
+      ]
+    },
+    {
       "id": "69b7d21b7e15195e49efcfc0",
       "minHeight": "66vh",
       "verticalAlign": "center",
@@ -296,7 +327,9 @@
             }
           }
         }
-      ]
+      ],
+      "anchor": "publications-archive",
+      "theme": "white-bold"
     }
   ]
 }
