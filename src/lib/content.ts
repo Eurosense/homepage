@@ -104,6 +104,7 @@ export type Block =
       /** Squarespace's shape name; only `rectangle` is used on this site. */
       shape: string
       fill: string
+      image?: string
     }
   | { type: 'search'; placeholder: string }
   | { type: 'socialLinks'; links: { href: string; label: string }[] }

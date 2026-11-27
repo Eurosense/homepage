@@ -152,6 +152,7 @@ const block = z.discriminatedUnion('type', [
     type: z.literal('shape'),
     shape: z.string(),
     fill: z.string(),
+    image: z.string().optional(),
   }),
   z.object({
     type: z.literal('search'),
