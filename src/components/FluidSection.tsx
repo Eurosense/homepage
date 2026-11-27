@@ -174,18 +174,17 @@ function sectionCss(gridId: string, grid: SectionGrid, blocks: PositionedBlock[]
   rules.push(`.${gridId} > .fe-cell > .prose-eurosense{width:100%;}`)
 
   /*
-   * A cell sitting on a dark shape panel takes the light-on-dark colours, not
-   * the section's. On /resources the three cards are text blocks laid over a
-   * purple-deep shape block, so they read as gold on purple while the section's
-   * own heading a row above is on cream — one theme, two backgrounds. The panel
-   * is a sibling in the grid rather than an ancestor, so the cascade cannot work
-   * this out and the overlap has to be computed.
+   * A cell sitting over a dark shape panel takes the card colours, not the
+   * section's. On /resources the card text is white and the Open buttons have
+   * white fills, while the heading above remains on cream. The panel is a
+   * sibling in the grid rather than an ancestor, so compute the overlap here.
    */
   for (const index of cellsOverDarkShape(blocks)) {
     rules.push(
       `.${gridId} > [data-fe="${index}"]{` +
-        `--sec-heading:var(--color-gold);--sec-text:var(--color-gold);` +
-        `color:var(--color-gold);}`,
+        `--sec-heading:#fff;--sec-text:#fff;color:#fff;` +
+        `--sec-btn-bg:#fff;--sec-btn-text:var(--color-purple-deep);` +
+        `--sec-btn-outline:#fff;}`,
     )
   }
 

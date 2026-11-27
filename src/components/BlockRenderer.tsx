@@ -266,7 +266,14 @@ export function BlockView({ block }: { block: Block }) {
        * z-index come from the same layout data as every other block.
        */
       return (
-        <div aria-hidden className="h-full w-full" style={{ backgroundColor: block.fill }} />
+        <div
+          aria-hidden
+          className="h-full w-full bg-cover bg-center"
+          style={{
+            backgroundColor: block.fill,
+            backgroundImage: block.image ? `url(${block.image})` : undefined,
+          }}
+        />
       )
 
     case 'search':
