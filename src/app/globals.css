@@ -483,6 +483,22 @@ main > section[data-documents] {
   padding-bottom: 6rem;
 }
 
+/* Match the new grouped papers with a light, readable archive section. */
+#publications-archive .prose-eurosense {
+  font-size: 1rem;
+}
+
+#ai-society-project h2,
+#publications-archive h3 a {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+#ai-society-project h2 {
+  font-size: calc(22.825px + 0.31771vw);
+  line-height: 1.176;
+}
+
 /*
  * A plain content page starts below the header, not against it. These sections
  * carry a 66vh minimum and centre their grid, which works while the content is
